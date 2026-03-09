@@ -251,9 +251,19 @@ nav.scrolled~.mega-panel{top:58px}
 .assess-deliverables{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:24px}
 .assess-deliverables li{display:flex;align-items:flex-start;gap:8px;font-size:.79rem;color:var(--grey-200);line-height:1.5}
 .assess-deliverables li::before{content:'→';color:var(--orange);flex-shrink:0;font-size:.76rem;margin-top:1px}
-.assess-price{display:flex;align-items:baseline;gap:7px;padding-top:16px;border-top:1px solid var(--border);margin-bottom:16px}
-.assess-price-amount{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:700}
+.assess-tiers{display:flex;flex-direction:column;gap:18px;margin-top:16px}
+.assess-tier{background:var(--grey-900);border:1px solid var(--border);border-radius:2px;padding:18px 18px 20px}
+.assess-tier-exec{border-color:rgba(241,143,10,.35);background:rgba(241,143,10,.04)}
+.assess-tier-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.assess-tier-name{font-family:'Playfair Display',serif;font-size:.92rem;font-weight:700}
+.assess-tier-badge{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;border-radius:2px}
+.essentials-badge{background:var(--grey-750);color:var(--grey-300);border:1px solid var(--border)}
+.exec-badge{background:rgba(241,143,10,.15);color:var(--orange);border:1px solid rgba(241,143,10,.3)}
+.assess-price{display:flex;align-items:baseline;gap:7px;padding-top:14px;border-top:1px solid var(--border);margin-bottom:13px;margin-top:12px}
+.assess-price-amount{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700}
 .assess-price-lbl{font-size:.74rem;color:var(--grey-400)}
+.btn-assess-exec{background:rgba(241,143,10,.12);border-color:var(--orange);color:var(--orange)}
+.btn-assess-exec:hover{background:var(--orange);color:var(--grey-950)}
 .btn-assess{display:block;text-align:center;background:transparent;border:1px solid var(--orange);color:var(--orange);padding:10px 16px;border-radius:2px;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .2s,color .2s}
 .btn-assess:hover{background:var(--orange);color:var(--grey-950)}
 
@@ -691,49 +701,122 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
       <blockquote class="assess-quote">"Every engagement starts with context — where you are, what's blocking you, and what winning looks like. Our assessments are how we earn the right to tell that story together."<cite>Kurt Smith, Chief Revenue Officer</cite></blockquote>
     </div>
     <div class="assess-cards">
+
+      <!-- TECHNICAL RISK ASSESSMENT -->
       <div class="assess-card fade-up d1">
         <div class="assess-badge">Most Requested</div>
         <div class="assess-img-ph"><div class="assess-icon">⚑</div></div>
         <h3 class="assess-title">Technical Risk <span>Assessment</span></h3>
-        <p class="assess-sub">A structured, senior-led review of your technology stack, security posture, architecture decisions, and operational risk exposure. Built to surface what's quietly threatening your environment before it becomes a board-level incident.</p>
-        <ul class="assess-deliverables">
-          <li>Executive risk summary with prioritized remediation roadmap</li>
-          <li>Architecture gap analysis with resource-level findings</li>
-          <li>Compliance posture snapshot against applicable frameworks</li>
-          <li>30/60/90-day action plan with ownership assignments</li>
-          <li>Leadership-ready presentation deck</li>
-        </ul>
-        <div class="assess-price"><div class="assess-price-amount">Starting at $4,500</div><div class="assess-price-lbl">/ fixed-fee</div></div>
-        <a href="#book" class="btn-assess">Request Assessment</a>
+        <p class="assess-sub">A senior-led review of your technology stack, security posture, and operational risk exposure. Built to surface what's quietly threatening your environment before it becomes a board-level incident.</p>
+        <div class="assess-tiers">
+          <div class="assess-tier">
+            <div class="assess-tier-header">
+              <div class="assess-tier-name">Threat Surface Scan</div>
+              <div class="assess-tier-badge essentials-badge">Essentials</div>
+            </div>
+            <ul class="assess-deliverables">
+              <li>Executive risk summary with prioritized remediation roadmap</li>
+              <li>Architecture gap analysis with resource-level findings</li>
+              <li>Compliance posture snapshot against applicable frameworks</li>
+              <li>30/60/90-day action plan with ownership assignments</li>
+            </ul>
+            <div class="assess-price"><div class="assess-price-amount">$14,750</div><div class="assess-price-lbl">/ fixed-fee</div></div>
+            <a href="#book" class="btn-assess">Request Assessment</a>
+          </div>
+          <div class="assess-tier assess-tier-exec">
+            <div class="assess-tier-header">
+              <div class="assess-tier-name">Resilience Architect</div>
+              <div class="assess-tier-badge exec-badge">Executive</div>
+            </div>
+            <ul class="assess-deliverables">
+              <li>Everything in Essentials, plus:</li>
+              <li>Full security architecture design and remediation blueprint</li>
+              <li>Multi-framework compliance gap analysis (NIST, SOC 2, HIPAA)</li>
+              <li>Leadership-ready presentation deck with board narrative</li>
+              <li>60-day implementation oversight and advisory support</li>
+            </ul>
+            <div class="assess-price"><div class="assess-price-amount">$47,500</div><div class="assess-price-lbl">/ fixed-fee</div></div>
+            <a href="#book" class="btn-assess btn-assess-exec">Request Assessment</a>
+          </div>
+        </div>
       </div>
+
+      <!-- AI READINESS DIAGNOSTIC -->
       <div class="assess-card fade-up d2">
         <div class="assess-img-ph"><div class="assess-icon">◉</div></div>
         <h3 class="assess-title">AI Readiness <span>Diagnostic</span></h3>
-        <p class="assess-sub">Before you spend another dollar on AI tooling, know whether your organization can actually operationalize it. We assess your data foundation, governance structures, architecture, and organizational readiness — before pilots fail.</p>
-        <ul class="assess-deliverables">
-          <li>AI/ML infrastructure and data quality scoring</li>
-          <li>Governance and decision-rights gap analysis</li>
-          <li>Highest-ROI deployment priorities by department</li>
-          <li>Agentic AI readiness scorecard</li>
-          <li>Board-ready AI risk and investment summary</li>
-        </ul>
-        <div class="assess-price"><div class="assess-price-amount">Starting at $5,500</div><div class="assess-price-lbl">/ fixed-fee</div></div>
-        <a href="#book" class="btn-assess">Request Assessment</a>
+        <p class="assess-sub">Before you spend another dollar on AI tooling, know whether your organization can actually operationalize it. We assess your data foundation, governance structures, architecture, and readiness — before pilots fail.</p>
+        <div class="assess-tiers">
+          <div class="assess-tier">
+            <div class="assess-tier-header">
+              <div class="assess-tier-name">AI Signal Check</div>
+              <div class="assess-tier-badge essentials-badge">Essentials</div>
+            </div>
+            <ul class="assess-deliverables">
+              <li>AI/ML infrastructure and data quality scoring</li>
+              <li>Governance and decision-rights gap analysis</li>
+              <li>Highest-ROI deployment priorities by department</li>
+              <li>Agentic AI readiness scorecard</li>
+            </ul>
+            <div class="assess-price"><div class="assess-price-amount">$24,790</div><div class="assess-price-lbl">/ fixed-fee</div></div>
+            <a href="#book" class="btn-assess">Request Assessment</a>
+          </div>
+          <div class="assess-tier assess-tier-exec">
+            <div class="assess-tier-header">
+              <div class="assess-tier-name">AI Strategic Blueprint</div>
+              <div class="assess-tier-badge exec-badge">Executive</div>
+            </div>
+            <ul class="assess-deliverables">
+              <li>Everything in Essentials, plus:</li>
+              <li>Full data platform architecture and governance design</li>
+              <li>Agentic AI roadmap with phased deployment sequence</li>
+              <li>Board-ready AI risk, investment, and ROI summary</li>
+              <li>90-day pilot design with success criteria and KPIs</li>
+            </ul>
+            <div class="assess-price"><div class="assess-price-amount">$74,500</div><div class="assess-price-lbl">/ fixed-fee</div></div>
+            <a href="#book" class="btn-assess btn-assess-exec">Request Assessment</a>
+          </div>
+        </div>
       </div>
+
+      <!-- CLOUD INFRASTRUCTURE ASSESSMENT -->
       <div class="assess-card fade-up d3">
         <div class="assess-img-ph"><div class="assess-icon">⊞</div></div>
         <h3 class="assess-title">Cloud Infrastructure <span>Assessment</span></h3>
-        <p class="assess-sub">A real-time analysis of your cloud environment — AWS, Azure, GCP, or multi-cloud. We connect directly to your infrastructure and return specific, quantified findings on cost waste, security gaps, compliance posture, and architecture risk.</p>
-        <ul class="assess-deliverables">
-          <li>Live infrastructure analysis — not interviews or checklists</li>
-          <li>Cost optimization with dollar-level quantification</li>
-          <li>Security and compliance gap report with severity rankings</li>
-          <li>Right-sizing and idle resource recommendations</li>
-          <li>Executive report ready for leadership and auditors</li>
-        </ul>
-        <div class="assess-price"><div class="assess-price-amount">Starting at $3,500</div><div class="assess-price-lbl">/ fixed-fee</div></div>
-        <a href="#book" class="btn-assess">Request Assessment</a>
+        <p class="assess-sub">A real-time analysis of your cloud environment — AWS, Azure, GCP, or multi-cloud. We connect directly to your infrastructure and return specific, quantified findings on cost waste, security gaps, and architecture risk.</p>
+        <div class="assess-tiers">
+          <div class="assess-tier">
+            <div class="assess-tier-header">
+              <div class="assess-tier-name">Cloud Recon</div>
+              <div class="assess-tier-badge essentials-badge">Essentials</div>
+            </div>
+            <ul class="assess-deliverables">
+              <li>Live infrastructure analysis — not interviews or checklists</li>
+              <li>Cost optimization with dollar-level quantification</li>
+              <li>Security and compliance gap report with severity rankings</li>
+              <li>Right-sizing and idle resource recommendations</li>
+            </ul>
+            <div class="assess-price"><div class="assess-price-amount">$14,500</div><div class="assess-price-lbl">/ fixed-fee</div></div>
+            <a href="#book" class="btn-assess">Request Assessment</a>
+          </div>
+          <div class="assess-tier assess-tier-exec">
+            <div class="assess-tier-header">
+              <div class="assess-tier-name">Cloud Fortify</div>
+              <div class="assess-tier-badge exec-badge">Executive</div>
+            </div>
+            <ul class="assess-deliverables">
+              <li>Everything in Essentials, plus:</li>
+              <li>Full cloud security architecture and remediation design</li>
+              <li>FinOps strategy with Reserved Instance and Savings Plans modeling</li>
+              <li>Executive report ready for leadership and auditors</li>
+              <li>60-day optimization sprint with dedicated cloud architect</li>
+            </ul>
+            <div class="assess-price"><div class="assess-price-amount">$65,000</div><div class="assess-price-lbl">/ fixed-fee</div></div>
+            <a href="#book" class="btn-assess btn-assess-exec">Request Assessment</a>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -967,8 +1050,8 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
         <div class="leader-body"><div class="leader-name">Kurt Smith</div><div class="leader-title">Chief Revenue Officer</div><p class="leader-bio">Kurt leads revenue strategy and client engagement at Working Excellence. His approach is built on one principle: earn the right to recommend by first understanding the client's story better than they can tell it themselves.</p></div>
       </div>
       <div class="leader-card">
-        <div class="leader-img-ph"><div class="leader-initial">JJ</div></div>
-        <div class="leader-body"><div class="leader-name">John Jordan</div><div class="leader-title">Senior Director &amp; CMO</div><p class="leader-bio">John drives the go-to-market strategy, brand positioning, and demand generation for Working Excellence. He brings an operator's perspective to marketing — building systems that connect thought leadership directly to pipeline.</p></div>
+        <div class="leader-img-ph"><div class="leader-initial">JG</div></div>
+        <div class="leader-body"><div class="leader-name">James Gorman</div><div class="leader-title">Chief Information Security Officer</div><p class="leader-bio">As a Fractional CISO and CTO, James brings over 30 years of cybersecurity leadership across federal, healthcare, and finance sectors. He leads with technical depth and strategic clarity, helping clients design resilient infrastructures, navigate compliance, and recover from critical incidents.</p></div>
       </div>
     </div>
   </div>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>About Us | Working Excellence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --orange:#f18f0a;
+  --orange-light:#f9a832;
+  --grey-950:#141519;
+  --grey-900:#1c1d22;
+  --grey-800:#26272e;
+  --grey-750:#2e2f38;
+  --grey-600:#585b67;
+  --grey-500:#70737d;
+  --grey-400:#888a93;
+  --grey-300:#9ea1a8;
+  --grey-200:#b7b9be;
+  --border:rgba(255,255,255,.07);
+  --text:#e8e9ec;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--grey-950);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");opacity:.4;pointer-events:none;z-index:0}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:70px;background:rgba(20,21,25,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo img{height:36px;display:block}
+.nav-logo-text{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--text);text-decoration:none}
+.nav-logo-text span{color:var(--orange)}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:.78rem;font-family:'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-300);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--orange)}
+.nav-cta{font-size:.72rem;font-family:'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;padding:9px 22px;border:1px solid var(--orange);color:var(--orange);background:transparent;cursor:pointer;text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--orange);color:var(--grey-950)}
+
+/* ── HERO ── */
+.about-hero{min-height:44vh;display:flex;align-items:flex-end;padding:120px 48px 72px;position:relative;background:linear-gradient(170deg,rgba(241,143,10,.04) 0%,transparent 55%)}
+.about-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border)}
+.hero-inner{max-width:1280px;margin:0 auto;width:100%}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:22px}
+.hero-headline{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5.5vw,5.2rem);font-weight:800;line-height:1.06;max-width:820px}
+.hero-headline em{font-style:italic;color:var(--orange-light)}
+.hero-sub{margin-top:28px;font-size:1.05rem;color:var(--grey-300);max-width:580px;line-height:1.82}
+.hero-rule{width:64px;height:2px;background:var(--orange);margin-top:42px}
+
+/* ── MISSION ── */
+.mission-section{padding:110px 48px;background:var(--grey-900);border-bottom:1px solid var(--border)}
+.mission-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start}
+.mission-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}
+.mission-heading{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;line-height:1.25;margin-bottom:32px}
+.mission-heading em{font-style:italic;color:var(--orange-light)}
+.mission-body p{font-size:.96rem;color:var(--grey-300);line-height:1.9;margin-bottom:20px}
+.pedigree-bar{margin-top:44px;padding:28px 30px;border:1px solid var(--border);background:var(--grey-800)}
+.pedigree-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-400);margin-bottom:16px}
+.pedigree-logos{display:flex;flex-wrap:wrap;gap:10px}
+.pedigree-chip{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border:1px solid var(--border);color:var(--grey-300)}
+.mission-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.mission-stat{background:var(--grey-800);padding:36px 30px}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--orange);line-height:1}
+.stat-desc{font-size:.78rem;color:var(--grey-400);margin-top:9px;line-height:1.6}
+
+/* ── TEAM ── */
+.team-section{padding:110px 48px;background:var(--grey-950)}
+.team-inner{max-width:1280px;margin:0 auto}
+.section-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:18px}
+.section-headline{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:800;line-height:1.15}
+.section-headline em{font-style:italic;color:var(--orange-light)}
+.team-sub{margin-top:18px;font-size:.94rem;color:var(--grey-400);max-width:540px;line-height:1.8}
+.team-divider{margin:52px 0;height:1px;background:var(--border)}
+
+/* Leadership tier */
+.tier-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--grey-500);margin-bottom:28px;display:flex;align-items:center;gap:16px}
+.tier-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.founders-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-bottom:1px}
+.directors-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+
+/* Person card */
+.person-card{background:var(--grey-900);overflow:hidden;transition:background .25s}
+.person-card:hover{background:var(--grey-800)}
+.person-photo{width:100%;aspect-ratio:1/1;overflow:hidden;position:relative;background:var(--grey-800)}
+.person-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .4s}
+.person-card:hover .person-photo img{transform:scale(1.04)}
+.person-photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--grey-800) 0%,var(--grey-750) 100%)}
+.person-initial-lg{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:var(--orange);opacity:.6}
+.person-body{padding:26px 26px 30px;border-top:1px solid var(--border)}
+.person-name{font-family:'Playfair Display',serif;font-size:1.12rem;font-weight:700;margin-bottom:4px}
+.person-role{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+.person-bio{font-size:.8rem;color:var(--grey-400);line-height:1.8}
+
+/* Director card (smaller) */
+.director-card .person-photo{aspect-ratio:1/1}
+.director-card .person-body{padding:20px 22px 24px}
+.director-card .person-name{font-size:.98rem}
+.director-card .person-bio{font-size:.76rem}
+
+/* Counsel */
+.counsel-row{margin-top:1px;background:var(--border)}
+.counsel-card{background:var(--grey-900);display:grid;grid-template-columns:280px 1fr;overflow:hidden;transition:background .25s}
+.counsel-card:hover{background:var(--grey-800)}
+.counsel-photo{aspect-ratio:1/1;max-height:280px;overflow:hidden;position:relative;background:var(--grey-800)}
+.counsel-photo img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.counsel-photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.counsel-body{padding:36px 40px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--border)}
+
+/* ── CTA ── */
+.about-cta{padding:110px 48px;background:var(--grey-900);border-top:1px solid var(--border);text-align:center}
+.cta-inner{max-width:700px;margin:0 auto}
+.cta-kicker{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:22px}
+.cta-headline{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:800;line-height:1.15;margin-bottom:24px}
+.cta-headline em{font-style:italic;color:var(--orange-light)}
+.cta-body{font-size:.95rem;color:var(--grey-300);line-height:1.85;margin-bottom:40px}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:var(--orange);color:var(--grey-950);font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;font-weight:700;transition:background .2s}
+.btn-primary:hover{background:var(--orange-light)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border:1px solid rgba(255,255,255,.18);color:var(--grey-200);font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .2s}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
+
+/* ── FOOTER ── */
+footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60px 48px 40px}
+.footer-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.footer-copy{font-size:.75rem;color:var(--grey-500)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:.72rem;font-family:'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-400);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--orange)}
+
+/* ── FADE ANIMATIONS ── */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.fade-up.visible{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .mission-inner{grid-template-columns:1fr;gap:48px}
+  .founders-grid{grid-template-columns:repeat(2,1fr)}
+  .directors-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  nav{padding:0 24px}
+  .nav-links{display:none}
+  .about-hero,.mission-section,.team-section,.about-cta{padding-left:24px;padding-right:24px}
+  footer{padding:40px 24px 30px}
+  .founders-grid,.directors-grid{grid-template-columns:1fr}
+  .counsel-card{grid-template-columns:1fr}
+  .counsel-photo{max-height:260px}
+  .mission-stats{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="https://static.wixstatic.com/media/1731f2_d91dc3d0f01245f5b369acb8b2397118~mv2.png" alt="Working Excellence" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+    <span class="nav-logo-text" style="display:none">Working <span>Excellence</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="https://www.workingexcellence.com/data-consulting" target="_blank">Practice Areas</a>
+    <a href="https://www.workingexcellence.com/insights" target="_blank">Insights</a>
+    <a href="about.html" class="active">About</a>
+    <a href="https://www.workingexcellence.com/contact-us" target="_blank" class="nav-cta">Contact Us</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="about-hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">About Working Excellence</div>
+    <h1 class="hero-headline">The team behind<br/><em>the work.</em></h1>
+    <p class="hero-sub">A team of visionary leaders dedicated to bridging the gap between innovative thinkers and seasoned business advisors. Built for mid-market organizations that compete at enterprise scale.</p>
+    <div class="hero-rule"></div>
+  </div>
+</section>
+
+<!-- ══ MISSION ══ -->
+<section class="mission-section">
+  <div class="mission-inner">
+    <div>
+      <div class="mission-label">Our Mission</div>
+      <h2 class="mission-heading">Connecting visionary<br/>thinkers with <em>decisive</em><br/>action.</h2>
+      <div class="pedigree-bar">
+        <div class="pedigree-label">Pedigree — where our team has worked</div>
+        <div class="pedigree-logos">
+          <span class="pedigree-chip">Accenture</span>
+          <span class="pedigree-chip">Deloitte</span>
+          <span class="pedigree-chip">EY</span>
+          <span class="pedigree-chip">Gartner</span>
+          <span class="pedigree-chip">SAP</span>
+          <span class="pedigree-chip">Oracle</span>
+          <span class="pedigree-chip">EMC</span>
+        </div>
+      </div>
+    </div>
+    <div class="mission-body">
+      <p>Working Excellence is more than an IT consulting firm. We are your partner in navigating the complex landscape of digital transformation — delivering the expertise of Big Four firms without the overhead, the junior staffing, or the 12-month timelines.</p>
+      <p>Our teams bring decades of experience from top-tier firms, combining strategic clarity with hands-on execution. We work across data, cybersecurity, digital engineering, and sales enablement — treating every engagement as a long-term partnership, not a transaction.</p>
+      <p>For organizations ready to compete at enterprise scale without enterprise-sized budgets, Working Excellence is the team that stays until it works.</p>
+      <div class="mission-stats fade-up">
+        <div class="mission-stat">
+          <div class="stat-num">30+</div>
+          <div class="stat-desc">Years of combined cybersecurity leadership across federal, healthcare, and finance</div>
+        </div>
+        <div class="mission-stat">
+          <div class="stat-num">40%</div>
+          <div class="stat-desc">Average cloud cost reduction identified in infrastructure assessments</div>
+        </div>
+        <div class="mission-stat">
+          <div class="stat-num">$50M</div>
+          <div class="stat-desc">to $1B revenue organizations in our core ICP — the clients we know best</div>
+        </div>
+        <div class="mission-stat">
+          <div class="stat-num">72hr</div>
+          <div class="stat-desc">Assessment turnaround versus weeks for Big Four manual engagements</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TEAM ══ -->
+<section class="team-section">
+  <div class="team-inner">
+    <div class="section-label fade-up">Meet the Team</div>
+    <h2 class="section-headline fade-up">Senior practitioners.<br/><em>Every engagement.</em></h2>
+    <p class="team-sub fade-up">No bait-and-switch. The experts you meet are the experts who deliver. Our flat structure means senior-level access from first call to final deliverable.</p>
+
+    <div class="team-divider"></div>
+
+    <!-- FOUNDERS / C-SUITE -->
+    <div class="tier-label fade-up">Founders &amp; Executive Leadership</div>
+    <div class="founders-grid fade-up">
+
+      <!-- James Kenefick -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="https://static.wixstatic.com/media/bdd4da_fe281b6319ce489bb1e805cadc0246bf~mv2.png/v1/fill/w_810,h_1080,al_c,q_90,enc_avif,quality_auto/james_new-modified.png" alt="James F. Kenefick" onerror="this.style.display='none';this.parentElement.querySelector('.person-photo-placeholder').style.display='flex'"/>
+          <div class="person-photo-placeholder" style="display:none"><span class="person-initial-lg">JK</span></div>
+        </div>
+        <div class="person-body">
+          <div class="person-name">James F. Kenefick</div>
+          <div class="person-role">Chairman &amp; CEO</div>
+          <p class="person-bio">James leads with clarity, speed, and a relentless focus on turning innovation into impact. As the founder of multiple technology and infrastructure ventures, he brings deep operational command and strategic foresight to every decision. His leadership is defined by sharp execution, high trust, and the ability to align vision with measurable outcomes in fast-moving markets.</p>
+        </div>
+      </div>
+
+      <!-- Kurt Smith -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="https://static.wixstatic.com/media/1731f2_9fb215eac87e449f8fd7613c3ab1a53a~mv2.png/v1/fill/w_980,h_980,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/SHot%202%20arms%20fold_215518638_PORTRAIT~2_edited.png" alt="Kurt Smith" onerror="this.style.display='none';this.parentElement.querySelector('.person-photo-placeholder').style.display='flex'"/>
+          <div class="person-photo-placeholder" style="display:none"><span class="person-initial-lg">KS</span></div>
+        </div>
+        <div class="person-body">
+          <div class="person-name">Kurt Smith</div>
+          <div class="person-role">Chief Revenue Officer</div>
+          <p class="person-bio">Kurt drives enterprise sales strategy with a focus on measurable impact. He specializes in building go-to-market teams that can navigate complex buyer landscapes and close at scale. His experience spans consulting, SaaS, and high-growth enterprise environments. His storytelling-based engagement model has become a defining differentiator in how Working Excellence builds trust with senior executives.</p>
+        </div>
+      </div>
+
+      <!-- James Gorman -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="https://static.wixstatic.com/media/1731f2_2bbcdfa0153e4cf5930cc96b47aca762~mv2.png/v1/fill/w_980,h_980,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/4_edited.png" alt="James Gorman" onerror="this.style.display='none';this.parentElement.querySelector('.person-photo-placeholder').style.display='flex'"/>
+          <div class="person-photo-placeholder" style="display:none"><span class="person-initial-lg">JG</span></div>
+        </div>
+        <div class="person-body">
+          <div class="person-name">James Gorman</div>
+          <div class="person-role">Chief Information Security Officer</div>
+          <p class="person-bio">As a Fractional CISO and CTO, James brings over 30 years of cybersecurity leadership across sectors including federal, healthcare, and finance. He leads with technical depth and strategic clarity, helping clients design resilient infrastructures, navigate compliance, and recover from critical incidents. His experience spans architecture, governance, and operational security at the highest levels.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SENIOR DIRECTORS -->
+    <div class="team-divider"></div>
+    <div class="tier-label fade-up">Senior Directors</div>
+    <div class="founders-grid fade-up">
+
+      <!-- Abdur Rehman -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="https://static.wixstatic.com/media/235980_217e0d4ae41e4f72bc390f28ef331be3~mv2.png/v1/fill/w_924,h_934,al_c,q_90,enc_avif,quality_auto/Abdur%20Rehman_edited_edited.png" alt="Abdur Rehman" onerror="this.style.display='none';this.parentElement.querySelector('.person-photo-placeholder').style.display='flex'"/>
+          <div class="person-photo-placeholder" style="display:none"><span class="person-initial-lg">AR</span></div>
+        </div>
+        <div class="person-body">
+          <div class="person-name">Abdur Rehman</div>
+          <div class="person-role">Senior Director</div>
+          <p class="person-bio">Abdur designs systems that reduce friction and improve output across enterprise environments. With deep experience in process optimization and performance metrics, he builds teams and structures that scale with stability.</p>
+        </div>
+      </div>
+
+      <!-- John Jordan -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="https://static.wixstatic.com/media/bdd4da_0de41e880a654eb9a1894421a2dfdc17~mv2.png/v1/fill/w_588,h_635,al_c,q_90,enc_avif,quality_auto/john%20%20jordan_edited_edited_edited.png" alt="John Jordan" onerror="this.style.display='none';this.parentElement.querySelector('.person-photo-placeholder').style.display='flex'"/>
+          <div class="person-photo-placeholder" style="display:none"><span class="person-initial-lg">JJ</span></div>
+        </div>
+        <div class="person-body">
+          <div class="person-name">John Jordan</div>
+          <div class="person-role">Senior Director</div>
+          <p class="person-bio">John is a transformation architect with more than two decades of experience guiding enterprises through high-stakes change. His expertise spans operational efficiency, systems modernization, and cross-functional team leadership. He turns complexity into momentum.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PRACTICE DIRECTORS -->
+    <div class="team-divider"></div>
+    <div class="tier-label fade-up">Practice Directors</div>
+    <div class="directors-grid fade-up">
+
+      <!-- Umer Tahir -->
+      <div class="person-card director-card">
+        <div class="person-photo">
+          <img src="https://static.wixstatic.com/media/1731f2_2db0cadef76b406b95adfb4a3ef9a3a8~mv2.png/v1/fill/w_579,h_579,al_c,q_85,enc_avif,quality_auto/Umer%20Tahir_edited_edited_edited.png" alt="Umer Tahir" onerror="this.style.display='none';this.parentElement.querySelector('.person-photo-placeholder').style.display='flex'"/>
+          <div class="person-photo-placeholder" style="display:none"><span class="person-initial-lg">UT</span></div>
+        </div>
+        <div class="person-body">
+          <div class="person-name">Umer Tahir</div>
+          <div class="person-role">Practice Director</div>
+          <p class="person-bio">Umer connects emerging technologies to real business impact. He guides organizations through AI adoption, data platform design, and digital capability building. His focus is always on turning innovation into execution.</p>
+        </div>
+      </div>
+
+      <!-- Muhammad Omer -->
+      <div class="person-card director-card">
+        <div class="person-photo">
+          <img src="https://static.wixstatic.com/media/1731f2_ac8d9438c83b4fb3bd9ac2e5f6104683~mv2.png/v1/fill/w_510,h_510,al_c,q_85,enc_avif,quality_auto/Muhammad%20Omer_edited_edited_edited.png" alt="Muhammad Omer" onerror="this.style.display='none';this.parentElement.querySelector('.person-photo-placeholder').style.display='flex'"/>
+          <div class="person-photo-placeholder" style="display:none"><span class="person-initial-lg">MO</span></div>
+        </div>
+        <div class="person-body">
+          <div class="person-name">Muhammad Omer</div>
+          <div class="person-role">Practice Director</div>
+          <p class="person-bio">Muhammad leads transformation initiatives that touch every part of the organization. From integrated system rollouts to field enablement, he ensures that technology, process, and people move forward in lockstep.</p>
+        </div>
+      </div>
+
+      <!-- Ahmed Nawaz -->
+      <div class="person-card director-card">
+        <div class="person-photo">
+          <img src="https://static.wixstatic.com/media/235980_7ff8be6c708d48b3b17888388ed3f783~mv2.png/v1/fill/w_824,h_811,al_c,q_90,enc_avif,quality_auto/Ahmed%20Nawaz_edited_edited.png" alt="Ahmed Nawaz" onerror="this.style.display='none';this.parentElement.querySelector('.person-photo-placeholder').style.display='flex'"/>
+          <div class="person-photo-placeholder" style="display:none"><span class="person-initial-lg">AN</span></div>
+        </div>
+        <div class="person-body">
+          <div class="person-name">Ahmed Nawaz</div>
+          <div class="person-role">Practice Director</div>
+          <p class="person-bio">Ahmed delivers scalable architecture across finance, infrastructure, and enterprise platforms. He leads teams that build systems capable of growing fast without breaking, always with an eye on performance and control.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- GENERAL COUNSEL -->
+    <div class="team-divider"></div>
+    <div class="tier-label fade-up">Legal &amp; Compliance</div>
+    <div class="counsel-row fade-up">
+      <div class="counsel-card">
+        <div class="counsel-photo">
+          <img src="https://static.wixstatic.com/media/bdd4da_9a51b674d75f49c4a8c77f5e53d77f76~mv2.png/v1/fill/w_215,h_215,al_c,q_85,enc_avif,quality_auto/signal-2026-01-26-152514_edited_edited.png" alt="Yadira Galarza" style="width:100%;height:100%;object-fit:cover;object-position:top center" onerror="this.style.display='none';this.parentElement.querySelector('.counsel-photo-placeholder').style.display='flex'"/>
+          <div class="counsel-photo-placeholder person-photo-placeholder" style="display:none"><span class="person-initial-lg">YG</span></div>
+        </div>
+        <div class="counsel-body">
+          <div class="person-name" style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:4px">Yadira Galarza</div>
+          <div class="person-role" style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:16px">General Counsel</div>
+          <p class="person-bio" style="font-size:.88rem;color:var(--grey-400);line-height:1.82">Yadira brings deep experience in regulatory compliance, security and privacy, corporate governance, contracting, and federal grants. She helps teams turn complex requirements into clear policies, auditable processes, and execution-ready programs — ensuring Working Excellence and its clients stay ahead of legal and compliance obligations, not behind them.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="about-cta">
+  <div class="cta-inner">
+    <div class="cta-kicker">Work With Us</div>
+    <h2 class="cta-headline">Ready to meet<br/><em>the team?</em></h2>
+    <p class="cta-body">Every engagement starts with a 30-minute strategy session. No pitch, no SOW on day one. Just a direct conversation about where you are, what's blocking you, and what the highest-value starting point looks like for your organization.</p>
+    <div class="cta-buttons">
+      <a href="https://www.workingexcellence.com/contact-us" target="_blank" class="btn-primary">Book a Strategy Session →</a>
+      <a href="index.html" class="btn-ghost">View Assessments</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2026 Working Excellence. All Rights Reserved. &nbsp;|&nbsp; (202) 587-1200</div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="https://www.workingexcellence.com/insights" target="_blank">Insights</a>
+      <a href="https://www.workingexcellence.com/contact-us" target="_blank">Contact</a>
+      <a href="https://www.workingexcellence.com/privacy-policy" target="_blank">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
+},{threshold:.12});
+document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
