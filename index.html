@@ -484,6 +484,10 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
       <span class="mega-practice-name">Sales Improvement</span>
       <svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
+    <div class="mega-practice" data-target="industries" onmouseover="showSub('industries',this)">
+      <span class="mega-practice-name">Industries</span>
+      <svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
     <div class="mega-assess-block">
       <div class="mega-assess-label">Assessments</div>
       <a href="#assessments" onclick="closeMenu()" class="mega-assess-link">→ Technical Risk Assessment</a>
@@ -495,50 +499,84 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
   <!-- Col 2: Sub-services -->
   <div class="mega-center">
     <div class="mega-center-inner active" id="sub-data">
-      <div class="mega-center-label">Data Practice — Sub-Services</div>
+      <div class="mega-center-label">Data Consulting — Services</div>
       <div class="mega-sub-grid">
-        <a href="data-consulting.html#strategy" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Strategy</span></a>
+        <a href="data-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Strategy</span></a>
+        <a href="data-consulting.html#ai" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Artificial Intelligence</span></a>
+        <a href="data-consulting.html#architecture" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Architecture</span></a>
         <a href="ai-agents-for-business.html" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">AI Agents for Business</span></a>
-        <a href="data-consulting.html#architecture" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Architecture</span></a>
-        <a href="data-consulting.html#ml" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Machine Learning</span></a>
-        <a href="data-consulting.html#governance" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Governance</span></a>
-        <a href="data-consulting.html#ai" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Artificial Intelligence</span></a>
-        <a href="data-consulting.html#reporting" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Reporting &amp; Visualization</span></a>
-        <a href="data-consulting.html#operations" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Operations</span></a>
+        <a href="data-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Governance</span></a>
+        <a href="data-consulting.html#ml" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Machine Learning</span></a>
+        <a href="data-consulting.html#reporting" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Reporting &amp; Visualization</span></a>
+        <a href="data-consulting.html#operations" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Operations</span></a>
+        <a href="data-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Quality Management</span></a>
+        <a href="data-consulting.html#architecture" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Cloud Data Platforms</span></a>
+        <a href="data-consulting.html#ai" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Generative AI Strategy</span></a>
+        <a href="data-consulting.html#ml" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Advanced Analytics &amp; AI/ML</span></a>
       </div>
     </div>
     <div class="mega-center-inner" id="sub-cyber">
-      <div class="mega-center-label">Cybersecurity Practice — Sub-Services</div>
+      <div class="mega-center-label">Cybersecurity — Services</div>
       <div class="mega-sub-grid">
-        <a href="cybersecurity-consulting.html#strategy" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Security Strategy</span></a>
-        <a href="cybersecurity-consulting.html#architecture" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Architecture &amp; Tools</span></a>
-        <a href="cybersecurity-consulting.html#governance" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Governance &amp; Processes</span></a>
-        <a href="cybersecurity-consulting.html#secops" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Security Operations</span></a>
+        <a href="cybersecurity-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Security Strategy</span></a>
+        <a href="cybersecurity-consulting.html#secops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Security Operations</span></a>
+        <a href="cybersecurity-consulting.html#architecture" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Architecture &amp; Tools</span></a>
+        <a href="cybersecurity-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Governance &amp; Compliance</span></a>
+        <a href="cybersecurity-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Risk Management</span></a>
+        <a href="cybersecurity-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Incident Response</span></a>
+        <a href="cybersecurity-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Fractional CISO</span></a>
+        <a href="cybersecurity-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">NIST CSF 2.0 Readiness</span></a>
         <a href="aws/managed-aws-services-.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">Managed AWS Services</span></a>
         <a href="aws/cloud-cost-optimization-services.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">Cloud Cost Optimization</span></a>
         <a href="aws/finops-services.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">FinOps Services</span></a>
+        <a href="cybersecurity-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Supply Chain Risk</span></a>
       </div>
     </div>
     <div class="mega-center-inner" id="sub-digital">
-      <div class="mega-center-label">Digital Engineering Practice — Sub-Services</div>
+      <div class="mega-center-label">Digital Engineering — Services</div>
       <div class="mega-sub-grid">
-        <a href="digital-engineering-consulting.html#strategy" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Engineering Strategy</span></a>
-        <a href="digital-engineering-consulting.html#cloud" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Cloud Migrations</span></a>
-        <a href="digital-engineering-consulting.html#automation" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Intelligent Automation</span></a>
-        <a href="digital-engineering-consulting.html#product" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Product Engineering</span></a>
-        <a href="digital-engineering-consulting.html#support" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Application Support</span></a>
-        <a href="#assessments" onclick="closeMenu()" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Cloud Infrastructure Assessment</span></a>
+        <a href="digital-engineering-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Engineering Strategy</span></a>
+        <a href="digital-engineering-consulting.html#product" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Product Engineering</span></a>
+        <a href="digital-engineering-consulting.html#cloud" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Cloud Migrations</span></a>
+        <a href="digital-engineering-consulting.html#automation" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Intelligent Automation</span></a>
+        <a href="digital-engineering-consulting.html#cloud" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Cloud-Native Architecture</span></a>
+        <a href="digital-engineering-consulting.html#support" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Application Modernization</span></a>
+        <a href="digital-engineering-consulting.html#automation" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">DevSecOps &amp; CI/CD</span></a>
+        <a href="digital-engineering-consulting.html#support" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Application Support</span></a>
+        <a href="digital-engineering-consulting.html#product" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">API Strategy &amp; Design</span></a>
+        <a href="digital-engineering-consulting.html#cloud" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Multi-Cloud Strategy</span></a>
+        <a href="digital-engineering-consulting.html#automation" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Agentic AI Workflows</span></a>
+        <a href="digital-engineering-consulting.html#product" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Quality Engineering</span></a>
       </div>
     </div>
     <div class="mega-center-inner" id="sub-sales">
-      <div class="mega-center-label">Sales Improvement Practice — Sub-Services</div>
+      <div class="mega-center-label">Sales Improvement — Services</div>
       <div class="mega-sub-grid">
-        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">GTM Narrative Design</span></a>
-        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Sales Enablement Frameworks</span></a>
-        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Cross-Team Alignment</span></a>
-        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Executive Story Development</span></a>
-        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Operations Strategy</span></a>
-        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Sales Coaching Programs</span></a>
+        <a href="sales-improvement.html#gtm" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">GTM Narrative Design</span></a>
+        <a href="sales-improvement.html#revenue" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Operations</span></a>
+        <a href="sales-improvement.html#enablement" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Sales Enablement Frameworks</span></a>
+        <a href="sales-improvement.html#coaching" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Sales Coaching Programs</span></a>
+        <a href="sales-improvement.html#gtm" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Executive Story Development</span></a>
+        <a href="sales-improvement.html#revenue" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Pipeline &amp; Forecasting</span></a>
+        <a href="sales-improvement.html#enablement" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Cross-Team Alignment</span></a>
+        <a href="sales-improvement.html#revenue" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">CRM Strategy &amp; Optimization</span></a>
+      </div>
+    </div>
+    <div class="mega-center-inner" id="sub-industries">
+      <div class="mega-center-label">Industries We Serve</div>
+      <div class="mega-sub-grid">
+        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Healthcare &amp; Life Sciences</span></a>
+        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Technology &amp; Software</span></a>
+        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Financial Services &amp; Banking</span></a>
+        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Manufacturing &amp; Industrial</span></a>
+        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Retail &amp; Consumer Goods</span></a>
+        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Energy &amp; Utilities</span></a>
+        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Government &amp; Public Sector</span></a>
+        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Education &amp; Higher Learning</span></a>
+        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Insurance &amp; Risk Management</span></a>
+        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Nonprofit &amp; Social Impact</span></a>
+        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Private Equity &amp; Investment</span></a>
+        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Professional Services</span></a>
       </div>
     </div>
   </div>
