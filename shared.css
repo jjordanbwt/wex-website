@@ -17,6 +17,12 @@
   --grey-50:  #eeeef0;
   --white:    #ffffff;
   --teal:     #2dbfac;
+  /* Style guide semantic accents */
+  --accent-red:  #ED1C24;
+  --accent-blue: #0088CB;
+  --accent-gold: #FFCB05;
+  --navy:        #132B72;
+  --navy-deep:   #06093A;
   --bg:       var(--grey-900);
   --bg-alt:   var(--grey-800);
   --card:     var(--grey-750);
@@ -24,7 +30,7 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;line-height:1.65}
+body{font-family:'Roboto',Arial,Helvetica,sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;line-height:1.7;font-size:1rem}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.35;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E")}
 
@@ -168,7 +174,7 @@ nav.scrolled ~ .mega-panel{top:58px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
 .form-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-400)}
-.form-input,.form-select,.form-textarea{background:var(--grey-750);border:1px solid var(--border);border-radius:2px;padding:12px 16px;font-size:.9rem;color:var(--white);font-family:'DM Sans',sans-serif;transition:border-color .2s,background .2s;width:100%}
+.form-input,.form-select,.form-textarea{background:var(--grey-750);border:1px solid var(--border);border-radius:2px;padding:12px 16px;font-size:.9rem;color:var(--white);font-family:'Roboto',Arial,Helvetica,sans-serif;transition:border-color .2s,background .2s;width:100%}
 .form-input:focus,.form-select:focus,.form-textarea:focus{outline:none;border-color:var(--orange);background:var(--grey-700)}
 .form-select{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 7L11 1' stroke='%23888a93' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
 .form-textarea{resize:vertical;min-height:120px}

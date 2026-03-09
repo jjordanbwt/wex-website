@@ -6,7 +6,7 @@
 <title>Blog — Working Excellence</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="shared.css"/>
 <style>
 /* ── BLOG PAGE STYLES ── */
@@ -64,8 +64,8 @@
 .post-card-image-cat{position:absolute;top:14px;left:14px}
 .post-card-body{padding:24px;flex:1;display:flex;flex-direction:column}
 .post-cat-tag{display:inline-flex;align-items:center;font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.17em;text-transform:uppercase;padding:4px 8px;border-radius:2px;margin-bottom:12px;border:1px solid;width:fit-content}
-.cat-data{color:#4db6f5;border-color:rgba(77,182,245,.25);background:rgba(77,182,245,.07)}
-.cat-cyber{color:#e05c5c;border-color:rgba(224,92,92,.25);background:rgba(224,92,92,.07)}
+.cat-data{color:var(--accent-blue);border-color:rgba(0,136,203,.25);background:rgba(0,136,203,.07)}
+.cat-cyber{color:var(--accent-red);border-color:rgba(237,28,36,.25);background:rgba(237,28,36,.07)}
 .cat-eng{color:#4dc98a;border-color:rgba(77,201,138,.25);background:rgba(77,201,138,.07)}
 .cat-ops{color:#c4a0e8;border-color:rgba(196,160,232,.25);background:rgba(196,160,232,.07)}
 .cat-news{color:var(--orange);border-color:rgba(241,143,10,.25);background:rgba(241,143,10,.07)}
@@ -88,10 +88,10 @@
 .newsletter-text h2 em{font-style:italic;color:var(--orange-light)}
 .newsletter-text p{font-size:.88rem;color:var(--grey-300);line-height:1.7;max-width:480px}
 .newsletter-form{display:flex;gap:0;flex-shrink:0}
-.newsletter-input{width:280px;background:var(--grey-900);border:1px solid var(--border);border-right:none;padding:12px 18px;font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--white);outline:none;border-radius:2px 0 0 2px;transition:border-color .2s}
+.newsletter-input{width:280px;background:var(--grey-900);border:1px solid var(--border);border-right:none;padding:12px 18px;font-family:'Roboto',Arial,Helvetica,sans-serif;font-size:.85rem;color:var(--white);outline:none;border-radius:2px 0 0 2px;transition:border-color .2s}
 .newsletter-input::placeholder{color:var(--grey-500)}
 .newsletter-input:focus{border-color:var(--orange)}
-.newsletter-submit{background:var(--orange);color:var(--grey-950);border:none;padding:12px 24px;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;border-radius:0 2px 2px 0;transition:background .2s;white-space:nowrap}
+.newsletter-submit{background:var(--orange);color:var(--grey-950);border:none;padding:12px 24px;font-family:'Roboto',Arial,Helvetica,sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;border-radius:0 2px 2px 0;transition:background .2s;white-space:nowrap}
 .newsletter-submit:hover{background:var(--orange-light)}
 
 /* PLACEHOLDER STATE for future migration */
