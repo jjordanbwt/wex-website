@@ -140,14 +140,20 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
   .directors-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:768px){
-  nav{padding:0 24px}
+  nav{padding:0 20px}
   .nav-links{display:none}
-  .about-hero,.mission-section,.team-section,.about-cta{padding-left:24px;padding-right:24px}
-  footer{padding:40px 24px 30px}
+  .nav-right{display:none}
+  .nav-hamburger{display:flex}
+  .about-hero,.mission-section,.team-section,.about-cta{padding-left:20px;padding-right:20px}
+  footer{padding:40px 20px 30px}
   .founders-grid,.directors-grid{grid-template-columns:1fr}
   .counsel-card{grid-template-columns:1fr}
   .counsel-photo{max-height:260px}
   .mission-stats{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .about-hero,.mission-section,.team-section,.about-cta{padding-left:16px;padding-right:16px}
+  .mission-stats{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -166,7 +172,21 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
     <a href="about-us.html" class="active">About</a>
     <a href="contact-us.html" class="nav-cta">Contact Us</a>
   </div>
+  <button id="nav-hamburger" class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<!-- MOBILE NAV DRAWER -->
+<div id="mobile-nav-drawer" class="mobile-nav-drawer">
+  <div class="mobile-nav-inner">
+    <a href="index.html" class="mobile-nav-link">Practice Areas</a>
+    <a href="industries.html" class="mobile-nav-link">Industries</a>
+    <a href="index.html#assessments" class="mobile-nav-link">Assessments</a>
+    <a href="calculators.html" class="mobile-nav-link">Calculators</a>
+    <a href="about-us.html" class="mobile-nav-link">About</a>
+    <a href="contact-us.html" class="mobile-nav-cta">Book a Session →</a>
+  </div>
+</div>
 
 <!-- ══ HERO ══ -->
 <section class="about-hero">

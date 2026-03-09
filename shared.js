@@ -50,6 +50,30 @@
     });
   });
 
+  // Hamburger mobile nav
+  const hamburger = document.getElementById('nav-hamburger');
+  const mobileDrawer = document.getElementById('mobile-nav-drawer');
+  if(hamburger && mobileDrawer){
+    hamburger.addEventListener('click', e => {
+      e.stopPropagation();
+      const isOpen = mobileDrawer.classList.contains('open');
+      if(isOpen){
+        mobileDrawer.classList.remove('open');
+        backdrop && backdrop.classList.remove('open');
+        hamburger.setAttribute('aria-expanded','false');
+      } else {
+        closeAll();
+        mobileDrawer.classList.add('open');
+        backdrop && backdrop.classList.add('open');
+        hamburger.setAttribute('aria-expanded','true');
+      }
+    });
+    backdrop && backdrop.addEventListener('click', () => {
+      mobileDrawer.classList.remove('open');
+      hamburger.setAttribute('aria-expanded','false');
+    });
+  }
+
   // Fade-up on scroll
   const fadeEls = document.querySelectorAll('.fade-up');
   if(fadeEls.length && 'IntersectionObserver' in window){

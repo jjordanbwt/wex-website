@@ -97,6 +97,17 @@
       .calc-results{position:static}
       .calc-hero-inner,.calc-chooser,.calc-panels{padding-left:24px;padding-right:24px}
     }
+    @media(max-width:768px){
+      .nav-links{display:none}
+      .nav-right .nav-cta{display:none}
+      .calc-hero{padding-top:100px;padding-bottom:40px}
+      .calc-hero-inner{padding-left:20px;padding-right:20px}
+      .calc-chooser,.calc-panels{padding-left:20px;padding-right:20px}
+      .calc-input-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:480px){
+      .calc-hero-inner,.calc-chooser,.calc-panels{padding-left:16px;padding-right:16px}
+    }
   </style>
 </head>
 <body>
@@ -118,7 +129,21 @@
   <div class="nav-right">
     <a href="index.html#book" class="nav-cta">Book a Session →</a>
   </div>
+  <button id="nav-hamburger" class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<!-- MOBILE NAV DRAWER -->
+<div id="mobile-nav-drawer" class="mobile-nav-drawer">
+  <div class="mobile-nav-inner">
+    <a href="index.html" class="mobile-nav-link">Practice Areas</a>
+    <a href="industries.html" class="mobile-nav-link">Industries</a>
+    <a href="index.html#assessments" class="mobile-nav-link">Assessments</a>
+    <a href="calculators.html" class="mobile-nav-link">Calculators</a>
+    <a href="about-us.html" class="mobile-nav-link">About</a>
+    <a href="contact-us.html" class="mobile-nav-cta">Book a Session →</a>
+  </div>
+</div>
 
 <!-- ══════════ HERO ══════════ -->
 <section class="calc-hero">

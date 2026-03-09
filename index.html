@@ -405,9 +405,10 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
 @media(max-width:768px){
   nav{padding:0 20px}
   .nav-links{display:none}
-  .section-inner,.method-inner{padding:60px 20px}
-  .hero{padding:96px 20px 68px}
-  .calc-inner{padding:60px 20px}
+  .nav-right .nav-cta{display:none}
+  .section-inner,.method-inner{padding:52px 20px}
+  .hero{padding:96px 20px 60px}
+  .calc-inner{padding:52px 20px}
   .services-grid,.proof-grid{grid-template-columns:1fr}
   .problem-grid{grid-template-columns:1fr}
   .leadership-grid{grid-template-columns:1fr}
@@ -415,8 +416,18 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
   footer{padding:40px 20px 28px}
   .footer-inner{grid-template-columns:1fr;gap:28px}
   .footer-bottom{flex-direction:column;gap:8px;text-align:center}
-  .cta-inner{padding:72px 24px}
-  .vs-table{font-size:.74rem}
+  .cta-inner{padding:72px 20px}
+  .vs-table{font-size:.72rem}
+  .assess-cards{grid-template-columns:1fr}
+  .method-stage.active{grid-template-columns:1fr}
+  .method-img-ph{display:none}
+}
+@media(max-width:480px){
+  .hero{padding:88px 16px 52px}
+  .section-inner,.method-inner{padding:44px 16px}
+  .calc-inner{padding:44px 16px}
+  .services-grid{grid-template-columns:1fr}
+  .cta-inner{padding:56px 16px}
 }
 </style>
 </head>
@@ -458,7 +469,21 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
   <div class="nav-right">
     <a href="#book" class="nav-cta">Book a Session →</a>
   </div>
+  <button id="nav-hamburger" class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<!-- MOBILE NAV DRAWER -->
+<div id="mobile-nav-drawer" class="mobile-nav-drawer">
+  <div class="mobile-nav-inner">
+    <a href="index.html" class="mobile-nav-link">Practice Areas</a>
+    <a href="industries.html" class="mobile-nav-link">Industries</a>
+    <a href="index.html#assessments" class="mobile-nav-link">Assessments</a>
+    <a href="calculators.html" class="mobile-nav-link">Calculators</a>
+    <a href="about-us.html" class="mobile-nav-link">About</a>
+    <a href="contact-us.html" class="mobile-nav-cta">Book a Session →</a>
+  </div>
+</div>
 
 <!-- ══════════════════════════════════════════════
      MEGA MENU
@@ -1050,6 +1075,7 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
     <div class="section-label">The Difference</div>
     <h2 class="section-headline">Stop paying for<br/><em>the pyramid.</em></h2>
     <p class="section-sub">The Big Four operate on a staffing model where partners pitch and juniors deliver. MBB firms produce strategy and exit. Working Excellence is built differently.</p>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:0">
     <table class="vs-table fade-up">
       <thead>
         <tr>
@@ -1068,6 +1094,7 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
         <tr><td>Target market</td><td class="hl"><span class="vcheck">✓</span> Mid-market $50M–$1B, purpose-built</td><td>Fortune 500 primary; mid-market secondary</td><td>Enterprise and C-suite only</td></tr>
       </tbody>
     </table>
+    </div>
   </div>
 </section>
 

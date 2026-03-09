@@ -88,7 +88,7 @@
 .newsletter-text h2 em{color:var(--orange-light)}
 .newsletter-text p{font-size:.88rem;color:var(--grey-300);line-height:1.7;max-width:480px}
 .newsletter-form{display:flex;gap:0;flex-shrink:0}
-.newsletter-input{width:280px;background:var(--grey-900);border:1px solid var(--border);border-right:none;padding:12px 18px;font-family:'Roboto',Arial,Helvetica,sans-serif;font-size:.85rem;color:var(--white);outline:none;border-radius:2px 0 0 2px;transition:border-color .2s}
+.newsletter-input{flex:1;min-width:0;background:var(--grey-900);border:1px solid var(--border);border-right:none;padding:12px 18px;font-family:'Roboto',Arial,Helvetica,sans-serif;font-size:.85rem;color:var(--white);outline:none;border-radius:2px 0 0 2px;transition:border-color .2s}
 .newsletter-input::placeholder{color:var(--grey-500)}
 .newsletter-input:focus{border-color:var(--orange)}
 .newsletter-submit{background:var(--orange);color:var(--grey-950);border:none;padding:12px 24px;font-family:'Roboto',Arial,Helvetica,sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;border-radius:0 2px 2px 0;transition:background .2s;white-space:nowrap}
@@ -136,7 +136,21 @@
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
   </div>
+  <button id="nav-hamburger" class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<!-- MOBILE NAV DRAWER -->
+<div id="mobile-nav-drawer" class="mobile-nav-drawer">
+  <div class="mobile-nav-inner">
+    <a href="index.html" class="mobile-nav-link">Practice Areas</a>
+    <a href="industries.html" class="mobile-nav-link">Industries</a>
+    <a href="index.html#assessments" class="mobile-nav-link">Assessments</a>
+    <a href="calculators.html" class="mobile-nav-link">Calculators</a>
+    <a href="about-us.html" class="mobile-nav-link">About</a>
+    <a href="contact-us.html" class="mobile-nav-cta">Book a Session →</a>
+  </div>
+</div>
 <div class="mega-panel" id="mega-practice">
   <div class="mega-left">
     <div class="mega-left-label">Practice Areas</div>
