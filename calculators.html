@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Business Risk Calculators | Working Excellence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="shared.css"/>
+  <style>
+    /* ── PAGE HERO ── */
+    .calc-hero{background:var(--grey-950);padding:100px 0 60px;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+    .calc-hero::before{content:'';position:absolute;top:-120px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(241,143,10,.07) 0%,transparent 70%);pointer-events:none}
+    .calc-hero-inner{max-width:1200px;margin:0 auto;padding:0 48px}
+    .calc-hero-eyebrow{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+    .calc-hero-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:18px;max-width:700px}
+    .calc-hero-sub{font-size:1.05rem;color:var(--grey-300);line-height:1.7;max-width:620px}
+
+    /* ── CALCULATOR CHOOSER ── */
+    .calc-chooser{max-width:1200px;margin:0 auto;padding:56px 48px 0}
+    .calc-chooser-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:22px}
+    .calc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:56px}
+    .calc-card{background:var(--grey-800);border:2px solid var(--border);border-radius:3px;padding:28px 24px;cursor:pointer;transition:border-color .2s,background .2s;position:relative}
+    .calc-card:hover{border-color:var(--orange);background:var(--grey-750)}
+    .calc-card.active{border-color:var(--orange);background:rgba(241,143,10,.06)}
+    .calc-card.active::after{content:'';position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);width:32px;height:3px;background:var(--orange)}
+    .calc-card-icon{font-size:1.8rem;margin-bottom:12px}
+    .calc-card-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:8px}
+    .calc-card-desc{font-size:.84rem;color:var(--grey-400);line-height:1.55}
+    .calc-card-badge{display:inline-block;margin-top:10px;font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;border-radius:2px;background:rgba(241,143,10,.15);color:var(--orange)}
+
+    /* ── CALCULATOR PANELS ── */
+    .calc-panels{max-width:1200px;margin:0 auto;padding:0 48px 80px}
+    .calc-panel{display:none}
+    .calc-panel.active{display:block;animation:fadeUp .3s ease}
+
+    /* ── SHARED FORM STYLES ── */
+    .calc-body{display:grid;grid-template-columns:1fr 380px;gap:40px;align-items:start}
+    .calc-form-section{background:var(--grey-800);border:1px solid var(--border);border-radius:3px;padding:32px}
+    .calc-form-section + .calc-form-section{margin-top:20px}
+    .calc-section-title{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+    .form-group{margin-bottom:20px}
+    .form-label{display:block;font-size:.84rem;font-weight:600;color:var(--grey-200);margin-bottom:8px}
+    .form-label span{font-size:.76rem;font-weight:400;color:var(--grey-500);margin-left:6px}
+    .form-input,.form-select{width:100%;background:var(--grey-950);border:1px solid var(--border);color:var(--white);padding:11px 14px;border-radius:2px;font-size:.9rem;font-family:'Roboto',sans-serif;transition:border-color .2s;box-sizing:border-box}
+    .form-input:focus,.form-select:focus{outline:none;border-color:var(--orange)}
+    .form-select option{background:var(--grey-900)}
+    .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .radio-group{display:flex;flex-direction:column;gap:8px}
+    .radio-opt{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--border);border-radius:2px;cursor:pointer;transition:border-color .2s,background .2s}
+    .radio-opt:hover{border-color:var(--orange);background:rgba(241,143,10,.04)}
+    .radio-opt.selected{border-color:var(--orange);background:rgba(241,143,10,.08)}
+    .radio-opt input{accent-color:var(--orange)}
+    .radio-opt-label{font-size:.88rem;color:var(--grey-200);font-weight:500}
+    .radio-opt-sub{font-size:.76rem;color:var(--grey-500);margin-top:1px}
+    .calc-btn{width:100%;background:var(--orange);color:var(--grey-950);border:none;padding:15px 24px;border-radius:2px;font-family:'Roboto',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .15s;margin-top:8px}
+    .calc-btn:hover{background:var(--orange-light);transform:translateY(-1px)}
+
+    /* ── RESULTS PANEL ── */
+    .calc-results{position:sticky;top:90px}
+    .results-box{background:var(--grey-950);border:1px solid var(--border);border-radius:3px;padding:28px;margin-bottom:20px}
+    .results-box.highlight{border-color:var(--orange)}
+    .results-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-500);margin-bottom:6px}
+    .results-total{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:var(--orange);line-height:1.1}
+    .results-total-sub{font-size:.82rem;color:var(--grey-400);margin-top:4px}
+    .results-range{font-size:.84rem;color:var(--grey-300);margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+    .results-breakdown{display:flex;flex-direction:column;gap:0}
+    .results-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+    .results-row:last-child{border-bottom:none}
+    .results-row-label{font-size:.83rem;color:var(--grey-300)}
+    .results-row-val{font-size:.88rem;font-weight:700;color:var(--white)}
+    .results-row-val.risk{color:#ED1C24}
+    .results-empty{text-align:center;padding:32px 16px}
+    .results-empty-icon{font-size:2rem;margin-bottom:12px;opacity:.4}
+    .results-empty-text{font-size:.84rem;color:var(--grey-500);line-height:1.6}
+    .results-sources{background:var(--grey-800);border:1px solid var(--border);border-radius:3px;padding:20px}
+    .results-sources-title{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey-400);margin-bottom:12px}
+    .source-item{font-size:.76rem;color:var(--grey-400);padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04);line-height:1.5}
+    .source-item:last-child{border-bottom:none}
+    .source-item strong{color:var(--grey-200)}
+    .results-cta{background:linear-gradient(135deg,rgba(241,143,10,.1),rgba(241,143,10,.04));border:1px solid rgba(241,143,10,.3);border-radius:3px;padding:24px;margin-top:20px;text-align:center}
+    .results-cta-text{font-size:.88rem;color:var(--grey-200);line-height:1.6;margin-bottom:14px}
+    .results-cta-btn{display:inline-block;background:var(--orange);color:var(--grey-950);padding:12px 24px;border-radius:2px;font-size:.84rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+    .results-cta-btn:hover{background:var(--orange-light)}
+
+    /* ── COST OF INACTION ── */
+    .inaction-slider{width:100%;accent-color:var(--orange);margin-top:8px}
+
+    /* ── CLOUD WASTE ── */
+    .tag-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .tag{padding:6px 12px;border:1px solid var(--border);border-radius:2px;font-size:.78rem;color:var(--grey-300);cursor:pointer;transition:all .2s;font-family:'Roboto',sans-serif}
+    .tag.selected{border-color:var(--orange);background:rgba(241,143,10,.1);color:var(--orange)}
+
+    @media(max-width:900px){
+      .calc-cards{grid-template-columns:1fr}
+      .calc-body{grid-template-columns:1fr}
+      .calc-results{position:static}
+      .calc-hero-inner,.calc-chooser,.calc-panels{padding-left:24px;padding-right:24px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo">
+    <img src="https://static.wixstatic.com/media/1731f2_d91dc3d0f01245f5b369acb8b2397118~mv2.png" alt="Working Excellence" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+    <span class="nav-logo-text" style="display:none">Working <span style="color:var(--orange)">Excellence</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#services">Practice Areas</a></li>
+    <li><a href="industries.html">Industries</a></li>
+    <li><a href="index.html#assessments">Assessments</a></li>
+    <li><a href="calculators.html" class="active">Calculators</a></li>
+    <li><a href="about-us.html">About</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="index.html#book" class="nav-cta">Book a Session →</a>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="calc-hero">
+  <div class="calc-hero-inner">
+    <div class="calc-hero-eyebrow">Business Risk Calculators</div>
+    <h1 class="calc-hero-title">Quantify the Risk Before It Quantifies You</h1>
+    <p class="calc-hero-sub">Our calculators use publicly validated data from IBM, Verizon, Ponemon Institute, and industry research to help leadership teams understand real financial exposure — before an incident, not after.</p>
+  </div>
+</section>
+
+<!-- ══════════ CHOOSER ══════════ -->
+<div class="calc-chooser">
+  <div class="calc-chooser-label">Select a Calculator</div>
+  <div class="calc-cards">
+
+    <div class="calc-card active" onclick="switchCalc('cyber',this)">
+      <div class="calc-card-icon">🛡️</div>
+      <div class="calc-card-title">Cybersecurity Incident Cost</div>
+      <div class="calc-card-desc">Estimate the full financial impact of a BEC attack, ransomware incident, or compliance audit failure based on your organization's profile.</div>
+      <div class="calc-card-badge">3 Incident Types</div>
+    </div>
+
+    <div class="calc-card" onclick="switchCalc('inaction',this)">
+      <div class="calc-card-icon">⏳</div>
+      <div class="calc-card-title">Cost of Inaction</div>
+      <div class="calc-card-desc">Calculate what every month of delay on a strategic technology initiative costs your organization in productivity, risk exposure, and lost competitive advantage.</div>
+      <div class="calc-card-badge">Strategic Planning</div>
+    </div>
+
+    <div class="calc-card" onclick="switchCalc('cloud',this)">
+      <div class="calc-card-icon">☁️</div>
+      <div class="calc-card-title">Cloud Waste Estimator</div>
+      <div class="calc-card-desc">Estimate how much your organization is likely wasting on idle, over-provisioned, or misconfigured cloud resources across AWS, Azure, and GCP.</div>
+      <div class="calc-card-badge">FinOps</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════ PANELS ══════════ -->
+<div class="calc-panels">
+
+  <!-- ═══ PANEL 1: CYBER INCIDENT ═══ -->
+  <div class="calc-panel active" id="panel-cyber">
+    <div class="calc-body">
+
+      <!-- LEFT: FORM -->
+      <div>
+        <!-- Step 1: Incident Type -->
+        <div class="calc-form-section">
+          <div class="calc-section-title">Step 1 — Select Incident Type</div>
+          <div class="radio-group">
+
+            <label class="radio-opt selected" onclick="selectIncident('bec',this)">
+              <input type="radio" name="incident" value="bec" checked/>
+              <div>
+                <div class="radio-opt-label">Business Email Compromise (BEC)</div>
+                <div class="radio-opt-sub">Fraudulent wire transfers, vendor impersonation, executive spoofing</div>
+              </div>
+            </label>
+
+            <label class="radio-opt" onclick="selectIncident('ransomware',this)">
+              <input type="radio" name="incident" value="ransomware"/>
+              <div>
+                <div class="radio-opt-label">Ransomware Attack</div>
+                <div class="radio-opt-sub">Data encryption, operational shutdown, ransom payment, recovery costs</div>
+              </div>
+            </label>
+
+            <label class="radio-opt" onclick="selectIncident('compliance',this)">
+              <input type="radio" name="incident" value="compliance"/>
+              <div>
+                <div class="radio-opt-label">Compliance Audit Failure</div>
+                <div class="radio-opt-sub">Regulatory fines, remediation costs, reputational damage, business disruption</div>
+              </div>
+            </label>
+
+          </div>
+        </div>
+
+        <!-- Step 2: Organization Profile -->
+        <div class="calc-form-section">
+          <div class="calc-section-title">Step 2 — Organization Profile</div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Annual Revenue <span>(USD)</span></label>
+              <select class="form-select" id="cy-revenue" onchange="calcCyber()">
+                <option value="10">Under $10M</option>
+                <option value="50">$10M – $50M</option>
+                <option value="100" selected>$50M – $100M</option>
+                <option value="250">$100M – $250M</option>
+                <option value="500">$250M – $500M</option>
+                <option value="1000">$500M – $1B</option>
+                <option value="5000">Over $1B</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Number of Employees</label>
+              <select class="form-select" id="cy-employees" onchange="calcCyber()">
+                <option value="25">Under 50</option>
+                <option value="150">50 – 250</option>
+                <option value="500" selected>250 – 1,000</option>
+                <option value="2500">1,000 – 5,000</option>
+                <option value="10000">Over 5,000</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Industry</label>
+              <select class="form-select" id="cy-industry" onchange="calcCyber()">
+                <option value="healthcare">Healthcare</option>
+                <option value="finance">Financial Services</option>
+                <option value="manufacturing">Manufacturing</option>
+                <option value="tech" selected>Technology</option>
+                <option value="retail">Retail</option>
+                <option value="education">Education</option>
+                <option value="government">Government</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Current Security Maturity</label>
+              <select class="form-select" id="cy-maturity" onchange="calcCyber()">
+                <option value="low">Low — Basic controls only</option>
+                <option value="medium" selected>Medium — Some policies & tools</option>
+                <option value="high">High — Mature program in place</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: BEC-specific -->
+        <div class="calc-form-section" id="bec-fields">
+          <div class="calc-section-title">Step 3 — BEC Incident Details</div>
+          <div class="form-group">
+            <label class="form-label">Estimated Wire Transfer Exposure <span>(USD)</span></label>
+            <select class="form-select" id="bec-transfer" onchange="calcCyber()">
+              <option value="25000">Under $50K</option>
+              <option value="100000" selected>$50K – $150K</option>
+              <option value="300000">$150K – $500K</option>
+              <option value="750000">$500K – $1M</option>
+              <option value="2000000">Over $1M</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Cyber Insurance Coverage</label>
+            <select class="form-select" id="bec-insurance" onchange="calcCyber()">
+              <option value="none">No coverage</option>
+              <option value="partial" selected>Partial coverage</option>
+              <option value="full">Full BEC coverage</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Step 3: Ransomware-specific -->
+        <div class="calc-form-section" id="ransom-fields" style="display:none">
+          <div class="calc-section-title">Step 3 — Ransomware Incident Details</div>
+          <div class="form-group">
+            <label class="form-label">Critical Systems Affected</label>
+            <select class="form-select" id="ransom-systems" onchange="calcCyber()">
+              <option value="partial">Partial — isolated to 1–2 systems</option>
+              <option value="moderate" selected>Moderate — several departments affected</option>
+              <option value="full">Full — organization-wide shutdown</option>
+            </select>
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Backup Recovery Capability</label>
+              <select class="form-select" id="ransom-backup" onchange="calcCyber()">
+                <option value="good">Clean, tested backups</option>
+                <option value="partial" selected>Partial / untested</option>
+                <option value="none">No viable backups</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Likely Ransom Demand</label>
+              <select class="form-select" id="ransom-demand" onchange="calcCyber()">
+                <option value="50000">Under $100K</option>
+                <option value="250000" selected>$100K – $500K</option>
+                <option value="1000000">$500K – $2M</option>
+                <option value="5000000">Over $2M</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Compliance-specific -->
+        <div class="calc-form-section" id="compliance-fields" style="display:none">
+          <div class="calc-section-title">Step 3 — Compliance Audit Failure Details</div>
+          <div class="form-group">
+            <label class="form-label">Applicable Frameworks</label>
+            <div class="tag-list" id="framework-tags">
+              <span class="tag selected" onclick="toggleTag(this,'HIPAA')">HIPAA</span>
+              <span class="tag" onclick="toggleTag(this,'PCI DSS')">PCI DSS</span>
+              <span class="tag" onclick="toggleTag(this,'SOC 2')">SOC 2</span>
+              <span class="tag" onclick="toggleTag(this,'GDPR')">GDPR</span>
+              <span class="tag" onclick="toggleTag(this,'NIST')">NIST CSF</span>
+              <span class="tag" onclick="toggleTag(this,'ISO 27001')">ISO 27001</span>
+              <span class="tag" onclick="toggleTag(this,'CMMC')">CMMC</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Severity of Non-Compliance</label>
+            <select class="form-select" id="compliance-severity" onchange="calcCyber()">
+              <option value="minor">Minor gaps — documentation deficiencies</option>
+              <option value="moderate" selected>Moderate — control failures identified</option>
+              <option value="major">Major — systemic failures, data exposed</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Remediation Readiness</label>
+            <select class="form-select" id="compliance-readiness" onchange="calcCyber()">
+              <option value="ready">Ready — resources allocated</option>
+              <option value="partial" selected>Partial — some gaps in capability</option>
+              <option value="unprepared">Unprepared — starting from scratch</option>
+            </select>
+          </div>
+        </div>
+
+      </div><!-- /left -->
+
+      <!-- RIGHT: RESULTS -->
+      <div class="calc-results">
+        <div class="results-box highlight">
+          <div class="results-label">Estimated Total Exposure</div>
+          <div class="results-total" id="cy-total">$0</div>
+          <div class="results-total-sub" id="cy-total-sub">Complete the form to calculate</div>
+          <div class="results-range" id="cy-range" style="display:none"></div>
+        </div>
+
+        <div class="results-box">
+          <div class="results-label">Cost Breakdown</div>
+          <div class="results-breakdown" id="cy-breakdown">
+            <div class="results-empty">
+              <div class="results-empty-icon">📊</div>
+              <div class="results-empty-text">Select an incident type and fill in your organization details to see the cost breakdown.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="results-sources" id="cy-sources" style="display:none">
+          <div class="results-sources-title">Data Sources Used in This Calculation</div>
+          <div id="cy-sources-list"></div>
+        </div>
+
+        <div class="results-cta">
+          <div class="results-cta-text">This estimate is based on industry averages. A Working Excellence risk assessment gives you organization-specific findings and a prioritized remediation roadmap.</div>
+          <a href="index.html#assessments" class="results-cta-btn">Get a Real Assessment →</a>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /panel-cyber -->
+
+
+  <!-- ═══ PANEL 2: COST OF INACTION ═══ -->
+  <div class="calc-panel" id="panel-inaction">
+    <div class="calc-body">
+      <div>
+        <div class="calc-form-section">
+          <div class="calc-section-title">Initiative Details</div>
+          <div class="form-group">
+            <label class="form-label">Type of Initiative</label>
+            <select class="form-select" id="ia-type" onchange="calcInaction()">
+              <option value="data">Data Strategy / Governance Program</option>
+              <option value="cyber">Cybersecurity Program Maturation</option>
+              <option value="cloud">Cloud Migration / Modernization</option>
+              <option value="ai">AI / Automation Implementation</option>
+              <option value="sales">Sales Enablement Transformation</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">How long have you been considering this? <span id="ia-months-label">6 months</span></label>
+            <input type="range" class="inaction-slider" id="ia-months" min="1" max="36" value="6" oninput="document.getElementById('ia-months-label').textContent=this.value+' months';calcInaction()"/>
+          </div>
+        </div>
+
+        <div class="calc-form-section">
+          <div class="calc-section-title">Organization Size</div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Annual Revenue</label>
+              <select class="form-select" id="ia-revenue" onchange="calcInaction()">
+                <option value="10">Under $10M</option>
+                <option value="50">$10M – $50M</option>
+                <option value="100" selected>$50M – $100M</option>
+                <option value="250">$100M – $250M</option>
+                <option value="500">$250M – $500M</option>
+                <option value="1000">$500M+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Employees Impacted</label>
+              <select class="form-select" id="ia-employees" onchange="calcInaction()">
+                <option value="10">Under 25</option>
+                <option value="50">25 – 100</option>
+                <option value="200" selected>100 – 500</option>
+                <option value="1000">500 – 2,000</option>
+                <option value="5000">2,000+</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-form-section">
+          <div class="calc-section-title">Current State Assessment</div>
+          <div class="form-group">
+            <label class="form-label">Productivity Loss from Current Gaps</label>
+            <select class="form-select" id="ia-productivity" onchange="calcInaction()">
+              <option value="0.02">Minimal — under 2% efficiency loss</option>
+              <option value="0.05" selected>Moderate — 5% efficiency loss</option>
+              <option value="0.10">Significant — 10% efficiency loss</option>
+              <option value="0.20">High — 20%+ efficiency loss</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Competitive Risk Level</label>
+            <select class="form-select" id="ia-competitive" onchange="calcInaction()">
+              <option value="low">Low — minimal competitive pressure</option>
+              <option value="medium" selected>Medium — peers are already investing</option>
+              <option value="high">High — falling behind competitors</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-results">
+        <div class="results-box highlight">
+          <div class="results-label">Total Cost of Inaction</div>
+          <div class="results-total" id="ia-total">$0</div>
+          <div class="results-total-sub" id="ia-total-sub">Over the delay period selected</div>
+        </div>
+        <div class="results-box">
+          <div class="results-label">Monthly Cost Breakdown</div>
+          <div class="results-breakdown" id="ia-breakdown">
+            <div class="results-empty">
+              <div class="results-empty-icon">⏳</div>
+              <div class="results-empty-text">Fill in your details to see what delay is costing you.</div>
+            </div>
+          </div>
+        </div>
+        <div class="results-sources">
+          <div class="results-sources-title">Methodology</div>
+          <div class="source-item"><strong>Productivity Loss:</strong> Based on McKinsey research showing 20–30% productivity gains from properly implemented technology programs</div>
+          <div class="source-item"><strong>Risk Accumulation:</strong> IBM Cost of a Data Breach 2024 — each year of delayed security investment increases breach likelihood by 23%</div>
+          <div class="source-item"><strong>Competitive Gap:</strong> Gartner estimates organizations that delay digital transformation lose 3–5% market share annually to early movers</div>
+        </div>
+        <div class="results-cta">
+          <div class="results-cta-text">Turn this number into a business case for leadership. Our strategy sessions help you build the ROI narrative that gets initiatives funded.</div>
+          <a href="index.html#book" class="results-cta-btn">Book a Strategy Session →</a>
+        </div>
+      </div>
+    </div>
+  </div><!-- /panel-inaction -->
+
+
+  <!-- ═══ PANEL 3: CLOUD WASTE ═══ -->
+  <div class="calc-panel" id="panel-cloud">
+    <div class="calc-body">
+      <div>
+        <div class="calc-form-section">
+          <div class="calc-section-title">Cloud Spend Profile</div>
+          <div class="form-group">
+            <label class="form-label">Monthly Cloud Spend <span>(USD)</span></label>
+            <select class="form-select" id="cw-spend" onchange="calcCloud()">
+              <option value="5000">Under $10K/mo</option>
+              <option value="25000">$10K – $50K/mo</option>
+              <option value="75000" selected>$50K – $100K/mo</option>
+              <option value="175000">$100K – $250K/mo</option>
+              <option value="375000">$250K – $500K/mo</option>
+              <option value="750000">Over $500K/mo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Cloud Providers in Use</label>
+            <div class="tag-list">
+              <span class="tag selected" onclick="toggleTag(this,'aws');calcCloud()">AWS</span>
+              <span class="tag" onclick="toggleTag(this,'azure');calcCloud()">Azure</span>
+              <span class="tag" onclick="toggleTag(this,'gcp');calcCloud()">GCP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-form-section">
+          <div class="calc-section-title">Environment Characteristics</div>
+          <div class="form-group">
+            <label class="form-label">Reserved Instance / Savings Plan Coverage</label>
+            <select class="form-select" id="cw-reserved" onchange="calcCloud()">
+              <option value="none">None — all on-demand pricing</option>
+              <option value="partial" selected>Partial — some coverage</option>
+              <option value="good">Good — 60%+ coverage</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Known Waste Categories <span>(select all that apply)</span></label>
+            <div class="tag-list" id="waste-tags">
+              <span class="tag selected" onclick="toggleTag(this,'idle');calcCloud()">Idle / Orphaned Resources</span>
+              <span class="tag selected" onclick="toggleTag(this,'overprovisioned');calcCloud()">Over-Provisioned Compute</span>
+              <span class="tag" onclick="toggleTag(this,'storage');calcCloud()">Storage Tier Misalignment</span>
+              <span class="tag" onclick="toggleTag(this,'transfer');calcCloud()">Excess Data Transfer</span>
+              <span class="tag" onclick="toggleTag(this,'dev');calcCloud()">Dev/Test Environments Running 24/7</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">FinOps Program Maturity</label>
+            <select class="form-select" id="cw-finops" onchange="calcCloud()">
+              <option value="none" selected>None — no formal FinOps practice</option>
+              <option value="crawl">Crawl — basic tagging and visibility</option>
+              <option value="walk">Walk — regular optimization reviews</option>
+              <option value="run">Run — automated optimization in place</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-results">
+        <div class="results-box highlight">
+          <div class="results-label">Estimated Monthly Waste</div>
+          <div class="results-total" id="cw-total">$0</div>
+          <div class="results-total-sub" id="cw-total-sub">Estimated recoverable spend</div>
+        </div>
+        <div class="results-box">
+          <div class="results-label">Annual Waste Estimate</div>
+          <div class="results-breakdown" id="cw-breakdown">
+            <div class="results-empty">
+              <div class="results-empty-icon">☁️</div>
+              <div class="results-empty-text">Fill in your cloud profile to see the waste estimate.</div>
+            </div>
+          </div>
+        </div>
+        <div class="results-sources">
+          <div class="results-sources-title">Data Sources</div>
+          <div class="source-item"><strong>Gartner (2024):</strong> Organizations waste 32% of cloud spend on average</div>
+          <div class="source-item"><strong>Flexera State of the Cloud 2024:</strong> Idle resources account for 26% of wasted cloud spend</div>
+          <div class="source-item"><strong>AWS / Azure internal benchmarks:</strong> Right-sizing opportunities average 23% savings on compute</div>
+          <div class="source-item"><strong>Working Excellence client data:</strong> 15–40% optimization potential observed across assessments</div>
+        </div>
+        <div class="results-cta">
+          <div class="results-cta-text">Our Cloud Infrastructure Assessment connects directly to your environment and identifies specific, quantified savings — not estimates.</div>
+          <a href="index.html#assessments" class="results-cta-btn">Get a Real Cloud Assessment →</a>
+        </div>
+      </div>
+    </div>
+  </div><!-- /panel-cloud -->
+
+</div><!-- /calc-panels -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <img src="https://static.wixstatic.com/media/1731f2_d91dc3d0f01245f5b369acb8b2397118~mv2.png" alt="Working Excellence" style="height:38px;margin-bottom:16px;display:block" onerror="this.style.display='none'"/>
+        <p style="font-size:.84rem;color:var(--grey-400);line-height:1.7;max-width:260px">Technology consulting that makes complexity feel simple.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Practice Areas</div>
+        <a href="data-consulting.html" class="footer-link">Data Consulting</a>
+        <a href="cybersecurity-consulting.html" class="footer-link">Cybersecurity</a>
+        <a href="digital-engineering-consulting.html" class="footer-link">Digital Engineering</a>
+        <a href="sales-improvement.html" class="footer-link">Sales Improvement</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Calculators</div>
+        <a href="calculators.html" class="footer-link">Cyber Incident Cost</a>
+        <a href="calculators.html" class="footer-link">Cost of Inaction</a>
+        <a href="calculators.html" class="footer-link">Cloud Waste Estimator</a>
+        <a href="index.html#assessments" class="footer-link">All Assessments</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <a href="about-us.html" class="footer-link">About Us</a>
+        <a href="blog.html" class="footer-link">Blog &amp; Insights</a>
+        <a href="industries.html" class="footer-link">Industries</a>
+        <a href="contact-us.html" class="footer-link">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Working Excellence LLC. All rights reserved.</span>
+      <a href="privacy-policy.html" class="footer-link" style="margin-left:24px">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+/* ══════════════════════════════════
+   PANEL SWITCHER
+══════════════════════════════════ */
+function switchCalc(id, el) {
+  document.querySelectorAll('.calc-card').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('panel-' + id).classList.add('active');
+  if (id === 'cyber') calcCyber();
+  if (id === 'inaction') calcInaction();
+  if (id === 'cloud') calcCloud();
+}
+
+/* ══════════════════════════════════
+   INCIDENT TYPE SWITCHER
+══════════════════════════════════ */
+let activeIncident = 'bec';
+let selectedFrameworks = ['HIPAA'];
+let selectedWaste = ['idle','overprovisioned'];
+
+function selectIncident(type, el) {
+  activeIncident = type;
+  document.querySelectorAll('.radio-opt').forEach(r => r.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('bec-fields').style.display = type === 'bec' ? 'block' : 'none';
+  document.getElementById('ransom-fields').style.display = type === 'ransomware' ? 'block' : 'none';
+  document.getElementById('compliance-fields').style.display = type === 'compliance' ? 'block' : 'none';
+  calcCyber();
+}
+
+function toggleTag(el, val) {
+  el.classList.toggle('selected');
+  if (el.closest('#framework-tags')) {
+    if (el.classList.contains('selected')) selectedFrameworks.push(val);
+    else selectedFrameworks = selectedFrameworks.filter(f => f !== val);
+    calcCyber();
+  }
+  if (el.closest('#waste-tags')) {
+    if (el.classList.contains('selected')) selectedWaste.push(val);
+    else selectedWaste = selectedWaste.filter(f => f !== val);
+    calcCloud();
+  }
+}
+
+/* ══════════════════════════════════
+   FORMATTERS
+══════════════════════════════════ */
+const fmt = n => '$' + Math.round(n).toLocaleString();
+
+/* ══════════════════════════════════
+   CYBER INCIDENT CALCULATOR
+══════════════════════════════════ */
+function calcCyber() {
+  const revenue = parseFloat(document.getElementById('cy-revenue').value);
+  const employees = parseFloat(document.getElementById('cy-employees').value);
+  const industry = document.getElementById('cy-industry').value;
+  const maturity = document.getElementById('cy-maturity').value;
+
+  // Industry multipliers (Ponemon/IBM data)
+  const industryMult = {healthcare:1.95, finance:1.85, education:1.20, government:1.30, tech:1.10, manufacturing:1.25, retail:1.05, other:1.00};
+  const iMult = industryMult[industry] || 1.0;
+
+  // Maturity discount
+  const maturityDisc = {low:1.30, medium:1.00, high:0.65};
+  const mDisc = maturityDisc[maturity];
+
+  let total = 0, breakdown = [], sources = [];
+
+  if (activeIncident === 'bec') {
+    const transfer = parseFloat(document.getElementById('bec-transfer').value);
+    const insurance = document.getElementById('bec-insurance').value;
+    const insuranceDisc = {none:1.0, partial:0.65, full:0.20};
+
+    const directLoss = transfer * insuranceDisc[insurance];
+    const forensics = 25000 + (employees * 15);
+    const legal = 15000 + (revenue * 500);
+    const productivity = employees * 85 * 5; // 5 days at $85/hr avg
+    const reputation = revenue * 1000 * 0.02; // 2% of revenue
+    const remediation = 30000 + (employees * 25);
+
+    total = (directLoss + forensics + legal + productivity + reputation + remediation) * iMult * mDisc;
+
+    breakdown = [
+      {label:'Direct Financial Loss (net of insurance)', val:directLoss, risk:true},
+      {label:'Forensic Investigation & IR', val:forensics},
+      {label:'Legal & Regulatory Counsel', val:legal},
+      {label:'Employee Productivity Loss (5 days)', val:productivity},
+      {label:'Reputational / Customer Impact', val:reputation, risk:true},
+      {label:'Security Remediation Costs', val:remediation},
+    ];
+
+    sources = [
+      {label:'FBI IC3 2023 Report', note:'Average BEC loss: $137,132 per incident; $2.9B total losses reported'},
+      {label:'Ponemon Cost of a Data Breach 2024', note:'Average incident response cost: $2.1M for small-mid market organizations'},
+      {label:'Industry multiplier', note:`${industry} sector: ${iMult}x based on IBM sector breach cost data`},
+      {label:'Maturity adjustment', note:`${maturity} security posture: ${mDisc}x multiplier applied`},
+    ];
+
+  } else if (activeIncident === 'ransomware') {
+    const systems = document.getElementById('ransom-systems').value;
+    const backup = document.getElementById('ransom-backup').value;
+    const demand = parseFloat(document.getElementById('ransom-demand').value);
+
+    const scopeMult = {partial:0.3, moderate:0.7, full:1.0};
+    const backupMult = {good:0.15, partial:0.55, none:1.0};
+
+    const ransom = demand * backupMult[backup] * 0.45; // 45% pay rate (Coveware 2024)
+    const downtime = employees * 650 * {partial:2, moderate:7, full:21}[systems];
+    const recovery = (100000 + employees * 200) * scopeMult[systems];
+    const forensics = 50000 + (revenue * 750);
+    const legal = 35000 + (revenue * 1000);
+    const notifications = employees * 125; // breach notification per record
+
+    total = (ransom + downtime + recovery + forensics + legal + notifications) * iMult * mDisc;
+
+    breakdown = [
+      {label:'Ransom Payment (probability-weighted)', val:ransom, risk:true},
+      {label:'Downtime / Business Interruption', val:downtime, risk:true},
+      {label:'Recovery & Restoration Costs', val:recovery},
+      {label:'Forensic Investigation', val:forensics},
+      {label:'Legal, Regulatory & Notification', val:legal + notifications},
+    ];
+
+    sources = [
+      {label:'Coveware Ransomware Q1 2024', note:'Average ransom demand: $2M; payment rate: 28%; avg downtime: 21 days'},
+      {label:'IBM Cost of a Data Breach 2024', note:'Ransomware breach avg total cost: $4.91M; downtime avg: $1.4M'},
+      {label:'Verizon DBIR 2024', note:'Ransomware present in 23% of all breaches; median cost doubled in 2 years'},
+      {label:'Industry / maturity adjustments applied', note:`${industry} ${iMult}x, ${maturity} security ${mDisc}x`},
+    ];
+
+  } else if (activeIncident === 'compliance') {
+    const severity = document.getElementById('compliance-severity').value;
+    const readiness = document.getElementById('compliance-readiness').value;
+
+    const frameworkFines = {HIPAA:750000, 'PCI DSS':500000, SOC2:100000, GDPR:1200000, NIST:50000, 'ISO 27001':75000, CMMC:500000};
+    const sevMult = {minor:0.15, moderate:0.55, major:1.0};
+    const readinessMult = {ready:0.6, partial:0.85, unprepared:1.2};
+
+    const totalFines = selectedFrameworks.reduce((sum, f) => sum + (frameworkFines[f] || 100000), 0) * sevMult[severity] * readinessMult[readiness];
+    const remediation = (50000 + revenue * 1500) * readinessMult[readiness];
+    const audit = 75000 + (employees * 50);
+    const lostBusiness = revenue * 1000 * 0.05 * sevMult[severity]; // 5% of revenue at major severity
+    const legal = 40000 + (totalFines * 0.15);
+
+    total = (totalFines + remediation + audit + lostBusiness + legal) * iMult * mDisc;
+
+    breakdown = [
+      {label:'Regulatory Fines & Penalties', val:totalFines, risk:true},
+      {label:'Remediation & Control Implementation', val:remediation},
+      {label:'Audit & Advisory Costs', val:audit},
+      {label:'Lost Business / Contract Impact', val:lostBusiness, risk:true},
+      {label:'Legal Defense Costs', val:legal},
+    ];
+
+    const fwNames = selectedFrameworks.length ? selectedFrameworks.join(', ') : 'No framework selected';
+    sources = [
+      {label:'HHS Office for Civil Rights (OCR)', note:'HIPAA fines range $100 to $50,000 per violation; max $1.9M/category/year'},
+      {label:'PCI Security Standards Council', note:'PCI DSS fines: $5,000–$100,000/month; non-compliance leads to card acceptance loss'},
+      {label:'Ponemon Institute Compliance Cost Study', note:'Average cost of non-compliance: 2.71x the cost of compliance'},
+      {label:'Selected frameworks', note:fwNames},
+    ];
+  }
+
+  // Update UI
+  document.getElementById('cy-total').textContent = fmt(total);
+  document.getElementById('cy-total-sub').textContent = 'Estimated total exposure (industry-adjusted)';
+  document.getElementById('cy-range').style.display = 'block';
+  document.getElementById('cy-range').textContent = `Range: ${fmt(total * 0.6)} – ${fmt(total * 1.6)} based on incident specifics`;
+
+  const breakdownEl = document.getElementById('cy-breakdown');
+  breakdownEl.innerHTML = breakdown.map(r => `
+    <div class="results-row">
+      <span class="results-row-label">${r.label}</span>
+      <span class="results-row-val${r.risk ? ' risk' : ''}">${fmt(r.val)}</span>
+    </div>`).join('');
+
+  const sourcesEl = document.getElementById('cy-sources');
+  sourcesEl.style.display = 'block';
+  document.getElementById('cy-sources-list').innerHTML = sources.map(s =>
+    `<div class="source-item"><strong>${s.label}:</strong> ${s.note}</div>`).join('');
+}
+
+/* ══════════════════════════════════
+   COST OF INACTION CALCULATOR
+══════════════════════════════════ */
+function calcInaction() {
+  const type = document.getElementById('ia-type').value;
+  const months = parseFloat(document.getElementById('ia-months').value);
+  const revenue = parseFloat(document.getElementById('ia-revenue').value) * 1000000;
+  const employees = parseFloat(document.getElementById('ia-employees').value);
+  const productivityRate = parseFloat(document.getElementById('ia-productivity').value);
+  const competitive = document.getElementById('ia-competitive').value;
+
+  const avgSalary = 85000;
+  const monthlyProductivityLoss = (employees * avgSalary / 12) * productivityRate;
+
+  const riskAccrualRate = {data:0.018, cyber:0.025, cloud:0.012, ai:0.015, sales:0.020};
+  const monthlyRiskAccrual = revenue * (riskAccrualRate[type] || 0.015) / 12;
+
+  const compMult = {low:0.5, medium:1.0, high:1.8};
+  const monthlyCompetitiveLoss = (revenue * 0.003 / 12) * compMult[competitive];
+
+  const monthlyTotal = monthlyProductivityLoss + monthlyRiskAccrual + monthlyCompetitiveLoss;
+  const total = monthlyTotal * months;
+
+  document.getElementById('ia-total').textContent = fmt(total);
+  document.getElementById('ia-total-sub').textContent = `Over ${months} month${months !== 1 ? 's' : ''} of delay`;
+
+  document.getElementById('ia-breakdown').innerHTML = `
+    <div class="results-row"><span class="results-row-label">Monthly Productivity Loss</span><span class="results-row-val">${fmt(monthlyProductivityLoss)}/mo</span></div>
+    <div class="results-row"><span class="results-row-label">Monthly Risk Accumulation</span><span class="results-row-val risk">${fmt(monthlyRiskAccrual)}/mo</span></div>
+    <div class="results-row"><span class="results-row-label">Monthly Competitive Gap Cost</span><span class="results-row-val risk">${fmt(monthlyCompetitiveLoss)}/mo</span></div>
+    <div class="results-row"><span class="results-row-label" style="font-weight:700;color:var(--white)">Monthly Total</span><span class="results-row-val" style="color:var(--orange)">${fmt(monthlyTotal)}/mo</span></div>
+    <div class="results-row"><span class="results-row-label" style="font-weight:700;color:var(--white)">Total Over ${months} Months</span><span class="results-row-val" style="color:var(--orange);font-size:1.05rem">${fmt(total)}</span></div>
+  `;
+}
+
+/* ══════════════════════════════════
+   CLOUD WASTE CALCULATOR
+══════════════════════════════════ */
+function calcCloud() {
+  const monthlySpend = parseFloat(document.getElementById('cw-spend').value);
+  const reserved = document.getElementById('cw-reserved').value;
+  const finops = document.getElementById('cw-finops').value;
+
+  const reservedWaste = {none:0.18, partial:0.10, good:0.03};
+  const finopsWaste = {none:0.12, crawl:0.08, walk:0.04, run:0.01};
+
+  const wasteRates = {idle:0.10, overprovisioned:0.09, storage:0.05, transfer:0.04, dev:0.07};
+  const selectedWasteTotal = selectedWaste.reduce((sum, w) => sum + (wasteRates[w] || 0), 0);
+
+  const totalWasteRate = Math.min(0.55, selectedWasteTotal + reservedWaste[reserved] + finopsWaste[finops]);
+  const monthlyWaste = monthlySpend * totalWasteRate;
+  const annualWaste = monthlyWaste * 12;
+
+  document.getElementById('cw-total').textContent = fmt(monthlyWaste);
+  document.getElementById('cw-total-sub').textContent = `${Math.round(totalWasteRate * 100)}% waste rate estimated`;
+
+  const wasteLabels = {idle:'Idle / Orphaned Resources', overprovisioned:'Over-Provisioned Compute', storage:'Storage Tier Misalignment', transfer:'Excess Data Transfer', dev:'Dev/Test 24/7 Overhead'};
+
+  const rows = selectedWaste.map(w => `
+    <div class="results-row">
+      <span class="results-row-label">${wasteLabels[w]}</span>
+      <span class="results-row-val risk">${fmt(monthlySpend * wasteRates[w])}/mo</span>
+    </div>`).join('');
+
+  document.getElementById('cw-breakdown').innerHTML = `
+    ${rows}
+    <div class="results-row"><span class="results-row-label">Reserved Instance Gap</span><span class="results-row-val risk">${fmt(monthlySpend * reservedWaste[reserved])}/mo</span></div>
+    <div class="results-row"><span class="results-row-label" style="font-weight:700;color:var(--white)">Annual Waste Total</span><span class="results-row-val" style="color:var(--orange);font-size:1.05rem">${fmt(annualWaste)}</span></div>
+  `;
+}
+
+// Initialize on load
+calcCyber();
+calcInaction();
+calcCloud();
+</script>
+</body>
+</html>
