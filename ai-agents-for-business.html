@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI Agents for Business — Working Excellence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ── AI AGENTS PAGE ── */
+.ai-hero{position:relative;padding:148px 0 80px;background:var(--grey-950);overflow:hidden;border-bottom:1px solid var(--border)}
+.ai-hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--grey-700) 1px,transparent 1px),linear-gradient(90deg,var(--grey-700) 1px,transparent 1px);background-size:80px 80px;opacity:.07}
+.ai-hero-glow{position:absolute;top:-80px;right:-80px;width:700px;height:700px;background:radial-gradient(circle,rgba(241,143,10,.1),transparent 65%);pointer-events:none}
+.ai-hero-inner{display:grid;grid-template-columns:1fr 320px;gap:64px;align-items:start;position:relative;z-index:1}
+.ai-headline{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4.5vw,3.6rem);font-weight:700;line-height:1.1;margin-bottom:20px}
+.ai-headline em{font-style:italic;color:var(--orange-light)}
+.ai-sub{font-size:.95rem;color:var(--grey-300);line-height:1.8;margin-bottom:32px;max-width:560px}
+.ai-hero-stats{display:flex;flex-direction:column;gap:2px}
+.ai-stat{background:var(--grey-800);border:1px solid var(--border);padding:20px 24px}
+.ai-stat-num{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--orange);line-height:1;margin-bottom:4px}
+.ai-stat-label{font-size:.78rem;color:var(--grey-400);line-height:1.5}
+
+/* PROBLEM STATEMENT */
+.ai-problem{background:var(--grey-900);padding:64px 0;border-bottom:1px solid var(--border)}
+.ai-problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.ai-problem-item{background:var(--grey-800);border:1px solid var(--border);padding:32px}
+.ai-problem-item-icon{width:40px;height:40px;border-radius:2px;background:rgba(241,143,10,.1);border:1px solid rgba(241,143,10,.2);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.ai-problem-item h3{font-size:1rem;font-weight:700;margin-bottom:8px}
+.ai-problem-item p{font-size:.85rem;color:var(--grey-400);line-height:1.7}
+
+/* WHAT WE BUILD */
+.ai-capabilities{padding:72px 0;border-bottom:1px solid var(--border)}
+.ai-cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px}
+.ai-cap-card{background:var(--grey-800);border:1px solid var(--border);padding:32px;transition:border-color .2s,background .2s}
+.ai-cap-card:hover{border-color:var(--grey-600);background:var(--grey-750)}
+.ai-cap-num{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--orange);margin-bottom:12px}
+.ai-cap-card h3{font-size:1rem;font-weight:700;margin-bottom:10px;line-height:1.35}
+.ai-cap-card p{font-size:.83rem;color:var(--grey-400);line-height:1.7;margin-bottom:16px}
+.ai-cap-tags{display:flex;flex-wrap:wrap;gap:6px}
+.ai-cap-tag{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:var(--grey-500);background:var(--grey-750);border:1px solid var(--border);padding:4px 8px;border-radius:2px}
+.ai-cap-card:hover .ai-cap-tag{background:var(--grey-700)}
+
+/* READINESS FRAMEWORK */
+.ai-framework{background:var(--grey-950);padding:72px 0;border-bottom:1px solid var(--border)}
+.ai-framework-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px;position:relative}
+.ai-framework-steps::before{content:'';position:absolute;top:28px;left:calc(12.5% + 16px);right:calc(12.5% + 16px);height:1px;background:linear-gradient(90deg,var(--orange),rgba(241,143,10,.3));z-index:0}
+.ai-fw-step{background:var(--grey-800);border:1px solid var(--border);padding:28px 24px;position:relative;z-index:1}
+.ai-fw-step-num{width:36px;height:36px;border-radius:50%;background:var(--orange);color:var(--grey-950);font-family:'DM Mono',monospace;font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.ai-fw-step h4{font-size:.9rem;font-weight:700;margin-bottom:8px;text-align:center}
+.ai-fw-step p{font-size:.78rem;color:var(--grey-400);line-height:1.65;text-align:center}
+
+/* USE CASES */
+.ai-usecases{padding:72px 0;border-bottom:1px solid var(--border)}
+.ai-uc-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:48px}
+.ai-uc-item{background:var(--grey-800);border:1px solid var(--border);padding:28px 32px;display:flex;gap:20px;align-items:flex-start;transition:border-color .2s}
+.ai-uc-item:hover{border-color:var(--grey-600)}
+.ai-uc-icon{width:44px;height:44px;border-radius:2px;background:rgba(241,143,10,.08);border:1px solid rgba(241,143,10,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ai-uc-icon svg{stroke:var(--orange)}
+.ai-uc-content h4{font-size:.95rem;font-weight:700;margin-bottom:6px}
+.ai-uc-content p{font-size:.83rem;color:var(--grey-400);line-height:1.65}
+
+@media(max-width:960px){
+  .ai-hero-inner{grid-template-columns:1fr}
+  .ai-hero-stats{display:grid;grid-template-columns:repeat(3,1fr)}
+  .ai-cap-grid{grid-template-columns:1fr 1fr}
+  .ai-framework-steps{grid-template-columns:1fr 1fr}
+  .ai-framework-steps::before{display:none}
+}
+@media(max-width:600px){
+  .ai-problem-grid{grid-template-columns:1fr}
+  .ai-cap-grid{grid-template-columns:1fr}
+  .ai-uc-grid{grid-template-columns:1fr}
+  .ai-framework-steps{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div id="menu-backdrop"></div>
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo">
+    <img src="https://static.wixstatic.com/media/1731f2_d91dc3d0f01245f5b369acb8b2397118~mv2.png" alt="Working Excellence" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+    <span class="nav-logo-text" style="display:none">Working <span>Excellence</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><button class="mega-trigger" data-mega="practice">Practice Areas
+      <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </button></li>
+    <li><a href="index.html#assessments">Assessments</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about-us.html">About Us</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="contact-us.html" class="nav-cta">Book a Consultation
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</nav>
+<div class="mega-panel" id="mega-practice">
+  <div class="mega-left">
+    <div class="mega-left-label">Practice Areas</div>
+    <div class="mega-practice" data-target="mc-data"><span class="mega-practice-name">Data Consulting</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice" data-target="mc-cyber"><span class="mega-practice-name">Cybersecurity</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice" data-target="mc-eng"><span class="mega-practice-name">Digital Engineering</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice" data-target="mc-sales"><span class="mega-practice-name">Sales Improvement</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-assess-block">
+      <div class="mega-assess-label">Assessments</div>
+      <a href="index.html#assessments" class="mega-assess-link">Technical Risk Assessment</a>
+      <a href="index.html#assessments" class="mega-assess-link">AI Readiness Diagnostic</a>
+      <a href="index.html#assessments" class="mega-assess-link">Cloud Infrastructure Assessment</a>
+    </div>
+  </div>
+  <div class="mega-center">
+    <div class="mega-center-inner active" id="mc-data">
+      <div class="mega-center-label">Data Consulting</div>
+      <div class="mega-sub-grid">
+        <a href="data-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Strategy</span></a>
+        <a href="data-consulting.html#architecture" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Architecture</span></a>
+        <a href="data-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Governance</span></a>
+        <a href="data-consulting.html#ml" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Machine Learning</span></a>
+        <a href="data-consulting.html#ai" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Artificial Intelligence</span></a>
+        <a href="data-consulting.html#reporting" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Reporting & Visualization</span></a>
+        <a href="data-consulting.html#operations" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Operations</span></a>
+        <a href="ai-agents-for-business.html" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">AI Agents for Business</span></a>
+      </div>
+    </div>
+    <div class="mega-center-inner" id="mc-cyber">
+      <div class="mega-center-label">Cybersecurity</div>
+      <div class="mega-sub-grid">
+        <a href="cybersecurity-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Strategy</span></a>
+        <a href="cybersecurity-consulting.html#architecture" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Architecture & Tools</span></a>
+        <a href="cybersecurity-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Governance & Process</span></a>
+        <a href="cybersecurity-consulting.html#secops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Security Operations</span></a>
+      </div>
+    </div>
+    <div class="mega-center-inner" id="mc-eng">
+      <div class="mega-center-label">Digital Engineering</div>
+      <div class="mega-sub-grid">
+        <a href="digital-engineering-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Strategy</span></a>
+        <a href="digital-engineering-consulting.html#cloud" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Cloud Migrations</span></a>
+        <a href="digital-engineering-consulting.html#automation" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Intelligent Automation</span></a>
+        <a href="digital-engineering-consulting.html#product" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Product Engineering</span></a>
+        <a href="digital-engineering-consulting.html#support" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Application Support</span></a>
+      </div>
+    </div>
+    <div class="mega-center-inner" id="mc-sales">
+      <div class="mega-center-label">Sales Improvement</div>
+      <div class="mega-sub-grid">
+        <a href="sales-improvement.html#gtm" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">GTM Narrative Design</span></a>
+        <a href="sales-improvement.html#enablement" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Sales Enablement</span></a>
+        <a href="sales-improvement.html#alignment" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Alignment</span></a>
+        <a href="sales-improvement.html#ops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Operations</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="mega-right">
+    <div class="mega-right-label">Quick Action</div>
+    <div class="mega-cta-card">
+      <div class="mega-cta-card-title">AI Readiness Assessment</div>
+      <div class="mega-cta-card-desc">Know if your foundation can support agentic AI before you invest.</div>
+      <a href="index.html#assessments" class="mega-cta-btn">View Assessment</a>
+    </div>
+    <div class="mega-ql-stack">
+      <a href="about-us.html" class="mega-ql">Meet the Team <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="blog.html" class="mega-ql">Blog & Insights <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="ai-hero">
+  <div class="ai-hero-grid"></div>
+  <div class="ai-hero-glow"></div>
+  <div class="section-inner">
+    <div class="ai-hero-inner">
+      <div>
+        <div class="pa-eyebrow" style="margin-bottom:20px">
+          <span class="eyebrow-tag">Data Consulting</span>
+          <span class="eyebrow-divider">/</span>
+          <span>AI Agents for Business</span>
+        </div>
+        <h1 class="ai-headline">Stop Running Pilots.<br><em>Start Running Operations.</em></h1>
+        <p class="ai-sub">AI agents can eliminate manual workflows, accelerate decisions, and scale operations without adding headcount. But only if your data foundation, governance model, and architecture are built to support them. WEX builds the system, not just the demo.</p>
+        <div class="pa-actions">
+          <a href="contact-us.html" class="btn-primary">Book an AI Strategy Session <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="index.html#assessments" class="btn-ghost">View AI Readiness Diagnostic</a>
+        </div>
+      </div>
+      <div class="ai-hero-stats">
+        <div class="ai-stat">
+          <div class="ai-stat-num">65%</div>
+          <div class="ai-stat-label">of enterprises now derive direct value from GenAI — but only when data pipelines are production-grade</div>
+        </div>
+        <div class="ai-stat">
+          <div class="ai-stat-num">72hrs</div>
+          <div class="ai-stat-label">from assessment start to AI readiness findings with WEX</div>
+        </div>
+        <div class="ai-stat">
+          <div class="ai-stat-num">80%+</div>
+          <div class="ai-stat-label">of AI initiatives fail due to data foundation gaps, not model quality</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
+<section class="ai-problem">
+  <div class="section-inner">
+    <div class="section-label" style="margin-bottom:16px">Why Most AI Programs Stall</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.8vw,2.1rem);font-weight:700;max-width:600px;margin-bottom:40px">The Problem Is Never the AI.<br><em style="color:var(--orange-light)">It Is What the AI Has to Work With.</em></h2>
+    <div class="ai-problem-grid fade-up">
+      <div class="ai-problem-item">
+        <div class="ai-problem-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>Data Silos Block Agent Performance</h3>
+        <p>AI agents need unified, trusted data to act. Fragmented systems produce inconsistent outputs, eroding confidence in automation and slowing every initiative before it starts.</p>
+      </div>
+      <div class="ai-problem-item">
+        <div class="ai-problem-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Governance Gaps Create Risk Without Controls</h3>
+        <p>Deploying agents without governance frameworks exposes organizations to data privacy violations, model drift, and audit failures. What regulators find first, boards pay for.</p>
+      </div>
+      <div class="ai-problem-item">
+        <div class="ai-problem-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <h3>Pilot Fatigue Kills Momentum</h3>
+        <p>Successful demos rarely survive contact with production. Without the right architecture, change management, and integration plan, pilots stay pilots — and budgets evaporate.</p>
+      </div>
+      <div class="ai-problem-item">
+        <div class="ai-problem-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Wrong Vendors Sell You Tools, Not Outcomes</h3>
+        <p>Most AI vendors measure success by deployment, not results. WEX is vendor-agnostic and measures success by one metric: the business outcome the agent was built to deliver.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="ai-capabilities">
+  <div class="section-inner">
+    <div class="section-label" style="margin-bottom:16px">What We Build</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.8vw,2.1rem);font-weight:700;max-width:600px;margin-bottom:0">Six Capabilities That Take AI<br>From Pilot to <em style="color:var(--orange-light)">Production</em></h2>
+    <div class="ai-cap-grid fade-up">
+      <div class="ai-cap-card">
+        <div class="ai-cap-num">01</div>
+        <h3>AI Readiness & Foundation Assessment</h3>
+        <p>Before building agents, we assess your data quality, infrastructure architecture, security posture, and organizational readiness. You get a scored gap analysis with a prioritized roadmap.</p>
+        <div class="ai-cap-tags"><span class="ai-cap-tag">Data Audit</span><span class="ai-cap-tag">Architecture Review</span><span class="ai-cap-tag">Org Readiness</span></div>
+      </div>
+      <div class="ai-cap-card">
+        <div class="ai-cap-num">02</div>
+        <h3>Agentic Architecture Design</h3>
+        <p>We design the full agent ecosystem — orchestration layers, tool integrations, memory systems, and human-in-the-loop controls. Built to scale, not just to demo.</p>
+        <div class="ai-cap-tags"><span class="ai-cap-tag">Multi-Agent Systems</span><span class="ai-cap-tag">LangChain / AutoGen</span><span class="ai-cap-tag">Azure AI</span></div>
+      </div>
+      <div class="ai-cap-card">
+        <div class="ai-cap-num">03</div>
+        <h3>Data Pipeline & Integration Engineering</h3>
+        <p>Agents are only as good as the data they access. We build the pipelines, APIs, and integration layers that give agents reliable, governed access to the right data at the right time.</p>
+        <div class="ai-cap-tags"><span class="ai-cap-tag">ETL/ELT</span><span class="ai-cap-tag">Real-Time Streams</span><span class="ai-cap-tag">API Design</span></div>
+      </div>
+      <div class="ai-cap-card">
+        <div class="ai-cap-num">04</div>
+        <h3>AI Governance & Risk Controls</h3>
+        <p>Guardrails, monitoring, audit trails, and model drift detection built in from day one. Every deployment includes a governance framework that satisfies security teams and auditors.</p>
+        <div class="ai-cap-tags"><span class="ai-cap-tag">NIST AI RMF</span><span class="ai-cap-tag">Drift Monitoring</span><span class="ai-cap-tag">Audit Trails</span></div>
+      </div>
+      <div class="ai-cap-card">
+        <div class="ai-cap-num">05</div>
+        <h3>Agent Deployment & Integration</h3>
+        <p>We deploy agents into your existing workflows — Salesforce, ServiceNow, ERP systems, or custom platforms — and manage the change management process that makes adoption stick.</p>
+        <div class="ai-cap-tags"><span class="ai-cap-tag">CRM Integration</span><span class="ai-cap-tag">ERP Connectors</span><span class="ai-cap-tag">Change Mgmt</span></div>
+      </div>
+      <div class="ai-cap-card">
+        <div class="ai-cap-num">06</div>
+        <h3>Ongoing Optimization & MLOps</h3>
+        <p>Production is where AI programs either compound in value or decay. We provide continuous monitoring, retraining pipelines, and quarterly performance reviews tied directly to your KPIs.</p>
+        <div class="ai-cap-tags"><span class="ai-cap-tag">MLOps</span><span class="ai-cap-tag">KPI Tracking</span><span class="ai-cap-tag">QBRs</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- READINESS FRAMEWORK -->
+<section class="ai-framework">
+  <div class="section-inner">
+    <div class="section-label" style="margin-bottom:16px">Our Process</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.8vw,2.1rem);font-weight:700;max-width:600px;margin-bottom:0">Four Phases From <em style="color:var(--orange-light)">Assessment to Scale</em></h2>
+    <div class="ai-framework-steps fade-up">
+      <div class="ai-fw-step">
+        <div class="ai-fw-step-num">1</div>
+        <h4>Assess</h4>
+        <p>72-hour AI readiness diagnostic. Scored findings across data, architecture, governance, and org structure. No guesswork.</p>
+      </div>
+      <div class="ai-fw-step">
+        <div class="ai-fw-step-num">2</div>
+        <h4>Architect</h4>
+        <p>Design the agent system, data pipelines, and integration layer. Align every decision to the business outcome — not the technology.</p>
+      </div>
+      <div class="ai-fw-step">
+        <div class="ai-fw-step-num">3</div>
+        <h4>Deploy</h4>
+        <p>60 to 90 day Chapter 1 engagement. Production deployment with governance controls, change management, and success criteria defined upfront.</p>
+      </div>
+      <div class="ai-fw-step">
+        <div class="ai-fw-step-num">4</div>
+        <h4>Scale</h4>
+        <p>Expand to additional use cases, departments, and data domains. Continuous optimization tied to measurable KPIs and quarterly business reviews.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="ai-usecases">
+  <div class="section-inner">
+    <div class="section-label" style="margin-bottom:16px">Where Agents Create Value</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.8vw,2.1rem);font-weight:700;max-width:600px;margin-bottom:0">High-Impact Agent Use Cases<br>Across the <em style="color:var(--orange-light)">Enterprise</em></h2>
+    <div class="ai-uc-grid fade-up">
+      <div class="ai-uc-item">
+        <div class="ai-uc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div class="ai-uc-content">
+          <h4>Revenue Intelligence & Sales Automation</h4>
+          <p>Agents that surface deal signals, draft follow-up communications, update CRM records, and alert reps to at-risk opportunities — freeing sellers to sell.</p>
+        </div>
+      </div>
+      <div class="ai-uc-item">
+        <div class="ai-uc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="ai-uc-content">
+          <h4>Finance & Reporting Automation</h4>
+          <p>Agents that consolidate financial data, generate board-ready summaries, flag anomalies, and maintain audit-ready documentation without manual assembly.</p>
+        </div>
+      </div>
+      <div class="ai-uc-item">
+        <div class="ai-uc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="ai-uc-content">
+          <h4>Customer Experience & Service Ops</h4>
+          <p>Intelligent agents that handle tier-1 support, route complex cases, maintain context across sessions, and escalate with full history — reducing handle time and improving CSAT.</p>
+        </div>
+      </div>
+      <div class="ai-uc-item">
+        <div class="ai-uc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="ai-uc-content">
+          <h4>Cybersecurity Monitoring & Response</h4>
+          <p>Agents that continuously monitor threat signals, correlate events across tools, draft incident reports, and trigger response workflows — compressing detection-to-response time.</p>
+        </div>
+      </div>
+      <div class="ai-uc-item">
+        <div class="ai-uc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <div class="ai-uc-content">
+          <h4>Supply Chain & Operations Intelligence</h4>
+          <p>Agents that monitor supply chain signals, predict disruptions, generate procurement recommendations, and coordinate cross-functional responses faster than any manual process.</p>
+        </div>
+      </div>
+      <div class="ai-uc-item">
+        <div class="ai-uc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <div class="ai-uc-content">
+          <h4>Compliance & Regulatory Monitoring</h4>
+          <p>Agents that track regulatory changes, map controls to frameworks, monitor for gaps, and generate evidence packages for auditors — turning compliance from reactive to proactive.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="pa-cta-strip">
+  <div class="section-inner">
+    <div class="pa-cta-inner">
+      <div class="pa-cta-text">
+        <h2 class="pa-cta-heading">Ready to build AI agents that actually work in production?</h2>
+        <p>Start with our AI Readiness Diagnostic. Know exactly what is ready, what is not, and where to begin — before you commit a dollar to deployment.</p>
+      </div>
+      <div class="pa-cta-actions">
+        <a href="index.html#assessments" class="btn-primary">View AI Readiness Diagnostic <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="contact-us.html" class="btn-ghost">Book a Strategy Session</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="section-inner" style="padding-top:56px;padding-bottom:40px">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="https://static.wixstatic.com/media/1731f2_d91dc3d0f01245f5b369acb8b2397118~mv2.png" alt="Working Excellence" style="height:32px;margin-bottom:16px;display:block" onerror="this.style.display='none'"/>
+        <p class="footer-tagline">The expertise of a Big Four.<br>Without the overhead.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Practice Areas</div>
+        <a href="data-consulting.html">Data Consulting</a>
+        <a href="cybersecurity-consulting.html">Cybersecurity</a>
+        <a href="digital-engineering-consulting.html">Digital Engineering</a>
+        <a href="sales-improvement.html">Sales Improvement</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Assessments</div>
+        <a href="index.html#assessments">Technical Risk Assessment</a>
+        <a href="index.html#assessments">AI Readiness Diagnostic</a>
+        <a href="index.html#assessments">Cloud Infrastructure Assessment</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Company</div>
+        <a href="about-us.html">About Us</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact-us.html">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 Working Excellence. All rights reserved.</span>
+      <span><a href="privacy-policy.html" style="color:var(--grey-500);text-decoration:none">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>
