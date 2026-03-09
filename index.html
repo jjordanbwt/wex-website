@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Working Excellence — Senior-Level Consulting. Without the Big-Four Overhead.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --orange:       #f18f0a;
+  --orange-light: #f9a832;
+  --orange-pale:  #fcc76a;
+  --grey-950: #141519;
+  --grey-900: #1c1d22;
+  --grey-800: #26272e;
+  --grey-750: #2e2f38;
+  --grey-700: #383942;
+  --grey-600: #585b67;
+  --grey-500: #70737d;
+  --grey-400: #888a93;
+  --grey-300: #9ea1a8;
+  --grey-200: #b7b9be;
+  --grey-100: #d6d8dc;
+  --grey-50:  #eeeef0;
+  --white:    #ffffff;
+  --teal:     #2dbfac;
+  --bg:       var(--grey-900);
+  --bg-alt:   var(--grey-800);
+  --card:     var(--grey-750);
+  --border:   var(--grey-700);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;line-height:1.65}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.35;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E")}
+
+/* ── BACKDROP ── */
+#menu-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);z-index:98;opacity:0;pointer-events:none;transition:opacity .3s}
+#menu-backdrop.open{opacity:1;pointer-events:all}
+
+/* ══ NAV ══ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 56px;height:72px;
+  background:rgba(26,27,33,.96);
+  border-bottom:1px solid var(--grey-700);
+  backdrop-filter:blur(24px);
+  transition:height .3s,background .3s;
+}
+nav.scrolled{height:58px;background:rgba(20,21,25,.98)}
+
+.nav-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.nav-logo img{height:34px;width:auto;object-fit:contain;display:block}
+.nav-logo-text{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--white)}
+.nav-logo-text span{color:var(--orange)}
+
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none;height:100%}
+.nav-links > li{position:relative;height:100%;display:flex;align-items:center}
+.nav-links > li > a,
+.nav-links > li > button{
+  display:flex;align-items:center;gap:6px;padding:0 15px;height:100%;
+  font-size:.8rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--grey-200);text-decoration:none;
+  background:transparent;border:none;cursor:pointer;
+  transition:color .2s;white-space:nowrap;position:relative;
+}
+.nav-links > li > a:hover,
+.nav-links > li > button:hover,
+.nav-links > li > button.active{color:var(--orange)}
+.nav-chevron{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;transition:transform .25s}
+.nav-links > li > button.active .nav-chevron{transform:rotate(180deg)}
+.nav-links > li > a::after,
+.nav-links > li > button::after{
+  content:'';position:absolute;bottom:0;left:15px;right:15px;height:2px;
+  background:var(--orange);transform:scaleX(0);transform-origin:center;transition:transform .25s;
+}
+.nav-links > li > a:hover::after,
+.nav-links > li > button:hover::after,
+.nav-links > li > button.active::after{transform:scaleX(1)}
+
+.nav-right{display:flex;align-items:center;gap:14px}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--orange);color:var(--grey-950);
+  padding:9px 20px;border-radius:2px;
+  font-size:.78rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap;
+}
+.nav-cta:hover{background:var(--orange-light);transform:translateY(-1px)}
+
+/* ══ MEGA MENU ══ */
+.mega-panel{
+  position:fixed;top:72px;left:0;right:0;z-index:99;
+  background:var(--grey-800);
+  border-top:2px solid var(--orange);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 32px 80px rgba(0,0,0,.6);
+  display:grid;grid-template-columns:280px 1fr 340px;
+  transform:translateY(-10px);opacity:0;pointer-events:none;
+  transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .28s;
+  overflow:hidden;
+}
+.mega-panel.open{transform:translateY(0);opacity:1;pointer-events:all}
+nav.scrolled~.mega-panel{top:58px}
+
+.mega-left{padding:32px 0;border-right:1px solid var(--border);background:var(--grey-950)}
+.mega-left-label{padding:0 28px 12px;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange)}
+.mega-practice{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 28px;cursor:pointer;
+  border-left:3px solid transparent;
+  transition:background .15s,border-color .15s;
+}
+.mega-practice:hover,.mega-practice.active{background:rgba(241,143,10,.08);border-left-color:var(--orange)}
+.mega-practice-name{font-size:.88rem;font-weight:600;color:var(--white);transition:color .15s}
+.mega-practice:hover .mega-practice-name,.mega-practice.active .mega-practice-name{color:var(--orange-light)}
+.mega-practice-arr{width:15px;height:15px;stroke:var(--grey-600);fill:none;stroke-width:2;transition:stroke .15s,transform .2s}
+.mega-practice:hover .mega-practice-arr,.mega-practice.active .mega-practice-arr{stroke:var(--orange);transform:translateX(3px)}
+
+.mega-assess-block{padding:20px 28px 0;border-top:1px solid var(--border);margin-top:12px}
+.mega-assess-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-500);margin-bottom:10px}
+.mega-assess-link{display:block;font-size:.82rem;color:var(--grey-300);text-decoration:none;padding:6px 0;transition:color .2s}
+.mega-assess-link:hover{color:var(--orange)}
+
+.mega-center{padding:32px 36px;overflow-y:auto}
+.mega-center-inner{display:none}
+.mega-center-inner.active{display:block;animation:fadeUp .2s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.mega-center-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey-400);margin-bottom:18px}
+.mega-sub-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.mega-sub-link{display:flex;align-items:flex-start;gap:10px;padding:13px 14px;border-radius:2px;text-decoration:none;transition:background .15s}
+.mega-sub-link:hover{background:rgba(255,255,255,.04)}
+.mega-sub-dot{width:5px;height:5px;border-radius:50%;background:var(--grey-600);margin-top:7px;flex-shrink:0;transition:background .15s}
+.mega-sub-link:hover .mega-sub-dot{background:var(--orange)}
+.mega-sub-text{font-size:.84rem;color:var(--grey-300);line-height:1.4;font-weight:500;transition:color .15s}
+.mega-sub-link:hover .mega-sub-text{color:var(--white)}
+
+.mega-right{background:var(--grey-950);border-left:1px solid var(--border);padding:32px 28px;display:flex;flex-direction:column;gap:22px}
+.mega-right-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange)}
+.mega-cta-card{background:rgba(241,143,10,.08);border:1px solid rgba(241,143,10,.22);border-radius:2px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.mega-cta-card-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;line-height:1.3}
+.mega-cta-card-desc{font-size:.78rem;color:var(--grey-300);line-height:1.6}
+.mega-cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:var(--grey-950);padding:10px 16px;border-radius:2px;font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;width:fit-content;transition:background .2s}
+.mega-cta-btn:hover{background:var(--orange-light)}
+.mega-ql-stack{display:flex;flex-direction:column;gap:1px}
+.mega-ql{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--border);text-decoration:none;color:var(--grey-300);font-size:.82rem;font-weight:500;transition:color .2s}
+.mega-ql:hover{color:var(--orange)}
+.mega-ql:last-child{border-bottom:none}
+
+/* ══ HERO ══ */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 56px 96px;overflow:hidden;background:var(--grey-950)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(241,143,10,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(241,143,10,.03) 1px,transparent 1px);background-size:68px 68px}
+.hero-glow{position:absolute;right:-5%;top:5%;width:600px;height:600px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(241,143,10,.09) 0%,transparent 68%)}
+.hero-glow2{position:absolute;left:-8%;bottom:-10%;width:480px;height:480px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(88,91,103,.14) 0%,transparent 68%)}
+.hero-inner{position:relative;z-index:1;max-width:1240px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 460px;gap:68px;align-items:center}
+
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:.66rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:22px}
+.hero-eyebrow::before{content:'';width:26px;height:1px;background:var(--orange)}
+.hero-headline{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,4.4vw,3.9rem);font-weight:700;line-height:1.08;letter-spacing:-.02em;margin-bottom:22px}
+.hero-headline em{font-style:italic;color:var(--orange-light)}
+.hero-sub{font-size:1.02rem;font-weight:300;line-height:1.8;color:var(--grey-200);max-width:540px;margin-bottom:38px}
+.hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:var(--grey-950);padding:14px 28px;border-radius:2px;font-size:.84rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .15s}
+.btn-primary:hover{background:var(--orange-light);transform:translateY(-1px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;color:var(--grey-300);border:1px solid var(--grey-600);padding:13px 24px;border-radius:2px;font-size:.84rem;font-weight:500;letter-spacing:.04em;text-decoration:none;cursor:pointer;background:transparent;transition:border-color .2s,color .2s}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
+
+.hero-trust{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.hero-trust-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey-500);flex-shrink:0}
+.trust-pill{background:var(--grey-800);border:1px solid var(--border);border-radius:2px;padding:6px 12px;font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--grey-300)}
+
+/* Image placeholders */
+.img-ph{background:var(--grey-800);border:1px solid var(--border);border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--grey-600);position:relative;overflow:hidden}
+.img-ph::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(241,143,10,.04) 0%,transparent 60%)}
+.img-ph svg{opacity:.35;z-index:1}
+.img-ph-lbl{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;opacity:.45;z-index:1}
+
+.hero-img-wrap{position:relative}
+.hero-img-wrap .img-ph{aspect-ratio:4/3}
+.hero-stat{position:absolute;background:rgba(26,27,33,.92);border:1px solid var(--border);backdrop-filter:blur(12px);padding:14px 18px;border-radius:3px;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.hero-stat.tl{top:-18px;left:-24px}
+.hero-stat.br{bottom:-14px;right:-18px}
+.hero-stat-num{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:900;color:var(--orange-light);line-height:1}
+.hero-stat-lbl{font-size:.7rem;color:var(--grey-300);line-height:1.4;margin-top:4px}
+
+/* ══ MARQUEE ══ */
+.marquee-bar{overflow:hidden;background:var(--grey-800);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:11px 0}
+.marquee-track{display:flex;white-space:nowrap;animation:marquee 28s linear infinite}
+.marquee-item{display:inline-flex;align-items:center;gap:20px;padding:0 30px;font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-500)}
+.marquee-dot{color:var(--orange)}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ══ SECTION SCAFFOLDING ══ */
+.section-inner{max-width:1240px;margin:0 auto;padding:92px 56px}
+.section-label{display:inline-flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:.63rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+.section-label::before{content:'';width:22px;height:1px;background:var(--orange)}
+.section-headline{font-family:'Playfair Display',serif;font-size:clamp(1.85rem,3vw,2.7rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:16px}
+.section-headline em{font-style:italic;color:var(--orange-light)}
+.section-sub{font-size:.94rem;color:var(--grey-300);max-width:520px;line-height:1.8;margin-bottom:48px}
+
+.fade-up{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+/* ══ PROBLEM ══ */
+.problem-section{background:var(--grey-800)}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:48px}
+.problem-cell{background:var(--grey-800);padding:38px;transition:background .2s}
+.problem-cell:hover{background:var(--grey-750)}
+.problem-num{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;color:var(--orange);margin-bottom:12px}
+.problem-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;margin-bottom:9px}
+.problem-desc{font-size:.84rem;color:var(--grey-400);line-height:1.78}
+
+/* ══ SERVICES ══ */
+.services-section{background:var(--grey-900)}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.service-card{background:var(--grey-900);padding:40px 28px;position:relative;overflow:hidden;transition:background .25s}
+.service-card:hover{background:var(--grey-800)}
+.service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.service-card:hover::after{transform:scaleX(1)}
+.service-img-ph{width:100%;aspect-ratio:3/2;margin-bottom:22px;background:var(--grey-800);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;border-radius:2px;overflow:hidden;position:relative}
+.service-img-ph::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(241,143,10,.05) 0%,transparent 70%)}
+.service-icon-box{width:48px;height:48px;background:rgba(241,143,10,.1);border:1px solid rgba(241,143,10,.2);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;z-index:1}
+.service-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;margin-bottom:11px}
+.service-desc{font-size:.82rem;color:var(--grey-400);line-height:1.78;margin-bottom:20px}
+.service-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:20px}
+.service-tag{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;border:1px solid var(--grey-700);color:var(--grey-400);border-radius:1px}
+.service-link{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);text-decoration:none;transition:gap .2s}
+.service-link:hover{gap:13px}
+
+/* ══ ASSESSMENTS ══ */
+.assess-section{background:var(--grey-800)}
+.assess-intro{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:56px}
+.assess-quote{border-left:3px solid var(--orange);padding:22px 26px;background:rgba(241,143,10,.05);font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;line-height:1.65;color:var(--grey-50)}
+.assess-quote cite{display:block;margin-top:12px;font-family:'DM Sans',sans-serif;font-style:normal;font-size:.74rem;color:var(--orange);letter-spacing:.08em}
+.assess-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.assess-card{background:var(--grey-750);border:1px solid var(--border);border-radius:2px;padding:32px 26px;position:relative;overflow:hidden;transition:border-color .25s,transform .2s}
+.assess-card:hover{border-color:var(--orange);transform:translateY(-4px)}
+.assess-badge{position:absolute;top:0;right:0;background:var(--orange);color:var(--grey-950);font-family:'DM Mono',monospace;font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 11px;border-bottom-left-radius:2px}
+.assess-img-ph{width:100%;aspect-ratio:16/7;margin-bottom:18px;background:var(--grey-800);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;border-radius:2px;overflow:hidden;position:relative}
+.assess-img-ph::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(241,143,10,.04) 0%,transparent 70%)}
+.assess-icon{width:38px;height:38px;background:rgba(241,143,10,.08);border:1px solid rgba(241,143,10,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;z-index:1}
+.assess-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:9px}
+.assess-title span{color:var(--orange-light)}
+.assess-sub{font-size:.8rem;color:var(--grey-400);line-height:1.72;margin-bottom:18px}
+.assess-deliverables{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:24px}
+.assess-deliverables li{display:flex;align-items:flex-start;gap:8px;font-size:.79rem;color:var(--grey-200);line-height:1.5}
+.assess-deliverables li::before{content:'→';color:var(--orange);flex-shrink:0;font-size:.76rem;margin-top:1px}
+.assess-price{display:flex;align-items:baseline;gap:7px;padding-top:16px;border-top:1px solid var(--border);margin-bottom:16px}
+.assess-price-amount{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:700}
+.assess-price-lbl{font-size:.74rem;color:var(--grey-400)}
+.btn-assess{display:block;text-align:center;background:transparent;border:1px solid var(--orange);color:var(--orange);padding:10px 16px;border-radius:2px;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .2s,color .2s}
+.btn-assess:hover{background:var(--orange);color:var(--grey-950)}
+
+/* ══ CALCULATOR ══ */
+.calc-section{background:var(--grey-950);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.calc-glow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:900px;height:400px;pointer-events:none;background:radial-gradient(ellipse,rgba(241,143,10,.07) 0%,transparent 70%)}
+.calc-inner{max-width:1240px;margin:0 auto;padding:92px 56px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;position:relative;z-index:1}
+.calc-right{background:var(--grey-800);border:1px solid var(--border);border-radius:4px;padding:36px}
+.calc-title{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:22px}
+.calc-field{margin-bottom:22px}
+.calc-lbl{font-size:.78rem;font-weight:500;color:var(--grey-200);margin-bottom:7px;display:block;letter-spacing:.02em}
+.calc-select,.calc-input{width:100%;background:var(--grey-750);border:1px solid var(--border);color:var(--white);padding:10px 13px;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:.86rem;appearance:none;outline:none;transition:border-color .2s}
+.calc-select:focus,.calc-input:focus{border-color:var(--orange)}
+.calc-select option{background:var(--grey-750)}
+.calc-range{width:100%;accent-color:var(--orange);height:4px;border-radius:2px;cursor:pointer;margin-top:8px}
+.calc-range-row{display:flex;justify-content:space-between;margin-top:5px}
+.calc-range-val{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--grey-500)}
+.calc-results{margin-top:26px;padding:22px;background:var(--grey-900);border:1px solid var(--border);border-radius:3px}
+.calc-results-lbl{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--grey-500);margin-bottom:16px}
+.calc-row{display:flex;align-items:flex-start;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--border);gap:14px}
+.calc-row:last-child{border-bottom:none;padding-bottom:0}
+.calc-row-key{font-size:.8rem;color:var(--grey-300);line-height:1.4;flex:1}
+.calc-row-val{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--orange-light);white-space:nowrap}
+.calc-total{font-size:1.85rem}
+.calc-cta-row{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap}
+.calc-disclaimer{font-size:.7rem;color:var(--grey-500);line-height:1.5;margin-top:10px}
+
+/* ══ METHODOLOGY ══ */
+.method-section{background:var(--grey-800);overflow:hidden}
+.method-inner{max-width:1240px;margin:0 auto;padding:92px 56px}
+.method-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:56px}
+
+.method-tabs{display:flex;gap:0;border:1px solid var(--border);border-radius:2px;overflow:hidden;margin-top:28px}
+.method-tab{flex:1;padding:11px 14px;background:var(--grey-750);border:none;cursor:pointer;font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-400);border-right:1px solid var(--border);transition:background .2s,color .2s;position:relative}
+.method-tab:last-child{border-right:none}
+.method-tab.active{background:var(--orange);color:var(--grey-950);font-weight:700}
+.method-tab:not(.active):hover{background:var(--grey-700);color:var(--grey-200)}
+
+.method-prog-wrap{height:3px;background:var(--border);position:relative;overflow:hidden}
+.method-prog-fill{position:absolute;top:0;left:0;height:100%;background:var(--orange);width:25%;transition:width .08s linear}
+
+.method-indicators{display:flex;gap:6px;margin-top:16px}
+.method-dot{width:26px;height:3px;border-radius:2px;background:var(--border);cursor:pointer;transition:background .2s,width .25s}
+.method-dot.active{background:var(--orange);width:40px}
+.method-controls{display:flex;align-items:center;gap:10px;margin-top:10px}
+.method-pause-btn{display:flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--border);color:var(--grey-400);padding:6px 12px;border-radius:2px;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:border-color .2s,color .2s}
+.method-pause-btn:hover{border-color:var(--orange);color:var(--orange)}
+
+.method-stage{display:none;animation:fadeUp .3s ease}
+.method-stage.active{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+
+.method-stage-num{font-family:'Playfair Display',serif;font-size:6.5rem;font-weight:900;line-height:1;color:rgba(241,143,10,.1);margin-bottom:6px}
+.method-stage-eye{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.method-stage-title{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:14px}
+.method-stage-title em{font-style:italic;color:var(--orange-light)}
+.method-stage-desc{font-size:.9rem;color:var(--grey-300);line-height:1.8;margin-bottom:24px}
+.method-stage-pts{list-style:none;display:flex;flex-direction:column;gap:9px}
+.method-stage-pts li{display:flex;align-items:flex-start;gap:10px;font-size:.84rem;color:var(--grey-200);line-height:1.5}
+.method-stage-pts li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:7px}
+
+.method-img-ph{width:100%;aspect-ratio:4/3;background:var(--grey-750);border:1px solid var(--border);border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--grey-600);position:relative;overflow:hidden}
+.method-img-ph::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(241,143,10,.04) 0%,transparent 60%)}
+.method-img-icon{font-size:2.4rem;opacity:.28;z-index:1}
+.method-img-lbl{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-600);z-index:1}
+
+/* ══ VS TABLE ══ */
+.vs-section{background:var(--grey-900)}
+.vs-table{width:100%;border-collapse:collapse;margin-top:44px;border:1px solid var(--border)}
+.vs-table th{padding:17px 20px;text-align:left;border-bottom:1px solid var(--border);border-right:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;background:var(--grey-800)}
+.vs-table th:last-child{border-right:none}
+.vs-table th.hl{color:var(--orange);background:rgba(241,143,10,.06);border-top:2px solid var(--orange)}
+.vs-table td{padding:15px 20px;border-bottom:1px solid rgba(56,57,66,.55);border-right:1px solid rgba(56,57,66,.55);font-size:.82rem;color:var(--grey-300);line-height:1.5;vertical-align:top}
+.vs-table td:last-child{border-right:none}
+.vs-table tr:last-child td{border-bottom:none}
+.vs-table td:first-child{font-weight:500;color:var(--grey-200);font-family:'DM Mono',monospace;font-size:.74rem;letter-spacing:.04em}
+.vs-table td.hl{color:var(--white);background:rgba(241,143,10,.03);font-weight:500}
+.vcheck{color:var(--teal);font-weight:700}
+.vx{color:var(--grey-700)}
+
+/* ══ STATS ══ */
+.proof-section{background:var(--grey-800);border-top:1px solid var(--border)}
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border)}
+.proof-cell{padding:52px 44px;text-align:center;border-right:1px solid var(--border)}
+.proof-cell:last-child{border-right:none}
+.proof-big{font-family:'Playfair Display',serif;font-size:3.6rem;font-weight:900;color:var(--orange-light);line-height:1;margin-bottom:9px}
+.proof-big span{font-style:italic;font-size:2.1rem}
+.proof-lbl{font-size:.84rem;color:var(--grey-300);line-height:1.65;max-width:190px;margin:0 auto}
+
+/* ══ LEADERSHIP ══ */
+.leadership-section{background:var(--grey-900)}
+.leadership-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+.leader-card{border:1px solid var(--border);background:var(--grey-800);overflow:hidden;transition:border-color .25s}
+.leader-card:hover{border-color:var(--orange)}
+.leader-img-ph{width:100%;aspect-ratio:3/2;background:var(--grey-750);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.leader-img-ph::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(241,143,10,.05) 0%,transparent 60%)}
+.leader-initial{width:68px;height:68px;border:2px solid var(--orange);border-radius:2px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--orange);z-index:1}
+.leader-body{padding:26px 26px 30px}
+.leader-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:3px}
+.leader-title{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+.leader-bio{font-size:.81rem;color:var(--grey-400);line-height:1.78}
+
+/* ══ FINAL CTA ══ */
+.cta-section{background:var(--grey-950);position:relative;overflow:hidden}
+.cta-glow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(241,143,10,.08) 0%,transparent 70%);pointer-events:none}
+.cta-inner{position:relative;z-index:1;text-align:center;max-width:720px;margin:0 auto;padding:108px 56px}
+.cta-headline{font-family:'Playfair Display',serif;font-size:clamp(1.95rem,3.6vw,3.1rem);font-weight:700;line-height:1.08;letter-spacing:-.02em;margin-bottom:18px}
+.cta-headline em{font-style:italic;color:var(--orange-light)}
+.cta-sub{font-size:.95rem;color:var(--grey-200);line-height:1.8;margin-bottom:38px}
+.cta-buttons{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.cta-note{margin-top:22px;font-family:'DM Mono',monospace;font-size:.62rem;color:var(--grey-600);letter-spacing:.08em}
+
+/* ══ FOOTER ══ */
+footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56px 56px 34px}
+.footer-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.footer-logo img{height:30px;margin-bottom:12px;display:block}
+.footer-tagline{font-size:.82rem;color:var(--grey-400);line-height:1.75;max-width:270px}
+.footer-col-title{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links a{font-size:.81rem;color:var(--grey-300);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--orange-light)}
+.footer-bottom{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding-top:26px;border-top:1px solid var(--border);font-size:.74rem;color:var(--grey-500)}
+.footer-brand-mono{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.12em;color:var(--orange)}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:1100px){
+  .hero-inner,.method-header{grid-template-columns:1fr}
+  .hero-img-wrap{display:none}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .assess-intro{grid-template-columns:1fr}
+  .assess-cards{grid-template-columns:1fr}
+  .calc-inner{grid-template-columns:1fr}
+  .method-stage.active{grid-template-columns:1fr}
+  .method-img-ph{display:none}
+  .leadership-grid{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .mega-panel{grid-template-columns:260px 1fr}
+  .mega-right{display:none}
+}
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .section-inner,.method-inner{padding:60px 20px}
+  .hero{padding:96px 20px 68px}
+  .calc-inner{padding:60px 20px}
+  .services-grid,.proof-grid{grid-template-columns:1fr}
+  .problem-grid{grid-template-columns:1fr}
+  .leadership-grid{grid-template-columns:1fr}
+  .proof-cell{border-right:none;border-bottom:1px solid var(--border)}
+  footer{padding:40px 20px 28px}
+  .footer-inner{grid-template-columns:1fr;gap:28px}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+  .cta-inner{padding:72px 24px}
+  .vs-table{font-size:.74rem}
+}
+</style>
+</head>
+<body>
+
+<!-- BACKDROP -->
+<div id="menu-backdrop" onclick="closeMenu()"></div>
+
+<!-- ══════════════════════════════════════════════
+     NAV
+══════════════════════════════════════════════ -->
+<nav id="main-nav">
+  <!-- Logo -->
+  <a href="#top" class="nav-logo">
+    <img
+      src="https://static.wixstatic.com/media/1731f2_d91dc3d0f01245f5b369acb8b2397118~mv2.png"
+      alt="Working Excellence"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
+    />
+    <span class="nav-logo-text" style="display:none">Working <span>Excellence</span></span>
+  </a>
+
+  <!-- Centre links -->
+  <ul class="nav-links">
+    <li><a href="#top">Home</a></li>
+    <li>
+      <button id="btn-practice" onclick="toggleMenu('practice')">
+        Practice Areas
+        <svg class="nav-chevron" viewBox="0 0 14 8"><path d="M1 1l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </li>
+    <li><a href="#assessments">Assessments</a></li>
+    <li><a href="#calculator">Calculator</a></li>
+    <li><a href="https://www.workingexcellence.com/insights" target="_blank">Insights</a></li>
+    <li><a href="https://www.workingexcellence.com/about-us" target="_blank">About</a></li>
+  </ul>
+
+  <!-- CTA -->
+  <div class="nav-right">
+    <a href="#book" class="nav-cta">Book a Session →</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     MEGA MENU
+══════════════════════════════════════════════ -->
+<div class="mega-panel" id="mega-practice">
+
+  <!-- Col 1 -->
+  <div class="mega-left">
+    <div class="mega-left-label">Practice Areas</div>
+    <div class="mega-practice active" data-target="data" onmouseover="showSub('data',this)">
+      <span class="mega-practice-name">Data Consulting</span>
+      <svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="mega-practice" data-target="cyber" onmouseover="showSub('cyber',this)">
+      <span class="mega-practice-name">Cybersecurity</span>
+      <svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="mega-practice" data-target="digital" onmouseover="showSub('digital',this)">
+      <span class="mega-practice-name">Digital Engineering</span>
+      <svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="mega-practice" data-target="sales" onmouseover="showSub('sales',this)">
+      <span class="mega-practice-name">Sales Improvement</span>
+      <svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="mega-assess-block">
+      <div class="mega-assess-label">Assessments</div>
+      <a href="#assessments" onclick="closeMenu()" class="mega-assess-link">→ Technical Risk Assessment</a>
+      <a href="#assessments" onclick="closeMenu()" class="mega-assess-link">→ AI Readiness Diagnostic</a>
+      <a href="#assessments" onclick="closeMenu()" class="mega-assess-link">→ Cloud Infrastructure Assessment</a>
+    </div>
+  </div>
+
+  <!-- Col 2: Sub-services -->
+  <div class="mega-center">
+    <div class="mega-center-inner active" id="sub-data">
+      <div class="mega-center-label">Data Practice — Sub-Services</div>
+      <div class="mega-sub-grid">
+        <a href="https://www.workingexcellence.com/data/strategy" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Strategy</span></a>
+        <a href="https://www.workingexcellence.com/ai-agents-for-business" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">AI Agents for Business</span></a>
+        <a href="https://www.workingexcellence.com/data/data-architecture" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Architecture</span></a>
+        <a href="https://www.workingexcellence.com/data/machine-learning" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Machine Learning</span></a>
+        <a href="https://www.workingexcellence.com/data/data-governance" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Governance</span></a>
+        <a href="https://www.workingexcellence.com/data/artificial-intelligence" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Artificial Intelligence</span></a>
+        <a href="https://www.workingexcellence.com/data/reporting-and-visualization" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Reporting &amp; Visualization</span></a>
+        <a href="https://www.workingexcellence.com/data/data-operations" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Operations</span></a>
+      </div>
+    </div>
+    <div class="mega-center-inner" id="sub-cyber">
+      <div class="mega-center-label">Cybersecurity Practice — Sub-Services</div>
+      <div class="mega-sub-grid">
+        <a href="https://www.workingexcellence.com/cybersecurity/strategy" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Security Strategy</span></a>
+        <a href="https://www.workingexcellence.com/cybersecurity/architecture-and-tools" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Architecture &amp; Tools</span></a>
+        <a href="https://www.workingexcellence.com/cybersecurity/governance-and-process" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Governance &amp; Processes</span></a>
+        <a href="https://www.workingexcellence.com/cybersecurity/security-operations" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Security Operations</span></a>
+        <a href="https://www.workingexcellence.com/aws/managed-aws-services-" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Managed AWS Services</span></a>
+        <a href="https://www.workingexcellence.com/aws/cloud-cost-optimization-services" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Cloud Cost Optimization</span></a>
+        <a href="https://www.workingexcellence.com/aws/finops-services" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">FinOps Services</span></a>
+        <a href="#assessments" onclick="closeMenu()" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Incident Response 2.0</span></a>
+      </div>
+    </div>
+    <div class="mega-center-inner" id="sub-digital">
+      <div class="mega-center-label">Digital Engineering Practice — Sub-Services</div>
+      <div class="mega-sub-grid">
+        <a href="https://www.workingexcellence.com/digital-engineering/strategy" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Engineering Strategy</span></a>
+        <a href="https://www.workingexcellence.com/digital-engineering/cloud-migrations" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Cloud Migrations</span></a>
+        <a href="https://www.workingexcellence.com/digital-engineering/intelligent-automation" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Intelligent Automation</span></a>
+        <a href="https://www.workingexcellence.com/digital-engineering/product-engineering" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Product Engineering</span></a>
+        <a href="https://www.workingexcellence.com/digital-engineering/application-support" target="_blank" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Application Support</span></a>
+        <a href="#assessments" onclick="closeMenu()" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Cloud Infrastructure Assessment</span></a>
+      </div>
+    </div>
+    <div class="mega-center-inner" id="sub-sales">
+      <div class="mega-center-label">Sales Improvement Practice — Sub-Services</div>
+      <div class="mega-sub-grid">
+        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">GTM Narrative Design</span></a>
+        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Sales Enablement Frameworks</span></a>
+        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Cross-Team Alignment</span></a>
+        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Executive Story Development</span></a>
+        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Operations Strategy</span></a>
+        <a href="#" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Sales Coaching Programs</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Col 3: Featured -->
+  <div class="mega-right">
+    <div class="mega-right-label">Start Here</div>
+    <div class="mega-cta-card">
+      <div class="mega-cta-card-title">Book a Free 30-Min Strategy Session</div>
+      <div class="mega-cta-card-desc">Talk to a senior practitioner — not an account manager. Identify where the highest-value starting point is for your organization.</div>
+      <a href="#book" class="mega-cta-btn" onclick="closeMenu()">Schedule Now →</a>
+    </div>
+    <div>
+      <div class="mega-right-label" style="margin-bottom:10px">Quick Access</div>
+      <div class="mega-ql-stack">
+        <a href="#assessments" class="mega-ql" onclick="closeMenu()"><span>Technical Risk Assessment</span><span>→</span></a>
+        <a href="#assessments" class="mega-ql" onclick="closeMenu()"><span>AI Readiness Diagnostic</span><span>→</span></a>
+        <a href="#calculator" class="mega-ql" onclick="closeMenu()"><span>Cost of Inaction Calculator</span><span>→</span></a>
+        <a href="https://www.workingexcellence.com/insights" target="_blank" class="mega-ql"><span>Insights &amp; Blog</span><span>→</span></a>
+        <a href="https://www.workingexcellence.com/about-us" target="_blank" class="mega-ql"><span>About Working Excellence</span><span>→</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Senior-Level Consulting</div>
+      <h1 class="hero-headline">
+        The expertise of a Big Four.<br/>
+        <em>Without the overhead,<br/>
+        the wait, or the juniors.</em>
+      </h1>
+      <p class="hero-sub">Working Excellence delivers fractional executive leadership across Data, Cybersecurity, Digital Engineering, and Sales Enablement — to organizations ready to compete at enterprise scale without enterprise-sized budgets.</p>
+      <div class="hero-actions">
+        <a href="#book" class="btn-primary">Book a Strategy Session →</a>
+        <a href="#assessments" class="btn-ghost">View Assessments</a>
+      </div>
+      <div class="hero-trust">
+        <span class="hero-trust-label">We serve</span>
+        <span class="trust-pill">Manufacturing</span>
+        <span class="trust-pill">Healthcare</span>
+        <span class="trust-pill">Financial Services</span>
+        <span class="trust-pill">SaaS</span>
+        <span class="trust-pill">PE-Backed</span>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <div class="img-ph" style="aspect-ratio:4/3">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="36" height="26" rx="2"/><path d="M15 40h14M22 30v10"/><path d="M13 18l5 5 7-9 7 7"/></svg>
+        <span class="img-ph-lbl">Hero Image</span>
+      </div>
+      <div class="hero-stat tl"><div class="hero-stat-num">40%</div><div class="hero-stat-lbl">Avg. cloud waste<br/>found in 72 hrs</div></div>
+      <div class="hero-stat br"><div class="hero-stat-num">$15K+</div><div class="hero-stat-lbl">Savings vs. Big Four<br/>traditional assessment</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-dot">◆</span>Data Strategy &amp; Governance</span>
+    <span class="marquee-item"><span class="marquee-dot">◆</span>Cybersecurity &amp; NIST CSF 2.0</span>
+    <span class="marquee-item"><span class="marquee-dot">◆</span>Cloud Infrastructure Assessment</span>
+    <span class="marquee-item"><span class="marquee-dot">◆</span>AI Readiness Diagnostic</span>
+    <span class="marquee-item"><span class="marquee-dot">◆</span>Technical Risk Assessment</span>
+    <span class="marquee-item"><span class="marquee-dot">◆</span>Digital Engineering &amp; Modernization</span>
+    <span class="marquee-item"><span class="marquee-dot">◆</span>Sales Enablement &amp; GTM Strategy</span>
+    <span class="marquee-item"><span class="marquee-dot">◆</span>Fractional CTO / CISO / CDO</span>
+    <span class="marquee-item"><span class="marquee-dot">◆</span>Data Strategy &amp; Governance</span>
+    <span class="marquee-item"><span class="marquee-dot">◆</span>Cybersecurity &amp; NIST CSF 2.0</span>
+    <span class="marquee-item"><span class="marquee-dot">◆</span>Cloud Infrastructure Assessment</span>
+    <span class="marquee-item"><span class="marquee-dot">◆</span>AI Readiness Diagnostic</span>
+    <span class="marquee-item"><span class="marquee-dot">◆</span>Technical Risk Assessment</span>
+    <span class="marquee-item"><span class="marquee-dot">◆</span>Digital Engineering &amp; Modernization</span>
+    <span class="marquee-item"><span class="marquee-dot">◆</span>Sales Enablement &amp; GTM Strategy</span>
+    <span class="marquee-item"><span class="marquee-dot">◆</span>Fractional CTO / CISO / CDO</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PROBLEM
+══════════════════════════════════════════════ -->
+<section class="problem-section">
+  <div class="section-inner">
+    <div class="section-label">The Reality</div>
+    <h2 class="section-headline">The firms you can afford<br/><em>don't have who you need.</em></h2>
+    <p class="section-sub">Mid-market organizations face enterprise-scale complexity — multi-cloud environments, HIPAA and NIST obligations, AI investments — with budgets not designed for Big Four hourly rates.</p>
+    <div class="problem-grid fade-up">
+      <div class="problem-cell"><div class="problem-num">01</div><div class="problem-title">The Bait-and-Switch</div><div class="problem-desc">Senior partners pitch the engagement. Junior analysts deliver it. You signed for a senior strategist and got a slide deck from someone two years out of school.</div></div>
+      <div class="problem-cell"><div class="problem-num">02</div><div class="problem-title">The $15K PDF Problem</div><div class="problem-desc">Traditional assessments take weeks, cost tens of thousands, and produce findings based on interviews — not live infrastructure analysis. Then they sit in a drawer.</div></div>
+      <div class="problem-cell"><div class="problem-num">03</div><div class="problem-title">The Talent You Can't Hire</div><div class="problem-desc">FAANG and well-funded startups win the recruiting war for data engineers, security architects, and AI specialists. You can't compete on salary — but you still need the expertise.</div></div>
+      <div class="problem-cell"><div class="problem-num">04</div><div class="problem-title">AI Hype Without a Foundation</div><div class="problem-desc">Every consultant is selling agentic AI. Almost none of them are assessing whether your data governance or architecture can actually support it. Pilots fail. Budgets evaporate.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SERVICES
+══════════════════════════════════════════════ -->
+<section class="services-section" id="services">
+  <div class="section-inner">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:36px;margin-bottom:48px;flex-wrap:wrap">
+      <div><div class="section-label">Practice Areas</div><h2 class="section-headline">Four disciplines.<br/><em>One integrated team.</em></h2></div>
+      <p style="font-size:.88rem;color:var(--grey-400);max-width:340px;line-height:1.82;flex-shrink:0">Most consulting firms specialize in one lane and fill the gaps with generalists. We maintain senior practitioners across all four — and they work together by design.</p>
+    </div>
+    <div class="services-grid fade-up">
+      <div class="service-card">
+        <div class="service-img-ph"><div class="service-icon-box">◈</div></div>
+        <div class="service-title">Data Consulting</div>
+        <div class="service-desc">Turn data into intelligence, intelligence into action, and action into growth. From strategy and governance to AI-driven insights, we build ecosystems designed for performance and cost-efficiency.</div>
+        <div class="service-tags"><span class="service-tag">Strategy</span><span class="service-tag">AI/ML</span><span class="service-tag">Governance</span><span class="service-tag">Analytics</span></div>
+        <a href="https://www.workingexcellence.com/data-consulting" target="_blank" class="service-link">Explore service →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-img-ph"><div class="service-icon-box">⬡</div></div>
+        <div class="service-title">Cybersecurity</div>
+        <div class="service-desc">Cybersecurity strategies that move beyond theory and into action. Clients gain a risk-aligned roadmap tied to business priorities — not a compliance checklist filed away after the audit.</div>
+        <div class="service-tags"><span class="service-tag">NIST CSF 2.0</span><span class="service-tag">HIPAA</span><span class="service-tag">SOC 2</span><span class="service-tag">IR 2.0</span></div>
+        <a href="https://www.workingexcellence.com/cybersecurity-consulting" target="_blank" class="service-link">Explore service →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-img-ph"><div class="service-icon-box">⬙</div></div>
+        <div class="service-title">Digital Engineering</div>
+        <div class="service-desc">Modernize legacy systems, embrace cloud-native architecture, and enable intelligent automation. Our digital engineers design, build, and optimize solutions tied to your business goals.</div>
+        <div class="service-tags"><span class="service-tag">Cloud</span><span class="service-tag">Automation</span><span class="service-tag">DevSecOps</span><span class="service-tag">APIs</span></div>
+        <a href="https://www.workingexcellence.com/digital-engineering-consulting" target="_blank" class="service-link">Explore service →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-img-ph"><div class="service-icon-box">◎</div></div>
+        <div class="service-title">Sales Improvement</div>
+        <div class="service-desc">Your bottom 50% of reps aren't failing because they're bad — they can't tell your story. We build the executive-facing narrative and cross-team playbook that turns complex offerings into consistent pipeline.</div>
+        <div class="service-tags"><span class="service-tag">GTM</span><span class="service-tag">Enablement</span><span class="service-tag">Narrative</span><span class="service-tag">Revenue Ops</span></div>
+        <a href="#book" class="service-link">Explore service →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     ASSESSMENTS
+══════════════════════════════════════════════ -->
+<section class="assess-section" id="assessments">
+  <div class="section-inner">
+    <div class="section-label">Tactical Engagements</div>
+    <h2 class="section-headline">Start with what you <em>know.</em><br/>Act on what you find.</h2>
+    <div class="assess-intro fade-up">
+      <div>
+        <p style="font-size:.94rem;color:var(--grey-200);line-height:1.82;margin-bottom:18px">Our assessment products are designed for executives who need answers fast — before committing to a six-figure transformation engagement. Each delivers specific, quantified findings based on your actual environment. No templates. No generic benchmarks.</p>
+        <p style="font-size:.84rem;color:var(--grey-400);line-height:1.78">Assessments are the natural entry point into a broader Working Excellence engagement. They produce executive-ready deliverables on day one and typically identify 3–5 immediate remediation priorities your team can act on within 30 days.</p>
+      </div>
+      <blockquote class="assess-quote">"Every engagement starts with context — where you are, what's blocking you, and what winning looks like. Our assessments are how we earn the right to tell that story together."<cite>Kurt Smith, Chief Revenue Officer</cite></blockquote>
+    </div>
+    <div class="assess-cards">
+      <div class="assess-card fade-up d1">
+        <div class="assess-badge">Most Requested</div>
+        <div class="assess-img-ph"><div class="assess-icon">⚑</div></div>
+        <h3 class="assess-title">Technical Risk <span>Assessment</span></h3>
+        <p class="assess-sub">A structured, senior-led review of your technology stack, security posture, architecture decisions, and operational risk exposure. Built to surface what's quietly threatening your environment before it becomes a board-level incident.</p>
+        <ul class="assess-deliverables">
+          <li>Executive risk summary with prioritized remediation roadmap</li>
+          <li>Architecture gap analysis with resource-level findings</li>
+          <li>Compliance posture snapshot against applicable frameworks</li>
+          <li>30/60/90-day action plan with ownership assignments</li>
+          <li>Leadership-ready presentation deck</li>
+        </ul>
+        <div class="assess-price"><div class="assess-price-amount">Starting at $4,500</div><div class="assess-price-lbl">/ fixed-fee</div></div>
+        <a href="#book" class="btn-assess">Request Assessment</a>
+      </div>
+      <div class="assess-card fade-up d2">
+        <div class="assess-img-ph"><div class="assess-icon">◉</div></div>
+        <h3 class="assess-title">AI Readiness <span>Diagnostic</span></h3>
+        <p class="assess-sub">Before you spend another dollar on AI tooling, know whether your organization can actually operationalize it. We assess your data foundation, governance structures, architecture, and organizational readiness — before pilots fail.</p>
+        <ul class="assess-deliverables">
+          <li>AI/ML infrastructure and data quality scoring</li>
+          <li>Governance and decision-rights gap analysis</li>
+          <li>Highest-ROI deployment priorities by department</li>
+          <li>Agentic AI readiness scorecard</li>
+          <li>Board-ready AI risk and investment summary</li>
+        </ul>
+        <div class="assess-price"><div class="assess-price-amount">Starting at $5,500</div><div class="assess-price-lbl">/ fixed-fee</div></div>
+        <a href="#book" class="btn-assess">Request Assessment</a>
+      </div>
+      <div class="assess-card fade-up d3">
+        <div class="assess-img-ph"><div class="assess-icon">⊞</div></div>
+        <h3 class="assess-title">Cloud Infrastructure <span>Assessment</span></h3>
+        <p class="assess-sub">A real-time analysis of your cloud environment — AWS, Azure, GCP, or multi-cloud. We connect directly to your infrastructure and return specific, quantified findings on cost waste, security gaps, compliance posture, and architecture risk.</p>
+        <ul class="assess-deliverables">
+          <li>Live infrastructure analysis — not interviews or checklists</li>
+          <li>Cost optimization with dollar-level quantification</li>
+          <li>Security and compliance gap report with severity rankings</li>
+          <li>Right-sizing and idle resource recommendations</li>
+          <li>Executive report ready for leadership and auditors</li>
+        </ul>
+        <div class="assess-price"><div class="assess-price-amount">Starting at $3,500</div><div class="assess-price-lbl">/ fixed-fee</div></div>
+        <a href="#book" class="btn-assess">Request Assessment</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CALCULATOR
+══════════════════════════════════════════════ -->
+<section class="calc-section" id="calculator">
+  <div class="calc-glow"></div>
+  <div class="calc-inner">
+    <div class="fade-up">
+      <div class="section-label">True Cost Calculator</div>
+      <h2 class="section-headline">What is it costing you<br/>to <em>not act</em> right now?</h2>
+      <p style="font-size:.94rem;color:var(--grey-300);line-height:1.82;margin-bottom:26px">Most organizations don't fail because they made the wrong technology decision. They fail because they delayed making any decision at all. Cloud waste compounds monthly. Security gaps compound daily. AI debt compounds quarterly.</p>
+      <p style="font-size:.84rem;color:var(--grey-400);line-height:1.78;margin-bottom:32px">Use this calculator to estimate the annual financial impact of not optimizing your technology strategy. The numbers are conservative. The reality is usually worse.</p>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:flex-start;gap:11px;font-size:.84rem;color:var(--grey-200)"><span style="color:var(--orange);flex-shrink:0;font-weight:700;margin-top:1px">→</span><span>Cloud waste typically runs 30–40% of monthly spend in unoptimized environments</span></div>
+        <div style="display:flex;align-items:flex-start;gap:11px;font-size:.84rem;color:var(--grey-200)"><span style="color:var(--orange);flex-shrink:0;font-weight:700;margin-top:1px">→</span><span>The average cost of a data breach for mid-market companies exceeds $3.9M (IBM, 2024)</span></div>
+        <div style="display:flex;align-items:flex-start;gap:11px;font-size:.84rem;color:var(--grey-200)"><span style="color:var(--orange);flex-shrink:0;font-weight:700;margin-top:1px">→</span><span>Organizations without AI strategy lose an estimated 15–20% in productivity vs. AI-enabled peers</span></div>
+      </div>
+    </div>
+    <div class="calc-right fade-up d2">
+      <div class="calc-title">Estimate Your Annual Exposure</div>
+      <div class="calc-field">
+        <label class="calc-lbl">Annual Cloud Spend</label>
+        <select class="calc-select" id="calc-cloud" onchange="calcUpdate()">
+          <option value="100000">Under $100K / year</option>
+          <option value="300000" selected>$100K – $500K / year</option>
+          <option value="1000000">$500K – $2M / year</option>
+          <option value="3000000">$2M – $5M / year</option>
+          <option value="7500000">$5M+ / year</option>
+        </select>
+      </div>
+      <div class="calc-field">
+        <label class="calc-lbl">Company Size (Employees)</label>
+        <select class="calc-select" id="calc-size" onchange="calcUpdate()">
+          <option value="50">Under 100</option>
+          <option value="250" selected>100 – 500</option>
+          <option value="1000">500 – 2,000</option>
+          <option value="5000">2,000 – 10,000</option>
+          <option value="15000">10,000+</option>
+        </select>
+      </div>
+      <div class="calc-field">
+        <label class="calc-lbl" id="opt-lbl">Cloud Optimization Level: <strong style="color:var(--orange)">Low (28%)</strong></label>
+        <input type="range" class="calc-range" id="calc-opt" min="0" max="3" value="1" step="1" oninput="calcUpdateOpt(this)"/>
+        <div class="calc-range-row"><span class="calc-range-val">Not Optimized</span><span class="calc-range-val">Low</span><span class="calc-range-val">Moderate</span><span class="calc-range-val">Optimized</span></div>
+      </div>
+      <div class="calc-field">
+        <label class="calc-lbl">AI / Automation Adoption</label>
+        <select class="calc-select" id="calc-ai" onchange="calcUpdate()">
+          <option value="0" selected>None / No strategy</option>
+          <option value="1">Exploring / Early pilots</option>
+          <option value="2">Some tools deployed</option>
+          <option value="3">Systematically integrated</option>
+        </select>
+      </div>
+      <div class="calc-results">
+        <div class="calc-results-lbl">Estimated Annual Exposure</div>
+        <div class="calc-row"><div class="calc-row-key">Cloud waste you're likely paying right now</div><div class="calc-row-val" id="r-cloud">$84K</div></div>
+        <div class="calc-row"><div class="calc-row-key">AI productivity gap vs. optimized peers</div><div class="calc-row-val" id="r-ai">$375K</div></div>
+        <div class="calc-row"><div class="calc-row-key">Security risk exposure (annualized)</div><div class="calc-row-val" id="r-sec">$98K</div></div>
+        <div class="calc-row" style="border-top:2px solid var(--orange)!important;padding-top:14px;background:rgba(241,143,10,.04);margin:0 -22px;padding:16px 22px 0">
+          <div class="calc-row-key" style="font-weight:600;color:var(--white);font-size:.9rem">Total Annual Exposure</div>
+          <div class="calc-row-val calc-total" id="r-total">$557K</div>
+        </div>
+      </div>
+      <div class="calc-cta-row">
+        <a href="#book" class="btn-primary" style="flex:1;justify-content:center">Get Your Real Assessment →</a>
+        <a href="#assessments" class="btn-ghost" style="white-space:nowrap">View Packages</a>
+      </div>
+      <p class="calc-disclaimer">Estimates based on industry benchmarks (IBM, Gartner, McKinsey). Actual figures vary by environment. Assessments provide real, environment-specific data.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="proof-section">
+  <div style="max-width:1240px;margin:0 auto;padding:0 56px">
+    <div class="proof-grid">
+      <div class="proof-cell fade-up"><div class="proof-big">40<span>%+</span></div><div class="proof-lbl">Average cloud spend reduction identified within 72 hours of a cloud infrastructure assessment</div></div>
+      <div class="proof-cell fade-up d1"><div class="proof-big">70<span>%</span></div><div class="proof-lbl">Of Big Four digital transformation implementations fail. We don't leave after the slide deck.</div></div>
+      <div class="proof-cell fade-up d2"><div class="proof-big">$15<span>K+</span></div><div class="proof-lbl">Typical manual assessment cost from legacy consultancies. We deliver more, faster, at a fraction of the price.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     METHODOLOGY
+══════════════════════════════════════════════ -->
+<section class="method-section" id="methodology">
+  <div class="method-inner">
+    <div class="method-header fade-up">
+      <div>
+        <div class="section-label">Our Methodology</div>
+        <h2 class="section-headline">We tell your story<br/><em>before we sell ours.</em></h2>
+        <p class="section-sub" style="margin-bottom:0">Every Working Excellence engagement follows a disciplined progression — from understanding your world to structuring the path forward. We earn the right to recommend by first understanding your situation better than you can tell it.</p>
+      </div>
+      <div>
+        <div class="method-tabs">
+          <button class="method-tab active" id="tab-0" onclick="setStage(0)">Understand</button>
+          <button class="method-tab" id="tab-1" onclick="setStage(1)">Align</button>
+          <button class="method-tab" id="tab-2" onclick="setStage(2)">Engineer</button>
+          <button class="method-tab" id="tab-3" onclick="setStage(3)">Accelerate</button>
+        </div>
+        <div class="method-prog-wrap"><div class="method-prog-fill" id="method-prog"></div></div>
+        <div class="method-indicators">
+          <div class="method-dot active" onclick="setStage(0)" id="dot-0"></div>
+          <div class="method-dot" onclick="setStage(1)" id="dot-1"></div>
+          <div class="method-dot" onclick="setStage(2)" id="dot-2"></div>
+          <div class="method-dot" onclick="setStage(3)" id="dot-3"></div>
+        </div>
+        <div class="method-controls">
+          <button class="method-pause-btn" id="pauseBtn" onclick="togglePause()">⏸ Pause</button>
+          <span style="font-family:'DM Mono',monospace;font-size:.6rem;color:var(--grey-600);letter-spacing:.1em">Auto-rotating every 5s</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 0 -->
+    <div class="method-stage active" id="stage-0">
+      <div>
+        <div class="method-stage-num">01</div>
+        <div class="method-stage-eye">Phase One — Understand</div>
+        <h3 class="method-stage-title">Establish <em>Context</em></h3>
+        <p class="method-stage-desc">We earn the right to recommend by first understanding your business model, key KPIs, board pressures, and current technology landscape — in plain language, not consultant-speak. If we can't repeat your story back better than you told it, we haven't earned the right to recommend anything.</p>
+        <ul class="method-stage-pts">
+          <li>Current business model, key KPIs, and board-level pressures</li>
+          <li>Existing data, AI, security, and engineering landscape</li>
+          <li>Emotional drivers — what is genuinely frustrating your team right now</li>
+          <li>Technology and organizational readiness baseline assessment</li>
+        </ul>
+      </div>
+      <div class="method-img-ph"><div class="method-img-icon">🗺</div><div class="method-img-lbl">Discovery Phase Visual</div></div>
+    </div>
+
+    <!-- Stage 1 -->
+    <div class="method-stage" id="stage-1">
+      <div>
+        <div class="method-stage-num">02</div>
+        <div class="method-stage-eye">Phase Two — Align</div>
+        <h3 class="method-stage-title">Surface the Real <em>Problem</em></h3>
+        <p class="method-stage-desc">Most teams think they have a tooling problem. Nine times out of ten, it's a story, alignment, or execution problem. We move from symptoms to root causes and sharpen the stakes before proposing any solution.</p>
+        <ul class="method-stage-pts">
+          <li>Gaps between strategy and execution — data not trusted, AI pilots not scaling</li>
+          <li>Misalignment between GTM, technology, and finance teams</li>
+          <li>Quantified consequences: revenue at risk, inefficiencies, opportunity cost</li>
+          <li>If nothing changes in 12–18 months, what does that mean for your role?</li>
+        </ul>
+      </div>
+      <div class="method-img-ph"><div class="method-img-icon">🔬</div><div class="method-img-lbl">Diagnosis Phase Visual</div></div>
+    </div>
+
+    <!-- Stage 2 -->
+    <div class="method-stage" id="stage-2">
+      <div>
+        <div class="method-stage-num">03</div>
+        <div class="method-stage-eye">Phase Three — Engineer</div>
+        <h3 class="method-stage-title">Rewrite the <em>Story</em></h3>
+        <p class="method-stage-desc">Same company, same people — different playbook. We paint a concrete "after" state where you are the hero and Working Excellence is the guide. This is what your board meeting sounds like 12 months from now if we do this right.</p>
+        <ul class="method-stage-pts">
+          <li>Target state for data, AI agents, security, and engineering tied directly to your KPIs</li>
+          <li>How leadership, process, and technology change together — not just a "project"</li>
+          <li>2–3 vivid before/after scenarios your CFO and CISO can actually visualize</li>
+          <li>Specific capabilities you gain and specific risks you eliminate</li>
+        </ul>
+      </div>
+      <div class="method-img-ph"><div class="method-img-icon">⚡</div><div class="method-img-lbl">Vision Design Visual</div></div>
+    </div>
+
+    <!-- Stage 3 -->
+    <div class="method-stage" id="stage-3">
+      <div>
+        <div class="method-stage-num">04</div>
+        <div class="method-stage-eye">Phase Four — Accelerate</div>
+        <h3 class="method-stage-title">Structure the <em>Path</em></h3>
+        <p class="method-stage-desc">If the vision resonates, the engagement is just us agreeing on how fast we get there and where we start. We frame it in chapters — not all-or-nothing sagas — with clear milestones, ownership, and success criteria baked in from day one.</p>
+        <ul class="method-stage-pts">
+          <li>Chapter 1: 60–90 day engagement with clear success criteria and measurable outcomes</li>
+          <li>Phased roadmap: diagnostic/pilot → scale → optimize</li>
+          <li>Governance and accountability: who owns what, how progress is reviewed</li>
+          <li>Commercial structure that reduces perceived risk and aligns incentives</li>
+        </ul>
+      </div>
+      <div class="method-img-ph"><div class="method-img-icon">🚀</div><div class="method-img-lbl">Execution Roadmap Visual</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- VS TABLE -->
+<section class="vs-section" id="why-us">
+  <div class="section-inner">
+    <div class="section-label">The Difference</div>
+    <h2 class="section-headline">Stop paying for<br/><em>the pyramid.</em></h2>
+    <p class="section-sub">The Big Four operate on a staffing model where partners pitch and juniors deliver. MBB firms produce strategy and exit. Working Excellence is built differently.</p>
+    <table class="vs-table fade-up">
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th class="hl">Working Excellence</th>
+          <th>Big Four (Deloitte, PwC, EY, Accenture)</th>
+          <th>MBB (McKinsey, BCG, Bain)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Who delivers the work</td><td class="hl"><span class="vcheck">✓</span> Senior practitioners throughout</td><td>Partners pitch, junior analysts deliver</td><td>Partners design, implementation left to client</td></tr>
+        <tr><td>Pricing model</td><td class="hl"><span class="vcheck">✓</span> Fractional at 40–60% of FTE cost</td><td>Project-based, $15K–$500K+ engagements</td><td>Highest rates in market, strategy-only scope</td></tr>
+        <tr><td>Assessment delivery</td><td class="hl"><span class="vcheck">✓</span> Live infrastructure analysis in 72 hrs</td><td>Manual, weeks to deliver, PDF you file away</td><td>Interview-based, not technical</td></tr>
+        <tr><td>Technology bias</td><td class="hl"><span class="vcheck">✓</span> Vendor-agnostic, outcome-driven</td><td>Often tied to AWS, Microsoft, ServiceNow partnerships</td><td>Non-technical, agnostic by default</td></tr>
+        <tr><td>Implementation accountability</td><td class="hl"><span class="vcheck">✓</span> Strategy + hands-on execution</td><td>Mixed results; scope creep is common</td><td>Strategy only — no execution support</td></tr>
+        <tr><td>Target market</td><td class="hl"><span class="vcheck">✓</span> Mid-market $50M–$1B, purpose-built</td><td>Fortune 500 primary; mid-market secondary</td><td>Enterprise and C-suite only</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="leadership-section" id="leadership">
+  <div class="section-inner">
+    <div class="section-label">The Team</div>
+    <h2 class="section-headline">Senior practitioners.<br/><em>Not a staffing model.</em></h2>
+    <p class="section-sub">Every engagement is led and delivered by the people you meet in the first conversation. No bait-and-switch. No handoffs to junior analysts.</p>
+    <div class="leadership-grid fade-up">
+      <div class="leader-card">
+        <div class="leader-img-ph"><div class="leader-initial">JK</div></div>
+        <div class="leader-body"><div class="leader-name">James F. Kenefick</div><div class="leader-title">Founder &amp; Managing Partner</div><p class="leader-bio">James founded Working Excellence on the conviction that mid-market organizations deserve the same quality of strategic counsel that Fortune 500 companies access through Big Four relationships — without the overhead, junior staffing, or 12-month timeline.</p></div>
+      </div>
+      <div class="leader-card">
+        <div class="leader-img-ph"><div class="leader-initial">KS</div></div>
+        <div class="leader-body"><div class="leader-name">Kurt Smith</div><div class="leader-title">Chief Revenue Officer</div><p class="leader-bio">Kurt leads revenue strategy and client engagement at Working Excellence. His approach is built on one principle: earn the right to recommend by first understanding the client's story better than they can tell it themselves.</p></div>
+      </div>
+      <div class="leader-card">
+        <div class="leader-img-ph"><div class="leader-initial">JJ</div></div>
+        <div class="leader-body"><div class="leader-name">John Jordan</div><div class="leader-title">Senior Director &amp; CMO</div><p class="leader-bio">John drives the go-to-market strategy, brand positioning, and demand generation for Working Excellence. He brings an operator's perspective to marketing — building systems that connect thought leadership directly to pipeline.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section" id="book">
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <div class="section-label" style="justify-content:center">Start Here</div>
+    <h2 class="cta-headline">Stop guessing what's in your<br/>environment. <em>Start knowing.</em></h2>
+    <p class="cta-sub">Book a 30-minute strategy session with our team. We'll identify where the highest-value starting point is for your organization — whether that's an assessment, a fractional engagement, or a targeted advisory session. No sales pitch. No SOW on day one.</p>
+    <div class="cta-buttons">
+      <a href="https://www.workingexcellence.com/contact-us" target="_blank" class="btn-primary">Book a Strategy Session →</a>
+      <a href="#assessments" class="btn-ghost">Start with an Assessment</a>
+    </div>
+    <div class="cta-note">workingexcellence.com &nbsp;·&nbsp; Senior practitioners. Real findings. Actionable outcomes.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <img src="https://static.wixstatic.com/media/1731f2_d91dc3d0f01245f5b369acb8b2397118~mv2.png" alt="Working Excellence"
+          onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<span style=\'font-family:Playfair Display,serif;font-size:1.05rem;font-weight:700;color:#fff;display:block;margin-bottom:12px\'>Working <span style=\\\'color:#f18f0a\\\'>Excellence</span></span>')"
+        />
+      </div>
+      <p class="footer-tagline">Fractional executive leadership and specialized technology consulting for mid-market organizations ready to compete at enterprise scale.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="https://www.workingexcellence.com/data-consulting" target="_blank">Data Consulting</a></li>
+        <li><a href="https://www.workingexcellence.com/cybersecurity-consulting" target="_blank">Cybersecurity</a></li>
+        <li><a href="https://www.workingexcellence.com/digital-engineering-consulting" target="_blank">Digital Engineering</a></li>
+        <li><a href="#services">Sales Improvement</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Assessments</div>
+      <ul class="footer-links">
+        <li><a href="#assessments">Technical Risk Assessment</a></li>
+        <li><a href="#assessments">AI Readiness Diagnostic</a></li>
+        <li><a href="#assessments">Cloud Infrastructure Assessment</a></li>
+        <li><a href="#calculator">Cost Calculator</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="https://www.workingexcellence.com/about-us" target="_blank">About Us</a></li>
+        <li><a href="https://www.workingexcellence.com/insights" target="_blank">Insights</a></li>
+        <li><a href="https://www.workingexcellence.com/blog" target="_blank">Blog</a></li>
+        <li><a href="#book">Book a Session</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Working Excellence. All rights reserved.</span>
+    <span class="footer-brand-mono">WORKINGEXCELLENCE.COM</span>
+  </div>
+</footer>
+
+<!-- ══ SCRIPTS ══ -->
+<script>
+/* Scroll reveal */
+const obs = new IntersectionObserver(e => {
+  e.forEach(x => { if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)} });
+},{threshold:.08,rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+/* Nav scroll */
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+/* ── MEGA MENU ── */
+function toggleMenu(id) {
+  const panel = document.getElementById('mega-'+id);
+  const btn   = document.getElementById('btn-'+id);
+  const back  = document.getElementById('menu-backdrop');
+  const open  = panel.classList.contains('open');
+  closeMenu();
+  if(!open){ panel.classList.add('open'); btn.classList.add('active'); back.classList.add('open'); }
+}
+function closeMenu() {
+  document.querySelectorAll('.mega-panel').forEach(p => p.classList.remove('open'));
+  document.querySelectorAll('.nav-links > li > button').forEach(b => b.classList.remove('active'));
+  document.getElementById('menu-backdrop').classList.remove('open');
+}
+function showSub(id, el) {
+  document.querySelectorAll('.mega-practice').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.mega-center-inner').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  const sub = document.getElementById('sub-'+id);
+  if(sub) sub.classList.add('active');
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeMenu(); });
+
+/* ── CALCULATOR ── */
+const optLabels = ['Not Optimized (35%)','Low (28%)','Moderate (18%)','Optimized (8%)'];
+const optRates  = [0.35, 0.28, 0.18, 0.08];
+let currentOpt  = 1;
+
+function calcUpdateOpt(el) {
+  currentOpt = parseInt(el.value);
+  document.getElementById('opt-lbl').innerHTML =
+    `Cloud Optimization Level: <strong style="color:var(--orange)">${optLabels[currentOpt]}</strong>`;
+  calcUpdate();
+}
+
+function fmt(n) {
+  if(n >= 1000000) return '$' + (n/1000000).toFixed(1)+'M';
+  if(n >= 1000)    return '$' + Math.round(n/1000)+'K';
+  return '$' + Math.round(n).toLocaleString();
+}
+
+function calcUpdate() {
+  const cloud  = parseFloat(document.getElementById('calc-cloud').value);
+  const size   = parseFloat(document.getElementById('calc-size').value);
+  const aiLvl  = parseFloat(document.getElementById('calc-ai').value);
+  const wasted = cloud * optRates[currentOpt];
+  const aiGap  = size * 25000 * (1 - aiLvl/3);
+  const secBase = size < 100 ? 150000 : size < 500 ? 390000 : size < 2000 ? 780000 : 1950000;
+  const secRisk = secBase * 0.25;
+  const total   = wasted + aiGap + secRisk;
+  document.getElementById('r-cloud').textContent = fmt(wasted);
+  document.getElementById('r-ai').textContent    = fmt(aiGap);
+  document.getElementById('r-sec').textContent   = fmt(secRisk);
+  document.getElementById('r-total').textContent = fmt(total);
+}
+calcUpdate();
+
+/* ── METHODOLOGY AUTO-ROTATE ── */
+let currentStage = 0;
+let isPaused     = false;
+let progressVal  = 0;
+const STAGE_DUR  = 5000;
+const TICK       = 50;
+
+function setStage(i) {
+  document.querySelectorAll('.method-stage').forEach((s,idx) => s.classList.toggle('active', idx===i));
+  document.querySelectorAll('.method-tab').forEach((t,idx)   => t.classList.toggle('active', idx===i));
+  document.querySelectorAll('.method-dot').forEach((d,idx)   => d.classList.toggle('active', idx===i));
+  currentStage = i;
+  progressVal  = 0;
+  updateProg();
+}
+function updateProg() {
+  const base = currentStage * 25;
+  const fill = base + (progressVal / STAGE_DUR) * 25;
+  document.getElementById('method-prog').style.width = fill + '%';
+}
+function togglePause() {
+  isPaused = !isPaused;
+  document.getElementById('pauseBtn').textContent = isPaused ? '▶ Play' : '⏸ Pause';
+}
+setInterval(() => {
+  if(isPaused) return;
+  progressVal += TICK;
+  updateProg();
+  if(progressVal >= STAGE_DUR) {
+    progressVal = 0;
+    setStage((currentStage + 1) % 4);
+  }
+}, TICK);
+</script>
+</body>
+</html>
