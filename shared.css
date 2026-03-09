@@ -29,6 +29,7 @@
   --border:   var(--grey-700);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+em{font-style:normal}
 html{scroll-behavior:smooth;overflow-x:hidden}
 body{font-family:'Roboto',Arial,Helvetica,sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;line-height:1.75;font-size:1.0625rem}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.35;
