@@ -1,178 +1,126 @@
 {
-  "cybersecurity": {
-    "heading": "Common Questions",
-    "subheading": "Answered directly. No hedging.",
-    "items": [
-      {
-        "q": "What compliance frameworks do you support?",
-        "a": "NIST CSF 2.0, ISO 27001, SOC 2, HIPAA, PCI-DSS, GDPR, and CMMC. Our cybersecurity programs are tailored to your regulatory footprint and built for audit-readiness — not just checkbox compliance."
-      },
-      {
-        "q": "Do you offer fractional CISO services?",
-        "a": "Yes. Our Fractional CISO program gives you direct access to James Gorman and our senior security team at a fraction of the cost of a full-time hire — with the depth and continuity of a long-term partner."
-      },
-      {
-        "q": "How do you approach multi-cloud security?",
-        "a": "We build cloud-agnostic security architectures and governance models that protect data and applications across AWS, Azure, GCP, and hybrid environments. No vendor lock-in. No security gaps at the seams."
-      },
-      {
-        "q": "Who leads your cybersecurity engagements?",
-        "a": "Every engagement is led by senior cybersecurity practitioners — not junior analysts. James Gorman, our CISO, brings 30+ years of experience across federal, healthcare, and financial services. Senior expertise, start to finish."
-      },
-      {
-        "q": "How quickly can you respond to an active incident?",
-        "a": "Our incident response team is available 24/7 for active engagements. For organizations with a retainer in place, initial triage begins within 2 hours. For new engagements, we typically mobilize within 24–48 hours depending on severity."
-      },
-      {
-        "q": "What is the typical engagement length for a cybersecurity program?",
-        "a": "Initial assessments run 2–4 weeks. Full program implementations range from 3–12 months depending on scope and your current maturity level. Fractional CISO retainers are ongoing and reviewed quarterly."
-      }
-    ]
-  },
-  "data-consulting": {
-    "heading": "Data Consulting Questions",
-    "subheading": "Clarity on how we approach data strategy and implementation.",
-    "items": [
-      {
-        "q": "Where do most organizations go wrong with their data strategy?",
-        "a": "The most common failure is treating data as an IT problem instead of a business asset. Organizations invest in tools before establishing governance, launch analytics initiatives without clean foundations, and build data products nobody uses because they weren't tied to business decisions. We solve this by starting with business outcomes, not technology."
-      },
-      {
-        "q": "What does a data governance program actually look like in practice?",
-        "a": "It starts with defining data ownership, classification, and quality standards across your organization. We establish policies, stewardship roles, and audit trails — then implement the tooling and workflows to enforce them. The outcome is trusted data that your teams actually rely on for decisions."
-      },
-      {
-        "q": "How do you handle AI readiness before we have clean data?",
-        "a": "That is exactly the sequence we work through. AI models are only as good as the data feeding them. We assess your data foundation first — quality, completeness, lineage, governance — then build the architecture needed to support AI workloads. Skipping this step is the primary reason AI pilots fail."
-      },
-      {
-        "q": "Do you work with specific cloud data platforms?",
-        "a": "We are platform-agnostic and work across Snowflake, Databricks, AWS Redshift, Azure Synapse, Google BigQuery, and modern data lakehouse architectures. Our recommendation is always based on your workload economics and existing stack — not vendor relationships."
-      },
-      {
-        "q": "How long does a data strategy engagement typically take?",
-        "a": "An initial data strategy assessment and roadmap runs 4–8 weeks. Implementation phases are scoped in 60–90 day sprints with clear deliverables. Most organizations see measurable improvement in data quality and decision-making within the first 90 days."
-      },
-      {
-        "q": "Can you work alongside our existing data team?",
-        "a": "Yes — and that is often the best model. We embed with your existing team, upskill where needed, and build programs your internal resources can own and maintain long-term. We do not create dependency."
-      }
-    ]
-  },
-  "digital-engineering": {
-    "heading": "Engineering Questions",
-    "subheading": "How we build, migrate, and modernize technology at scale.",
-    "items": [
-      {
-        "q": "How do you approach legacy system modernization without disrupting operations?",
-        "a": "We use a strangler fig approach — incrementally replacing legacy components while keeping existing systems running. This reduces risk, allows rollback at each phase, and means your business never stops during transformation. We design migration paths with zero-downtime deployments built in from the start."
-      },
-      {
-        "q": "What cloud platforms do you specialize in?",
-        "a": "AWS, Azure, and GCP — with deep expertise in all three. We also specialize in multi-cloud architectures for organizations that need portability and resilience across providers. Our cloud recommendations are based on workload fit and total cost of ownership, not certifications."
-      },
-      {
-        "q": "How do you handle DevSecOps integration in existing engineering teams?",
-        "a": "We assess your current CI/CD pipeline, security posture, and deployment practices. Then we embed security tooling, policy-as-code controls, and automated testing directly into your delivery pipeline — so security is an engineering practice, not a gate at the end."
-      },
-      {
-        "q": "Do you build products or only advise?",
-        "a": "Both. We design architecture and own delivery. Our engineering teams build cloud-native applications, APIs, and data pipelines. We stay through deployment and stabilization — not just the strategy phase. You get a working product, not a roadmap slide."
-      },
-      {
-        "q": "How do you price engineering engagements?",
-        "a": "We offer fixed-fee project engagements for well-scoped work and retainer-based models for ongoing engineering support. We do not use time-and-materials billing that creates incentives to extend projects. Pricing is tied to outcomes and milestones."
-      },
-      {
-        "q": "What is your approach to Agentic AI in engineering workflows?",
-        "a": "We assess your data foundation and architecture readiness before recommending agentic AI implementations. From there, we design agent workflows that integrate with your existing systems — automating high-value repetitive tasks and accelerating development cycles without introducing governance gaps."
-      }
-    ]
-  },
-  "sales-improvement": {
-    "heading": "Sales Improvement Questions",
-    "subheading": "How we fix the story, the process, and the results.",
-    "items": [
-      {
-        "q": "What is the most common reason technology sales teams underperform?",
-        "a": "The story. Most technology organizations build their sales narrative around features, certifications, and capabilities — not the business problems their buyers are trying to solve. Your bottom 50% of reps cannot articulate business value. That is a messaging problem, not a talent problem."
-      },
-      {
-        "q": "How does the 101/202/303 methodology work in practice?",
-        "a": "101 establishes context — understanding the buyer's world before pitching anything. 202 surfaces the real tension — what is actually blocking their goals, not just the symptoms. 303 paints the future state where they are the hero and your firm is the guide. The deal becomes the natural next step, not a close."
-      },
-      {
-        "q": "Do you work with sales teams directly or only at the leadership level?",
-        "a": "Both. We design the narrative and framework at the executive level, then train and coach individual reps and account executives on delivery. The methodology only works if it reaches the people in front of buyers every day."
-      },
-      {
-        "q": "How do you measure success on a sales improvement engagement?",
-        "a": "We align on 3–5 specific metrics before the engagement starts — typically win rate, average deal size, sales cycle length, and rep ramp time. We report against these metrics throughout the engagement and build a 90-day success plan tied directly to pipeline outcomes."
-      },
-      {
-        "q": "Can you help with CRM strategy and revenue operations?",
-        "a": "Yes. Clean revenue operations is a prerequisite for sales improvement. We assess your CRM setup, pipeline hygiene, forecasting accuracy, and reporting infrastructure. The best story in the world falls apart without the operational backbone to support consistent execution."
-      },
-      {
-        "q": "How long before we see results?",
-        "a": "Most teams see measurable improvements in pipeline quality and conversation effectiveness within 30–60 days of completing narrative training. Full revenue impact typically shows in the 60–90 day window as new opportunities progress through the pipeline with the new approach."
-      }
-    ]
-  },
-  "ai-agents": {
-    "heading": "AI Agents for Business",
-    "subheading": "Practical answers to the questions executives are actually asking.",
-    "items": [
-      {
-        "q": "What is the difference between AI agents and the AI tools we already use?",
-        "a": "Most AI tools respond to prompts — they do one thing when asked. AI agents can plan multi-step tasks, use external tools, make decisions, and take action autonomously within defined guardrails. The difference is the shift from AI as a calculator to AI as a teammate."
-      },
-      {
-        "q": "What do we need in place before deploying AI agents?",
-        "a": "Three things: trustworthy data, clear governance, and defined use cases with measurable ROI. Organizations that deploy agents on top of fragmented data or without access controls create more risk than value. Our AI Readiness Diagnostic identifies exactly where your gaps are before you spend on tooling."
-      },
-      {
-        "q": "How do you ensure AI agents do not make unauthorized or risky decisions?",
-        "a": "We design agents with layered guardrails — defined action boundaries, human-in-the-loop checkpoints for high-stakes decisions, audit logging, and rollback capabilities. Governance is not an afterthought in our agent architecture. It is the foundation."
-      },
-      {
-        "q": "What business processes are the best candidates for agentic AI?",
-        "a": "Processes that are high-frequency, rules-based, data-intensive, and currently requiring human coordination across systems are the best starting points. Common high-ROI candidates include compliance monitoring, data quality workflows, lead qualification, reporting generation, and IT operations automation."
-      },
-      {
-        "q": "How do we measure ROI on an AI agents implementation?",
-        "a": "We baseline current process metrics before implementation — time per task, error rate, headcount involved, and cost per transaction. Post-deployment, we track the delta. Most well-scoped agent implementations show positive ROI within 90 days on targeted workflows."
-      },
-      {
-        "q": "Will AI agents replace our employees?",
-        "a": "That is the wrong frame. The organizations winning with AI are redirecting their people to higher-value work — not reducing headcount. Agents handle the repetitive, coordination-heavy tasks. Your people handle judgment, relationships, and strategy. Done right, it makes your existing team significantly more effective."
-      }
-    ]
-  },
-  "calculators": {
-    "heading": "Calculator Questions",
-    "subheading": "How we build these estimates and what they are based on.",
-    "items": [
-      {
-        "q": "How accurate are these estimates?",
-        "a": "These calculators use publicly validated data from IBM Cost of a Data Breach, Verizon DBIR, Coveware, Ponemon Institute, Gartner, and Flexera. They are designed to give leadership teams a credible order-of-magnitude estimate — not a precise audit figure. Actual costs vary based on factors specific to your environment, response speed, and insurance coverage."
-      },
-      {
-        "q": "What data sources are used in the cybersecurity incident calculator?",
-        "a": "FBI IC3 annual reports for BEC statistics, Coveware quarterly ransomware reports for ransom demand and recovery data, IBM Cost of a Data Breach 2024 for industry multipliers and average response costs, Verizon DBIR for breach pattern analysis, and HHS/OCR published fine data for HIPAA compliance calculations."
-      },
-      {
-        "q": "Can we use these estimates in a board presentation or business case?",
-        "a": "Yes — with appropriate framing. These are estimates based on industry averages, not organization-specific analysis. We recommend citing the underlying data sources and noting that your actual exposure may be higher or lower. For a board-ready risk quantification, our Technical Risk Assessment delivers organization-specific findings."
-      },
-      {
-        "q": "How is the Cost of Inaction calculated?",
-        "a": "It combines three components: productivity loss from current gaps (based on McKinsey research on technology program efficiency gains), risk accumulation rate (IBM breach likelihood data applied to security delay), and competitive gap cost (Gartner market share loss estimates for delayed digital transformation). Each is calculated monthly and multiplied by your delay period."
-      },
-      {
-        "q": "Why does the cloud waste percentage vary so much?",
-        "a": "Cloud waste is highly dependent on your FinOps maturity, Reserved Instance coverage, and environment hygiene. Gartner's 32% industry average is a reasonable baseline, but we have seen organizations with no FinOps practice wasting 45%+ and mature programs at under 10%. The calculator adjusts based on the factors you select."
-      }
-    ]
-  }
+  "cybersecurity": [
+    {
+      "q": "What makes WEX's cybersecurity practice different from a Big Four firm?",
+      "a": "Big Four security engagements typically involve senior partners who sell the work and junior analysts who execute it. At WEX, the expert you meet in the first conversation is the practitioner who leads your engagement. James Gorman brings 30+ years of hands-on security leadership across federal, healthcare, and financial-sector environments — that expertise is present throughout the engagement, not just in the pitch."
+    },
+    {
+      "q": "Do you offer fractional CISO services?",
+      "a": "Yes. Our fractional CISO model gives organizations enterprise-grade security leadership at 40-60% of the cost of a full-time hire. This includes board-level reporting, regulatory alignment, vendor oversight, and strategic roadmap ownership. It is ideal for organizations that need the credibility and capability of a CISO without the full-time overhead."
+    },
+    {
+      "q": "Which compliance frameworks do you work with?",
+      "a": "We cover the full range of enterprise compliance requirements: NIST CSF 2.0, HIPAA Security and Privacy Rules, PCI-DSS, SOC 2 Type I and II, ISO 27001, and GDPR data privacy. We also work with sector-specific requirements in healthcare, financial services, and government contracting. Our approach is to treat compliance as a byproduct of good security architecture — not a separate checkbox exercise."
+    },
+    {
+      "q": "How do you approach incident response preparedness?",
+      "a": "We build readiness before the incident, not just response plans after one. That means developing your incident response plan, running tabletop exercises that simulate realistic breach scenarios, establishing communication and notification protocols, and aligning your IR program with your business continuity and disaster recovery planning. Teams that have practiced respond in hours instead of days."
+    },
+    {
+      "q": "What is the starting point for a new cybersecurity engagement?",
+      "a": "Most engagements begin with our Technical Risk Assessment — a structured evaluation of your current security posture against the frameworks and risks most relevant to your organization. It produces a prioritized roadmap with specific, actionable recommendations. From there we can move into any of our practice areas based on where your highest-priority gaps are."
+    }
+  ],
+  "data-consulting": [
+    {
+      "q": "What does a data strategy engagement typically look like?",
+      "a": "Most data strategy engagements start with a current-state assessment covering your data landscape, architecture maturity, governance gaps, and AI readiness. From there we build a prioritized roadmap tied to your specific business objectives — not a generic framework. Most clients leave with a 90-day execution plan and a 12-18 month strategic roadmap. Engagements typically run 4-8 weeks depending on scope."
+    },
+    {
+      "q": "We have a lot of data but nobody trusts it. Where do we start?",
+      "a": "That is the most common problem we solve. Untrusted data is almost always a governance and quality problem, not a technology problem. We start with a data quality and governance assessment to identify where the trust breakdown is happening — whether it is inconsistent definitions, unclear ownership, pipeline reliability, or something else — and build a targeted remediation plan before recommending any new tooling."
+    },
+    {
+      "q": "Can you help us build an AI program from scratch?",
+      "a": "Yes, and we will be honest with you about what you need first. Many organizations want to move directly to AI and skip the data foundation work. That almost always results in a failed pilot 6-12 months later. We run an AI Readiness Diagnostic that tells you exactly where your data, architecture, governance, and organizational readiness stand before you invest in AI tools. If you are ready, we build the program. If you are not, we fix what is blocking you first."
+    },
+    {
+      "q": "Do you work with specific cloud platforms or are you vendor-agnostic?",
+      "a": "We are vendor-agnostic and deliberately so. We have deep expertise across AWS, Azure, and GCP data platforms, as well as the major data warehouse, lakehouse, and BI tools. Our recommendations are based on your workload requirements, existing investments, and long-term architecture goals — not partnership incentives."
+    },
+    {
+      "q": "How do you handle organizations with limited internal data teams?",
+      "a": "Most of our mid-market clients do not have large internal data teams — that is a primary reason they come to us. We can operate as a full fractional data team, as an advisory layer on top of an existing team, or as a delivery partner during a buildout phase. We also focus heavily on knowledge transfer so that your internal capabilities grow alongside the programs we build."
+    }
+  ],
+  "digital-engineering": [
+    {
+      "q": "How is WEX different from a traditional IT consulting firm or Big Four implementation partner?",
+      "a": "The most important difference is who actually does the work. Traditional firms bring senior partners to sell, then staff your project with consultants who are learning on your budget. WEX operates with senior practitioners throughout — the architect who designs your cloud migration is the engineer who leads the execution. No bait and switch. No 1990s offshoring models. No bloated teams billing unnecessary hours."
+    },
+    {
+      "q": "We have a cloud migration that has already been scoped. Can you take over the execution?",
+      "a": "Yes. We regularly inherit migrations that were scoped by another firm or that stalled during execution. We start with a rapid current-state assessment to validate the existing architecture decisions, identify any risks in the plan, and confirm the sequencing still makes sense. From there we take ownership of execution with clear milestones, risk checkpoints, and cutover management."
+    },
+    {
+      "q": "What is your approach to technical debt?",
+      "a": "We treat technical debt as a business risk, not just an engineering problem. Before recommending modernization investments we quantify the operational cost, delivery risk, and security exposure of existing debt so leadership can make informed prioritization decisions. We build technical debt remediation into project delivery cycles rather than treating it as a separate initiative that never gets funded."
+    },
+    {
+      "q": "Can you help us build a DevOps and CI/CD capability from scratch?",
+      "a": "Yes. We design and build CI/CD pipelines, infrastructure-as-code foundations, and internal developer platforms for organizations at all stages of DevOps maturity. Whether you are shipping monthly and want to ship weekly, or shipping weekly and want to ship daily, we build the delivery infrastructure that makes that velocity sustainable without sacrificing stability or compliance requirements."
+    },
+    {
+      "q": "How do you handle intelligent automation projects — do you work with specific RPA platforms?",
+      "a": "We work across the major platforms including UiPath, Automation Anywhere, and Microsoft Power Automate, as well as AI-native orchestration tools. Platform selection is always driven by your existing tech stack, integration requirements, and total cost of ownership — not vendor preferences. We also ensure automation projects begin with process analysis and redesign so you are not just automating a broken process faster."
+    }
+  ],
+  "sales-improvement": [
+    {
+      "q": "What is the 101/202/303 model and how does it work in practice?",
+      "a": "It is WEX CRO Kurt Smith's core sales methodology. 101 is establishing context — earning the right to go deeper by demonstrating you understand the buyer's world better than they expect. 202 is surfacing the real problem — moving from symptoms to root causes and quantifying the cost of inaction. 303 is painting the vision — a concrete before-and-after story where the buyer is the hero and the path to that outcome is clear. The deal is simply agreeing on how to get there. This framework applies from first outreach through executive close."
+    },
+    {
+      "q": "We have high rep turnover. Is this really a story problem?",
+      "a": "Often yes, at least partially. Reps who cannot tell a compelling story in front of a skeptical buyer lose confidence fast, struggle to build pipeline, and disengage within 12-18 months. Before attributing turnover entirely to compensation or culture, we recommend a GTM narrative audit. If reps cannot articulate why your product matters in the buyer's language, no amount of coaching will fix the retention problem."
+    },
+    {
+      "q": "What does a GTM narrative engagement deliver at the end?",
+      "a": "A core messaging architecture that includes your primary narrative arc, persona-specific story variants, competitive differentiation language, a pitch deck built on the 101/202/303 framework, discovery conversation guides, and an objection-handling playbook. Everything is built to be used by reps in live conversations, not filed in a shared drive and forgotten."
+    },
+    {
+      "q": "Do you work with specific CRM platforms for RevOps engagements?",
+      "a": "We work across Salesforce, HubSpot, and Microsoft Dynamics as primary CRM platforms, along with the surrounding RevOps tech stack including engagement platforms, conversation intelligence tools, and revenue analytics solutions. We lead with process and data architecture before making tool recommendations — a clean process in the wrong tool outperforms a broken process in the best tool."
+    },
+    {
+      "q": "How long does a typical sales improvement engagement take to show results?",
+      "a": "Narrative and enablement work typically shows early signals within 60-90 days — improved discovery conversation quality, higher proposal-to-close rates, and faster rep ramp times. RevOps and pipeline structure improvements often show up in forecast accuracy and stage progression within one or two quarters. We set specific success criteria at the start of every engagement so you know exactly what to measure and when."
+    }
+  ],
+  "ai-agents": [
+    {
+      "q": "What is the difference between an AI agent and a chatbot?",
+      "a": "A chatbot responds to questions. An AI agent takes actions. Agents can query systems, make decisions based on data, trigger workflows, escalate to humans when needed, and complete multi-step tasks autonomously. The critical difference is that agents operate with goal-directed autonomy inside your actual business systems — they are not just a Q&A interface layered on top of a knowledge base."
+    },
+    {
+      "q": "Our organization has tried AI pilots before and they never made it to production. Why is this different?",
+      "a": "Most AI pilots fail because organizations skip the foundation work. Agents are only as reliable as the data they access, the systems they connect to, and the governance frameworks that define when they act autonomously versus escalate to humans. WEX starts every agentic AI engagement with a readiness assessment that identifies exactly what is blocking production deployment — and we do not move forward until those blockers are addressed."
+    },
+    {
+      "q": "How do you handle AI governance and compliance in regulated industries?",
+      "a": "Governance is not an afterthought in our engagements — it is built into the architecture. For regulated industries like healthcare, financial services, and manufacturing, we design agents with explicit audit trails, human-in-the-loop checkpoints, explainability requirements, and data handling policies aligned to HIPAA, SOC 2, and other applicable frameworks. Every agent we deploy can demonstrate its reasoning and produce a compliance-ready record of its actions."
+    },
+    {
+      "q": "What departments typically see the best ROI from AI agents first?",
+      "a": "Based on our engagements, the highest early ROI typically comes from finance and accounting (invoice processing, reconciliation, reporting), customer success and support (tier-1 resolution, escalation routing, account health monitoring), and sales operations (data enrichment, pipeline hygiene, activity logging). We use ROI modeling in our AI Readiness Diagnostic to identify your specific highest-leverage entry points before any build work begins."
+    },
+    {
+      "q": "Do we need to rebuild our data infrastructure before deploying agents?",
+      "a": "Not always, but sometimes. It depends on the quality, accessibility, and governance maturity of your existing data. Some organizations can deploy targeted agents against well-structured, governed data sources right away. Others need foundational data work first. Our AI Readiness Diagnostic gives you a clear answer within weeks — not months of analysis paralysis."
+    }
+  ],
+  "calculators": [
+    {
+      "q": "How accurate are the calculator estimates?",
+      "a": "The calculators use industry benchmarking data and typical ranges from our client engagements. They are designed to give you a directionally accurate sense of opportunity or cost — not a precise quote. Use them to validate whether a more detailed assessment is worth pursuing, then book a session with our team to get numbers specific to your environment and situation."
+    },
+    {
+      "q": "Why is there a range instead of a single number in the results?",
+      "a": "Actual outcomes depend heavily on factors that vary by organization — current infrastructure state, team maturity, regulatory requirements, and implementation approach. We use ranges that reflect the realistic distribution of outcomes we have seen across similar engagements. The low end assumes more complexity and slower adoption; the high end reflects well-executed programs in favorable conditions."
+    },
+    {
+      "q": "What happens after I use a calculator?",
+      "a": "The next step is a 30-minute strategy session with our team. We use the calculator output as a starting point to understand your specific situation, validate the assumptions, and determine whether a formal assessment makes sense. There is no obligation — the session is designed to give you actionable information regardless of whether you engage us further."
+    }
+  ]
 }

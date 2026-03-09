@@ -8,6 +8,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="shared.css"/>
+<style>
+em { font-style: normal; }
+.pa-stats { background: var(--grey-900); border-top: 1px solid var(--grey-800); border-bottom: 1px solid var(--grey-800); padding: 48px 0; }
+.pa-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.pa-stat { text-align: center; }
+.pa-stat-num { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 700; color: var(--orange); line-height: 1; margin-bottom: 8px; }
+.pa-stat-label { font-size: .85rem; color: var(--grey-300); line-height: 1.4; }
+@media (max-width: 768px) { .pa-stats-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .pa-stats-grid { grid-template-columns: 1fr 1fr; gap: 24px; } .pa-stat-num { font-size: 2rem; } }
+</style>
 </head>
 <body>
 <div id="menu-backdrop"></div>
@@ -17,7 +27,6 @@
     <span class="nav-logo-text" style="display:none">Working <span>Excellence</span></span>
   </a>
   <ul class="nav-links">
-    
     <li><button class="mega-trigger" data-mega="practice">Practice Areas
       <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
     </button></li>
@@ -34,7 +43,6 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
-<!-- MOBILE NAV DRAWER -->
 <div id="mobile-nav-drawer" class="mobile-nav-drawer">
   <div class="mobile-nav-inner">
     <a href="index.html" class="mobile-nav-link">Practice Areas</a>
@@ -42,15 +50,15 @@
     <a href="index.html#assessments" class="mobile-nav-link">Assessments</a>
     <a href="calculators.html" class="mobile-nav-link">Calculators</a>
     <a href="about-us.html" class="mobile-nav-link">About</a>
-    <a href="contact-us.html" class="mobile-nav-cta">Book a Session →</a>
+    <a href="contact-us.html" class="mobile-nav-cta">Book a Session &rarr;</a>
   </div>
 </div>
 <div class="mega-panel" id="mega-practice">
   <div class="mega-left">
     <div class="mega-left-label">Practice Areas</div>
-    <div class="mega-practice " data-target="mc-data"><span class="mega-practice-name">Data Consulting</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-    <div class="mega-practice " data-target="mc-cyber"><span class="mega-practice-name">Cybersecurity</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-    <div class="mega-practice " data-target="mc-eng"><span class="mega-practice-name">Digital Engineering</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice" data-target="mc-data"><span class="mega-practice-name">Data Consulting</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice" data-target="mc-cyber"><span class="mega-practice-name">Cybersecurity</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice" data-target="mc-eng"><span class="mega-practice-name">Digital Engineering</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
     <div class="mega-practice active" data-target="mc-sales"><span class="mega-practice-name">Sales Improvement</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
     <div class="mega-assess-block">
       <div class="mega-assess-label">Assessments</div>
@@ -60,7 +68,7 @@
     </div>
   </div>
   <div class="mega-center">
-    <div class="mega-center-inner " id="mc-data">
+    <div class="mega-center-inner" id="mc-data">
       <div class="mega-center-label">Data Consulting</div>
       <div class="mega-sub-grid">
         <a href="data-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Strategy</span></a>
@@ -68,24 +76,26 @@
         <a href="data-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Governance</span></a>
         <a href="data-consulting.html#ml" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Machine Learning</span></a>
         <a href="data-consulting.html#ai" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Artificial Intelligence</span></a>
-        <a href="data-consulting.html#reporting" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Reporting & Visualization</span></a>
+        <a href="data-consulting.html#reporting" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Reporting &amp; Visualization</span></a>
         <a href="data-consulting.html#operations" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Operations</span></a>
         <a href="ai-agents-for-business.html" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">AI Agents for Business</span></a>
       </div>
     </div>
-    <div class="mega-center-inner " id="mc-cyber">
+    <div class="mega-center-inner" id="mc-cyber">
       <div class="mega-center-label">Cybersecurity</div>
       <div class="mega-sub-grid">
         <a href="cybersecurity-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Strategy</span></a>
-        <a href="cybersecurity-consulting.html#architecture" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Architecture & Tools</span></a>
-        <a href="cybersecurity-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Governance & Process</span></a>
+        <a href="cybersecurity-consulting.html#architecture" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Architecture &amp; Tools</span></a>
+        <a href="cybersecurity-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Governance &amp; Process</span></a>
         <a href="cybersecurity-consulting.html#secops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Security Operations</span></a>
+        <a href="cybersecurity-consulting.html#incident" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Incident Response</span></a>
+        <a href="cybersecurity-consulting.html#compliance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Compliance &amp; Audit Readiness</span></a>
         <a href="aws/managed-aws-services-.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">Managed AWS Services</span></a>
         <a href="aws/cloud-cost-optimization-services.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">Cloud Cost Optimization</span></a>
         <a href="aws/finops-services.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">FinOps Services</span></a>
       </div>
     </div>
-    <div class="mega-center-inner " id="mc-eng">
+    <div class="mega-center-inner" id="mc-eng">
       <div class="mega-center-label">Digital Engineering</div>
       <div class="mega-sub-grid">
         <a href="digital-engineering-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Strategy</span></a>
@@ -93,6 +103,7 @@
         <a href="digital-engineering-consulting.html#automation" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Intelligent Automation</span></a>
         <a href="digital-engineering-consulting.html#product" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Product Engineering</span></a>
         <a href="digital-engineering-consulting.html#support" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Application Support</span></a>
+        <a href="digital-engineering-consulting.html#devops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">DevOps &amp; Platform Engineering</span></a>
       </div>
     </div>
     <div class="mega-center-inner active" id="mc-sales">
@@ -102,6 +113,8 @@
         <a href="sales-improvement.html#enablement" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Sales Enablement</span></a>
         <a href="sales-improvement.html#alignment" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Alignment</span></a>
         <a href="sales-improvement.html#ops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Operations</span></a>
+        <a href="sales-improvement.html#customer-success" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Customer Success</span></a>
+        <a href="sales-improvement.html#intelligence" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Intelligence</span></a>
       </div>
     </div>
   </div>
@@ -118,6 +131,8 @@
     </div>
   </div>
 </div>
+
+<!-- HERO -->
 <section class="pa-hero">
   <div class="pa-hero-grid"></div>
   <div class="pa-hero-glow"></div>
@@ -130,196 +145,215 @@
     <div class="pa-hero-inner">
       <div class="pa-hero-content">
         <h1 class="pa-headline">Fix the Story.<br><em>Fix the Revenue.</em></h1>
-        <p class="pa-sub">Revenue problems are usually story problems. When your team cannot articulate why you win, your bottom 50 percent stays stuck. WEX combines Kurt Smith's proven narrative sales methodology with hands-on GTM execution to close the gap between your potential and your pipeline.</p>
+        <p class="pa-sub">You are not churning reps because they are bad. You are churning them because they cannot articulate your business value. WEX redesigns go-to-market narratives, sales enablement programs, and revenue operations so your entire revenue organization speaks one language — and closes at the rate your product deserves.</p>
         <div class="pa-actions">
           <a href="contact-us.html" class="btn-primary">Book a Revenue Strategy Session <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          <a href="index.html#assessments" class="btn-ghost">View Revenue Alignment Assessment</a>
+          <a href="contact-us.html" class="btn-ghost">Request a GTM Narrative Review</a>
         </div>
       </div>
       <div class="pa-hero-nav">
         <div class="pa-nav-label">Capabilities</div>
         <a href="#gtm" class="pa-nav-item"><span class="pa-nav-num">01</span><span>GTM Narrative Design</span></a>
-<a href="#enablement" class="pa-nav-item"><span class="pa-nav-num">02</span><span>Sales Enablement</span></a>
-<a href="#alignment" class="pa-nav-item"><span class="pa-nav-num">03</span><span>Revenue Alignment</span></a>
-<a href="#ops" class="pa-nav-item"><span class="pa-nav-num">04</span><span>Revenue Operations</span></a>
+        <a href="#enablement" class="pa-nav-item"><span class="pa-nav-num">02</span><span>Sales Enablement</span></a>
+        <a href="#alignment" class="pa-nav-item"><span class="pa-nav-num">03</span><span>Revenue Alignment</span></a>
+        <a href="#ops" class="pa-nav-item"><span class="pa-nav-num">04</span><span>Revenue Operations</span></a>
+        <a href="#customer-success" class="pa-nav-item"><span class="pa-nav-num">05</span><span>Customer Success</span></a>
+        <a href="#intelligence" class="pa-nav-item"><span class="pa-nav-num">06</span><span>Revenue Intelligence</span></a>
+      </div>
+    </div>
+  </div>
+</section>
 
-      </div>
-    </div>
-  </div>
-</section><section style="background:var(--grey-950)">
+<!-- STATS BAND -->
+<section class="pa-stats">
   <div class="section-inner">
-    <div style="text-align:center;max-width:640px;margin:0 auto 64px">
-      <div class="section-label" style="justify-content:center">The WEX Sales Framework</div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,2.6vw,2.6rem);font-weight:700;line-height:1.15;margin-bottom:16px">We Sell by Telling <em style="color:var(--orange-light)">the Customer's Story</em></h2>
-      <p style="font-size:1rem;color:var(--grey-300);line-height:1.7">Kurt Smith's proven 101 to 202 to 303 narrative model. Every deal is a story. Every sale is the obvious next chapter.</p>
-    </div>
-    <div class="model-steps">
-      <div class="model-step fade-up">
-        <div class="model-step-badge">
-          <div class="model-step-num">101</div>
-          <div class="model-step-label">Intro</div>
-        </div>
-        <div class="model-step-content">
-          <h3>Establishing <em>Context</em></h3>
-          <p>The 101 stage is not a pitch — it is a listening session. The goal is to understand the customer's world so precisely that you can repeat their story back to them better than they told it. You earn the right to go deeper by demonstrating that you understand their business, their pressures, and their goals before recommending anything.</p>
-          <div class="model-tp-grid">
-            <div class="model-tp">Let's keep this at 101 level: who are you serving, how do you make money, and what has to go right this year for you to win?</div>
-            <div class="model-tp">If I can't repeat your story back to you better than you told it, I haven't earned the right to recommend anything.</div>
-          </div>
-        </div>
+    <div class="pa-stats-grid">
+      <div class="pa-stat">
+        <div class="pa-stat-num">50%</div>
+        <div class="pa-stat-label">of reps miss quota because of story problems, not skill problems</div>
       </div>
-      <div class="model-step fade-up">
-        <div class="model-step-badge">
-          <div class="model-step-num">202</div>
-          <div class="model-step-label">Tension</div>
-        </div>
-        <div class="model-step-content">
-          <h3>Surfacing the <em>Real Problem</em></h3>
-          <p>Most teams think they have a tooling problem. Nine times out of ten it is a story, alignment, or execution problem. The 202 stage moves from symptoms to root causes — surfacing the gaps between strategy and execution, quantifying the consequences of inaction, and building the shared urgency that makes the deal inevitable.</p>
-          <div class="model-tp-grid">
-            <div class="model-tp">What's really getting in the way of hitting those goals? Not the surface friction — the thing underneath that no one is talking about directly.</div>
-            <div class="model-tp">If nothing changes in the next 12 to 18 months, what does that mean for your growth, your team, and your own role?</div>
-          </div>
-        </div>
+      <div class="pa-stat">
+        <div class="pa-stat-num">101</div>
+        <div class="pa-stat-label">Kurt Smith's storytelling framework — context, tension, vision, deal</div>
       </div>
-      <div class="model-step fade-up">
-        <div class="model-step-badge">
-          <div class="model-step-num">303</div>
-          <div class="model-step-label">Vision</div>
-        </div>
-        <div class="model-step-content">
-          <h3>Rewriting the Story <em>With WEX</em></h3>
-          <p>The 303 is a vivid, specific picture of the customer's future — same company, same people, different playbook. WEX becomes the guide, not the hero. The customer sees themselves winning with us in the story, not just buying a service from us. The deal closes because it feels like the obvious next chapter.</p>
-          <div class="model-tp-grid">
-            <div class="model-tp">Let me tell you the 303 version of your story if we work together. Same people. Different results.</div>
-            <div class="model-tp">Here is how your board meeting sounds 12 months from now if we do this right.</div>
-          </div>
-        </div>
+      <div class="pa-stat">
+        <div class="pa-stat-num">3x</div>
+        <div class="pa-stat-label">Typical improvement in rep ramp time with structured enablement</div>
       </div>
-      <div class="model-step fade-up" style="border-bottom:none">
-        <div class="model-step-badge">
-          <div class="model-step-num" style="font-size:2.2rem">Deal</div>
-          <div class="model-step-label">Structure</div>
-        </div>
-        <div class="model-step-content">
-          <h3>Converting Story <em>to Structure</em></h3>
-          <p>If the 303 resonates, the deal is just agreeing on how fast you get there and where you start. WEX frames engagements in chapters — 60 to 90 day milestones with clear success criteria — so the commercial path matches the narrative and reduces perceived risk. The close is not a hard sell. It is the logical next sentence in a story you have been writing together.</p>
-          <div class="model-tp-grid">
-            <div class="model-tp">We will frame this in chapters, not an all-or-nothing saga. Chapter 1 is a 60 to 90 day engagement with clear success criteria.</div>
-            <div class="model-tp">The commercial structure should match the story: milestones, metrics, and ownership that track directly to the outcomes we just described.</div>
-          </div>
-        </div>
+      <div class="pa-stat">
+        <div class="pa-stat-num">1</div>
+        <div class="pa-stat-label">Story. Every rep, every conversation, every market.</div>
       </div>
     </div>
   </div>
-</section><section id="gtm" class="cap-section">
+</section>
+
+<!-- CAPABILITIES -->
+<section id="gtm" class="cap-section">
   <div class="section-inner">
     <div class="cap-grid fade-up">
       <div class="cap-label-col">
         <div class="cap-num">01</div>
         <div class="section-label">GTM Narrative Design</div>
-        
       </div>
       <div class="cap-content">
         <h2 class="cap-heading">Fix the Story. <em>Fix the Revenue.</em></h2>
-        <p class="cap-body">Your bottom 50% of reps are not churning because they are bad — they are churning because they cannot articulate your business value. WEX helps organizations design GTM narratives that make complex solutions simple, differentiated, and emotionally resonant. When the story is right, the whole team can tell it.</p>
-        
+        <p class="cap-body">Most companies have a product story, not a buyer story. The difference costs millions in lost pipeline. WEX redesigns your go-to-market narrative from the buyer's perspective — leading with the problem they recognize, building tension around the cost of inaction, and landing on the outcome they want to own. Kurt Smith's 101/202/303 storytelling model is the foundation of everything we build.</p>
         <div class="cap-deliverables">
           <div class="cap-del-label">What We Deliver</div>
-          <div class="cap-del-grid"><div class="cap-del-item"><span class="cap-check">&#10003;</span>GTM narrative architecture</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Value proposition design and testing</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Competitive differentiation framework</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Messaging hierarchy by persona</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Sales play development</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Message consistency audit</div>
-</div>
+          <div class="cap-del-grid">
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Core GTM narrative and messaging architecture</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Buyer persona-specific story variants</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Competitive differentiation positioning</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Pitch decks and discovery conversation guides</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Objection handling frameworks</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Value proposition and ROI messaging</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 <div class="cap-divider"></div>
+
 <section id="enablement" class="cap-section">
   <div class="section-inner">
     <div class="cap-grid fade-up">
       <div class="cap-label-col">
         <div class="cap-num">02</div>
         <div class="section-label">Sales Enablement</div>
-        
       </div>
       <div class="cap-content">
         <h2 class="cap-heading">Give Reps the Story. <em>Watch the Numbers Move.</em></h2>
-        <p class="cap-body">Sales enablement is not a library of slide decks — it is a system that consistently raises the floor of your sales team's performance. WEX designs and implements enablement programs that combine narrative training, deal coaching, and content tools into a repeatable system that compounds over time.</p>
-        
+        <p class="cap-body">A great narrative does not help unless every rep can deliver it confidently. WEX builds sales enablement programs that turn your go-to-market story into repeatable rep behavior — through structured onboarding, coaching frameworks, and the content infrastructure that gives reps exactly what they need at every stage of the deal.</p>
         <div class="cap-deliverables">
           <div class="cap-del-label">What We Deliver</div>
-          <div class="cap-del-grid"><div class="cap-del-item"><span class="cap-check">&#10003;</span>Sales enablement program design</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Rep onboarding and ramp acceleration</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Deal coaching and pipeline review</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Sales narrative training (101/202/303)</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Content library architecture</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>CRM and enablement tool integration</div>
-</div>
+          <div class="cap-del-grid">
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Sales playbook development</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Onboarding and ramp program design</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Coaching and call review frameworks</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Content library and asset management</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Sales methodology training (MEDDIC, Challenger, etc.)</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Enablement platform selection and implementation</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 <div class="cap-divider"></div>
+
 <section id="alignment" class="cap-section">
   <div class="section-inner">
     <div class="cap-grid fade-up">
       <div class="cap-label-col">
         <div class="cap-num">03</div>
         <div class="section-label">Revenue Alignment</div>
-        
       </div>
       <div class="cap-content">
         <h2 class="cap-heading">When Marketing, Sales, and CS Speak <em>One Language</em></h2>
-        <p class="cap-body">Revenue leaks at the handoffs. WEX aligns your marketing, sales, and customer success teams around a single revenue narrative — so every touchpoint reinforces the same story, the same value, and the same promise. Aligned revenue teams close faster, retain longer, and expand more predictably.</p>
-        
+        <p class="cap-body">Revenue leaks at handoff points. When marketing generates demand that sales cannot convert, or sales closes deals that customer success cannot retain, the revenue engine breaks down at the seams. WEX aligns your entire revenue organization around shared language, shared metrics, and a handoff model that protects the customer experience from first touch to renewal.</p>
         <div class="cap-deliverables">
           <div class="cap-del-label">What We Deliver</div>
-          <div class="cap-del-grid"><div class="cap-del-item"><span class="cap-check">&#10003;</span>Revenue team diagnostic and alignment workshop</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Shared KPI and metric framework</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Handoff process design and SLAs</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Joint account planning methodology</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Revenue narrative alignment training</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Executive reporting and accountability structure</div>
-</div>
+          <div class="cap-del-grid">
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Revenue team alignment workshop</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Shared KPI and accountability framework</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Lead and opportunity definition standardization</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Handoff process design (MQL, SQL, SAL)</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>SLA agreements between revenue functions</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Cross-functional QBR framework</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 <div class="cap-divider"></div>
+
 <section id="ops" class="cap-section">
   <div class="section-inner">
     <div class="cap-grid fade-up">
       <div class="cap-label-col">
         <div class="cap-num">04</div>
         <div class="section-label">Revenue Operations</div>
-        
       </div>
       <div class="cap-content">
         <h2 class="cap-heading">The Engine Behind <em>Predictable Growth</em></h2>
-        <p class="cap-body">Strategy without operations is aspiration. WEX builds the RevOps infrastructure that makes your growth engine reliable — data visibility across the funnel, forecasting you can trust, and process discipline that scales. Not just dashboards. The operational systems that make revenue outcomes predictable.</p>
-        
+        <p class="cap-body">Unpredictable revenue is almost always a process and data problem before it is a people problem. WEX designs revenue operations programs that bring structure, visibility, and accountability to your pipeline — so your leadership team can forecast with confidence and your board stops asking why the numbers moved.</p>
         <div class="cap-deliverables">
           <div class="cap-del-label">What We Deliver</div>
-          <div class="cap-del-grid"><div class="cap-del-item"><span class="cap-check">&#10003;</span>RevOps infrastructure assessment</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>CRM architecture and data hygiene</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Forecasting model and pipeline hygiene</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Funnel analytics and conversion optimization</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Quota and territory design</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>RevOps KPI framework and reporting</div>
-</div>
+          <div class="cap-del-grid">
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>CRM audit, cleanup, and optimization</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Pipeline management and stage definitions</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Forecasting methodology and cadence</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>RevOps tech stack assessment and design</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Territory and quota modeling</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Commission and incentive plan design</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 <div class="cap-divider"></div>
+
+<section id="customer-success" class="cap-section">
+  <div class="section-inner">
+    <div class="cap-grid fade-up">
+      <div class="cap-label-col">
+        <div class="cap-num">05</div>
+        <div class="section-label">Customer Success &amp; Retention</div>
+      </div>
+      <div class="cap-content">
+        <h2 class="cap-heading">Grow Revenue <em>You Already Have</em></h2>
+        <p class="cap-body">Acquisition is expensive. Retention is a multiplier. WEX builds customer success programs that reduce churn, expand accounts, and turn your best clients into your best referral channel. We design the engagement models, health scoring, and escalation playbooks that shift customer success from a cost center to a revenue driver — and give your CS team the structure to actually execute at scale.</p>
+        <div class="cap-deliverables">
+          <div class="cap-del-label">What We Deliver</div>
+          <div class="cap-del-grid">
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Customer health score framework</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Onboarding and time-to-value program</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>QBR and executive engagement playbook</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Expansion and upsell motion design</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Churn risk identification and intervention</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>CS team structure and capacity modeling</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="cap-divider"></div>
+
+<section id="intelligence" class="cap-section cap-section-featured">
+  <div class="section-inner">
+    <div class="cap-grid fade-up">
+      <div class="cap-label-col">
+        <div class="cap-num">06</div>
+        <div class="section-label">Revenue Intelligence</div>
+        <div class="cap-featured-badge">AI-Powered</div>
+      </div>
+      <div class="cap-content">
+        <h2 class="cap-heading">Stop Managing Opinions. <em>Start Managing Data.</em></h2>
+        <p class="cap-body">Most revenue leaders run their business on gut feel, CRM hygiene that is six weeks stale, and a forecast that changes every Friday. WEX builds revenue intelligence programs that replace opinion-based management with signal-based decision making — using AI and analytics to surface deal risk, buyer intent, and pipeline gaps before they become quarter-end surprises.</p>
+        <div class="cap-callout"><div class="cap-callout-text">"Every opportunity in your pipeline should be summarized as a story: where they are now, what tension is real, what winning looks like, and the specific next step. If you cannot tell that story, you cannot manage that deal."</div></div>
+        <div class="cap-deliverables">
+          <div class="cap-del-label">What We Deliver</div>
+          <div class="cap-del-grid">
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Revenue analytics dashboard and KPI framework</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>AI-powered deal scoring and risk flagging</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Conversation intelligence implementation</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Buyer intent signal integration</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Win/loss analysis framework</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Board-ready revenue reporting package</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="cap-divider"></div>
+
+<!-- FAQ -->
 <section style="background:var(--grey-950);padding:0">
   <div class="section-inner">
     <div style="display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:start">
@@ -332,20 +366,24 @@
     </div>
   </div>
 </section>
-<div class="cap-divider"></div><section class="pa-cta-strip">
+<div class="cap-divider"></div>
+
+<!-- CTA -->
+<section class="pa-cta-strip">
   <div class="section-inner">
     <div class="pa-cta-inner">
       <div class="pa-cta-text">
         <h2 class="pa-cta-heading">Ready to fix your revenue story?</h2>
-        <p>Schedule a 30-minute revenue strategy session with Kurt Smith. You will leave with a clear view of where your GTM narrative is leaking and how to close it.</p>
+        <p>Schedule a 30-minute GTM narrative review with Kurt Smith. You will leave knowing exactly where your story is breaking down and what to fix first.</p>
       </div>
       <div class="pa-cta-actions">
         <a href="contact-us.html" class="btn-primary">Book a Revenue Strategy Session <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        <a href="index.html#assessments" class="btn-ghost">View Our Sales Methodology</a>
+        <a href="contact-us.html" class="btn-ghost">Request a GTM Narrative Review</a>
       </div>
     </div>
   </div>
 </section>
+
 <footer class="site-footer">
   <div class="section-inner" style="padding-top:56px;padding-bottom:40px">
     <div class="footer-grid">

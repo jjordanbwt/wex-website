@@ -8,6 +8,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="shared.css"/>
+<style>
+em { font-style: normal; }
+.pa-stats { background: var(--grey-900); border-top: 1px solid var(--grey-800); border-bottom: 1px solid var(--grey-800); padding: 48px 0; }
+.pa-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.pa-stat { text-align: center; }
+.pa-stat-num { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 700; color: var(--orange); line-height: 1; margin-bottom: 8px; }
+.pa-stat-label { font-size: .85rem; color: var(--grey-300); line-height: 1.4; }
+@media (max-width: 768px) { .pa-stats-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .pa-stats-grid { grid-template-columns: 1fr 1fr; gap: 24px; } .pa-stat-num { font-size: 2rem; } }
+</style>
 </head>
 <body>
 <div id="menu-backdrop"></div>
@@ -17,7 +27,6 @@
     <span class="nav-logo-text" style="display:none">Working <span>Excellence</span></span>
   </a>
   <ul class="nav-links">
-    
     <li><button class="mega-trigger" data-mega="practice">Practice Areas
       <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
     </button></li>
@@ -34,7 +43,6 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
-<!-- MOBILE NAV DRAWER -->
 <div id="mobile-nav-drawer" class="mobile-nav-drawer">
   <div class="mobile-nav-inner">
     <a href="index.html" class="mobile-nav-link">Practice Areas</a>
@@ -42,16 +50,16 @@
     <a href="index.html#assessments" class="mobile-nav-link">Assessments</a>
     <a href="calculators.html" class="mobile-nav-link">Calculators</a>
     <a href="about-us.html" class="mobile-nav-link">About</a>
-    <a href="contact-us.html" class="mobile-nav-cta">Book a Session →</a>
+    <a href="contact-us.html" class="mobile-nav-cta">Book a Session &rarr;</a>
   </div>
 </div>
 <div class="mega-panel" id="mega-practice">
   <div class="mega-left">
     <div class="mega-left-label">Practice Areas</div>
-    <div class="mega-practice " data-target="mc-data"><span class="mega-practice-name">Data Consulting</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-    <div class="mega-practice " data-target="mc-cyber"><span class="mega-practice-name">Cybersecurity</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice" data-target="mc-data"><span class="mega-practice-name">Data Consulting</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice" data-target="mc-cyber"><span class="mega-practice-name">Cybersecurity</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
     <div class="mega-practice active" data-target="mc-eng"><span class="mega-practice-name">Digital Engineering</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-    <div class="mega-practice " data-target="mc-sales"><span class="mega-practice-name">Sales Improvement</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice" data-target="mc-sales"><span class="mega-practice-name">Sales Improvement</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
     <div class="mega-assess-block">
       <div class="mega-assess-label">Assessments</div>
       <a href="index.html#assessments" class="mega-assess-link">Technical Risk Assessment</a>
@@ -60,7 +68,7 @@
     </div>
   </div>
   <div class="mega-center">
-    <div class="mega-center-inner " id="mc-data">
+    <div class="mega-center-inner" id="mc-data">
       <div class="mega-center-label">Data Consulting</div>
       <div class="mega-sub-grid">
         <a href="data-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Strategy</span></a>
@@ -68,18 +76,20 @@
         <a href="data-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Governance</span></a>
         <a href="data-consulting.html#ml" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Machine Learning</span></a>
         <a href="data-consulting.html#ai" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Artificial Intelligence</span></a>
-        <a href="data-consulting.html#reporting" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Reporting & Visualization</span></a>
+        <a href="data-consulting.html#reporting" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Reporting &amp; Visualization</span></a>
         <a href="data-consulting.html#operations" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Operations</span></a>
         <a href="ai-agents-for-business.html" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">AI Agents for Business</span></a>
       </div>
     </div>
-    <div class="mega-center-inner " id="mc-cyber">
+    <div class="mega-center-inner" id="mc-cyber">
       <div class="mega-center-label">Cybersecurity</div>
       <div class="mega-sub-grid">
         <a href="cybersecurity-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Strategy</span></a>
-        <a href="cybersecurity-consulting.html#architecture" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Architecture & Tools</span></a>
-        <a href="cybersecurity-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Governance & Process</span></a>
+        <a href="cybersecurity-consulting.html#architecture" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Architecture &amp; Tools</span></a>
+        <a href="cybersecurity-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Governance &amp; Process</span></a>
         <a href="cybersecurity-consulting.html#secops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Security Operations</span></a>
+        <a href="cybersecurity-consulting.html#incident" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Incident Response</span></a>
+        <a href="cybersecurity-consulting.html#compliance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Compliance &amp; Audit Readiness</span></a>
         <a href="aws/managed-aws-services-.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">Managed AWS Services</span></a>
         <a href="aws/cloud-cost-optimization-services.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">Cloud Cost Optimization</span></a>
         <a href="aws/finops-services.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">FinOps Services</span></a>
@@ -93,15 +103,18 @@
         <a href="digital-engineering-consulting.html#automation" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Intelligent Automation</span></a>
         <a href="digital-engineering-consulting.html#product" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Product Engineering</span></a>
         <a href="digital-engineering-consulting.html#support" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Application Support</span></a>
+        <a href="digital-engineering-consulting.html#devops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">DevOps &amp; Platform Engineering</span></a>
       </div>
     </div>
-    <div class="mega-center-inner " id="mc-sales">
+    <div class="mega-center-inner" id="mc-sales">
       <div class="mega-center-label">Sales Improvement</div>
       <div class="mega-sub-grid">
         <a href="sales-improvement.html#gtm" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">GTM Narrative Design</span></a>
         <a href="sales-improvement.html#enablement" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Sales Enablement</span></a>
         <a href="sales-improvement.html#alignment" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Alignment</span></a>
         <a href="sales-improvement.html#ops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Operations</span></a>
+        <a href="sales-improvement.html#customer-success" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Customer Success</span></a>
+        <a href="sales-improvement.html#intelligence" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Intelligence</span></a>
       </div>
     </div>
   </div>
@@ -118,6 +131,8 @@
     </div>
   </div>
 </div>
+
+<!-- HERO -->
 <section class="pa-hero">
   <div class="pa-hero-grid"></div>
   <div class="pa-hero-glow"></div>
@@ -129,159 +144,216 @@
     </div>
     <div class="pa-hero-inner">
       <div class="pa-hero-content">
-        <h1 class="pa-headline">Engineer What's Next.</h1>
-        <p class="pa-sub">Modernize legacy systems, embrace cloud-native architecture, and enable intelligent automation. Our digital engineers are hands-on partners — not advisory-only consultants who leave after the slide deck.</p>
+        <h1 class="pa-headline">Engineer What's Next.<br><em>Build What Lasts.</em></h1>
+        <p class="pa-sub">70% of digital transformation programs fail. Not because of bad ideas — because of poor execution, wrong tooling, and teams optimized for sprints instead of outcomes. WEX combines strategic clarity with hands-on engineering delivery, building modern technology programs that perform at scale without the Big Four overhead and junior-consultant bait-and-switch.</p>
         <div class="pa-actions">
-          <a href="contact-us.html" class="btn-primary">Request a Digital Engineering Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          <a href="index.html#assessments" class="btn-ghost">View Cloud Assessment</a>
+          <a href="contact-us.html" class="btn-primary">Book an Engineering Session <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="index.html#assessments" class="btn-ghost">View Cloud Infrastructure Assessment</a>
         </div>
       </div>
       <div class="pa-hero-nav">
         <div class="pa-nav-label">Capabilities</div>
-        <a href="#strategy" class="pa-nav-item"><span class="pa-nav-num">01</span><span>Engineering Strategy</span></a>
-<a href="#cloud" class="pa-nav-item"><span class="pa-nav-num">02</span><span>Cloud Migrations</span></a>
-<a href="#automation" class="pa-nav-item"><span class="pa-nav-num">03</span><span>Intelligent Automation</span></a>
-<a href="#product" class="pa-nav-item"><span class="pa-nav-num">04</span><span>Product Engineering</span></a>
-<a href="#support" class="pa-nav-item"><span class="pa-nav-num">05</span><span>Application Support</span></a>
-
+        <a href="#strategy" class="pa-nav-item"><span class="pa-nav-num">01</span><span>Digital Engineering Strategy</span></a>
+        <a href="#cloud" class="pa-nav-item"><span class="pa-nav-num">02</span><span>Cloud Migrations</span></a>
+        <a href="#automation" class="pa-nav-item"><span class="pa-nav-num">03</span><span>Intelligent Automation</span></a>
+        <a href="#product" class="pa-nav-item"><span class="pa-nav-num">04</span><span>Product Engineering</span></a>
+        <a href="#support" class="pa-nav-item"><span class="pa-nav-num">05</span><span>Application Support</span></a>
+        <a href="#devops" class="pa-nav-item"><span class="pa-nav-num">06</span><span>DevOps &amp; Platform Engineering</span></a>
       </div>
     </div>
   </div>
-</section><section id="strategy" class="cap-section">
+</section>
+
+<!-- STATS BAND -->
+<section class="pa-stats">
+  <div class="section-inner">
+    <div class="pa-stats-grid">
+      <div class="pa-stat">
+        <div class="pa-stat-num">70%</div>
+        <div class="pa-stat-label">of digital programs fail — WEX is built to be the exception</div>
+      </div>
+      <div class="pa-stat">
+        <div class="pa-stat-num">AWS</div>
+        <div class="pa-stat-label">Azure, and GCP migration expertise across all major clouds</div>
+      </div>
+      <div class="pa-stat">
+        <div class="pa-stat-num">50%</div>
+        <div class="pa-stat-label">Typical cost reduction vs. Big Four implementation engagements</div>
+      </div>
+      <div class="pa-stat">
+        <div class="pa-stat-num">0</div>
+        <div class="pa-stat-label">Junior consultants substituted after the sales cycle closes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="strategy" class="cap-section">
   <div class="section-inner">
     <div class="cap-grid fade-up">
       <div class="cap-label-col">
         <div class="cap-num">01</div>
         <div class="section-label">Digital Engineering Strategy</div>
-        
       </div>
       <div class="cap-content">
         <h2 class="cap-heading">Engineer Your Future. <em>Not Just Your Next Sprint.</em></h2>
-        <p class="cap-body">Most digital engineering engagements optimize for the next release, not the next five years. WEX builds digital engineering strategies that align your technology stack, team structure, and delivery model to long-term business outcomes — not just technical milestones. We combine strategic clarity with hands-on execution.</p>
-        
+        <p class="cap-body">Most digital engineering engagements optimize for the next release, not the next five years. WEX builds digital engineering strategies that align your technology stack, team structure, and delivery model to long-term business outcomes — not just technical milestones. We combine strategic clarity with hands-on execution accountability from day one.</p>
         <div class="cap-deliverables">
           <div class="cap-del-label">What We Deliver</div>
-          <div class="cap-del-grid"><div class="cap-del-item"><span class="cap-check">&#10003;</span>Digital transformation roadmap</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Technology stack assessment and selection</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Platform architecture strategy</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Engineering operating model design</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Build vs buy vs partner analysis</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>90-day acceleration plan</div>
-</div>
+          <div class="cap-del-grid">
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Digital transformation roadmap</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Technology stack assessment and selection</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Build vs. buy vs. integrate analysis</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Engineering team structure and operating model</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Technical debt assessment and remediation roadmap</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Vendor and partner evaluation framework</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 <div class="cap-divider"></div>
+
 <section id="cloud" class="cap-section">
   <div class="section-inner">
     <div class="cap-grid fade-up">
       <div class="cap-label-col">
         <div class="cap-num">02</div>
         <div class="section-label">Cloud Migrations</div>
-        
       </div>
       <div class="cap-content">
         <h2 class="cap-heading">Move to Cloud. <em>Without the Do-Over Tax.</em></h2>
-        <p class="cap-body">Cloud migrations fail when they are rushed, under-governed, or executed by teams optimized for volume over quality. WEX designs and leads cloud migrations that are methodical, validated, and built for the workloads you have today and the ones you are building for tomorrow. AWS, Azure, GCP — or hybrid.</p>
-        
+        <p class="cap-body">Cloud migrations fail when they are rushed, under-governed, or executed by teams optimized for volume over quality. WEX designs and leads cloud migrations that are methodical, validated, and built for the workloads you have today and the ones you are building for tomorrow. AWS, Azure, GCP — or hybrid multi-cloud. We recommend based on your workload economics, not vendor partnership incentives.</p>
         <div class="cap-deliverables">
           <div class="cap-del-label">What We Deliver</div>
-          <div class="cap-del-grid"><div class="cap-del-item"><span class="cap-check">&#10003;</span>Cloud readiness and migration assessment</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Workload prioritization and sequencing</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Lift-and-shift and re-architecture planning</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Migration execution and cutover management</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Post-migration optimization</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>FinOps and cost governance setup</div>
-</div>
+          <div class="cap-del-grid">
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Cloud readiness and migration assessment</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Workload prioritization and sequencing</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Hyperscaler selection and architecture design</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Lift-and-shift, re-platform, and re-architecture delivery</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Migration execution and cutover management</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Cloud cost optimization post-migration</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 <div class="cap-divider"></div>
+
 <section id="automation" class="cap-section">
   <div class="section-inner">
     <div class="cap-grid fade-up">
       <div class="cap-label-col">
         <div class="cap-num">03</div>
         <div class="section-label">Intelligent Automation</div>
-        
       </div>
       <div class="cap-content">
         <h2 class="cap-heading">Automate What Slows You Down. <em>Not Just What Is Easy.</em></h2>
-        <p class="cap-body">Most automation programs start with the low-hanging fruit and stop there. WEX builds intelligent automation programs that target your highest-impact processes — where AI, RPA, and workflow orchestration combine to create real operating leverage. Not just faster versions of broken processes.</p>
-        
+        <p class="cap-body">Most automation programs start with the low-hanging fruit and stop there. WEX builds intelligent automation programs that target your highest-impact processes — where AI, RPA, and workflow orchestration combine to create real operating leverage. We do not automate broken processes; we redesign them first, then automate what is worth keeping.</p>
         <div class="cap-deliverables">
           <div class="cap-del-label">What We Deliver</div>
-          <div class="cap-del-grid"><div class="cap-del-item"><span class="cap-check">&#10003;</span>Process discovery and automation opportunity mapping</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>RPA design and implementation</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>AI-augmented workflow engineering</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Integration and API orchestration</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Automation governance and monitoring</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>ROI tracking and continuous improvement</div>
-</div>
+          <div class="cap-del-grid">
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Process discovery and automation opportunity mapping</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>RPA design and implementation</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>AI-powered workflow orchestration</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>System integration and API automation</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Automation ROI modeling and prioritization</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Automation governance and monitoring</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 <div class="cap-divider"></div>
+
 <section id="product" class="cap-section">
   <div class="section-inner">
     <div class="cap-grid fade-up">
       <div class="cap-label-col">
         <div class="cap-num">04</div>
         <div class="section-label">Product Engineering</div>
-        
       </div>
       <div class="cap-content">
         <h2 class="cap-heading">Build Products That <em>Last and Scale</em></h2>
-        <p class="cap-body">WEX builds digital products with the rigor of engineers who have shipped at enterprise scale and the agility of teams that operate without Big Four bureaucracy. From architecture to delivery, we partner with your product teams to accelerate feature velocity without accumulating the technical debt that slows you down later.</p>
-        
+        <p class="cap-body">WEX builds digital products with the rigor of engineers who have shipped at enterprise scale and the agility of teams that operate without Big Four bureaucracy. From architecture to delivery, we partner with your product teams to accelerate feature velocity without accumulating the technical debt that slows you down in year two. The expert who designs is the expert who builds.</p>
         <div class="cap-deliverables">
           <div class="cap-del-label">What We Deliver</div>
-          <div class="cap-del-grid"><div class="cap-del-item"><span class="cap-check">&#10003;</span>Product architecture and technical design</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Agile delivery and sprint execution</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Front-end and back-end engineering</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>API design and microservices</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>DevSecOps pipeline setup</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Code quality and technical debt reduction</div>
-</div>
+          <div class="cap-del-grid">
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Product architecture and technical design</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Agile delivery and sprint execution</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>API design and microservices architecture</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Frontend and backend engineering</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Quality assurance and testing automation</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Performance optimization and scalability</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 <div class="cap-divider"></div>
+
 <section id="support" class="cap-section">
   <div class="section-inner">
     <div class="cap-grid fade-up">
       <div class="cap-label-col">
         <div class="cap-num">05</div>
-        <div class="section-label">Application Support & Maintenance</div>
-        
+        <div class="section-label">Application Support &amp; Maintenance</div>
       </div>
       <div class="cap-content">
         <h2 class="cap-heading">Keep Systems Running. <em>Keep Teams Focused.</em></h2>
-        <p class="cap-body">Maintaining legacy systems consumes engineering capacity that should be driving innovation. WEX provides structured application support and maintenance programs that keep critical systems stable while your internal teams focus on what they do best. No 1990s offshoring models. Modern, senior-led support.</p>
-        
+        <p class="cap-body">Maintaining legacy systems consumes engineering capacity that should be driving innovation. WEX provides structured application support and maintenance programs that keep critical systems stable while your internal teams focus on building what is next. No 1990s offshoring models. Senior-led support with clear SLAs, documented runbooks, and an escalation path that actually works.</p>
         <div class="cap-deliverables">
           <div class="cap-del-label">What We Deliver</div>
-          <div class="cap-del-grid"><div class="cap-del-item"><span class="cap-check">&#10003;</span>Application monitoring and incident response</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Bug triage and resolution SLAs</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Dependency and security patch management</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Documentation and knowledge transfer</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Performance optimization</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Managed upgrade and migration support</div>
-</div>
+          <div class="cap-del-grid">
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Application monitoring and incident response</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Bug triage and resolution SLAs</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Scheduled maintenance and patch management</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Knowledge transfer and documentation</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Legacy modernization planning</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Escalation runbooks and on-call design</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 <div class="cap-divider"></div>
+
+<section id="devops" class="cap-section cap-section-featured">
+  <div class="section-inner">
+    <div class="cap-grid fade-up">
+      <div class="cap-label-col">
+        <div class="cap-num">06</div>
+        <div class="section-label">DevOps &amp; Platform Engineering</div>
+        <div class="cap-featured-badge">High-Impact</div>
+      </div>
+      <div class="cap-content">
+        <h2 class="cap-heading">Ship Faster. <em>Break Less.</em></h2>
+        <p class="cap-body">The fastest engineering teams are not the ones writing the most code — they are the ones with the best delivery infrastructure. WEX designs and builds the CI/CD pipelines, internal developer platforms, and infrastructure-as-code foundations that compress deployment cycles from weeks to hours without sacrificing stability or compliance requirements.</p>
+        <div class="cap-callout"><div class="cap-callout-text">"The difference between a team that ships weekly and one that ships monthly is rarely talent. It is almost always platform maturity and delivery discipline."</div></div>
+        <div class="cap-deliverables">
+          <div class="cap-del-label">What We Deliver</div>
+          <div class="cap-del-grid">
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>CI/CD pipeline design and implementation</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Infrastructure as code (Terraform, Pulumi)</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Container orchestration (Kubernetes, ECS)</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Internal developer platform design</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Observability and monitoring stack</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Deployment governance and change management</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="cap-divider"></div>
+
+<!-- FAQ -->
 <section style="background:var(--grey-950);padding:0">
   <div class="section-inner">
     <div style="display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:start">
@@ -294,12 +366,15 @@
     </div>
   </div>
 </section>
-<div class="cap-divider"></div><section class="pa-cta-strip">
+<div class="cap-divider"></div>
+
+<!-- CTA -->
+<section class="pa-cta-strip">
   <div class="section-inner">
     <div class="pa-cta-inner">
       <div class="pa-cta-text">
         <h2 class="pa-cta-heading">Ready to modernize your technology stack?</h2>
-        <p>Schedule a 30-minute digital engineering session. We will assess your current architecture and identify your highest-leverage modernization opportunities.</p>
+        <p>Schedule a 30-minute digital engineering session. We will assess your current architecture and identify your highest-leverage modernization opportunities — with no SOW required.</p>
       </div>
       <div class="pa-cta-actions">
         <a href="contact-us.html" class="btn-primary">Book an Engineering Strategy Session <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
@@ -308,6 +383,7 @@
     </div>
   </div>
 </section>
+
 <footer class="site-footer">
   <div class="section-inner" style="padding-top:56px;padding-bottom:40px">
     <div class="footer-grid">

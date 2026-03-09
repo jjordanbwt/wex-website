@@ -8,6 +8,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="shared.css"/>
+<style>
+em { font-style: normal; }
+.pa-stats { background: var(--grey-900); border-top: 1px solid var(--grey-800); border-bottom: 1px solid var(--grey-800); padding: 48px 0; }
+.pa-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.pa-stat { text-align: center; }
+.pa-stat-num { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 700; color: var(--orange); line-height: 1; margin-bottom: 8px; }
+.pa-stat-label { font-size: .85rem; color: var(--grey-300); line-height: 1.4; }
+@media (max-width: 768px) { .pa-stats-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .pa-stats-grid { grid-template-columns: 1fr 1fr; gap: 24px; } .pa-stat-num { font-size: 2rem; } }
+</style>
 </head>
 <body>
 <div id="menu-backdrop"></div>
@@ -77,9 +87,11 @@
       <div class="mega-center-label">Cybersecurity</div>
       <div class="mega-sub-grid">
         <a href="cybersecurity-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Strategy</span></a>
-        <a href="cybersecurity-consulting.html#architecture" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Architecture & Tools</span></a>
-        <a href="cybersecurity-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Governance & Process</span></a>
+        <a href="cybersecurity-consulting.html#architecture" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Architecture &amp; Tools</span></a>
+        <a href="cybersecurity-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Governance &amp; Process</span></a>
         <a href="cybersecurity-consulting.html#secops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Security Operations</span></a>
+        <a href="cybersecurity-consulting.html#incident" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Incident Response</span></a>
+        <a href="cybersecurity-consulting.html#compliance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Compliance &amp; Audit Readiness</span></a>
         <a href="aws/managed-aws-services-.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">Managed AWS Services</span></a>
         <a href="aws/cloud-cost-optimization-services.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">Cloud Cost Optimization</span></a>
         <a href="aws/finops-services.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">FinOps Services</span></a>
@@ -93,6 +105,7 @@
         <a href="digital-engineering-consulting.html#automation" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Intelligent Automation</span></a>
         <a href="digital-engineering-consulting.html#product" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Product Engineering</span></a>
         <a href="digital-engineering-consulting.html#support" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Application Support</span></a>
+        <a href="digital-engineering-consulting.html#devops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">DevOps &amp; Platform Engineering</span></a>
       </div>
     </div>
     <div class="mega-center-inner " id="mc-sales">
@@ -102,6 +115,8 @@
         <a href="sales-improvement.html#enablement" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Sales Enablement</span></a>
         <a href="sales-improvement.html#alignment" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Alignment</span></a>
         <a href="sales-improvement.html#ops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Operations</span></a>
+        <a href="sales-improvement.html#customer-success" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Customer Success</span></a>
+        <a href="sales-improvement.html#intelligence" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Intelligence</span></a>
       </div>
     </div>
   </div>
@@ -150,7 +165,33 @@
       </div>
     </div>
   </div>
-</section><section id="strategy" class="cap-section">
+</section>
+
+<!-- STATS BAND -->
+<section class="pa-stats">
+  <div class="section-inner">
+    <div class="pa-stats-grid">
+      <div class="pa-stat">
+        <div class="pa-stat-num">7</div>
+        <div class="pa-stat-label">Core data practice capabilities under one roof</div>
+      </div>
+      <div class="pa-stat">
+        <div class="pa-stat-num">AWS</div>
+        <div class="pa-stat-label">Azure and GCP expertise — vendor-agnostic recommendations</div>
+      </div>
+      <div class="pa-stat">
+        <div class="pa-stat-num">90</div>
+        <div class="pa-stat-label">Day execution roadmap delivered in every strategy engagement</div>
+      </div>
+      <div class="pa-stat">
+        <div class="pa-stat-num">0</div>
+        <div class="pa-stat-label">AI pilots started before your data foundation is ready</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="strategy" class="cap-section">
   <div class="section-inner">
     <div class="cap-grid fade-up">
       <div class="cap-label-col">

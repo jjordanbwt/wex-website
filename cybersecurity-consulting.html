@@ -3,11 +3,21 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Cybersecurity — Working Excellence</title>
+<title>Cybersecurity Consulting — Working Excellence</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="shared.css"/>
+<style>
+em { font-style: normal; }
+.pa-stats { background: var(--grey-900); border-top: 1px solid var(--grey-800); border-bottom: 1px solid var(--grey-800); padding: 48px 0; }
+.pa-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.pa-stat { text-align: center; }
+.pa-stat-num { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 700; color: var(--orange); line-height: 1; margin-bottom: 8px; }
+.pa-stat-label { font-size: .85rem; color: var(--grey-300); line-height: 1.4; }
+@media (max-width: 768px) { .pa-stats-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .pa-stats-grid { grid-template-columns: 1fr 1fr; gap: 24px; } .pa-stat-num { font-size: 2rem; } }
+</style>
 </head>
 <body>
 <div id="menu-backdrop"></div>
@@ -17,7 +27,6 @@
     <span class="nav-logo-text" style="display:none">Working <span>Excellence</span></span>
   </a>
   <ul class="nav-links">
-    
     <li><button class="mega-trigger" data-mega="practice">Practice Areas
       <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
     </button></li>
@@ -34,7 +43,6 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
-<!-- MOBILE NAV DRAWER -->
 <div id="mobile-nav-drawer" class="mobile-nav-drawer">
   <div class="mobile-nav-inner">
     <a href="index.html" class="mobile-nav-link">Practice Areas</a>
@@ -42,16 +50,16 @@
     <a href="index.html#assessments" class="mobile-nav-link">Assessments</a>
     <a href="calculators.html" class="mobile-nav-link">Calculators</a>
     <a href="about-us.html" class="mobile-nav-link">About</a>
-    <a href="contact-us.html" class="mobile-nav-cta">Book a Session →</a>
+    <a href="contact-us.html" class="mobile-nav-cta">Book a Session &rarr;</a>
   </div>
 </div>
 <div class="mega-panel" id="mega-practice">
   <div class="mega-left">
     <div class="mega-left-label">Practice Areas</div>
-    <div class="mega-practice " data-target="mc-data"><span class="mega-practice-name">Data Consulting</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice" data-target="mc-data"><span class="mega-practice-name">Data Consulting</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
     <div class="mega-practice active" data-target="mc-cyber"><span class="mega-practice-name">Cybersecurity</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-    <div class="mega-practice " data-target="mc-eng"><span class="mega-practice-name">Digital Engineering</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-    <div class="mega-practice " data-target="mc-sales"><span class="mega-practice-name">Sales Improvement</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice" data-target="mc-eng"><span class="mega-practice-name">Digital Engineering</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice" data-target="mc-sales"><span class="mega-practice-name">Sales Improvement</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
     <div class="mega-assess-block">
       <div class="mega-assess-label">Assessments</div>
       <a href="index.html#assessments" class="mega-assess-link">Technical Risk Assessment</a>
@@ -60,7 +68,7 @@
     </div>
   </div>
   <div class="mega-center">
-    <div class="mega-center-inner " id="mc-data">
+    <div class="mega-center-inner" id="mc-data">
       <div class="mega-center-label">Data Consulting</div>
       <div class="mega-sub-grid">
         <a href="data-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Strategy</span></a>
@@ -68,7 +76,7 @@
         <a href="data-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Governance</span></a>
         <a href="data-consulting.html#ml" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Machine Learning</span></a>
         <a href="data-consulting.html#ai" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Artificial Intelligence</span></a>
-        <a href="data-consulting.html#reporting" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Reporting & Visualization</span></a>
+        <a href="data-consulting.html#reporting" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Reporting &amp; Visualization</span></a>
         <a href="data-consulting.html#operations" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Operations</span></a>
         <a href="ai-agents-for-business.html" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">AI Agents for Business</span></a>
       </div>
@@ -77,15 +85,17 @@
       <div class="mega-center-label">Cybersecurity</div>
       <div class="mega-sub-grid">
         <a href="cybersecurity-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Strategy</span></a>
-        <a href="cybersecurity-consulting.html#architecture" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Architecture & Tools</span></a>
-        <a href="cybersecurity-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Governance & Process</span></a>
+        <a href="cybersecurity-consulting.html#architecture" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Architecture &amp; Tools</span></a>
+        <a href="cybersecurity-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Governance &amp; Process</span></a>
         <a href="cybersecurity-consulting.html#secops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Security Operations</span></a>
+        <a href="cybersecurity-consulting.html#incident" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Incident Response</span></a>
+        <a href="cybersecurity-consulting.html#compliance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Compliance &amp; Audit Readiness</span></a>
         <a href="aws/managed-aws-services-.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">Managed AWS Services</span></a>
         <a href="aws/cloud-cost-optimization-services.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">Cloud Cost Optimization</span></a>
         <a href="aws/finops-services.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">FinOps Services</span></a>
       </div>
     </div>
-    <div class="mega-center-inner " id="mc-eng">
+    <div class="mega-center-inner" id="mc-eng">
       <div class="mega-center-label">Digital Engineering</div>
       <div class="mega-sub-grid">
         <a href="digital-engineering-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Strategy</span></a>
@@ -93,15 +103,18 @@
         <a href="digital-engineering-consulting.html#automation" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Intelligent Automation</span></a>
         <a href="digital-engineering-consulting.html#product" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Product Engineering</span></a>
         <a href="digital-engineering-consulting.html#support" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Application Support</span></a>
+        <a href="digital-engineering-consulting.html#devops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">DevOps &amp; Platform Engineering</span></a>
       </div>
     </div>
-    <div class="mega-center-inner " id="mc-sales">
+    <div class="mega-center-inner" id="mc-sales">
       <div class="mega-center-label">Sales Improvement</div>
       <div class="mega-sub-grid">
         <a href="sales-improvement.html#gtm" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">GTM Narrative Design</span></a>
         <a href="sales-improvement.html#enablement" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Sales Enablement</span></a>
         <a href="sales-improvement.html#alignment" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Alignment</span></a>
         <a href="sales-improvement.html#ops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Operations</span></a>
+        <a href="sales-improvement.html#customer-success" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Customer Success</span></a>
+        <a href="sales-improvement.html#intelligence" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Intelligence</span></a>
       </div>
     </div>
   </div>
@@ -118,6 +131,8 @@
     </div>
   </div>
 </div>
+
+<!-- HERO -->
 <section class="pa-hero">
   <div class="pa-hero-grid"></div>
   <div class="pa-hero-glow"></div>
@@ -130,130 +145,216 @@
     <div class="pa-hero-inner">
       <div class="pa-hero-content">
         <h1 class="pa-headline">Stay Ahead of Threats.<br><em>Secure What Matters.</em></h1>
-        <p class="pa-sub">Security is not just an IT issue — it is business-critical. WEX designs robust cyber frameworks that protect your organization from known and emerging threats, keeping you compliant, secure, and resilient. Led by 30 years of enterprise security expertise.</p>
+        <p class="pa-sub">Security is not just an IT issue — it is business-critical. WEX designs robust cyber frameworks that protect your organization from known and emerging threats, keeping you compliant, resilient, and audit-ready. Led by 30+ years of enterprise security expertise across federal, healthcare, and financial-sector environments.</p>
         <div class="pa-actions">
-          <a href="contact-us.html" class="btn-primary">Schedule a Security Assessment <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="contact-us.html" class="btn-primary">Book a Security Assessment <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           <a href="index.html#assessments" class="btn-ghost">View Technical Risk Assessment</a>
         </div>
       </div>
       <div class="pa-hero-nav">
         <div class="pa-nav-label">Capabilities</div>
         <a href="#strategy" class="pa-nav-item"><span class="pa-nav-num">01</span><span>Cybersecurity Strategy</span></a>
-<a href="#architecture" class="pa-nav-item"><span class="pa-nav-num">02</span><span>Architecture & Tools</span></a>
-<a href="#governance" class="pa-nav-item"><span class="pa-nav-num">03</span><span>Governance & Process</span></a>
-<a href="#secops" class="pa-nav-item"><span class="pa-nav-num">04</span><span>Security Operations</span></a>
-
+        <a href="#architecture" class="pa-nav-item"><span class="pa-nav-num">02</span><span>Architecture &amp; Tools</span></a>
+        <a href="#governance" class="pa-nav-item"><span class="pa-nav-num">03</span><span>Governance &amp; Process</span></a>
+        <a href="#secops" class="pa-nav-item"><span class="pa-nav-num">04</span><span>Security Operations</span></a>
+        <a href="#incident" class="pa-nav-item"><span class="pa-nav-num">05</span><span>Incident Response</span></a>
+        <a href="#compliance" class="pa-nav-item"><span class="pa-nav-num">06</span><span>Compliance &amp; Audit Readiness</span></a>
       </div>
     </div>
   </div>
-</section><section id="strategy" class="cap-section">
+</section>
+
+<!-- STATS BAND -->
+<section class="pa-stats">
+  <div class="section-inner">
+    <div class="pa-stats-grid">
+      <div class="pa-stat">
+        <div class="pa-stat-num">30+</div>
+        <div class="pa-stat-label">Years of enterprise security leadership</div>
+      </div>
+      <div class="pa-stat">
+        <div class="pa-stat-num">NIST</div>
+        <div class="pa-stat-label">CSF 2.0 aligned frameworks and roadmaps</div>
+      </div>
+      <div class="pa-stat">
+        <div class="pa-stat-num">6</div>
+        <div class="pa-stat-label">Major compliance frameworks covered</div>
+      </div>
+      <div class="pa-stat">
+        <div class="pa-stat-num">40%</div>
+        <div class="pa-stat-label">Typical cost savings vs. full-time CISO hire</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="strategy" class="cap-section">
   <div class="section-inner">
     <div class="cap-grid fade-up">
       <div class="cap-label-col">
         <div class="cap-num">01</div>
         <div class="section-label">Cybersecurity Strategy</div>
-        
       </div>
       <div class="cap-content">
         <h2 class="cap-heading">Security That <em>Enables the Business</em></h2>
         <p class="cap-body">Most security programs are designed to say no. WEX designs security strategies that say yes — safely. We align your security posture to business strategy, regulatory requirements, and risk appetite, building a roadmap that protects what matters without slowing down what is growing. Led by James Gorman, with 30+ years in federal, healthcare, and financial-sector security.</p>
-        
         <div class="cap-deliverables">
           <div class="cap-del-label">What We Deliver</div>
-          <div class="cap-del-grid"><div class="cap-del-item"><span class="cap-check">&#10003;</span>Enterprise security strategy and roadmap</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>NIST CSF 2.0 alignment</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Risk appetite framework and board reporting</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Security investment prioritization</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Regulatory and compliance mapping (HIPAA, PCI-DSS, SOC 2)</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Fractional CISO advisory services</div>
-</div>
+          <div class="cap-del-grid">
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Enterprise security strategy and roadmap</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>NIST CSF 2.0 alignment</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Risk appetite framework and board reporting</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Security investment prioritization</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Regulatory and compliance mapping (HIPAA, PCI-DSS, SOC 2)</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Fractional CISO advisory services</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 <div class="cap-divider"></div>
+
 <section id="architecture" class="cap-section">
   <div class="section-inner">
     <div class="cap-grid fade-up">
       <div class="cap-label-col">
         <div class="cap-num">02</div>
-        <div class="section-label">Architecture & Tools</div>
-        
+        <div class="section-label">Architecture &amp; Tools</div>
       </div>
       <div class="cap-content">
         <h2 class="cap-heading">The Right Tools. <em>Properly Configured.</em></h2>
         <p class="cap-body">Security tools do not protect organizations — properly architected and configured security environments do. WEX designs zero-trust architectures, selects vendor-agnostic tooling based on your actual threat profile, and ensures every layer of your environment is engineered with security built in, not bolted on.</p>
-        
         <div class="cap-deliverables">
           <div class="cap-del-label">What We Deliver</div>
-          <div class="cap-del-grid"><div class="cap-del-item"><span class="cap-check">&#10003;</span>Zero-trust architecture design</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Security tooling selection and integration</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Identity and access management (IAM)</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Cloud security architecture (AWS, Azure, GCP)</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Endpoint detection and response (EDR)</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Network segmentation and perimeter design</div>
-</div>
+          <div class="cap-del-grid">
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Zero-trust architecture design</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Security tooling selection and integration</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Identity and access management (IAM)</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Cloud security architecture (AWS, Azure, GCP)</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Endpoint detection and response (EDR)</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Network segmentation and perimeter design</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 <div class="cap-divider"></div>
+
 <section id="governance" class="cap-section">
   <div class="section-inner">
     <div class="cap-grid fade-up">
       <div class="cap-label-col">
         <div class="cap-num">03</div>
-        <div class="section-label">Governance & Process</div>
-        
+        <div class="section-label">Governance &amp; Process</div>
       </div>
       <div class="cap-content">
         <h2 class="cap-heading">Policies That <em>Actually Get Followed</em></h2>
-        <p class="cap-body">Security governance that lives in a SharePoint folder and collects digital dust is not governance — it is theater. WEX builds governance frameworks with clear ownership, measurable controls, and the operational discipline to make policies real. We turn compliance requirements into business-aligned processes that your teams will actually execute.</p>
-        
+        <p class="cap-body">Security governance that lives in a SharePoint folder and collects digital dust is not governance — it is theater. WEX builds governance frameworks with clear ownership, measurable controls, and the operational discipline to make policies real. We turn compliance requirements into business-aligned processes your teams will actually execute.</p>
         <div class="cap-deliverables">
           <div class="cap-del-label">What We Deliver</div>
-          <div class="cap-del-grid"><div class="cap-del-item"><span class="cap-check">&#10003;</span>Cybersecurity governance operating model</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Policy and procedure development</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Risk management framework (NIST, ISO 27001)</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Third-party and vendor risk management</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Data classification and handling policies</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Board-ready risk reporting and metrics</div>
-</div>
+          <div class="cap-del-grid">
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Cybersecurity governance operating model</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Policy and procedure development</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Risk management framework (NIST, ISO 27001)</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Third-party and vendor risk management</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Data classification and handling policies</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Board-ready risk reporting and metrics</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 <div class="cap-divider"></div>
+
 <section id="secops" class="cap-section">
   <div class="section-inner">
     <div class="cap-grid fade-up">
       <div class="cap-label-col">
         <div class="cap-num">04</div>
-        <div class="section-label">Security Operations & Monitoring</div>
-        
+        <div class="section-label">Security Operations</div>
       </div>
       <div class="cap-content">
         <h2 class="cap-heading">Watch Everything. <em>Miss Nothing.</em></h2>
         <p class="cap-body">Threats move faster than quarterly reviews. WEX designs and implements security operations capabilities that deliver continuous visibility — SIEM, endpoint detection, vulnerability management, and threat intelligence integrated into your environment and your team. We can support, augment, or build your SOC from the ground up.</p>
-        
         <div class="cap-deliverables">
           <div class="cap-del-label">What We Deliver</div>
-          <div class="cap-del-grid"><div class="cap-del-item"><span class="cap-check">&#10003;</span>SIEM design, deployment, and tuning</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>24/7 threat monitoring and analytics</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Incident response planning and tabletop exercises</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Vulnerability management program</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>Threat intelligence integration</div>
-<div class="cap-del-item"><span class="cap-check">&#10003;</span>SOC design and maturity roadmap</div>
-</div>
+          <div class="cap-del-grid">
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>SIEM design, deployment, and tuning</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>24/7 threat monitoring and analytics</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Vulnerability management program</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Threat intelligence integration</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>SOC design and maturity roadmap</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Security awareness training program</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<div class="cap-divider"></div><section style="background:var(--grey-950);padding:0">
+<div class="cap-divider"></div>
+
+<section id="incident" class="cap-section">
+  <div class="section-inner">
+    <div class="cap-grid fade-up">
+      <div class="cap-label-col">
+        <div class="cap-num">05</div>
+        <div class="section-label">Incident Response &amp; Resilience</div>
+      </div>
+      <div class="cap-content">
+        <h2 class="cap-heading">Respond Fast. <em>Recover Faster.</em></h2>
+        <p class="cap-body">Breaches are not a matter of if — they are a matter of when and how prepared you are. WEX builds incident response programs that compress containment time, protect evidence integrity, and get you back to operations with minimal business disruption. We run tabletop exercises before the real test arrives, so your team responds with muscle memory instead of panic.</p>
+        <div class="cap-deliverables">
+          <div class="cap-del-label">What We Deliver</div>
+          <div class="cap-del-grid">
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Incident response plan development</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Tabletop exercises and red team simulations</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Breach containment and forensic support</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Communication and notification protocols</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Business continuity and disaster recovery alignment</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Post-incident review and lessons learned</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="cap-divider"></div>
+
+<section id="compliance" class="cap-section cap-section-featured">
+  <div class="section-inner">
+    <div class="cap-grid fade-up">
+      <div class="cap-label-col">
+        <div class="cap-num">06</div>
+        <div class="section-label">Compliance &amp; Audit Readiness</div>
+        <div class="cap-featured-badge">High-Demand</div>
+      </div>
+      <div class="cap-content">
+        <h2 class="cap-heading">Know Your Posture <em>Before Auditors Do</em></h2>
+        <p class="cap-body">Compliance is not a checkbox exercise — it is a business advantage when done correctly. WEX maps your environment against the frameworks that matter to your industry and your clients, identifies gaps before auditors find them, and builds the evidence libraries and controls documentation that make audits a formality instead of a fire drill.</p>
+        <div class="cap-callout"><div class="cap-callout-text">"Know your compliance posture before auditors arrive, not after. The cost of remediation under audit pressure is 3-5x what proactive preparation costs."</div></div>
+        <div class="cap-deliverables">
+          <div class="cap-del-label">What We Deliver</div>
+          <div class="cap-del-grid">
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>SOC 2 Type I and II readiness assessment</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>HIPAA security and privacy rule gap analysis</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>PCI-DSS scoping and compliance roadmap</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>ISO 27001 certification preparation</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Evidence library and controls documentation</div>
+            <div class="cap-del-item"><span class="cap-check">&#10003;</span>Continuous compliance monitoring program</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="cap-divider"></div>
+
+<!-- FAQ -->
+<section style="background:var(--grey-950);padding:0">
   <div class="section-inner">
     <div style="display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:start">
       <div>
@@ -264,12 +365,16 @@
       <div class="faq-mount" data-faq="cybersecurity"></div>
     </div>
   </div>
-</section><section class="pa-cta-strip">
+</section>
+<div class="cap-divider"></div>
+
+<!-- CTA -->
+<section class="pa-cta-strip">
   <div class="section-inner">
     <div class="pa-cta-inner">
       <div class="pa-cta-text">
         <h2 class="pa-cta-heading">Know your security posture before auditors arrive.</h2>
-        <p>Schedule a 30-minute security review with our CISO practice. You will leave with a clear picture of your highest-priority risk exposures.</p>
+        <p>Schedule a 30-minute security review with our CISO practice. You will leave with a clear picture of your highest-priority risk exposures and a roadmap to address them.</p>
       </div>
       <div class="pa-cta-actions">
         <a href="contact-us.html" class="btn-primary">Book a Security Strategy Session <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
@@ -278,6 +383,7 @@
     </div>
   </div>
 </section>
+
 <footer class="site-footer">
   <div class="section-inner" style="padding-top:56px;padding-bottom:40px">
     <div class="footer-grid">
