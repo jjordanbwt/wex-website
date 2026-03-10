@@ -40,14 +40,6 @@ em{font-style:normal}
     .tag-finops{background:rgba(255,203,5,.10);color:#f0c040}
     .calc-group-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
     /* scorecard quiz styles */
-    .sq-item{background:var(--grey-800);border:1px solid var(--border);border-radius:3px;padding:22px 24px;margin-bottom:12px}
-    .sq-item:last-child{margin-bottom:0}
-    .sq-label{font-size:.92rem;font-weight:600;color:var(--grey-200);margin-bottom:14px;line-height:1.45}
-    .sq-domain{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
-    .sq-scale{display:flex;gap:8px}
-    .sq-btn{flex:1;padding:9px 4px;background:var(--grey-950);border:1px solid var(--border);color:var(--grey-400);font-family:'DM Mono',monospace;font-size:.7rem;border-radius:2px;cursor:pointer;transition:all .15s;text-align:center}
-    .sq-btn:hover{border-color:var(--orange);color:var(--orange)}
-    .sq-btn.sel{background:var(--orange);border-color:var(--orange);color:var(--grey-950);font-weight:700}
     .score-band{display:flex;gap:4px;margin-top:16px}
     .score-pip{flex:1;height:8px;border-radius:2px;background:var(--grey-700);transition:background .3s}
     .score-pip.filled-1{background:#f87171}
@@ -122,7 +114,6 @@ em{font-style:normal}
       .print-header{display:block!important}
       h1,h2,.results-total{color:#111!important}
       .score-pip.filled-1,.score-pip.filled-2,.score-pip.filled-3,.score-pip.filled-4,.score-pip.filled-5{background:#c07a00!important}
-      .sq-btn.sel{background:#c07a00!important;color:#fff!important}
     }
     .print-header{display:none}
 
@@ -1265,144 +1256,138 @@ em{font-style:normal}
   <!-- ═══ PANEL 6: CYBER & AI READINESS SCORECARD ═══ -->
   <div class="calc-panel" id="panel-scorecard">
     <div class="calc-body">
+
+      <!-- LEFT: FORM -->
       <div>
+
         <div class="calc-form-section">
-          <div class="calc-section-title">Identity &amp; Access</div>
-          <div class="sq-item">
-            <div class="sq-domain">Identity · IAM</div>
-            <div class="sq-label">How consistently does your organization enforce multi-factor authentication across all users, systems, and remote access points?</div>
-            <div class="sq-scale">
-              <button class="sq-btn" onclick="scoreQ(this,0,1)">1<br><span style="font-size:.6rem">None</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,0,2)">2<br><span style="font-size:.6rem">Partial</span></button>
-              <button class="sq-btn sel" onclick="scoreQ(this,0,3)">3<br><span style="font-size:.6rem">Most</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,0,4)">4<br><span style="font-size:.6rem">Broad</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,0,5)">5<br><span style="font-size:.6rem">Full</span></button>
-            </div>
+          <div class="calc-section-title">Step 1. Identity &amp; Access</div>
+          <div class="form-group">
+            <label class="form-label">MFA Enforcement <span>Identity &middot; IAM</span></label>
+            <select class="form-select" id="sc-q0" onchange="calcScorecard()">
+              <option value="1">1 &mdash; None. MFA is not enforced anywhere</option>
+              <option value="2">2 &mdash; Partial. Applied to some users or systems</option>
+              <option value="3" selected>3 &mdash; Most. Enforced across the majority of access points</option>
+              <option value="4">4 &mdash; Broad. Applied org-wide with minor exceptions</option>
+              <option value="5">5 &mdash; Full. Universal enforcement, regularly audited</option>
+            </select>
           </div>
-          <div class="sq-item">
-            <div class="sq-domain">Identity · Privileged Access</div>
-            <div class="sq-label">How mature is your privileged access management — including least-privilege policies, PAM tooling, and regular access reviews?</div>
-            <div class="sq-scale">
-              <button class="sq-btn" onclick="scoreQ(this,1,1)">1<br><span style="font-size:.6rem">None</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,1,2)">2<br><span style="font-size:.6rem">Ad hoc</span></button>
-              <button class="sq-btn sel" onclick="scoreQ(this,1,3)">3<br><span style="font-size:.6rem">Defined</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,1,4)">4<br><span style="font-size:.6rem">Managed</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,1,5)">5<br><span style="font-size:.6rem">Optimized</span></button>
-            </div>
+          <div class="form-group">
+            <label class="form-label">Privileged Access Management <span>Identity &middot; PAM</span></label>
+            <select class="form-select" id="sc-q1" onchange="calcScorecard()">
+              <option value="1">1 &mdash; None. No PAM policies or tooling</option>
+              <option value="2">2 &mdash; Ad hoc. Informal least-privilege practices</option>
+              <option value="3" selected>3 &mdash; Defined. PAM tooling deployed, access reviews in progress</option>
+              <option value="4">4 &mdash; Managed. Regular access reviews with documented policies</option>
+              <option value="5">5 &mdash; Optimized. Continuous access governance, automated reviews</option>
+            </select>
           </div>
         </div>
 
         <div class="calc-form-section">
-          <div class="calc-section-title">Threat Detection &amp; Response</div>
-          <div class="sq-item">
-            <div class="sq-domain">Monitoring · SIEM / SOC</div>
-            <div class="sq-label">How effectively does your organization detect, triage, and respond to security events in near real time?</div>
-            <div class="sq-scale">
-              <button class="sq-btn" onclick="scoreQ(this,2,1)">1<br><span style="font-size:.6rem">Blind</span></button>
-              <button class="sq-btn sel" onclick="scoreQ(this,2,2)">2<br><span style="font-size:.6rem">Log-only</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,2,3)">3<br><span style="font-size:.6rem">Alerting</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,2,4)">4<br><span style="font-size:.6rem">Managed</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,2,5)">5<br><span style="font-size:.6rem">Automated</span></button>
-            </div>
+          <div class="calc-section-title">Step 2. Threat Detection &amp; Response</div>
+          <div class="form-group">
+            <label class="form-label">Security Monitoring &amp; SOC Capability <span>Monitoring &middot; SIEM / SOC</span></label>
+            <select class="form-select" id="sc-q2" onchange="calcScorecard()">
+              <option value="1">1 &mdash; Blind. No centralized monitoring</option>
+              <option value="2" selected>2 &mdash; Log-only. Logs collected but not actively reviewed</option>
+              <option value="3">3 &mdash; Alerting. SIEM in place with rule-based alerts</option>
+              <option value="4">4 &mdash; Managed. Active SOC with defined escalation paths</option>
+              <option value="5">5 &mdash; Automated. AI-assisted detection with rapid automated response</option>
+            </select>
           </div>
-          <div class="sq-item">
-            <div class="sq-domain">Response · Incident Playbooks</div>
-            <div class="sq-label">How documented, tested, and practiced are your incident response plans across ransomware, BEC, and supply-chain scenarios?</div>
-            <div class="sq-scale">
-              <button class="sq-btn" onclick="scoreQ(this,3,1)">1<br><span style="font-size:.6rem">None</span></button>
-              <button class="sq-btn sel" onclick="scoreQ(this,3,2)">2<br><span style="font-size:.6rem">Draft</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,3,3)">3<br><span style="font-size:.6rem">Tested</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,3,4)">4<br><span style="font-size:.6rem">Practiced</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,3,5)">5<br><span style="font-size:.6rem">Board-Ready</span></button>
-            </div>
+          <div class="form-group">
+            <label class="form-label">Incident Response Readiness <span>Response &middot; Playbooks</span></label>
+            <select class="form-select" id="sc-q3" onchange="calcScorecard()">
+              <option value="1">1 &mdash; None. No documented incident response plan</option>
+              <option value="2" selected>2 &mdash; Draft. Plans exist but have not been tested</option>
+              <option value="3">3 &mdash; Tested. Tabletop exercises completed for key scenarios</option>
+              <option value="4">4 &mdash; Practiced. Regular drills across ransomware, BEC, and supply chain</option>
+              <option value="5">5 &mdash; Board-ready. Executive-reviewed, externally validated playbooks</option>
+            </select>
           </div>
         </div>
 
         <div class="calc-form-section">
-          <div class="calc-section-title">Data Architecture &amp; Quality</div>
-          <div class="sq-item">
-            <div class="sq-domain">Data · Architecture</div>
-            <div class="sq-label">How well does your data architecture support trusted, governed, and accessible data across your organization's systems and analytics needs?</div>
-            <div class="sq-scale">
-              <button class="sq-btn" onclick="scoreQ(this,4,1)">1<br><span style="font-size:.6rem">Siloed</span></button>
-              <button class="sq-btn sel" onclick="scoreQ(this,4,2)">2<br><span style="font-size:.6rem">Partial</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,4,3)">3<br><span style="font-size:.6rem">Defined</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,4,4)">4<br><span style="font-size:.6rem">Integrated</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,4,5)">5<br><span style="font-size:.6rem">Optimized</span></button>
-            </div>
+          <div class="calc-section-title">Step 3. Data Architecture &amp; Quality</div>
+          <div class="form-group">
+            <label class="form-label">Data Architecture Maturity <span>Data &middot; Architecture</span></label>
+            <select class="form-select" id="sc-q4" onchange="calcScorecard()">
+              <option value="1">1 &mdash; Siloed. Disconnected systems, no unified data layer</option>
+              <option value="2" selected>2 &mdash; Partial. Some integration but significant gaps remain</option>
+              <option value="3">3 &mdash; Defined. Architecture documented, modernization underway</option>
+              <option value="4">4 &mdash; Integrated. Governed pipelines supporting analytics and AI</option>
+              <option value="5">5 &mdash; Optimized. Cloud-native, fully governed, continuously improved</option>
+            </select>
           </div>
-          <div class="sq-item">
-            <div class="sq-domain">Data · Governance</div>
-            <div class="sq-label">How formalized are your data ownership, quality standards, lineage tracking, and compliance controls?</div>
-            <div class="sq-scale">
-              <button class="sq-btn" onclick="scoreQ(this,5,1)">1<br><span style="font-size:.6rem">None</span></button>
-              <button class="sq-btn sel" onclick="scoreQ(this,5,2)">2<br><span style="font-size:.6rem">Ad hoc</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,5,3)">3<br><span style="font-size:.6rem">Defined</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,5,4)">4<br><span style="font-size:.6rem">Measured</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,5,5)">5<br><span style="font-size:.6rem">Optimized</span></button>
-            </div>
+          <div class="form-group">
+            <label class="form-label">Data Governance &amp; Quality Controls <span>Data &middot; Governance</span></label>
+            <select class="form-select" id="sc-q5" onchange="calcScorecard()">
+              <option value="1">1 &mdash; None. No ownership, standards, or lineage tracking</option>
+              <option value="2" selected>2 &mdash; Ad hoc. Informal practices, inconsistently applied</option>
+              <option value="3">3 &mdash; Defined. Policies in place, owners assigned</option>
+              <option value="4">4 &mdash; Measured. Quality metrics tracked, compliance controls active</option>
+              <option value="5">5 &mdash; Optimized. Continuous improvement, audit-ready at all times</option>
+            </select>
           </div>
         </div>
 
         <div class="calc-form-section">
-          <div class="calc-section-title">AI &amp; Model Governance</div>
-          <div class="sq-item">
-            <div class="sq-domain">AI · Readiness</div>
-            <div class="sq-label">How ready is your data infrastructure to support AI and machine learning — including clean data pipelines, feature stores, and model training environments?</div>
-            <div class="sq-scale">
-              <button class="sq-btn" onclick="scoreQ(this,6,1)">1<br><span style="font-size:.6rem">Not ready</span></button>
-              <button class="sq-btn sel" onclick="scoreQ(this,6,2)">2<br><span style="font-size:.6rem">Exploring</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,6,3)">3<br><span style="font-size:.6rem">Piloting</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,6,4)">4<br><span style="font-size:.6rem">Scaling</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,6,5)">5<br><span style="font-size:.6rem">Mature</span></button>
-            </div>
+          <div class="calc-section-title">Step 4. AI &amp; Model Governance</div>
+          <div class="form-group">
+            <label class="form-label">AI Infrastructure Readiness <span>AI &middot; Readiness</span></label>
+            <select class="form-select" id="sc-q6" onchange="calcScorecard()">
+              <option value="1">1 &mdash; Not ready. No clean pipelines or ML infrastructure</option>
+              <option value="2" selected>2 &mdash; Exploring. Evaluating options, early proof-of-concept work</option>
+              <option value="3">3 &mdash; Piloting. AI experiments running in limited production</option>
+              <option value="4">4 &mdash; Scaling. Multiple AI use cases in production with monitoring</option>
+              <option value="5">5 &mdash; Mature. AI embedded in workflows, governed and continuously optimized</option>
+            </select>
           </div>
-          <div class="sq-item">
-            <div class="sq-domain">AI · Model Governance</div>
-            <div class="sq-label">How well does your organization govern AI model risk — including bias review, explainability requirements, and performance monitoring post-deployment?</div>
-            <div class="sq-scale">
-              <button class="sq-btn" onclick="scoreQ(this,7,1)">1<br><span style="font-size:.6rem">None</span></button>
-              <button class="sq-btn sel" onclick="scoreQ(this,7,2)">2<br><span style="font-size:.6rem">Informal</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,7,3)">3<br><span style="font-size:.6rem">Defined</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,7,4)">4<br><span style="font-size:.6rem">Managed</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,7,5)">5<br><span style="font-size:.6rem">Auditable</span></button>
-            </div>
+          <div class="form-group">
+            <label class="form-label">AI Model Risk &amp; Governance <span>AI &middot; Model Governance</span></label>
+            <select class="form-select" id="sc-q7" onchange="calcScorecard()">
+              <option value="1">1 &mdash; None. No bias review, explainability, or monitoring</option>
+              <option value="2" selected>2 &mdash; Informal. Some awareness but no structured controls</option>
+              <option value="3">3 &mdash; Defined. Model governance policies documented</option>
+              <option value="4">4 &mdash; Managed. Bias review, drift monitoring, and post-deploy audits in place</option>
+              <option value="5">5 &mdash; Auditable. Full model lifecycle governance, externally verifiable</option>
+            </select>
           </div>
         </div>
 
         <div class="calc-form-section">
-          <div class="calc-section-title">Leadership &amp; Sponsorship</div>
-          <div class="sq-item">
-            <div class="sq-domain">Governance · Executive Sponsorship</div>
-            <div class="sq-label">How actively and visibly do your executive leadership team and board engage with cybersecurity, data governance, and AI risk as strategic priorities?</div>
-            <div class="sq-scale">
-              <button class="sq-btn" onclick="scoreQ(this,8,1)">1<br><span style="font-size:.6rem">Absent</span></button>
-              <button class="sq-btn sel" onclick="scoreQ(this,8,2)">2<br><span style="font-size:.6rem">Reactive</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,8,3)">3<br><span style="font-size:.6rem">Informed</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,8,4)">4<br><span style="font-size:.6rem">Engaged</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,8,5)">5<br><span style="font-size:.6rem">Strategic</span></button>
-            </div>
+          <div class="calc-section-title">Step 5. Leadership &amp; Sponsorship</div>
+          <div class="form-group">
+            <label class="form-label">Executive Engagement on Cyber, Data &amp; AI Risk <span>Governance &middot; Sponsorship</span></label>
+            <select class="form-select" id="sc-q8" onchange="calcScorecard()">
+              <option value="1">1 &mdash; Absent. Leadership not engaged with technology risk</option>
+              <option value="2" selected>2 &mdash; Reactive. Leadership engages only after incidents</option>
+              <option value="3">3 &mdash; Informed. Regular briefings, risk is on the agenda</option>
+              <option value="4">4 &mdash; Engaged. Board-level KPIs defined, active oversight</option>
+              <option value="5">5 &mdash; Strategic. Risk integrated into all executive and board decisions</option>
+            </select>
           </div>
-          <div class="sq-item">
-            <div class="sq-domain">Governance · Budget &amp; Roadmap</div>
-            <div class="sq-label">How aligned are your security, data, and AI investments with a board-approved roadmap that includes milestones, owners, and measurable outcomes?</div>
-            <div class="sq-scale">
-              <button class="sq-btn" onclick="scoreQ(this,9,1)">1<br><span style="font-size:.6rem">Ad hoc</span></button>
-              <button class="sq-btn sel" onclick="scoreQ(this,9,2)">2<br><span style="font-size:.6rem">Informal</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,9,3)">3<br><span style="font-size:.6rem">Planned</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,9,4)">4<br><span style="font-size:.6rem">Funded</span></button>
-              <button class="sq-btn" onclick="scoreQ(this,9,5)">5<br><span style="font-size:.6rem">Board-Led</span></button>
-            </div>
+          <div class="form-group">
+            <label class="form-label">Investment Alignment &amp; Roadmap Governance <span>Governance &middot; Budget &amp; Roadmap</span></label>
+            <select class="form-select" id="sc-q9" onchange="calcScorecard()">
+              <option value="1">1 &mdash; Ad hoc. Reactive spend with no strategic roadmap</option>
+              <option value="2" selected>2 &mdash; Informal. Budget allocated but no formal roadmap</option>
+              <option value="3">3 &mdash; Planned. Multi-year roadmap with milestones defined</option>
+              <option value="4">4 &mdash; Funded. Board-approved budget tied to measurable outcomes</option>
+              <option value="5">5 &mdash; Board-led. Investment strategy reviewed quarterly at board level</option>
+            </select>
           </div>
         </div>
-      </div>
 
-      <!-- RESULTS COLUMN -->
+      </div><!-- /left -->
+
+      <!-- RIGHT: RESULTS -->
       <div class="calc-results">
         <div class="results-box highlight">
           <div class="results-label">Overall Readiness Score</div>
           <div class="results-total" id="sc-total">2.4 / 5</div>
-          <div class="results-total-sub" id="sc-total-sub">Developing — significant gaps require attention</div>
+          <div class="results-total-sub" id="sc-total-sub">Developing &mdash; significant gaps require attention</div>
           <div class="score-band" id="sc-band">
             <div class="score-pip filled-2" id="pip-0"></div>
             <div class="score-pip filled-2" id="pip-1"></div>
@@ -1437,6 +1422,7 @@ em{font-style:normal}
           <a href="index.html#book" class="results-cta-btn">Book a Readiness Workshop</a>
         </div>
       </div>
+
     </div>
   </div><!-- /panel-scorecard -->
 
@@ -2080,30 +2066,29 @@ const SC_SUBS = [
   'Leading — industry-leading practices with continuous improvement'
 ];
 
-function scoreQ(btn, qIdx, val) {
-  // Deselect siblings
-  const siblings = btn.closest('.sq-scale').querySelectorAll('.sq-btn');
-  siblings.forEach(b => b.classList.remove('sel'));
-  btn.classList.add('sel');
-  SC_SCORES[qIdx] = val;
-  calcScorecard();
-}
-
 function calcScorecard() {
+  // Read values from dropdowns
+  for (let i = 0; i < 10; i++) {
+    const el = document.getElementById('sc-q' + i);
+    if (el) SC_SCORES[i] = parseInt(el.value) || 3;
+  }
+
+  // Overall average
   const avg = SC_SCORES.reduce((a,b)=>a+b,0) / SC_SCORES.length;
   const rounded = Math.round(avg * 10) / 10;
-  const band = Math.max(1, Math.min(5, Math.round(avg)));
+  const band = Math.min(5, Math.max(1, Math.round(avg)));
 
-  document.getElementById('sc-total').textContent = rounded.toFixed(1) + ' / 5'; currentCalcId='scorecard'; triggerShareBar();
+  document.getElementById('sc-total').textContent = rounded.toFixed(1) + ' / 5';
+  currentCalcId = 'scorecard';
+  triggerShareBar();
   document.getElementById('sc-total-sub').textContent = SC_SUBS[band] || '';
 
-  // Update pips
-  for (let i=0;i<5;i++) {
-    const pip = document.getElementById('pip-'+i);
-    if (pip) {
-      pip.className = 'score-pip';
-      if (i < band) pip.classList.add('filled-'+band);
-    }
+  // Score pips
+  for (let p = 0; p < 5; p++) {
+    const pip = document.getElementById('pip-' + p);
+    if (!pip) continue;
+    pip.className = 'score-pip';
+    if (p < band) pip.classList.add('filled-' + band);
   }
 
   // Domain scores
@@ -2122,8 +2107,7 @@ function calcScorecard() {
   const top3 = domainScores.slice(0,3);
 
   const stepsHTML = top3.map((d,i) => {
-    const gapList = SC_GAPS[d.idx];
-    const step = gapList[0]; // primary gap for the lowest-scored domain
+    const step = SC_GAPS[d.idx][0];
     return `<div class="next-steps-item"><span class="next-steps-num">0${i+1}</span><span class="next-steps-text">${step}</span></div>`;
   }).join('');
 
