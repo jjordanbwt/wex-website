@@ -40,7 +40,6 @@ em{font-style:normal}
     .tag-finops{background:rgba(255,203,5,.10);color:#f0c040}
     .calc-group-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
     /* scorecard quiz styles */
-    .scorecard-body{display:grid;grid-template-columns:1fr 380px;gap:40px;align-items:start}
     .sq-item{background:var(--grey-800);border:1px solid var(--border);border-radius:3px;padding:22px 24px;margin-bottom:12px}
     .sq-item:last-child{margin-bottom:0}
     .sq-label{font-size:.92rem;font-weight:600;color:var(--grey-200);margin-bottom:14px;line-height:1.45}
@@ -63,7 +62,7 @@ em{font-style:normal}
     /* data quality panel */
     .dq-savings-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
     .dq-savings-row:last-child{border-bottom:none}
-    @media(max-width:860px){.calc-group-cards{grid-template-columns:1fr}.scorecard-body{grid-template-columns:1fr}}
+    @media(max-width:860px){.calc-group-cards{grid-template-columns:1fr}}
     /* ── SHARE BAR ── */
     .share-bar{position:fixed;bottom:0;left:0;right:0;background:var(--grey-900);border-top:1px solid var(--border);padding:14px 48px;display:flex;align-items:center;justify-content:space-between;gap:16px;z-index:900;transform:translateY(100%);transition:transform .35s cubic-bezier(.4,0,.2,1)}
     .share-bar.visible{transform:translateY(0)}
@@ -1265,7 +1264,7 @@ em{font-style:normal}
 
   <!-- ═══ PANEL 6: CYBER & AI READINESS SCORECARD ═══ -->
   <div class="calc-panel" id="panel-scorecard">
-    <div class="scorecard-body">
+    <div class="calc-body">
       <div>
         <div class="calc-form-section">
           <div class="calc-section-title">Identity &amp; Access</div>
@@ -1399,7 +1398,7 @@ em{font-style:normal}
       </div>
 
       <!-- RESULTS COLUMN -->
-      <div class="calc-results" style="position:sticky;top:100px">
+      <div class="calc-results">
         <div class="results-box highlight">
           <div class="results-label">Overall Readiness Score</div>
           <div class="results-total" id="sc-total">2.4 / 5</div>
@@ -2157,8 +2156,7 @@ function getResultsSummary() {
       {label:'Estimated Incident Cost', id:'cy-total'},
     ],
     inaction: [
-      {label:'Monthly Cost of Delay', id:'ia-monthly'},
-      {label:'Annual Cost of Delay', id:'ia-annual'},
+      {label:'Total Cost of Delay', id:'ia-total'},
     ],
     cloud: [
       {label:'Estimated Monthly Waste', id:'cw-total'},
