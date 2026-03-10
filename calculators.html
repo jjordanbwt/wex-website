@@ -1568,6 +1568,8 @@ function switchCalc(id, el) {
   document.querySelectorAll('.calc-panel').forEach(p => p.classList.remove('active'));
   el.classList.add('active');
   document.getElementById('panel-' + id).classList.add('active');
+  shareBarShown = false;
+  document.getElementById('shareBar').classList.remove('visible');
   if (id === 'cyber') calcCyber();
   if (id === 'inaction') calcInaction();
   if (id === 'cloud') calcCloud();
@@ -1748,6 +1750,8 @@ function calcCyber() {
   sourcesEl.style.display = 'block';
   document.getElementById('cy-sources-list').innerHTML = sources.map(s =>
     `<div class="source-item"><strong>${s.label}:</strong> ${s.note}</div>`).join('');
+
+  currentCalcId = 'cyber'; triggerShareBar();
 }
 
 /* ══════════════════════════════════
@@ -1783,6 +1787,8 @@ function calcInaction() {
     <div class="results-row"><span class="results-row-label" style="font-weight:700;color:var(--white)">Monthly Total</span><span class="results-row-val" style="color:var(--orange)">${fmt(monthlyTotal)}/mo</span></div>
     <div class="results-row"><span class="results-row-label" style="font-weight:700;color:var(--white)">Total Over ${months} Months</span><span class="results-row-val" style="color:var(--orange);font-size:1.05rem">${fmt(total)}</span></div>
   `;
+
+  currentCalcId = 'inaction'; triggerShareBar();
 }
 
 /* ══════════════════════════════════
