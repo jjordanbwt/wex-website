@@ -259,3 +259,38 @@ nav.scrolled ~ .mega-panel{top:58px}
   .footer-grid{grid-template-columns:1fr}
   .contact-hero{padding:88px 16px 40px}
 }
+
+/* ═══ ADDITIONAL MEGA PANELS — Industries / Assessments / About ═══ */
+
+/* About panel: slightly wider center to accommodate team grid */
+#mega-about .mega-center {
+  padding: 24px 28px;
+}
+#mega-about .mega-left {
+  min-width: 220px;
+}
+
+/* Assessments: description paragraphs in center */
+#mega-assessments .mega-center p {
+  font-size: .88rem;
+  color: var(--grey-300);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+/* Industries: same structure as practice areas — already works via .mega-practice */
+
+/* Ensure all mega panels hide properly */
+#mega-industries,
+#mega-assessments,
+#mega-about {
+  display: grid;
+  grid-template-columns: 240px 1fr 260px;
+}
+
+/* Active indicator color on nav Industries/Assessments/About buttons */
+#btn-industries.active,
+#btn-assessments.active,
+#btn-about.active {
+  color: var(--orange);
+}
