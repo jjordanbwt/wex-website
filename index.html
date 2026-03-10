@@ -341,6 +341,10 @@ nav.scrolled~.mega-panel{top:58px}
 .vs-table tr:last-child td{border-bottom:none}
 .vs-table td:first-child{font-weight:500;color:var(--grey-200);font-family:'DM Mono',monospace;font-size:.8rem;letter-spacing:.04em}
 .vs-table td.hl{color:var(--white);background:rgba(241,143,10,.03);font-weight:500}
+.iceberg-section{background:var(--grey-950)}
+.iceberg-wrap{margin-top:52px;display:flex;flex-direction:column;align-items:center}
+.iceberg-svg{width:100%;max-width:900px;height:auto;display:block}
+.iceberg-note{margin-top:28px;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-500);text-align:center}
 .vcheck{color:var(--teal);font-weight:700}
 .vx{color:var(--grey-700)}
 
@@ -1318,31 +1322,101 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
   </div>
 </section>
 
-<!-- VS TABLE -->
-<section class="vs-section" id="why-us">
+<!-- ICEBERG SECTION -->
+<section class="iceberg-section" id="why-us">
   <div class="section-inner">
     <div class="section-label">The Difference</div>
-    <h2 class="section-headline">Stop paying for<br/><em>the pyramid.</em></h2>
-    <p class="section-sub">The Big Four operate on a staffing model where partners pitch and juniors deliver. MBB firms produce strategy and exit. Working Excellence is built differently.</p>
-    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:0">
-    <table class="vs-table fade-up">
-      <thead>
-        <tr>
-          <th>Dimension</th>
-          <th class="hl">Working Excellence</th>
-          <th>Big Four (Deloitte, PwC, EY, Accenture)</th>
-          <th>MBB (McKinsey, BCG, Bain)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Who delivers the work</td><td class="hl"><span class="vcheck">✓</span> Senior practitioners throughout</td><td>Partners pitch, junior analysts deliver</td><td>Partners design, implementation left to client</td></tr>
-        <tr><td>Pricing model</td><td class="hl"><span class="vcheck">✓</span> Fractional at 40-60% of FTE cost</td><td>Project-based, $15K-$500K+ engagements</td><td>Highest rates in market, strategy-only scope</td></tr>
-        <tr><td>Assessment delivery</td><td class="hl"><span class="vcheck">✓</span> Live infrastructure analysis in 72 hrs</td><td>Manual, weeks to deliver, PDF you file away</td><td>Interview-based, not technical</td></tr>
-        <tr><td>Technology bias</td><td class="hl"><span class="vcheck">✓</span> Vendor-agnostic, outcome-driven</td><td>Often tied to AWS, Microsoft, ServiceNow partnerships</td><td>Non-technical, agnostic by default</td></tr>
-        <tr><td>Implementation accountability</td><td class="hl"><span class="vcheck">✓</span> Strategy + hands-on execution</td><td>Mixed results; scope creep is common</td><td>Strategy only, no execution support</td></tr>
-        <tr><td>Target market</td><td class="hl"><span class="vcheck">✓</span> Mid-market $50M-$1B, purpose-built</td><td>Fortune 500 primary; mid-market secondary</td><td>Enterprise and C-suite only</td></tr>
-      </tbody>
-    </table>
+    <h2 class="section-headline">Most firms show you<br/><em>the tip of the iceberg.</em></h2>
+    <p class="section-sub">Big Four partners pitch. Junior analysts deliver. MBB firms hand you a strategy deck and leave. Working Excellence builds the entire structure, from the foundation up, with senior practitioners at every layer.</p>
+    <div class="iceberg-wrap fade-up">
+      <svg class="iceberg-svg" viewBox="0 0 900 580" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="iceAbove" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#e8f4ff" stop-opacity="0.97"/>
+            <stop offset="100%" stop-color="#a8d8f0" stop-opacity="0.88"/>
+          </linearGradient>
+          <linearGradient id="iceBelow" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#4fa8d8" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#0d3a5c" stop-opacity="0.85"/>
+          </linearGradient>
+          <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0a2035" stop-opacity="0.95"/>
+            <stop offset="100%" stop-color="#040e18" stop-opacity="0.8"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Water background -->
+        <rect x="0" y="205" width="900" height="375" fill="url(#waterGrad)"/>
+
+        <!-- Waterline dashed -->
+        <line x1="0" y1="206" x2="900" y2="206" stroke="rgba(241,143,10,0.55)" stroke-width="1.5" stroke-dasharray="10 5"/>
+
+        <!-- ICE ABOVE WATER -->
+        <polygon points="450,22 575,206 325,206" fill="url(#iceAbove)" opacity="0.93"/>
+        <!-- Facets -->
+        <polygon points="450,22 510,130 450,170 390,130" fill="white" opacity="0.2"/>
+        <polygon points="450,22 575,206 510,155" fill="white" opacity="0.07"/>
+
+        <!-- ICE BELOW WATER -->
+        <polygon points="325,206 575,206 655,305 630,405 555,480 450,520 345,480 270,405 245,305" fill="url(#iceBelow)" opacity="0.85"/>
+        <!-- Subtle inner lines -->
+        <line x1="325" y1="206" x2="245" y2="305" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+        <line x1="575" y1="206" x2="655" y2="305" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+
+        <!-- ═══ ABOVE WATER: outcome label ═══ -->
+        <rect x="322" y="58" width="256" height="56" rx="4" fill="rgba(241,143,10,0.13)" stroke="rgba(241,143,10,0.55)" stroke-width="1"/>
+        <text x="450" y="80" text-anchor="middle" font-family="DM Mono,monospace" font-size="8.5" letter-spacing="2.5" fill="rgba(241,143,10,0.9)">BUSINESS OUTCOMES</text>
+        <text x="450" y="100" text-anchor="middle" font-family="Playfair Display,serif" font-size="14" fill="#162030" font-weight="700">AI · Analytics · Digital Products</text>
+
+        <!-- Waterline labels -->
+        <text x="158" y="199" text-anchor="middle" font-family="DM Mono,monospace" font-size="8" letter-spacing="2" fill="rgba(241,143,10,0.65)">WHAT CLIENTS SEE</text>
+        <text x="742" y="199" text-anchor="middle" font-family="DM Mono,monospace" font-size="8" letter-spacing="2" fill="rgba(241,143,10,0.65)">WHERE THE WORK LIVES</text>
+
+        <!-- ═══ LAYER 1: Data Engineering + Cloud ═══ -->
+        <line x1="256" y1="270" x2="644" y2="270" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <!-- Left -->
+        <line x1="262" y1="238" x2="182" y2="238" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+        <rect x="18" y="216" width="166" height="44" rx="3" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
+        <text x="101" y="234" text-anchor="middle" font-family="DM Mono,monospace" font-size="7.5" letter-spacing="1.8" fill="rgba(241,143,10,0.85)">DATA ENGINEERING</text>
+        <text x="101" y="249" text-anchor="middle" font-family="Playfair Display,serif" font-size="10.5" fill="rgba(220,235,248,0.8)">Pipelines &amp; Architecture</text>
+        <!-- Right -->
+        <line x1="638" y1="238" x2="718" y2="238" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+        <rect x="716" y="216" width="166" height="44" rx="3" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
+        <text x="799" y="234" text-anchor="middle" font-family="DM Mono,monospace" font-size="7.5" letter-spacing="1.8" fill="rgba(241,143,10,0.85)">CLOUD INFRASTRUCTURE</text>
+        <text x="799" y="249" text-anchor="middle" font-family="Playfair Display,serif" font-size="10.5" fill="rgba(220,235,248,0.8)">AWS · Azure · GCP</text>
+
+        <!-- ═══ LAYER 2: Cybersecurity + Digital Engineering ═══ -->
+        <line x1="252" y1="350" x2="648" y2="350" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <!-- Left -->
+        <line x1="258" y1="310" x2="182" y2="310" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+        <rect x="18" y="288" width="166" height="44" rx="3" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
+        <text x="101" y="306" text-anchor="middle" font-family="DM Mono,monospace" font-size="7.5" letter-spacing="1.8" fill="rgba(241,143,10,0.85)">CYBERSECURITY</text>
+        <text x="101" y="321" text-anchor="middle" font-family="Playfair Display,serif" font-size="10.5" fill="rgba(220,235,248,0.8)">Risk, Compliance &amp; NIST</text>
+        <!-- Right -->
+        <line x1="642" y1="310" x2="718" y2="310" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+        <rect x="716" y="288" width="166" height="44" rx="3" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
+        <text x="799" y="306" text-anchor="middle" font-family="DM Mono,monospace" font-size="7.5" letter-spacing="1.8" fill="rgba(241,143,10,0.85)">DIGITAL ENGINEERING</text>
+        <text x="799" y="321" text-anchor="middle" font-family="Playfair Display,serif" font-size="10.5" fill="rgba(220,235,248,0.8)">Modernization &amp; DevOps</text>
+
+        <!-- ═══ LAYER 3: Data Governance + Sales Enablement ═══ -->
+        <line x1="260" y1="430" x2="640" y2="430" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <!-- Left -->
+        <line x1="268" y1="386" x2="182" y2="386" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+        <rect x="18" y="364" width="166" height="44" rx="3" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
+        <text x="101" y="382" text-anchor="middle" font-family="DM Mono,monospace" font-size="7.5" letter-spacing="1.8" fill="rgba(241,143,10,0.85)">DATA GOVERNANCE</text>
+        <text x="101" y="397" text-anchor="middle" font-family="Playfair Display,serif" font-size="10.5" fill="rgba(220,235,248,0.8)">Quality, Trust &amp; Compliance</text>
+        <!-- Right -->
+        <line x1="632" y1="386" x2="718" y2="386" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+        <rect x="716" y="364" width="166" height="44" rx="3" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
+        <text x="799" y="382" text-anchor="middle" font-family="DM Mono,monospace" font-size="7.5" letter-spacing="1.8" fill="rgba(241,143,10,0.85)">SALES ENABLEMENT</text>
+        <text x="799" y="397" text-anchor="middle" font-family="Playfair Display,serif" font-size="10.5" fill="rgba(220,235,248,0.8)">GTM &amp; Revenue Strategy</text>
+
+        <!-- ═══ BASE: Data Strategy ═══ -->
+        <rect x="348" y="455" width="204" height="52" rx="4" fill="rgba(241,143,10,0.16)" stroke="rgba(241,143,10,0.6)" stroke-width="1.5"/>
+        <text x="450" y="477" text-anchor="middle" font-family="DM Mono,monospace" font-size="8.5" letter-spacing="2.5" fill="rgba(241,143,10,0.95)">FOUNDATION</text>
+        <text x="450" y="496" text-anchor="middle" font-family="Playfair Display,serif" font-size="13" fill="rgba(255,255,255,0.92)" font-weight="700">Data Strategy &amp; Roadmap</text>
+      </svg>
+      <p class="iceberg-note">Most firms only engage above the waterline. Working Excellence builds and secures the entire structure.</p>
     </div>
   </div>
 </section>
