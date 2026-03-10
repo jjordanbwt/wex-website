@@ -220,7 +220,7 @@ nav.scrolled~.mega-panel{top:58px}
 /* ══ SERVICES ══ */
 .services-section{background:var(--grey-900)}
 .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
-.service-card{background:var(--grey-900);padding:40px 28px;position:relative;overflow:hidden;transition:background .25s}
+.service-card{display:flex;flex-direction:column;background:var(--grey-900);padding:40px 28px;position:relative;overflow:hidden;transition:background .25s}
 .service-card:hover{background:var(--grey-800)}
 .service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .3s}
 .service-card:hover::after{transform:scaleX(1)}
@@ -231,7 +231,7 @@ nav.scrolled~.mega-panel{top:58px}
 .service-desc{font-size:.9rem;color:var(--grey-400);line-height:1.78;margin-bottom:20px}
 .service-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:20px}
 .service-tag{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;border:1px solid var(--grey-700);color:var(--grey-400);border-radius:1px}
-.service-link{display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);text-decoration:none;transition:gap .2s}
+.service-link{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);text-decoration:none;transition:gap .2s}
 .service-link:hover{gap:13px}
 
 /* ══ ASSESSMENTS ══ */
