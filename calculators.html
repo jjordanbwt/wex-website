@@ -20,7 +20,7 @@ em{font-style:normal}
     /* ── CALCULATOR CHOOSER ── */
     .calc-chooser{max-width:1200px;margin:0 auto;padding:56px 48px 0}
     .calc-chooser-label{font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:22px}
-    .calc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:56px}
+    .calc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:56px}  /* legacy, not used in grouped layout */
     .calc-card{background:var(--grey-800);border:2px solid var(--border);border-radius:3px;padding:28px 24px;cursor:pointer;transition:border-color .2s,background .2s;position:relative}
     .calc-card:hover{border-color:var(--orange);background:var(--grey-750)}
     .calc-card.active{border-color:var(--orange);background:rgba(241,143,10,.06)}
@@ -29,6 +29,42 @@ em{font-style:normal}
     .calc-card-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:8px}
     .calc-card-desc{font-size:.92rem;color:var(--grey-400);line-height:1.55}
     .calc-card-badge{display:inline-block;margin-top:10px;font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;border-radius:2px;background:rgba(241,143,10,.15);color:var(--orange)}
+    /* ── CALC GROUPS ── */
+    .calc-groups{display:flex;flex-direction:column;gap:36px;margin-bottom:56px}
+    .calc-group-label{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+    .calc-group-name{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--grey-400)}
+    .calc-group-line{flex:1;height:1px;background:var(--border)}
+    .calc-group-tag{font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;padding:3px 9px;border-radius:2px;white-space:nowrap}
+    .tag-security{background:rgba(237,28,36,.12);color:#f87171}
+    .tag-data{background:rgba(0,136,203,.12);color:#60b4d8}
+    .tag-finops{background:rgba(255,203,5,.10);color:#f0c040}
+    .calc-group-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    /* scorecard quiz styles */
+    .scorecard-body{display:grid;grid-template-columns:1fr 380px;gap:40px;align-items:start}
+    .sq-item{background:var(--grey-800);border:1px solid var(--border);border-radius:3px;padding:22px 24px;margin-bottom:12px}
+    .sq-item:last-child{margin-bottom:0}
+    .sq-label{font-size:.92rem;font-weight:600;color:var(--grey-200);margin-bottom:14px;line-height:1.45}
+    .sq-domain{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+    .sq-scale{display:flex;gap:8px}
+    .sq-btn{flex:1;padding:9px 4px;background:var(--grey-950);border:1px solid var(--border);color:var(--grey-400);font-family:'DM Mono',monospace;font-size:.7rem;border-radius:2px;cursor:pointer;transition:all .15s;text-align:center}
+    .sq-btn:hover{border-color:var(--orange);color:var(--orange)}
+    .sq-btn.sel{background:var(--orange);border-color:var(--orange);color:var(--grey-950);font-weight:700}
+    .score-band{display:flex;gap:4px;margin-top:16px}
+    .score-pip{flex:1;height:8px;border-radius:2px;background:var(--grey-700);transition:background .3s}
+    .score-pip.filled-1{background:#f87171}
+    .score-pip.filled-2{background:#fb923c}
+    .score-pip.filled-3{background:#fbbf24}
+    .score-pip.filled-4{background:#a3e635}
+    .score-pip.filled-5{background:#4ade80}
+    .next-steps-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
+    .next-steps-item:last-child{border-bottom:none}
+    .next-steps-num{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--orange);font-weight:700;min-width:20px;margin-top:2px}
+    .next-steps-text{font-size:.88rem;color:var(--grey-300);line-height:1.55}
+    /* data quality panel */
+    .dq-savings-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
+    .dq-savings-row:last-child{border-bottom:none}
+    @media(max-width:860px){.calc-group-cards{grid-template-columns:1fr}.scorecard-body{grid-template-columns:1fr}}
+
 
     /* ── CALCULATOR PANELS ── */
     .calc-panels{max-width:1200px;margin:0 auto;padding:0 48px 80px}
@@ -468,41 +504,82 @@ em{font-style:normal}
   <div class="calc-hero-inner">
     <div class="calc-hero-eyebrow">Business Risk Calculators</div>
     <h1 class="calc-hero-title">Quantify the Risk Before It Quantifies You</h1>
-    <p class="calc-hero-sub">Our calculators use publicly validated data from IBM, Verizon, Ponemon Institute, and industry research to help leadership teams understand real financial exposure, before an incident, not after.</p>
+    <p class="calc-hero-sub">Six calculators. Three focus areas. One decision: start quantifying the cost of the status quo. All figures sourced from IBM, Gartner, Verizon, Ponemon, and McKinsey research.</p>
   </div>
 </section>
 
 <!-- ══════════ CHOOSER ══════════ -->
 <div class="calc-chooser">
-  <div class="calc-chooser-label">Select a Calculator</div>
-  <div class="calc-cards">
+  <div class="calc-chooser-label">Choose Your Focus Area</div>
+  <div class="calc-groups">
 
-    <div class="calc-card active" onclick="switchCalc('cyber',this)">
-      <div class="calc-card-icon">🛡️</div>
-      <div class="calc-card-title">Cybersecurity Incident Cost</div>
-      <div class="calc-card-desc">Estimate the full financial impact of a BEC attack, ransomware incident, or compliance audit failure based on your organization's profile.</div>
-      <div class="calc-card-badge">3 Incident Types</div>
+    <!-- GROUP 1: SECURITY -->
+    <div>
+      <div class="calc-group-label">
+        <span class="calc-group-tag tag-security">Security</span>
+        <div class="calc-group-line"></div>
+        <span class="calc-group-name">Cyber Risk &amp; Readiness</span>
+      </div>
+      <div class="calc-group-cards">
+        <div class="calc-card active" onclick="switchCalc('cyber',this)">
+          <div class="calc-card-icon">🛡️</div>
+          <div class="calc-card-title">Cybersecurity Incident Cost</div>
+          <div class="calc-card-desc">Estimate the full financial impact of a BEC attack, ransomware incident, or compliance failure based on your organization's profile.</div>
+          <div class="calc-card-badge">BEC · Ransomware · Compliance</div>
+        </div>
+        <div class="calc-card" onclick="switchCalc('scorecard',this)">
+          <div class="calc-card-icon">📋</div>
+          <div class="calc-card-title">Cyber &amp; AI Readiness Scorecard</div>
+          <div class="calc-card-desc">A 10-question maturity assessment across identity, monitoring, data architecture, and AI governance. Returns a 1–5 score with your top 3 priority gaps.</div>
+          <div class="calc-card-badge">10-Question · 1–5 Score</div>
+        </div>
+      </div>
     </div>
 
-    <div class="calc-card" onclick="switchCalc('inaction',this)">
-      <div class="calc-card-icon">⏳</div>
-      <div class="calc-card-title">Cost of Inaction</div>
-      <div class="calc-card-desc">Calculate what every month of delay on a strategic technology initiative costs your organization in productivity, risk exposure, and lost competitive advantage.</div>
-      <div class="calc-card-badge">Strategic Planning</div>
+    <!-- GROUP 2: DATA / AI -->
+    <div>
+      <div class="calc-group-label">
+        <span class="calc-group-tag tag-data">Data / AI Strategy</span>
+        <div class="calc-group-line"></div>
+        <span class="calc-group-name">Data Quality &amp; AI Value</span>
+      </div>
+      <div class="calc-group-cards">
+        <div class="calc-card" onclick="switchCalc('data',this)">
+          <div class="calc-card-icon">🗂️</div>
+          <div class="calc-card-title">Data Quality &amp; Governance Cost</div>
+          <div class="calc-card-desc">Quantify what bad data is costing your organization in rework, delayed decisions, and governance debt — and show the savings at target maturity.</div>
+          <div class="calc-card-badge">Data Quality · Governance ROI</div>
+        </div>
+        <div class="calc-card" onclick="switchCalc('ai',this)">
+          <div class="calc-card-icon">🤖</div>
+          <div class="calc-card-title">AI Value Potential</div>
+          <div class="calc-card-desc">Estimate the annual productivity, revenue, and efficiency gains your organization could realize by deploying AI effectively across key functions.</div>
+          <div class="calc-card-badge">AI Strategy · Use-Case ROI</div>
+        </div>
+      </div>
     </div>
 
-    <div class="calc-card" onclick="switchCalc('cloud',this)">
-      <div class="calc-card-icon">☁️</div>
-      <div class="calc-card-title">Cloud Waste Estimator</div>
-      <div class="calc-card-desc">Estimate how much your organization is likely wasting on idle, over-provisioned, or misconfigured cloud resources across AWS, Azure, and GCP.</div>
-      <div class="calc-card-badge">FinOps</div>
-    </div>
-
-    <div class="calc-card" onclick="switchCalc('ai',this)">
-      <div class="calc-card-icon">🤖</div>
-      <div class="calc-card-title">AI Value Potential</div>
-      <div class="calc-card-desc">Estimate the annual productivity, revenue, and efficiency gains your organization could realize by deploying AI effectively across key functional areas.</div>
-      <div class="calc-card-badge">AI Strategy</div>
+    <!-- GROUP 3: FINOPS / STRATEGIC -->
+    <div>
+      <div class="calc-group-label">
+        <span class="calc-group-tag tag-finops">FinOps / Strategic</span>
+        <div class="calc-group-line"></div>
+        <span class="calc-group-name">Cloud Spend &amp; Strategic Timing</span>
+      </div>
+      <div class="calc-group-cards">
+        <div class="calc-card" onclick="switchCalc('cloud',this)">
+          <div class="calc-card-icon">☁️</div>
+          <div class="calc-card-title">Cloud Waste Estimator</div>
+          <div class="calc-card-desc">Estimate how much your organization is wasting on idle, over-provisioned, or misconfigured resources across AWS, Azure, and GCP.</div>
+          <div class="calc-card-badge">FinOps · Cost Recovery</div>
+        </div>
+        <div class="calc-card" onclick="switchCalc('inaction',this)">
+          <div class="calc-card-icon">⏳</div>
+          <div class="calc-card-title">Cost of Inaction</div>
+          <div class="calc-card-desc">Calculate what every month of delay on an AI program, Zero Trust initiative, or data platform costs in productivity, risk, and lost advantage.</div>
+          <div class="calc-card-badge">AI · Zero Trust · Data Platform</div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -716,8 +793,8 @@ em{font-style:normal}
         </div>
 
         <div class="results-cta">
-          <div class="results-cta-text">This estimate is based on industry averages. A Working Excellence risk assessment gives you organization-specific findings and a prioritized remediation roadmap.</div>
-          <a href="index.html#assessments" class="results-cta-btn">Get a Real Assessment →</a>
+          <div class="results-cta-text">This estimate is based on industry averages. A Working Excellence technical risk assessment gives you organization-specific findings, a prioritized remediation roadmap, and board-ready documentation.</div>
+          <a href="index.html#assessments" class="results-cta-btn">Request a Cyber Risk Review</a>
         </div>
       </div>
 
@@ -818,8 +895,8 @@ em{font-style:normal}
           <div class="source-item"><strong>Competitive Gap:</strong> Gartner estimates organizations that delay digital transformation lose 3-5% market share annually to early movers</div>
         </div>
         <div class="results-cta">
-          <div class="results-cta-text">Turn this number into a business case for leadership. Our strategy sessions help you build the ROI narrative that gets initiatives funded.</div>
-          <a href="index.html#book" class="results-cta-btn">Book a Strategy Session</a>
+          <div class="results-cta-text">Turn this estimate into a funded initiative. Our strategy sessions help leadership teams build the ROI narrative, sequencing, and accountability structure to stop deferring and start executing.</div>
+          <a href="index.html#book" class="results-cta-btn">Schedule a Strategy Session</a>
         </div>
       </div>
     </div>
@@ -908,8 +985,8 @@ em{font-style:normal}
           <div class="source-item"><strong>Working Excellence client data:</strong> 15-40% optimization potential observed; this calculator uses 20% as the conservative industry baseline</div>
         </div>
         <div class="results-cta">
-          <div class="results-cta-text">Our Cloud Infrastructure Assessment connects directly to your environment and identifies specific, quantified savings, not estimates.</div>
-          <a href="index.html#assessments" class="results-cta-btn">Get a Real Cloud Assessment</a>
+          <div class="results-cta-text">Our Cloud Infrastructure Assessment connects directly to your environment and returns specific, dollar-quantified savings at the resource level — not benchmarks.</div>
+          <a href="index.html#assessments" class="results-cta-btn">Schedule a FinOps Assessment</a>
         </div>
       </div>
     </div>
@@ -1000,12 +1077,299 @@ em{font-style:normal}
           <div class="source-item"><strong>Methodology:</strong> Estimates use productivity-adjusted hourly rates, industry adoption multipliers, and time-savings benchmarks per function. Conservative scenario assumes 15% time savings on AI-assisted tasks.</div>
         </div>
         <div class="results-cta">
-          <div class="results-cta-text">These are conservative benchmarks. An AI Readiness Diagnostic from Working Excellence identifies your specific highest-ROI use cases and gives you a prioritized deployment roadmap.</div>
-          <a href="index.html#assessments" class="results-cta-btn">Get an AI Readiness Assessment</a>
+          <div class="results-cta-text">These are conservative benchmarks. An AI Readiness Diagnostic identifies your specific highest-ROI use cases, surfaces the data and governance gaps blocking deployment, and gives you a sequenced roadmap for maximum return.</div>
+          <a href="index.html#assessments" class="results-cta-btn">Book an AI Use-Case Discovery</a>
         </div>
       </div>
     </div>
   </div><!-- /panel-ai -->
+
+
+  <!-- ═══ PANEL 5: DATA QUALITY & GOVERNANCE COST ═══ -->
+  <div class="calc-panel" id="panel-data">
+    <div class="calc-body">
+      <div>
+        <div class="calc-form-section">
+          <div class="calc-section-title">Workforce Profile</div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Data Producers <span>(analysts, engineers, ops staff who create/maintain data)</span></label>
+              <select class="form-select" id="dq-producers" onchange="calcData()">
+                <option value="10">1 – 25</option>
+                <option value="50" selected>25 – 100</option>
+                <option value="200">100 – 500</option>
+                <option value="700">500+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Data Consumers <span>(business users who rely on reports and data feeds)</span></label>
+              <select class="form-select" id="dq-consumers" onchange="calcData()">
+                <option value="25">Under 50</option>
+                <option value="100" selected>50 – 250</option>
+                <option value="400">250 – 1,000</option>
+                <option value="1500">1,000+</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Average Fully-Loaded FTE Cost <span>(annual, all-in)</span></label>
+            <select class="form-select" id="dq-fte" onchange="calcData()">
+              <option value="65000">Under $80K</option>
+              <option value="95000" selected>$80K – $120K</option>
+              <option value="140000">$120K – $170K</option>
+              <option value="200000">$170K+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc-form-section">
+          <div class="calc-section-title">Data Quality Indicators</div>
+          <div class="form-group">
+            <label class="form-label">% of Working Time Spent Fixing, Reconciling, or Questioning Data</label>
+            <select class="form-select" id="dq-rework" onchange="calcData()">
+              <option value="0.05">Under 5% — data is generally trusted</option>
+              <option value="0.15" selected>10–20% — occasional rework is common</option>
+              <option value="0.30">25–35% — teams regularly re-run queries or reconcile reports</option>
+              <option value="0.45">40%+ — data quality is an active daily problem</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Number of Critical Business Reports or Data Feeds</label>
+            <select class="form-select" id="dq-reports" onchange="calcData()">
+              <option value="5">Fewer than 10</option>
+              <option value="20" selected>10 – 40</option>
+              <option value="75">40 – 150</option>
+              <option value="200">150+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Current Data Governance Maturity</label>
+            <select class="form-select" id="dq-maturity" onchange="calcData()">
+              <option value="1">Level 1 — No formal governance, ad hoc definitions</option>
+              <option value="2" selected>Level 2 — Some documentation, inconsistent enforcement</option>
+              <option value="3">Level 3 — Defined processes, partial automation</option>
+              <option value="4">Level 4 — Managed, metrics-driven governance</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Target Governance Maturity <span>(where you want to be)</span></label>
+            <select class="form-select" id="dq-target" onchange="calcData()">
+              <option value="2">Level 2 — Basic documentation and standards</option>
+              <option value="3" selected>Level 3 — Defined processes, data catalog, ownership</option>
+              <option value="4">Level 4 — Automated quality checks, KPI-linked governance</option>
+              <option value="5">Level 5 — Predictive, self-healing data pipelines</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-results">
+        <div class="results-box highlight">
+          <div class="results-label">Annual Data Waste Cost</div>
+          <div class="results-total" id="dq-total">$0</div>
+          <div class="results-total-sub" id="dq-total-sub">Rework, delays, and bad-data decisions</div>
+        </div>
+        <div class="results-box">
+          <div class="results-label">Cost vs. Target Maturity Savings</div>
+          <div class="results-breakdown" id="dq-breakdown">
+            <div class="results-empty">
+              <div class="results-empty-icon">🗂️</div>
+              <div class="results-empty-text">Fill in your data profile to see the waste estimate and savings potential.</div>
+            </div>
+          </div>
+        </div>
+        <div class="results-sources">
+          <div class="results-sources-title">Data Sources</div>
+          <div class="source-item"><strong>MIT Sloan / TDWI Research:</strong> Knowledge workers spend 30–50% of their time on data-related work; poor data quality costs U.S. businesses $3.1T annually</div>
+          <div class="source-item"><strong>Harvard Business Review:</strong> Only 3% of companies' data quality scores are rated "acceptable" by their own standards</div>
+          <div class="source-item"><strong>Gartner:</strong> Poor data quality costs organizations an average of $12.9M per year; each maturity level improvement reduces rework costs by 25–40%</div>
+          <div class="source-item"><strong>Methodology:</strong> Waste cost = rework rate × (producers + scaled consumers) × hourly cost × annual hours. Report overhead uses industry-average time-per-report benchmarks.</div>
+        </div>
+        <div class="results-cta">
+          <div class="results-cta-text">These are benchmark estimates. A Working Excellence Data Strategy engagement identifies your specific data quality gaps, assigns ownership, and builds the governance roadmap your organization can actually execute.</div>
+          <a href="index.html#assessments" class="results-cta-btn">Request a Data Strategy Review</a>
+        </div>
+      </div>
+    </div>
+  </div><!-- /panel-data -->
+
+  <!-- ═══ PANEL 6: CYBER & AI READINESS SCORECARD ═══ -->
+  <div class="calc-panel" id="panel-scorecard">
+    <div class="scorecard-body">
+      <div>
+        <div class="calc-form-section">
+          <div class="calc-section-title">Identity &amp; Access</div>
+          <div class="sq-item">
+            <div class="sq-domain">Identity · IAM</div>
+            <div class="sq-label">How consistently does your organization enforce multi-factor authentication across all users, systems, and remote access points?</div>
+            <div class="sq-scale">
+              <button class="sq-btn" onclick="scoreQ(this,0,1)">1<br><span style="font-size:.6rem">None</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,0,2)">2<br><span style="font-size:.6rem">Partial</span></button>
+              <button class="sq-btn sel" onclick="scoreQ(this,0,3)">3<br><span style="font-size:.6rem">Most</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,0,4)">4<br><span style="font-size:.6rem">Broad</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,0,5)">5<br><span style="font-size:.6rem">Full</span></button>
+            </div>
+          </div>
+          <div class="sq-item">
+            <div class="sq-domain">Identity · Privileged Access</div>
+            <div class="sq-label">How mature is your privileged access management — including least-privilege policies, PAM tooling, and regular access reviews?</div>
+            <div class="sq-scale">
+              <button class="sq-btn" onclick="scoreQ(this,1,1)">1<br><span style="font-size:.6rem">None</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,1,2)">2<br><span style="font-size:.6rem">Ad hoc</span></button>
+              <button class="sq-btn sel" onclick="scoreQ(this,1,3)">3<br><span style="font-size:.6rem">Defined</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,1,4)">4<br><span style="font-size:.6rem">Managed</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,1,5)">5<br><span style="font-size:.6rem">Optimized</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-form-section">
+          <div class="calc-section-title">Threat Detection &amp; Response</div>
+          <div class="sq-item">
+            <div class="sq-domain">Monitoring · SIEM / SOC</div>
+            <div class="sq-label">How effectively does your organization detect, triage, and respond to security events in near real time?</div>
+            <div class="sq-scale">
+              <button class="sq-btn" onclick="scoreQ(this,2,1)">1<br><span style="font-size:.6rem">Blind</span></button>
+              <button class="sq-btn sel" onclick="scoreQ(this,2,2)">2<br><span style="font-size:.6rem">Log-only</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,2,3)">3<br><span style="font-size:.6rem">Alerting</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,2,4)">4<br><span style="font-size:.6rem">Managed</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,2,5)">5<br><span style="font-size:.6rem">Automated</span></button>
+            </div>
+          </div>
+          <div class="sq-item">
+            <div class="sq-domain">Response · Incident Playbooks</div>
+            <div class="sq-label">How documented, tested, and practiced are your incident response plans across ransomware, BEC, and supply-chain scenarios?</div>
+            <div class="sq-scale">
+              <button class="sq-btn" onclick="scoreQ(this,3,1)">1<br><span style="font-size:.6rem">None</span></button>
+              <button class="sq-btn sel" onclick="scoreQ(this,3,2)">2<br><span style="font-size:.6rem">Draft</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,3,3)">3<br><span style="font-size:.6rem">Tested</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,3,4)">4<br><span style="font-size:.6rem">Practiced</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,3,5)">5<br><span style="font-size:.6rem">Board-Ready</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-form-section">
+          <div class="calc-section-title">Data Architecture &amp; Quality</div>
+          <div class="sq-item">
+            <div class="sq-domain">Data · Architecture</div>
+            <div class="sq-label">How well does your data architecture support trusted, governed, and accessible data across your organization's systems and analytics needs?</div>
+            <div class="sq-scale">
+              <button class="sq-btn" onclick="scoreQ(this,4,1)">1<br><span style="font-size:.6rem">Siloed</span></button>
+              <button class="sq-btn sel" onclick="scoreQ(this,4,2)">2<br><span style="font-size:.6rem">Partial</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,4,3)">3<br><span style="font-size:.6rem">Defined</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,4,4)">4<br><span style="font-size:.6rem">Integrated</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,4,5)">5<br><span style="font-size:.6rem">Optimized</span></button>
+            </div>
+          </div>
+          <div class="sq-item">
+            <div class="sq-domain">Data · Governance</div>
+            <div class="sq-label">How formalized are your data ownership, quality standards, lineage tracking, and compliance controls?</div>
+            <div class="sq-scale">
+              <button class="sq-btn" onclick="scoreQ(this,5,1)">1<br><span style="font-size:.6rem">None</span></button>
+              <button class="sq-btn sel" onclick="scoreQ(this,5,2)">2<br><span style="font-size:.6rem">Ad hoc</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,5,3)">3<br><span style="font-size:.6rem">Defined</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,5,4)">4<br><span style="font-size:.6rem">Measured</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,5,5)">5<br><span style="font-size:.6rem">Optimized</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-form-section">
+          <div class="calc-section-title">AI &amp; Model Governance</div>
+          <div class="sq-item">
+            <div class="sq-domain">AI · Readiness</div>
+            <div class="sq-label">How ready is your data infrastructure to support AI and machine learning — including clean data pipelines, feature stores, and model training environments?</div>
+            <div class="sq-scale">
+              <button class="sq-btn" onclick="scoreQ(this,6,1)">1<br><span style="font-size:.6rem">Not ready</span></button>
+              <button class="sq-btn sel" onclick="scoreQ(this,6,2)">2<br><span style="font-size:.6rem">Exploring</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,6,3)">3<br><span style="font-size:.6rem">Piloting</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,6,4)">4<br><span style="font-size:.6rem">Scaling</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,6,5)">5<br><span style="font-size:.6rem">Mature</span></button>
+            </div>
+          </div>
+          <div class="sq-item">
+            <div class="sq-domain">AI · Model Governance</div>
+            <div class="sq-label">How well does your organization govern AI model risk — including bias review, explainability requirements, and performance monitoring post-deployment?</div>
+            <div class="sq-scale">
+              <button class="sq-btn" onclick="scoreQ(this,7,1)">1<br><span style="font-size:.6rem">None</span></button>
+              <button class="sq-btn sel" onclick="scoreQ(this,7,2)">2<br><span style="font-size:.6rem">Informal</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,7,3)">3<br><span style="font-size:.6rem">Defined</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,7,4)">4<br><span style="font-size:.6rem">Managed</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,7,5)">5<br><span style="font-size:.6rem">Auditable</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-form-section">
+          <div class="calc-section-title">Leadership &amp; Sponsorship</div>
+          <div class="sq-item">
+            <div class="sq-domain">Governance · Executive Sponsorship</div>
+            <div class="sq-label">How actively and visibly do your executive leadership team and board engage with cybersecurity, data governance, and AI risk as strategic priorities?</div>
+            <div class="sq-scale">
+              <button class="sq-btn" onclick="scoreQ(this,8,1)">1<br><span style="font-size:.6rem">Absent</span></button>
+              <button class="sq-btn sel" onclick="scoreQ(this,8,2)">2<br><span style="font-size:.6rem">Reactive</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,8,3)">3<br><span style="font-size:.6rem">Informed</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,8,4)">4<br><span style="font-size:.6rem">Engaged</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,8,5)">5<br><span style="font-size:.6rem">Strategic</span></button>
+            </div>
+          </div>
+          <div class="sq-item">
+            <div class="sq-domain">Governance · Budget &amp; Roadmap</div>
+            <div class="sq-label">How aligned are your security, data, and AI investments with a board-approved roadmap that includes milestones, owners, and measurable outcomes?</div>
+            <div class="sq-scale">
+              <button class="sq-btn" onclick="scoreQ(this,9,1)">1<br><span style="font-size:.6rem">Ad hoc</span></button>
+              <button class="sq-btn sel" onclick="scoreQ(this,9,2)">2<br><span style="font-size:.6rem">Informal</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,9,3)">3<br><span style="font-size:.6rem">Planned</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,9,4)">4<br><span style="font-size:.6rem">Funded</span></button>
+              <button class="sq-btn" onclick="scoreQ(this,9,5)">5<br><span style="font-size:.6rem">Board-Led</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULTS COLUMN -->
+      <div class="calc-results" style="position:sticky;top:100px">
+        <div class="results-box highlight">
+          <div class="results-label">Overall Readiness Score</div>
+          <div class="results-total" id="sc-total">2.4 / 5</div>
+          <div class="results-total-sub" id="sc-total-sub">Developing — significant gaps require attention</div>
+          <div class="score-band" id="sc-band">
+            <div class="score-pip filled-2" id="pip-0"></div>
+            <div class="score-pip filled-2" id="pip-1"></div>
+            <div class="score-pip" id="pip-2"></div>
+            <div class="score-pip" id="pip-3"></div>
+            <div class="score-pip" id="pip-4"></div>
+          </div>
+        </div>
+
+        <div class="results-box">
+          <div class="results-label">Domain Scores</div>
+          <div id="sc-domain-scores">
+            <div class="results-row"><span class="results-row-label">Identity &amp; Access</span><span class="results-row-val" id="ds-identity">2.5 / 5</span></div>
+            <div class="results-row"><span class="results-row-label">Threat Detection &amp; Response</span><span class="results-row-val" id="ds-detection">2.0 / 5</span></div>
+            <div class="results-row"><span class="results-row-label">Data Architecture &amp; Quality</span><span class="results-row-val" id="ds-data">2.0 / 5</span></div>
+            <div class="results-row"><span class="results-row-label">AI &amp; Model Governance</span><span class="results-row-val" id="ds-ai">2.0 / 5</span></div>
+            <div class="results-row"><span class="results-row-label">Leadership &amp; Sponsorship</span><span class="results-row-val" id="ds-leadership">2.0 / 5</span></div>
+          </div>
+        </div>
+
+        <div class="results-box">
+          <div class="results-label">Your Top 3 Priority Gaps</div>
+          <div id="sc-next-steps">
+            <div class="next-steps-item"><span class="next-steps-num">01</span><span class="next-steps-text">Establish formal incident response playbooks and conduct tabletop exercises for ransomware and BEC scenarios.</span></div>
+            <div class="next-steps-item"><span class="next-steps-num">02</span><span class="next-steps-text">Implement consistent MFA enforcement and initiate a privileged access management program with regular access reviews.</span></div>
+            <div class="next-steps-item"><span class="next-steps-num">03</span><span class="next-steps-text">Define data ownership, quality standards, and lineage documentation before launching AI or analytics initiatives.</span></div>
+          </div>
+        </div>
+
+        <div class="results-cta">
+          <div class="results-cta-text">These results identify where to focus, not how to close the gaps. A Working Excellence readiness workshop gives your team a prioritized roadmap with defined owners and 90-day milestones.</div>
+          <a href="index.html#book" class="results-cta-btn">Book a Readiness Workshop</a>
+        </div>
+      </div>
+    </div>
+  </div><!-- /panel-scorecard -->
 
 </div><!-- /calc-panels -->
 
@@ -1138,6 +1502,8 @@ function switchCalc(id, el) {
   if (id === 'inaction') calcInaction();
   if (id === 'cloud') calcCloud();
   if (id === 'ai') calcAI();
+  if (id === 'data') calcData();
+  if (id === 'scorecard') calcScorecard();
 }
 
 /* ══════════════════════════════════
@@ -1469,6 +1835,162 @@ calcCyber();
 calcInaction();
 calcCloud();
 calcAI();
+calcData();
+calcScorecard();
+/* ══════════════════════════════════
+   DATA QUALITY & GOVERNANCE CALCULATOR
+══════════════════════════════════ */
+function calcData() {
+  const producers = parseInt(document.getElementById('dq-producers').value);
+  const consumers = parseInt(document.getElementById('dq-consumers').value);
+  const fteCost = parseInt(document.getElementById('dq-fte').value);
+  const reworkRate = parseFloat(document.getElementById('dq-rework').value);
+  const reports = parseInt(document.getElementById('dq-reports').value);
+  const currentMat = parseInt(document.getElementById('dq-maturity').value);
+  const targetMat = parseInt(document.getElementById('dq-target').value);
+
+  const hourlyRate = fteCost / 2080;
+  const annualHours = 2080;
+
+  // Rework cost: producers spend reworkRate of their time on data fixes
+  const producerRework = producers * reworkRate * annualHours * hourlyRate;
+
+  // Consumer delay cost: consumers spend ~40% of producer rework rate on re-runs, reconciliation, waiting
+  const consumerRework = consumers * (reworkRate * 0.4) * annualHours * hourlyRate;
+
+  // Report overhead: each critical report averages 2hrs/week in maintenance at current quality level
+  const reportOverhead = reports * (2 + reworkRate * 8) * 52 * hourlyRate;
+
+  // Bad decision cost: scaled from rework rate — higher rework signals lower data trust
+  const decisionRisk = (producers + consumers) * fteCost * reworkRate * 0.15;
+
+  const totalCost = producerRework + consumerRework + reportOverhead + decisionRisk;
+
+  // Savings if they reach target maturity
+  // Each maturity level reduces rework by ~30%
+  const maturityGap = Math.max(0, targetMat - currentMat);
+  const reductionRate = 1 - Math.pow(0.70, maturityGap);
+  const annualSavings = totalCost * reductionRate;
+
+  document.getElementById('dq-total').textContent = fmt(totalCost);
+  document.getElementById('dq-total-sub').textContent = 'Annual cost: rework + delays + decision risk';
+
+  const breakdownHTML = `
+    <div class="dq-savings-row"><span class="results-row-label">Producer Rework Cost</span><span class="results-row-val risk">${fmt(producerRework)}/yr</span></div>
+    <div class="dq-savings-row"><span class="results-row-label">Consumer Delay &amp; Re-work</span><span class="results-row-val risk">${fmt(consumerRework)}/yr</span></div>
+    <div class="dq-savings-row"><span class="results-row-label">Critical Report Maintenance</span><span class="results-row-val risk">${fmt(reportOverhead)}/yr</span></div>
+    <div class="dq-savings-row"><span class="results-row-label">Bad-Data Decision Risk</span><span class="results-row-val risk">${fmt(decisionRisk)}/yr</span></div>
+    <div class="dq-savings-row" style="margin-top:8px;padding-top:8px;border-top:2px solid var(--border)">
+      <span class="results-row-label" style="font-weight:700;color:var(--white)">Recoverable at Target Maturity</span>
+      <span class="results-row-val" style="color:var(--orange);font-size:1.05rem">${fmt(annualSavings)}/yr</span>
+    </div>
+    <div style="font-size:.78rem;color:var(--grey-500);margin-top:8px">Based on ${Math.round(reductionRate*100)}% waste reduction from maturity level ${currentMat} → ${targetMat}</div>
+  `;
+
+  document.getElementById('dq-breakdown').innerHTML = breakdownHTML;
+}
+
+/* ══════════════════════════════════
+   CYBER & AI READINESS SCORECARD
+══════════════════════════════════ */
+const SC_SCORES = [3,3,2,2,2,2,2,2,2,2]; // defaults
+
+const SC_DOMAINS = [
+  {name:'Identity & Access', qs:[0,1], id:'ds-identity'},
+  {name:'Threat Detection & Response', qs:[2,3], id:'ds-detection'},
+  {name:'Data Architecture & Quality', qs:[4,5], id:'ds-data'},
+  {name:'AI & Model Governance', qs:[6,7], id:'ds-ai'},
+  {name:'Leadership & Sponsorship', qs:[8,9], id:'ds-leadership'},
+];
+
+const SC_GAPS = {
+  0: [
+    "Implement consistent MFA enforcement and initiate a privileged access management program with regular access reviews.",
+    "Establish least-privilege policies across all systems and conduct a full access audit within 90 days.",
+    "Deploy identity governance tooling and integrate SSO across your critical application stack."
+  ],
+  1: [
+    "Establish formal incident response playbooks and conduct tabletop exercises for ransomware and BEC scenarios.",
+    "Deploy SIEM or MDR tooling to move from log-collection to active threat detection and triage.",
+    "Define SLAs for detection and response times, and test them quarterly through red team exercises."
+  ],
+  2: [
+    "Define data ownership, quality standards, and lineage documentation before launching AI or analytics initiatives.",
+    "Implement a data catalog and establish data quality KPIs aligned to your highest-value business processes.",
+    "Break down data silos by establishing a governed integration layer and enforcing schema standards at ingestion."
+  ],
+  3: [
+    "Assess AI readiness before investing in tooling — data foundation gaps will surface as pilot failures at scale.",
+    "Establish model governance policies covering bias review, explainability, and post-deployment performance monitoring.",
+    "Define your AI risk appetite at the board level and align it to your data governance and compliance controls."
+  ],
+  4: [
+    "Elevate cybersecurity, data, and AI to standing board agenda items with a named executive sponsor for each.",
+    "Develop a multi-year technology roadmap with defined milestones, owners, and budget allocation approved by leadership.",
+    "Establish a formal risk review cadence that connects your security and data posture directly to business KPIs."
+  ]
+};
+
+const SC_LABELS = ['', 'Critical', 'Developing', 'Progressing', 'Advanced', 'Leading'];
+const SC_SUBS = [
+  '',
+  'Critical — immediate action required across multiple domains',
+  'Developing — significant gaps require structured remediation',
+  'Progressing — solid foundation with defined improvement areas',
+  'Advanced — strong posture with targeted optimization opportunities',
+  'Leading — industry-leading practices with continuous improvement'
+];
+
+function scoreQ(btn, qIdx, val) {
+  // Deselect siblings
+  const siblings = btn.closest('.sq-scale').querySelectorAll('.sq-btn');
+  siblings.forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+  SC_SCORES[qIdx] = val;
+  calcScorecard();
+}
+
+function calcScorecard() {
+  const avg = SC_SCORES.reduce((a,b)=>a+b,0) / SC_SCORES.length;
+  const rounded = Math.round(avg * 10) / 10;
+  const band = Math.max(1, Math.min(5, Math.round(avg)));
+
+  document.getElementById('sc-total').textContent = rounded.toFixed(1) + ' / 5';
+  document.getElementById('sc-total-sub').textContent = SC_SUBS[band] || '';
+
+  // Update pips
+  for (let i=0;i<5;i++) {
+    const pip = document.getElementById('pip-'+i);
+    if (pip) {
+      pip.className = 'score-pip';
+      if (i < band) pip.classList.add('filled-'+band);
+    }
+  }
+
+  // Domain scores
+  SC_DOMAINS.forEach(d => {
+    const domAvg = d.qs.reduce((s,q)=>s+SC_SCORES[q],0)/d.qs.length;
+    const el = document.getElementById(d.id);
+    if (el) el.textContent = (Math.round(domAvg*10)/10).toFixed(1) + ' / 5';
+  });
+
+  // Find lowest 3 domains and map to next steps
+  const domainScores = SC_DOMAINS.map((d,i) => ({
+    idx: i,
+    score: d.qs.reduce((s,q)=>s+SC_SCORES[q],0)/d.qs.length
+  }));
+  domainScores.sort((a,b)=>a.score-b.score);
+  const top3 = domainScores.slice(0,3);
+
+  const stepsHTML = top3.map((d,i) => {
+    const gapList = SC_GAPS[d.idx];
+    const step = gapList[0]; // primary gap for the lowest-scored domain
+    return `<div class="next-steps-item"><span class="next-steps-num">0${i+1}</span><span class="next-steps-text">${step}</span></div>`;
+  }).join('');
+
+  document.getElementById('sc-next-steps').innerHTML = stepsHTML;
+}
+
 </script>
 </body>
 </html>
