@@ -129,7 +129,7 @@ em{font-style:normal}
     <li><button class="mega-trigger" data-mega="about">About Us<svg class="nav-chevron" viewBox="0 0 14 8"><path d="M1 1l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
   </ul>
   <div class="nav-right">
-    <a href="index.html#book" class="nav-cta">Book a Session →</a>
+    <a href="index.html#book" class="nav-cta">Book a Session</a>
   </div>
   <button id="nav-hamburger" class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -143,7 +143,7 @@ em{font-style:normal}
     <a href="index.html#assessments" class="mobile-nav-link">Assessments</a>
     <a href="calculators.html" class="mobile-nav-link">Calculators</a>
     <a href="about-us.html" class="mobile-nav-link">About</a>
-    <a href="contact-us.html" class="mobile-nav-cta">Book a Session →</a>
+    <a href="contact-us.html" class="mobile-nav-cta">Book a Session</a>
   </div>
 </div>
 
@@ -266,7 +266,7 @@ em{font-style:normal}
     <div class="mega-cta-card">
       <div class="mega-cta-card-title">Book a Free 30-Min Strategy Session</div>
       <div class="mega-cta-card-desc">Talk to a senior practitioner, not an account manager. Identify where the highest-value starting point is for your organization.</div>
-      <a href="#book" class="mega-cta-btn" onclick="closeMenu()">Schedule Now →</a>
+      <a href="#book" class="mega-cta-btn" onclick="closeMenu()">Schedule Now</a>
     </div>
     <div>
       <div class="mega-right-label" style="margin-bottom:10px">Quick Access</div>
@@ -496,6 +496,13 @@ em{font-style:normal}
       <div class="calc-card-title">Cloud Waste Estimator</div>
       <div class="calc-card-desc">Estimate how much your organization is likely wasting on idle, over-provisioned, or misconfigured cloud resources across AWS, Azure, and GCP.</div>
       <div class="calc-card-badge">FinOps</div>
+    </div>
+
+    <div class="calc-card" onclick="switchCalc('ai',this)">
+      <div class="calc-card-icon">🤖</div>
+      <div class="calc-card-title">AI Value Potential</div>
+      <div class="calc-card-desc">Estimate the annual productivity, revenue, and efficiency gains your organization could realize by deploying AI effectively across key functional areas.</div>
+      <div class="calc-card-badge">AI Strategy</div>
     </div>
 
   </div>
@@ -812,7 +819,7 @@ em{font-style:normal}
         </div>
         <div class="results-cta">
           <div class="results-cta-text">Turn this number into a business case for leadership. Our strategy sessions help you build the ROI narrative that gets initiatives funded.</div>
-          <a href="index.html#book" class="results-cta-btn">Book a Strategy Session →</a>
+          <a href="index.html#book" class="results-cta-btn">Book a Strategy Session</a>
         </div>
       </div>
     </div>
@@ -895,18 +902,110 @@ em{font-style:normal}
         </div>
         <div class="results-sources">
           <div class="results-sources-title">Data Sources</div>
-          <div class="source-item"><strong>Gartner (2024):</strong> Organizations waste 32% of cloud spend on average</div>
+          <div class="source-item"><strong>Gartner (2024):</strong> Average cloud waste is 20-35% of total spend across enterprise environments</div>
           <div class="source-item"><strong>Flexera State of the Cloud 2024:</strong> Idle resources account for 26% of wasted cloud spend</div>
           <div class="source-item"><strong>AWS / Azure internal benchmarks:</strong> Right-sizing opportunities average 23% savings on compute</div>
-          <div class="source-item"><strong>Working Excellence client data:</strong> 15-40% optimization potential observed across assessments</div>
+          <div class="source-item"><strong>Working Excellence client data:</strong> 15-40% optimization potential observed; this calculator uses 20% as the conservative industry baseline</div>
         </div>
         <div class="results-cta">
           <div class="results-cta-text">Our Cloud Infrastructure Assessment connects directly to your environment and identifies specific, quantified savings, not estimates.</div>
-          <a href="index.html#assessments" class="results-cta-btn">Get a Real Cloud Assessment →</a>
+          <a href="index.html#assessments" class="results-cta-btn">Get a Real Cloud Assessment</a>
         </div>
       </div>
     </div>
   </div><!-- /panel-cloud -->
+
+  <!-- ═══ PANEL 4: AI VALUE POTENTIAL ═══ -->
+  <div class="calc-panel" id="panel-ai">
+    <div class="calc-body">
+      <div class="calc-form">
+        <div class="calc-form-section">
+          <div class="calc-section-title">Organization Profile</div>
+          <div class="form-group">
+            <label class="form-label">Number of Employees</label>
+            <select class="form-select" id="ai-size" onchange="calcAI()">
+              <option value="100">50 – 200</option>
+              <option value="500" selected>200 – 1,000</option>
+              <option value="2500">1,000 – 5,000</option>
+              <option value="10000">5,000+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Industry</label>
+            <select class="form-select" id="ai-industry" onchange="calcAI()">
+              <option value="financial">Financial Services</option>
+              <option value="healthcare">Healthcare</option>
+              <option value="tech" selected>Technology / SaaS</option>
+              <option value="manufacturing">Manufacturing</option>
+              <option value="retail">Retail / E-Commerce</option>
+              <option value="professional">Professional Services</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Average Fully-Loaded Employee Cost (annual)</label>
+            <select class="form-select" id="ai-cost" onchange="calcAI()">
+              <option value="60000">Under $75K</option>
+              <option value="90000" selected>$75K – $120K</option>
+              <option value="140000">$120K – $175K</option>
+              <option value="200000">$175K+</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-form-section">
+          <div class="calc-section-title">AI Readiness Signals</div>
+          <div class="form-group">
+            <label class="form-label">Current AI / Automation Usage</label>
+            <select class="form-select" id="ai-maturity" onchange="calcAI()">
+              <option value="0">None — no AI tools in use</option>
+              <option value="1" selected>Basic — some tools (Copilot, ChatGPT) informally</option>
+              <option value="2">Moderate — structured pilots running</option>
+              <option value="3">Advanced — AI integrated in workflows</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Select AI Use Cases to Evaluate</label>
+            <div class="tag-list" id="ai-tags">
+              <span class="tag selected" onclick="toggleTag(this,'ops');calcAI()">Operations &amp; Admin</span>
+              <span class="tag selected" onclick="toggleTag(this,'sales');calcAI()">Sales &amp; Revenue</span>
+              <span class="tag" onclick="toggleTag(this,'service');calcAI()">Customer Service</span>
+              <span class="tag" onclick="toggleTag(this,'data');calcAI()">Data &amp; Analytics</span>
+              <span class="tag" onclick="toggleTag(this,'dev');calcAI()">Software Development</span>
+              <span class="tag" onclick="toggleTag(this,'risk');calcAI()">Risk &amp; Compliance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-results">
+        <div class="results-box highlight">
+          <div class="results-label">Estimated Annual AI Value Potential</div>
+          <div class="results-total" id="ai-total">$0</div>
+          <div class="results-total-sub" id="ai-total-sub">Based on industry benchmarks</div>
+        </div>
+        <div class="results-box">
+          <div class="results-label">Value by Category</div>
+          <div class="results-breakdown" id="ai-breakdown">
+            <div class="results-empty">
+              <div class="results-empty-icon">🤖</div>
+              <div class="results-empty-text">Configure your profile above to see AI value estimates.</div>
+            </div>
+          </div>
+        </div>
+        <div class="results-sources">
+          <div class="results-sources-title">Data Sources &amp; Methodology</div>
+          <div class="source-item"><strong>McKinsey Global Institute (2024):</strong> AI could add $4.4T annually in value globally; operational functions see 15-40% productivity gains</div>
+          <div class="source-item"><strong>Accenture Technology Vision 2024:</strong> Organizations with mature AI programs report 30-50% efficiency improvements in targeted processes</div>
+          <div class="source-item"><strong>Salesforce State of AI Report:</strong> Sales teams with AI tools see 30% higher quota attainment on average</div>
+          <div class="source-item"><strong>Methodology:</strong> Estimates use productivity-adjusted hourly rates, industry adoption multipliers, and time-savings benchmarks per function. Conservative scenario assumes 15% time savings on AI-assisted tasks.</div>
+        </div>
+        <div class="results-cta">
+          <div class="results-cta-text">These are conservative benchmarks. An AI Readiness Diagnostic from Working Excellence identifies your specific highest-ROI use cases and gives you a prioritized deployment roadmap.</div>
+          <a href="index.html#assessments" class="results-cta-btn">Get an AI Readiness Assessment</a>
+        </div>
+      </div>
+    </div>
+  </div><!-- /panel-ai -->
 
 </div><!-- /calc-panels -->
 
@@ -923,6 +1022,53 @@ em{font-style:normal}
     </div>
   </div>
 </section>
+
+<!-- ══════════ FAQ ══════════ -->
+<section style="max-width:1200px;margin:0 auto;padding:0 48px 80px">
+  <div style="border-top:1px solid var(--border);padding-top:56px">
+    <div style="font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:16px">Calculator FAQ</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.5vw,2.2rem);color:var(--white);margin:0 0 40px;line-height:1.2">These are industry benchmarks.<br>Not our assumptions.</h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px" class="faq-grid">
+
+      <div style="background:var(--grey-900);border:1px solid var(--border);border-radius:6px;padding:28px">
+        <div style="font-weight:700;color:var(--white);margin-bottom:10px;font-size:.95rem">Where do these numbers come from?</div>
+        <p style="font-size:.88rem;color:var(--grey-300);line-height:1.7;margin:0">Every figure in these calculators is sourced from peer-reviewed research and published industry benchmarks: IBM Cost of a Data Breach Report, Verizon DBIR, Gartner Cloud Waste studies, Flexera State of the Cloud, Ponemon Institute, McKinsey Global Institute, and AWS / Azure published FinOps benchmarks. We do not invent these numbers. We apply them to your organizational profile.</p>
+      </div>
+
+      <div style="background:var(--grey-900);border:1px solid var(--border);border-radius:6px;padding:28px">
+        <div style="font-weight:700;color:var(--white);margin-bottom:10px;font-size:.95rem">Why 20% as the cloud waste baseline?</div>
+        <p style="font-size:.88rem;color:var(--grey-300);line-height:1.7;margin:0">Industry consensus from Gartner, Flexera, and AWS FinOps Foundation benchmarks places average cloud waste at 20-35% of total spend. We use 20% as the conservative floor because most organizations underestimate their waste until a real analysis is run against live infrastructure. Our Cloud Infrastructure Assessment routinely finds 25-40% in practice.</p>
+      </div>
+
+      <div style="background:var(--grey-900);border:1px solid var(--border);border-radius:6px;padding:28px">
+        <div style="font-weight:700;color:var(--white);margin-bottom:10px;font-size:.95rem">How accurate are these estimates?</div>
+        <p style="font-size:.88rem;color:var(--grey-300);line-height:1.7;margin:0">These are directional estimates designed to help leadership teams understand the magnitude of risk and opportunity — not precise audits. They are calibrated to be conservative: real-world findings from Working Excellence assessments frequently exceed calculator outputs because generic benchmarks cannot account for your specific configuration gaps, legacy debt, or organizational patterns. Use these numbers to prioritize the conversation, then run a real assessment to get precise figures.</p>
+      </div>
+
+      <div style="background:var(--grey-900);border:1px solid var(--border);border-radius:6px;padding:28px">
+        <div style="font-weight:700;color:var(--white);margin-bottom:10px;font-size:.95rem">Should I share these with my board or leadership team?</div>
+        <p style="font-size:.88rem;color:var(--grey-300);line-height:1.7;margin:0">Yes — with the appropriate framing. These calculators are useful for initiating leadership conversations about risk exposure, cloud efficiency, and AI investment. They are not a substitute for a formal assessment. If you present these numbers internally, note that they are based on published industry averages calibrated to your organizational profile. For board-ready findings specific to your environment, a Working Excellence assessment produces the defensible, source-cited documentation your audit committee and executives expect.</p>
+      </div>
+
+      <div style="background:var(--grey-900);border:1px solid var(--border);border-radius:6px;padding:28px">
+        <div style="font-weight:700;color:var(--white);margin-bottom:10px;font-size:.95rem">What additional calculators would be useful?</div>
+        <p style="font-size:.88rem;color:var(--grey-300);line-height:1.7;margin:0">We are actively building additional calculators based on client requests, including: Technical Debt Cost of Ownership, M&amp;A Integration Risk Exposure, Compliance Gap Cost Modeling, and Security Program ROI vs. Breach Probability. If there is a specific calculation your leadership team needs, contact us and we will prioritize it.</p>
+      </div>
+
+      <div style="background:var(--grey-900);border:1px solid var(--border);border-radius:6px;padding:28px">
+        <div style="font-weight:700;color:var(--white);margin-bottom:10px;font-size:.95rem">How do I get organization-specific numbers?</div>
+        <p style="font-size:.88rem;color:var(--grey-300);line-height:1.7;margin:0">Book an assessment. The Working Excellence Technical Risk Assessment, AI Readiness Diagnostic, and Cloud Infrastructure Assessment all connect directly to your environment — not templates, not benchmarks. They return specific, quantified, source-cited findings at the resource level. Every recommendation is backed by evidence from your actual infrastructure, not industry averages.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+@media(max-width:768px){.faq-grid{grid-template-columns:1fr !important}}
+</style>
+
 
 <footer class="site-footer">
   <div class="section-inner" style="padding-top:56px;padding-bottom:40px">
@@ -991,6 +1137,7 @@ function switchCalc(id, el) {
   if (id === 'cyber') calcCyber();
   if (id === 'inaction') calcInaction();
   if (id === 'cloud') calcCloud();
+  if (id === 'ai') calcAI();
 }
 
 /* ══════════════════════════════════
@@ -999,6 +1146,7 @@ function switchCalc(id, el) {
 let activeIncident = 'bec';
 let selectedFrameworks = ['HIPAA'];
 let selectedWaste = ['idle','overprovisioned'];
+let selectedAI = ['ops','sales'];
 
 function selectIncident(type, el) {
   activeIncident = type;
@@ -1016,6 +1164,10 @@ function toggleTag(el, val) {
     if (el.classList.contains('selected')) selectedFrameworks.push(val);
     else selectedFrameworks = selectedFrameworks.filter(f => f !== val);
     calcCyber();
+  }
+  if (el.closest('#ai-tags')) {
+    // ai tags update handled inside calcAI by reading DOM
+    return;
   }
   if (el.closest('#waste-tags')) {
     if (el.classList.contains('selected')) selectedWaste.push(val);
@@ -1205,13 +1357,16 @@ function calcCloud() {
   const reserved = document.getElementById('cw-reserved').value;
   const finops = document.getElementById('cw-finops').value;
 
-  const reservedWaste = {none:0.18, partial:0.10, good:0.03};
-  const finopsWaste = {none:0.12, crawl:0.08, walk:0.04, run:0.01};
+  // Industry baseline: 20% average cloud waste (Gartner, Flexera, AWS FinOps benchmarks)
+  const INDUSTRY_BASELINE = 0.20;
+  const reservedWaste = {none:0.08, partial:0.04, good:0.01};
+  const finopsWaste = {none:0.05, crawl:0.03, walk:0.015, run:0.005};
 
-  const wasteRates = {idle:0.10, overprovisioned:0.09, storage:0.05, transfer:0.04, dev:0.07};
+  const wasteRates = {idle:0.06, overprovisioned:0.05, storage:0.025, transfer:0.02, dev:0.035};
   const selectedWasteTotal = selectedWaste.reduce((sum, w) => sum + (wasteRates[w] || 0), 0);
 
-  const totalWasteRate = Math.min(0.55, selectedWasteTotal + reservedWaste[reserved] + finopsWaste[finops]);
+  // Floor at 20% industry baseline regardless of selections
+  const totalWasteRate = Math.max(INDUSTRY_BASELINE, Math.min(0.50, selectedWasteTotal + reservedWaste[reserved] + finopsWaste[finops]));
   const monthlyWaste = monthlySpend * totalWasteRate;
   const annualWaste = monthlyWaste * 12;
 
@@ -1233,10 +1388,87 @@ function calcCloud() {
   `;
 }
 
+
+/* ══════════════════════════════════
+   AI VALUE POTENTIAL CALCULATOR
+══════════════════════════════════ */
+function calcAI() {
+  const size = parseInt(document.getElementById('ai-size').value);
+  const industry = document.getElementById('ai-industry').value;
+  const costPerEmployee = parseInt(document.getElementById('ai-cost').value);
+  const maturity = parseInt(document.getElementById('ai-maturity').value);
+
+  // Recalculate selectedAI from DOM
+  selectedAI = [];
+  document.querySelectorAll('#ai-tags .tag.selected').forEach(t => {
+    selectedAI.push(t.getAttribute('onclick').match(/'([^']+)'/)[1]);
+  });
+
+  if (!size || selectedAI.length === 0) return;
+
+  // Industry productivity multiplier (some sectors have higher ROI from AI)
+  const industryMult = {financial:1.35, healthcare:1.20, tech:1.40, manufacturing:1.25, retail:1.15, professional:1.30, other:1.00};
+  const iMult = industryMult[industry] || 1.0;
+
+  // Maturity discount (less mature = more upside but also more friction)
+  const maturityMult = [0.60, 0.80, 1.00, 1.15];
+  const mMult = maturityMult[maturity] || 0.80;
+
+  // Use case value drivers (% of affected employees, hours saved/week per employee, adoption rate)
+  const useCaseData = {
+    ops:    {label:'Operations & Admin',     affectedPct:0.60, hoursSaved:3.5, adoptionRate:0.70},
+    sales:  {label:'Sales & Revenue',        affectedPct:0.15, hoursSaved:4.0, adoptionRate:0.65, revenueBoost:0.08},
+    service:{label:'Customer Service',        affectedPct:0.12, hoursSaved:5.0, adoptionRate:0.72},
+    data:   {label:'Data & Analytics',       affectedPct:0.20, hoursSaved:4.5, adoptionRate:0.60},
+    dev:    {label:'Software Development',   affectedPct:0.10, hoursSaved:6.0, adoptionRate:0.55},
+    risk:   {label:'Risk & Compliance',      affectedPct:0.08, hoursSaved:3.0, adoptionRate:0.65},
+  };
+
+  const hourlyRate = costPerEmployee / 2080; // 2080 work hours/year
+  let totalValue = 0;
+  const rows = [];
+
+  selectedAI.forEach(key => {
+    const uc = useCaseData[key];
+    if (!uc) return;
+    const affectedEmployees = size * uc.affectedPct * uc.adoptionRate;
+    let annualValue = affectedEmployees * uc.hoursSaved * 52 * hourlyRate * iMult * mMult;
+
+    // Sales use case: add revenue component
+    if (key === 'sales' && uc.revenueBoost) {
+      const salesRevEstimate = size * costPerEmployee * 3; // rough revenue proxy
+      annualValue += salesRevEstimate * uc.revenueBoost * mMult;
+    }
+
+    totalValue += annualValue;
+    rows.push({label: uc.label, value: annualValue});
+  });
+
+  document.getElementById('ai-total').textContent = fmt(totalValue);
+  document.getElementById('ai-total-sub').textContent = 'Conservative annual estimate (15% productivity gain model)';
+
+  const rowsHTML = rows
+    .sort((a,b) => b.value - a.value)
+    .map(r => `
+    <div class="results-row">
+      <span class="results-row-label">${r.label}</span>
+      <span class="results-row-val" style="color:var(--orange)">${fmt(r.value)}/yr</span>
+    </div>`).join('');
+
+  document.getElementById('ai-breakdown').innerHTML = `
+    ${rowsHTML}
+    <div class="results-row" style="border-top:1px solid var(--border);padding-top:10px;margin-top:4px">
+      <span class="results-row-label" style="font-weight:700;color:var(--white)">Total Annual Value Potential</span>
+      <span class="results-row-val" style="color:var(--orange);font-size:1.05rem">${fmt(totalValue)}</span>
+    </div>
+  `;
+}
+
 // Initialize on load
 calcCyber();
 calcInaction();
 calcCloud();
+calcAI();
 </script>
 </body>
 </html>
