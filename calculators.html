@@ -103,7 +103,7 @@ em{font-style:normal}
     /* ── PRINT STYLES ── */
     @media print {
       .nav-wrapper,.site-footer,.share-bar,.modal-overlay,.calc-chooser,.calc-hero,
-      .results-cta,.results-sources,.faq-grid,.calc-panel:not(.active){display:none!important}
+      .results-cta,.results-sources,.calc-panel:not(.active){display:none!important}
       body{background:#fff!important;color:#111!important}
       .calc-panel.active,.calc-body,.calc-form-section,.results-box{background:#fff!important;border-color:#ddd!important;break-inside:avoid}
       .results-total,.results-row-val{color:#c07a00!important}
@@ -1428,64 +1428,9 @@ em{font-style:normal}
 
 </div><!-- /calc-panels -->
 
-<!-- FAQ -->
-<section style="background:var(--grey-950);padding:72px 0">
-  <div class="section-inner">
-    <div style="display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:start">
-      <div>
-        <div class="section-label">FAQ</div>
-        <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;line-height:1.2;margin-bottom:16px;color:var(--white)">Calculator Questions</h2>
-        <p style="font-size:.96rem;color:var(--grey-300);line-height:1.7">How we build these estimates and what they are based on.</p>
-      </div>
-      <div class="faq-mount" data-faq="calculators"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ FAQ ══════════ -->
-<section style="max-width:1200px;margin:0 auto;padding:0 48px 80px">
-  <div style="border-top:1px solid var(--border);padding-top:56px">
-    <div style="font-family:'DM Mono',monospace;font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:16px">Calculator FAQ</div>
-    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.5vw,2.2rem);color:var(--white);margin:0 0 40px;line-height:1.2">These are industry benchmarks.<br>Not our assumptions.</h2>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px" class="faq-grid">
-
-      <div style="background:var(--grey-900);border:1px solid var(--border);border-radius:6px;padding:28px">
-        <div style="font-weight:700;color:var(--white);margin-bottom:10px;font-size:.95rem">Where do these numbers come from?</div>
-        <p style="font-size:.88rem;color:var(--grey-300);line-height:1.7;margin:0">Every figure in these calculators is sourced from peer-reviewed research and published industry benchmarks: IBM Cost of a Data Breach Report, Verizon DBIR, Gartner Cloud Waste studies, Flexera State of the Cloud, Ponemon Institute, McKinsey Global Institute, and AWS / Azure published FinOps benchmarks. We do not invent these numbers. We apply them to your organizational profile.</p>
-      </div>
-
-      <div style="background:var(--grey-900);border:1px solid var(--border);border-radius:6px;padding:28px">
-        <div style="font-weight:700;color:var(--white);margin-bottom:10px;font-size:.95rem">Why 20% as the cloud waste baseline?</div>
-        <p style="font-size:.88rem;color:var(--grey-300);line-height:1.7;margin:0">Industry consensus from Gartner, Flexera, and AWS FinOps Foundation benchmarks places average cloud waste at 20-35% of total spend. We use 20% as the conservative floor because most organizations underestimate their waste until a real analysis is run against live infrastructure. Our Cloud Infrastructure Assessment routinely finds 25-40% in practice.</p>
-      </div>
-
-      <div style="background:var(--grey-900);border:1px solid var(--border);border-radius:6px;padding:28px">
-        <div style="font-weight:700;color:var(--white);margin-bottom:10px;font-size:.95rem">How accurate are these estimates?</div>
-        <p style="font-size:.88rem;color:var(--grey-300);line-height:1.7;margin:0">These are directional estimates designed to help leadership teams understand the magnitude of risk and opportunity — not precise audits. They are calibrated to be conservative: real-world findings from Working Excellence assessments frequently exceed calculator outputs because generic benchmarks cannot account for your specific configuration gaps, legacy debt, or organizational patterns. Use these numbers to prioritize the conversation, then run a real assessment to get precise figures.</p>
-      </div>
-
-      <div style="background:var(--grey-900);border:1px solid var(--border);border-radius:6px;padding:28px">
-        <div style="font-weight:700;color:var(--white);margin-bottom:10px;font-size:.95rem">Should I share these with my board or leadership team?</div>
-        <p style="font-size:.88rem;color:var(--grey-300);line-height:1.7;margin:0">Yes — with the appropriate framing. These calculators are useful for initiating leadership conversations about risk exposure, cloud efficiency, and AI investment. They are not a substitute for a formal assessment. If you present these numbers internally, note that they are based on published industry averages calibrated to your organizational profile. For board-ready findings specific to your environment, a Working Excellence assessment produces the defensible, source-cited documentation your audit committee and executives expect.</p>
-      </div>
-
-      <div style="background:var(--grey-900);border:1px solid var(--border);border-radius:6px;padding:28px">
-        <div style="font-weight:700;color:var(--white);margin-bottom:10px;font-size:.95rem">What additional calculators would be useful?</div>
-        <p style="font-size:.88rem;color:var(--grey-300);line-height:1.7;margin:0">We are actively building additional calculators based on client requests, including: Technical Debt Cost of Ownership, M&amp;A Integration Risk Exposure, Compliance Gap Cost Modeling, and Security Program ROI vs. Breach Probability. If there is a specific calculation your leadership team needs, contact us and we will prioritize it.</p>
-      </div>
-
-      <div style="background:var(--grey-900);border:1px solid var(--border);border-radius:6px;padding:28px">
-        <div style="font-weight:700;color:var(--white);margin-bottom:10px;font-size:.95rem">How do I get organization-specific numbers?</div>
-        <p style="font-size:.88rem;color:var(--grey-300);line-height:1.7;margin:0">Book an assessment. The Working Excellence Technical Risk Assessment, AI Readiness Diagnostic, and Cloud Infrastructure Assessment all connect directly to your environment — not templates, not benchmarks. They return specific, quantified, source-cited findings at the resource level. Every recommendation is backed by evidence from your actual infrastructure, not industry averages.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <style>
-@media(max-width:768px){.faq-grid{grid-template-columns:1fr !important}}
+
 </style>
 
 
