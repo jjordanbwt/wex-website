@@ -126,6 +126,7 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
   .team-grid{grid-template-columns:repeat(2,1fr)}
   .counsel-photo{max-height:260px}
   .mission-stats{grid-template-columns:1fr 1fr}
+  .delivery-grid{grid-template-columns:1fr !important}
 }
 @media(max-width:480px){
   .about-hero,.mission-section,.team-section,.about-cta{padding-left:16px;padding-right:16px}
@@ -595,7 +596,7 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
           </div>
         </div>
         <div style="font-size:.9rem;color:var(--grey-300);line-height:1.7">
-          2625 Butterfield Road<br>Oak Brook, IL 60523
+          2625 Butterfield Road, Suite 116E<br>Oak Brook, IL 60523
         </div>
       </div>
 
@@ -635,15 +636,38 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
 
     </div>
 
-    <!-- Global delivery callout -->
-    <div class="fade-up" style="margin-top:40px;padding:28px 32px;background:linear-gradient(135deg,rgba(241,143,10,.08) 0%,rgba(241,143,10,.03) 100%);border:1px solid rgba(241,143,10,.2);border-radius:12px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
-      <div style="width:44px;height:44px;background:rgba(241,143,10,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+    <!-- Global Service Delivery -->
+    <div class="fade-up" style="margin-top:56px;padding:48px 40px;background:linear-gradient(135deg,rgba(241,143,10,.08) 0%,rgba(241,143,10,.03) 100%);border:1px solid rgba(241,143,10,.2);border-radius:16px;text-align:center">
+      <div style="width:56px;height:56px;background:rgba(241,143,10,.15);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
       </div>
-      <div>
-        <div style="font-size:1rem;font-weight:600;color:var(--white);margin-bottom:4px">Global Service Delivery</div>
-        <div style="font-size:.9rem;color:var(--grey-400);line-height:1.6;max-width:640px">Our engagements are not limited by geography. We work with clients across North America, Latin America, Europe, and beyond. Wherever your organization operates, we can support you.</div>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--white);margin:0 0 16px">Global Service Delivery</h3>
+      <p style="font-size:1rem;color:var(--grey-300);line-height:1.7;max-width:760px;margin:0 auto 36px">Working Excellence provides flexible team structures so organizations can scale talent, control cost, and maintain operational quality. Depending on the needs of the engagement, we offer several delivery models.</p>
+
+      <div class="delivery-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:860px;margin:0 auto;text-align:left">
+        <!-- USA Teams -->
+        <div style="background:var(--grey-800);border:1px solid var(--grey-750);border-radius:12px;padding:24px">
+          <div style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:10px">Full Dedicated USA Based Teams</div>
+          <p style="font-size:.88rem;color:var(--grey-300);line-height:1.65;margin:0">Fully dedicated teams based in the United States that operate as an extension of your organization, aligned to your culture, communication style, and time zones. Ideal for close collaboration, regulatory alignment, and consistent real-time engagement.</p>
+        </div>
+        <!-- Nearshore -->
+        <div style="background:var(--grey-800);border:1px solid var(--grey-750);border-radius:12px;padding:24px">
+          <div style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:10px">Nearshore Teams</div>
+          <p style="font-size:.88rem;color:var(--grey-300);line-height:1.65;margin:0">Highly skilled professionals located in nearby regions operating in similar time zones to the United States. This model balances cost efficiency with strong collaboration and real-time communication.</p>
+        </div>
+        <!-- Offshore -->
+        <div style="background:var(--grey-800);border:1px solid var(--grey-750);border-radius:12px;padding:24px">
+          <div style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:10px">Offshore Teams</div>
+          <p style="font-size:.88rem;color:var(--grey-300);line-height:1.65;margin:0">Access a deep global talent pool while significantly improving cost efficiency. These teams are structured, trained, and managed to deliver consistent quality and productivity while supporting round-the-clock operations.</p>
+        </div>
+        <!-- Blended -->
+        <div style="background:var(--grey-800);border:1px solid var(--grey-750);border-radius:12px;padding:24px">
+          <div style="font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:10px">Blended Team Model</div>
+          <p style="font-size:.88rem;color:var(--grey-300);line-height:1.65;margin:0">Combines United States based leadership with nearshore or offshore specialists. This approach creates the best balance of quality, responsiveness, scalability, and cost control. We manage the structure so the team operates as one unified delivery group.</p>
+        </div>
       </div>
+
+      <p style="font-size:.95rem;color:var(--grey-400);line-height:1.65;max-width:700px;margin:32px auto 0;font-style:italic">Working Excellence builds the right team structure around the work. Whether you need a fully domestic team or a blended global model, the focus stays the same: strong leadership, accountable delivery, and measurable results.</p>
     </div>
 
   </div>
