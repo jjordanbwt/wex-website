@@ -25,7 +25,11 @@ em { font-style: normal; }
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
-<div id="menu-backdrop"></div>
+<div id="menu-backdrop" onclick="closeMenu()"></div>
+
+<!-- ══════════════════════════════════════════════
+     NAV
+══════════════════════════════════════════════ -->
 <nav id="main-nav">
   <a href="index.html" class="nav-logo">
     <img src="https://static.wixstatic.com/media/1731f2_d91dc3d0f01245f5b369acb8b2397118~mv2.png" alt="Working Excellence" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
@@ -228,9 +232,150 @@ em { font-style: normal; }
     </div>
   </div>
 </div>
-</section>
 
-<!-- CAPABILITIES -->
+<!-- MEGA: ASSESSMENTS -->
+<div class="mega-panel mega-panel-assessments" id="mega-assessments">
+  <div class="mega-left">
+    <div class="mega-left-label">Assessments</div>
+    <div class="mega-practice active" data-target="ass-tra">
+      <span class="mega-practice-name">Technical Risk Assessment</span><svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="mega-practice" data-target="ass-ai">
+      <span class="mega-practice-name">AI Readiness Diagnostic</span><svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="mega-practice" data-target="ass-cloud">
+      <span class="mega-practice-name">Cloud Infrastructure Assessment</span><svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="mega-assess-block" style="border-top:1px solid var(--border);margin-top:16px;padding-top:20px">
+      <div class="mega-assess-label">Supporting Tools</div>
+      <a href="calculators.html" class="mega-assess-link">Risk Cost Calculators</a>
+      <a href="contact-us.html" class="mega-assess-link">Book a Custom Assessment</a>
+    </div>
+  </div>
+  <div class="mega-center">
+    <div class="mega-center-inner active" id="ass-tra">
+      <div class="mega-center-label">Technical Risk Assessment</div>
+      <p style="font-size:.9rem;color:var(--grey-300);line-height:1.65;margin-bottom:20px">A comprehensive evaluation of your security posture, architecture decisions, and compliance readiness. delivered with executive-ready findings and a prioritized remediation roadmap.</p>
+      <div class="mega-sub-grid">
+        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--grey-500)"></span><span class="mega-sub-text"><strong style="color:var(--grey-100)">Essentials</strong>: $14,750<br><span style="font-size:.8rem;color:var(--grey-400)">Threat surface scan + risk scoring</span></span></a>
+        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text"><strong style="color:var(--orange)">Executive</strong>: $47,500<br><span style="font-size:.8rem;color:var(--grey-400)">Full resilience architecture + roadmap</span></span></a>
+        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Network &amp; perimeter security review</span></a>
+        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Identity &amp; access management audit</span></a>
+        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">NIST CSF 2.0 alignment scoring</span></a>
+        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Executive-ready findings report</span></a>
+      </div>
+    </div>
+    <div class="mega-center-inner" id="ass-ai">
+      <div class="mega-center-label">AI Readiness Diagnostic</div>
+      <p style="font-size:.9rem;color:var(--grey-300);line-height:1.65;margin-bottom:20px">Before you invest in AI tooling, know whether your data foundation, governance, and infrastructure can actually support it and where to start for maximum ROI.</p>
+      <div class="mega-sub-grid">
+        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--grey-500)"></span><span class="mega-sub-text"><strong style="color:var(--grey-100)">Essentials</strong>: $24,790<br><span style="font-size:.8rem;color:var(--grey-400)">AI signal check + readiness score</span></span></a>
+        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text"><strong style="color:var(--orange)">Executive</strong>: $74,500<br><span style="font-size:.8rem;color:var(--grey-400)">Full AI strategic blueprint</span></span></a>
+        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data quality &amp; governance gap analysis</span></a>
+        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">AI risk &amp; bias framework review</span></a>
+        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Use-case prioritization by ROI</span></a>
+        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">90-day AI adoption roadmap</span></a>
+      </div>
+    </div>
+    <div class="mega-center-inner" id="ass-cloud">
+      <div class="mega-center-label">Cloud Infrastructure Assessment</div>
+      <p style="font-size:.9rem;color:var(--grey-300);line-height:1.65;margin-bottom:20px">Understand your actual cloud posture, costs, security gaps, architecture decisions, and compliance status, with findings built on real data, not hypothetical checklists.</p>
+      <div class="mega-sub-grid">
+        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--grey-500)"></span><span class="mega-sub-text"><strong style="color:var(--grey-100)">Essentials</strong>: $14,500<br><span style="font-size:.8rem;color:var(--grey-400)">Cloud recon + cost optimization</span></span></a>
+        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text"><strong style="color:var(--orange)">Executive</strong>: $65,000<br><span style="font-size:.8rem;color:var(--grey-400)">Cloud fortify + full architecture</span></span></a>
+        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Multi-cloud cost &amp; waste analysis</span></a>
+        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Security posture &amp; compliance gaps</span></a>
+        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Architecture &amp; scalability review</span></a>
+        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Actionable findings with cost savings</span></a>
+      </div>
+    </div>
+  </div>
+  <div class="mega-right">
+    <div class="mega-right-label">Start with an Assessment</div>
+    <div class="mega-cta-card">
+      <div class="mega-cta-card-title">Book a Discovery Call</div>
+      <div class="mega-cta-card-desc">We will recommend the right assessment for your situation and tell you exactly what you will get.</div>
+      <a href="contact-us.html" class="mega-cta-btn">Get Started</a>
+    </div>
+    <div class="mega-ql-stack">
+      <a href="calculators.html" class="mega-ql"><span>Cost of Inaction Calculator</span></a>
+      <a href="index.html#assessments" class="mega-ql"><span>Compare All Tiers</span></a>
+      <a href="about-us.html" class="mega-ql"><span>Meet the Assessors</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- MEGA: ABOUT -->
+<div class="mega-panel mega-panel-about" id="mega-about">
+  <div class="mega-left">
+    <div class="mega-left-label">About Working Excellence</div>
+    <p style="font-size:.88rem;color:var(--grey-300);line-height:1.7;padding:0 28px 20px">We are a boutique consulting firm built on a simple premise: senior-level expertise should not require Big Four overhead, Big Four timelines, or Big Four junior staffing.</p>
+    <div style="padding:0 28px;display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--orange)">40%+</div>
+        <div style="font-size:.82rem;color:var(--grey-400);line-height:1.4">Average cost savings vs. full-time executive hire</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--orange)">30+</div>
+        <div style="font-size:.82rem;color:var(--grey-400);line-height:1.4">Years combined cybersecurity leadership</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--orange)">4</div>
+        <div style="font-size:.82rem;color:var(--grey-400);line-height:1.4">Core practice areas, deeply specialized</div>
+      </div>
+    </div>
+    <div class="mega-assess-block" style="margin-top:20px">
+      <a href="about-us.html" class="mega-assess-link">Full Company Profile</a>
+      <a href="https://www.workingexcellence.com/blog" class="mega-assess-link">Blog &amp; Insights</a>
+    </div>
+  </div>
+  <div class="mega-center">
+    <div class="mega-center-label">What We Stand For</div>
+    <div class="mega-sub-grid" style="grid-template-columns:1fr 1fr;gap:8px">
+      <a href="about-us.html" class="mega-sub-link" style="flex-direction:column;align-items:flex-start;gap:6px;padding:16px">
+        <span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)">Our Approach</span>
+        <span class="mega-sub-text">Senior practitioners only. No juniors handed the work after the pitch.</span>
+      </a>
+      <a href="about-us.html" class="mega-sub-link" style="flex-direction:column;align-items:flex-start;gap:6px;padding:16px">
+        <span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)">Our Specialization</span>
+        <span class="mega-sub-text">Data, Cybersecurity, Digital Engineering, and Sales, nothing else.</span>
+      </a>
+      <a href="about-us.html" class="mega-sub-link" style="flex-direction:column;align-items:flex-start;gap:6px;padding:16px">
+        <span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)">Our Model</span>
+        <span class="mega-sub-text">Fractional and project-based. Enterprise-grade expertise at mid-market economics.</span>
+      </a>
+      <a href="about-us.html" class="mega-sub-link" style="flex-direction:column;align-items:flex-start;gap:6px;padding:16px">
+        <span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)">Our Promise</span>
+        <span class="mega-sub-text">The expert you meet is the expert who delivers. Always.</span>
+      </a>
+      <a href="https://www.workingexcellence.com/blog" class="mega-sub-link" style="flex-direction:column;align-items:flex-start;gap:6px;padding:16px">
+        <span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)">Blog &amp; Insights</span>
+        <span class="mega-sub-text">Thought leadership on AI, cybersecurity, data strategy, and digital transformation.</span>
+      </a>
+      <a href="contact-us.html" class="mega-sub-link" style="flex-direction:column;align-items:flex-start;gap:6px;padding:16px">
+        <span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)">Work With Us</span>
+        <span class="mega-sub-text">Book a 30-minute strategy session. No sales process, just a conversation.</span>
+      </a>
+    </div>
+  </div>
+  <div class="mega-right">
+    <div class="mega-right-label">Work With Us</div>
+    <div class="mega-cta-card">
+      <div class="mega-cta-card-title">Book a Strategy Session</div>
+      <div class="mega-cta-card-desc">Talk directly with a senior practitioner. No account managers, no junior staff.</div>
+      <a href="contact-us.html" class="mega-cta-btn">Schedule Now</a>
+    </div>
+    <div class="mega-ql-stack">
+      <a href="about-us.html" class="mega-ql"><span>About Working Excellence</span></a>
+      <a href="https://www.workingexcellence.com/blog" class="mega-ql"><span>Blog &amp; Insights</span></a>
+      <a href="industries.html" class="mega-ql"><span>Industries We Serve</span></a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════ -->
 <main id="main-content">
 <section id="gtm" class="cap-section">
   <div class="section-inner">
