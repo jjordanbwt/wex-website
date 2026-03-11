@@ -234,8 +234,8 @@ nav.scrolled~.mega-panel{top:58px}
 .service-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;margin-bottom:11px}
 .service-desc{font-size:.9rem;color:var(--grey-400);line-height:1.78;margin-bottom:20px}
 .service-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:20px}
-.service-tag{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;border:1px solid var(--grey-700);color:var(--grey-400);border-radius:1px}
-.service-link{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);text-decoration:none;transition:gap .2s}
+.service-tag{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;border:1px solid var(--orange);color:var(--grey-400);border-radius:1px}
+.service-link{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-family:'DM Mono',monospace;font-size:.704rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);text-decoration:none;transition:gap .2s}
 .service-link:hover{gap:13px}
 
 /* ══ ASSESSMENTS ══ */
@@ -243,9 +243,11 @@ nav.scrolled~.mega-panel{top:58px}
 .assess-intro{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:56px}
 .assess-quote{border-left:3px solid var(--orange);padding:22px 26px;background:rgba(241,143,10,.05);font-family:'Playfair Display',serif;font-size:1.15rem;line-height:1.65;color:var(--grey-50)}
 .assess-quote cite{display:block;margin-top:12px;font-family:'Roboto',Arial,Helvetica,sans-serif;font-style:normal;font-size:.8rem;color:var(--orange);letter-spacing:.08em}
-.assess-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
-.assess-card{background:var(--grey-750);border:1px solid var(--border);border-radius:2px;padding:32px 26px;position:relative;overflow:hidden;transition:border-color .25s,transform .2s;display:flex;flex-direction:column;height:100%}
+.assess-cards{display:grid;grid-template-columns:repeat(3,1fr);column-gap:18px;row-gap:0;align-items:stretch}
+.assess-card{background:var(--grey-750);border:1px solid var(--border);border-radius:2px;padding:32px 26px;position:relative;overflow:hidden;transition:border-color .25s,transform .2s;display:grid;grid-row:span 2;grid-template-rows:subgrid;height:auto}
 .assess-card:hover{border-color:var(--orange);transform:translateY(-4px)}
+.assess-header{display:flex;flex-direction:column}
+.assess-sub{font-size:.98rem;color:var(--grey-400);line-height:1.72;margin-bottom:18px;flex-grow:1;min-height:7em}
 .assess-badge{position:absolute;top:0;right:0;background:var(--orange);color:var(--grey-950);font-family:'DM Mono',monospace;font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 11px;border-bottom-left-radius:2px}
 .assess-img-ph{width:100%;aspect-ratio:16/7;margin-bottom:18px;background:var(--grey-800);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;border-radius:2px;overflow:hidden;position:relative}
 .assess-img-ph::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(241,143,10,.04) 0%,transparent 70%)}
@@ -532,9 +534,9 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
     </div>
     <div class="mega-assess-block">
       <div class="mega-assess-label">Assessments</div>
-      <a href="#assessments" onclick="closeMenu()" class="mega-assess-link">→ Technical Risk Assessment</a>
-      <a href="#assessments" onclick="closeMenu()" class="mega-assess-link">→ AI Readiness Diagnostic</a>
-      <a href="#assessments" onclick="closeMenu()" class="mega-assess-link">→ Cloud Infrastructure Assessment</a>
+      <a href="#assessments" onclick="closeMenu()" class="mega-assess-link">Technical Risk Assessment</a>
+      <a href="#assessments" onclick="closeMenu()" class="mega-assess-link">AI Readiness Diagnostic</a>
+      <a href="#assessments" onclick="closeMenu()" class="mega-assess-link">Cloud Infrastructure Assessment</a>
     </div>
   </div>
 
@@ -629,11 +631,11 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
     <div>
       <div class="mega-right-label" style="margin-bottom:10px">Quick Access</div>
       <div class="mega-ql-stack">
-        <a href="#assessments" class="mega-ql" onclick="closeMenu()"><span>Technical Risk Assessment</span><span>→</span></a>
-        <a href="#assessments" class="mega-ql" onclick="closeMenu()"><span>AI Readiness Diagnostic</span><span>→</span></a>
-        <a href="#calculator" class="mega-ql" onclick="closeMenu()"><span>Cost of Inaction Calculator</span><span>→</span></a>
+        <a href="#assessments" class="mega-ql" onclick="closeMenu()"><span>Technical Risk Assessment</span></a>
+        <a href="#assessments" class="mega-ql" onclick="closeMenu()"><span>AI Readiness Diagnostic</span></a>
+        <a href="#calculator" class="mega-ql" onclick="closeMenu()"><span>Cost of Inaction Calculator</span></a>
         <a href="https://www.workingexcellence.com/blog" class="mega-ql">Blog &amp; Insights <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        <a href="about-us.html" target="_blank" class="mega-ql"><span>About Working Excellence</span><span>→</span></a>
+        <a href="about-us.html" target="_blank" class="mega-ql"><span>About Working Excellence</span></a>
       </div>
     </div>
   </div>
@@ -674,9 +676,9 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
       <a href="contact-us.html" class="mega-cta-btn">Schedule Now</a>
     </div>
     <div class="mega-ql-stack">
-      <a href="industries.html" class="mega-ql"><span>All Industries</span><span>&rarr;</span></a>
-      <a href="index.html#assessments" class="mega-ql"><span>Run an Assessment</span><span>&rarr;</span></a>
-      <a href="about-us.html" class="mega-ql"><span>Meet the Team</span><span>&rarr;</span></a>
+      <a href="industries.html" class="mega-ql"><span>All Industries</span></a>
+      <a href="index.html#assessments" class="mega-ql"><span>Run an Assessment</span></a>
+      <a href="about-us.html" class="mega-ql"><span>Meet the Team</span></a>
     </div>
   </div>
 </div>
@@ -686,19 +688,19 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
 <div class="mega-panel mega-panel-assessments" id="mega-assessments">
   <div class="mega-left">
     <div class="mega-left-label">Assessments</div>
-    <div class="mega-practice active" data-target="ass-tra">
+    <div class="mega-practice active" data-target="ass-tra" onmouseover="showSub('ass-tra',this)">
       <span class="mega-practice-name">Technical Risk Assessment</span><svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <div class="mega-practice" data-target="ass-ai">
+    <div class="mega-practice" data-target="ass-ai" onmouseover="showSub('ass-ai',this)">
       <span class="mega-practice-name">AI Readiness Diagnostic</span><svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <div class="mega-practice" data-target="ass-cloud">
+    <div class="mega-practice" data-target="ass-cloud" onmouseover="showSub('ass-cloud',this)">
       <span class="mega-practice-name">Cloud Infrastructure Assessment</span><svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
     <div class="mega-assess-block" style="border-top:1px solid var(--border);margin-top:16px;padding-top:20px">
       <div class="mega-assess-label">Supporting Tools</div>
-      <a href="calculators.html" class="mega-assess-link">&rarr; Risk Cost Calculators</a>
-      <a href="contact-us.html" class="mega-assess-link">&rarr; Book a Custom Assessment</a>
+      <a href="calculators.html" class="mega-assess-link">Risk Cost Calculators</a>
+      <a href="contact-us.html" class="mega-assess-link">Book a Custom Assessment</a>
     </div>
   </div>
   <div class="mega-center">
@@ -747,9 +749,9 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
       <a href="contact-us.html" class="mega-cta-btn">Get Started</a>
     </div>
     <div class="mega-ql-stack">
-      <a href="calculators.html" class="mega-ql"><span>Cost of Inaction Calculator</span><span>&rarr;</span></a>
-      <a href="index.html#assessments" class="mega-ql"><span>Compare All Tiers</span><span>&rarr;</span></a>
-      <a href="about-us.html" class="mega-ql"><span>Meet the Assessors</span><span>&rarr;</span></a>
+      <a href="calculators.html" class="mega-ql"><span>Cost of Inaction Calculator</span></a>
+      <a href="index.html#assessments" class="mega-ql"><span>Compare All Tiers</span></a>
+      <a href="about-us.html" class="mega-ql"><span>Meet the Assessors</span></a>
     </div>
   </div>
 </div>
@@ -774,8 +776,8 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
       </div>
     </div>
     <div class="mega-assess-block" style="margin-top:20px">
-      <a href="about-us.html" class="mega-assess-link">&rarr; Full Company Profile</a>
-      <a href="https://www.workingexcellence.com/blog" class="mega-assess-link">&rarr; Blog &amp; Insights</a>
+      <a href="about-us.html" class="mega-assess-link">Full Company Profile</a>
+      <a href="https://www.workingexcellence.com/blog" class="mega-assess-link">Blog &amp; Insights</a>
     </div>
   </div>
   <div class="mega-center">
@@ -815,9 +817,9 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
       <a href="contact-us.html" class="mega-cta-btn">Schedule Now</a>
     </div>
     <div class="mega-ql-stack">
-      <a href="about-us.html" class="mega-ql"><span>About Working Excellence</span><span>&rarr;</span></a>
-      <a href="https://www.workingexcellence.com/blog" class="mega-ql"><span>Blog &amp; Insights</span><span>&rarr;</span></a>
-      <a href="industries.html" class="mega-ql"><span>Industries We Serve</span><span>&rarr;</span></a>
+      <a href="about-us.html" class="mega-ql"><span>About Working Excellence</span></a>
+      <a href="https://www.workingexcellence.com/blog" class="mega-ql"><span>Blog &amp; Insights</span></a>
+      <a href="industries.html" class="mega-ql"><span>Industries We Serve</span></a>
     </div>
   </div>
 </div>
@@ -971,10 +973,12 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
 
       <!-- TECHNICAL RISK ASSESSMENT -->
       <div class="assess-card fade-up d1">
+        <div class="assess-header">
         <div class="assess-badge">Most Requested</div>
         <div class="assess-img-ph"><div class="assess-icon">⚑</div></div>
         <h3 class="assess-title">Technical Risk <span>Assessment</span></h3>
         <p class="assess-sub">A senior-led review of your technology stack, security posture, and operational risk exposure. Built to surface what's quietly threatening your environment before it becomes a board-level incident.</p>
+        </div>
         <div class="assess-tiers">
           <div class="assess-tier">
             <div class="assess-tier-header">
@@ -1010,9 +1014,11 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
 
       <!-- AI READINESS DIAGNOSTIC -->
       <div class="assess-card fade-up d2">
+        <div class="assess-header">
         <div class="assess-img-ph"><div class="assess-icon">◉</div></div>
         <h3 class="assess-title">AI Readiness <span>Diagnostic</span></h3>
         <p class="assess-sub">Before you spend another dollar on AI tooling, know whether your organization can actually operationalize it. We assess your data foundation, governance structures, architecture, and readiness, before pilots fail.</p>
+        </div>
         <div class="assess-tiers">
           <div class="assess-tier">
             <div class="assess-tier-header">
@@ -1048,9 +1054,11 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
 
       <!-- CLOUD INFRASTRUCTURE ASSESSMENT -->
       <div class="assess-card fade-up d3">
+        <div class="assess-header">
         <div class="assess-img-ph"><div class="assess-icon">⊞</div></div>
         <h3 class="assess-title">Cloud Infrastructure <span>Assessment</span></h3>
         <p class="assess-sub">A real-time analysis of your cloud environment. AWS, Azure, GCP, or multi-cloud. We connect directly to your infrastructure and return specific, quantified findings on cost waste, security gaps, and architecture risk.</p>
+        </div>
         <div class="assess-tiers">
           <div class="assess-tier">
             <div class="assess-tier-header">
@@ -1152,7 +1160,7 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
         </div>
       </div>
       <div class="calc-cta-row">
-        <a href="#book" class="btn-primary" style="flex:1;justify-content:center">Get Your Real Assessment →</a>
+        <a href="#book" class="btn-primary" style="flex:1;justify-content:center">Get Your Real Assessment</a>
         <a href="#assessments" class="btn-ghost" style="white-space:nowrap">View Packages</a>
       </div>
       <p class="calc-disclaimer">Estimates based on industry benchmarks (IBM, Gartner, McKinsey). Actual figures vary by environment. Assessments provide real, environment-specific data.</p>
@@ -1260,7 +1268,7 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
         <p class="method-stage-desc">If the vision resonates, the engagement is just us agreeing on how fast we get there and where we start. We frame it in chapters, not all-or-nothing sagas, with clear milestones, ownership, and success criteria baked in from day one.</p>
         <ul class="method-stage-pts">
           <li>Chapter 1: 60-90 day engagement with clear success criteria and measurable outcomes</li>
-          <li>Phased roadmap: diagnostic/pilot → scale → optimize</li>
+          <li>Phased roadmap: diagnostic/pilot scale optimize</li>
           <li>Governance and accountability: who owns what, how progress is reviewed</li>
           <li>Commercial structure that reduces perceived risk and aligns incentives</li>
         </ul>
@@ -1473,7 +1481,7 @@ function showSub(id, el) {
   document.querySelectorAll('.mega-practice').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.mega-center-inner').forEach(c => c.classList.remove('active'));
   el.classList.add('active');
-  const sub = document.getElementById('sub-'+id);
+  const sub = document.getElementById('sub-'+id) || document.getElementById(id);
   if(sub) sub.classList.add('active');
 }
 document.addEventListener('keydown', e => { if(e.key==='Escape') closeMenu(); });
