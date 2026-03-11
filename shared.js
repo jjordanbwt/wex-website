@@ -3,13 +3,21 @@
   const nav = document.getElementById('main-nav');
   const backdrop = document.getElementById('menu-backdrop');
 
-  // Scrolled state — update nav + mega panels + mobile drawer
+  // Scrolled state — update nav + mega panels + mobile drawer + close menus
   function updateScrollState(){
     if(!nav) return;
     const scrolled = window.scrollY > 40;
     nav.classList.toggle('scrolled', scrolled);
     const navH = scrolled ? '58px' : '72px';
-    document.querySelectorAll('.mega-panel').forEach(p => p.style.top = navH);
+    document.querySelectorAll('.mega-panel').forEach(p => {
+      p.style.top = navH;
+      // Close any open mega panels on scroll to prevent ghost-menu artifact
+      if(scrolled && p.classList.contains('open')) {
+        p.classList.remove('open');
+        if(backdrop) backdrop.classList.remove('open');
+        document.querySelectorAll('.nav-links > li > button').forEach(b => b.classList.remove('active'));
+      }
+    });
     const drawer = document.getElementById('mobile-nav-drawer');
     if(drawer) drawer.style.top = navH;
   }
