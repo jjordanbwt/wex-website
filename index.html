@@ -441,13 +441,7 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
 }
 
 /* Industries mega two-col grid */
-.mega-ind-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;width:100%}
-.mega-ind-col{display:flex;flex-direction:column;gap:2px}
-.mega-ind-link{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:6px;text-decoration:none;color:var(--grey-300);font-size:.82rem;transition:background .15s,color .15s;line-height:1.3}
-.mega-ind-link:hover{background:var(--grey-800);color:var(--orange)}
-.mega-ind-dot{width:5px;height:5px;border-radius:50%;background:var(--grey-600);flex-shrink:0;transition:background .15s}
-.mega-ind-link:hover .mega-ind-dot{background:var(--orange)}
-.assess-sub{font-size:.98rem;color:var(--grey-400);line-height:1.72;margin-bottom:18px;flex-grow:1;min-height:7em}
+.mega-ind-link:hover .assess-sub{font-size:.98rem;color:var(--grey-400);line-height:1.72;margin-bottom:18px;flex-grow:1;min-height:7em}
 </style>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -462,35 +456,26 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
 <!-- ══════════════════════════════════════════════
      NAV
 ══════════════════════════════════════════════ -->
+<div id="menu-backdrop"></div>
 <nav id="main-nav">
-  <!-- Logo -->
-  <a href="#top" class="nav-logo">
-    <img
-      src="https://static.wixstatic.com/media/1731f2_d91dc3d0f01245f5b369acb8b2397118~mv2.png"
-      alt="Working Excellence"
-      onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
-    />
+  <a href="index.html" class="nav-logo">
+    <img src="images/logos/WE_Logo_Orange_White.png" alt="Working Excellence" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
     <span class="nav-logo-text" style="display:none">Working <span>Excellence</span></span>
   </a>
-
-  <!-- Centre links -->
   <ul class="nav-links">
-
-    <li>
-      <button id="btn-practice" onclick="toggleMenu('practice')">
-        Practice Areas
-        <svg class="nav-chevron" viewBox="0 0 14 8"><path d="M1 1l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </li>
+    
+    <li><button id="btn-practice" onclick="toggleMenu('practice')">Practice Areas
+      <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </button></li>
     <li><button id="btn-industries" onclick="toggleMenu('industries')">Industries<svg class="nav-chevron" viewBox="0 0 14 8"><path d="M1 1l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
     <li><button id="btn-assessments" onclick="toggleMenu('assessments')">Assessments<svg class="nav-chevron" viewBox="0 0 14 8"><path d="M1 1l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
-    <li><a href="calculators.html">Calculators</a></li>
+    <li><a href="https://www.workingexcellence.com/blog">Blog</a></li>
     <li><button id="btn-about" onclick="toggleMenu('about')">About Us<svg class="nav-chevron" viewBox="0 0 14 8"><path d="M1 1l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
   </ul>
-
-  <!-- CTA -->
   <div class="nav-right">
-    <a href="#book" class="nav-cta">Book a Session</a>
+    <a href="contact-us.html" class="nav-cta">Book a Consultation
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
   </div>
   <button id="nav-hamburger" class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -507,140 +492,81 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
     <a href="contact-us.html" class="mobile-nav-cta">Book a Session</a>
   </div>
 </div>
-
-<!-- ══════════════════════════════════════════════
-     MEGA MENU
-══════════════════════════════════════════════ -->
 <div class="mega-panel" id="mega-practice">
-
-  <!-- Col 1 -->
   <div class="mega-left">
     <div class="mega-left-label">Practice Areas</div>
-    <div class="mega-practice active" data-target="data" onmouseover="showSub('data',this)">
-      <span class="mega-practice-name">Data Consulting</span>
-      <svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-    <div class="mega-practice" data-target="cyber" onmouseover="showSub('cyber',this)">
-      <span class="mega-practice-name">Cybersecurity</span>
-      <svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-    <div class="mega-practice" data-target="digital" onmouseover="showSub('digital',this)">
-      <span class="mega-practice-name">Digital Engineering</span>
-      <svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-    <div class="mega-practice" data-target="sales" onmouseover="showSub('sales',this)">
-      <span class="mega-practice-name">Sales Improvement</span>
-      <svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-    <div class="mega-practice" data-target="industries" onmouseover="showSub('industries',this)">
-      <span class="mega-practice-name">Industries</span>
-      <svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
+    <div class="mega-practice active" data-target="mc-data"><span class="mega-practice-name">Data Consulting</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice " data-target="mc-cyber"><span class="mega-practice-name">Cybersecurity</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice " data-target="mc-eng"><span class="mega-practice-name">Digital Engineering</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice " data-target="mc-sales"><span class="mega-practice-name">Sales Improvement</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
     <div class="mega-assess-block">
       <div class="mega-assess-label">Assessments</div>
-      <a href="#assessments" onclick="closeMenu()" class="mega-assess-link">Technical Risk Assessment</a>
-      <a href="#assessments" onclick="closeMenu()" class="mega-assess-link">AI Readiness Diagnostic</a>
-      <a href="#assessments" onclick="closeMenu()" class="mega-assess-link">Cloud Infrastructure Assessment</a>
+      <a href="index.html#assessments" class="mega-assess-link">Technical Risk Assessment</a>
+      <a href="index.html#assessments" class="mega-assess-link">AI Readiness Diagnostic</a>
+      <a href="index.html#assessments" class="mega-assess-link">Cloud Infrastructure Assessment</a>
     </div>
   </div>
-
-  <!-- Col 2: Sub-services -->
   <div class="mega-center">
-    <div class="mega-center-inner active" id="sub-data">
-      <div class="mega-center-label">Data Consulting: Services</div>
+    <div class="mega-center-inner active" id="mc-data">
+      <div class="mega-center-label">Data Consulting</div>
       <div class="mega-sub-grid">
         <a href="data-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Strategy</span></a>
-        <a href="data-consulting.html#ai" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Artificial Intelligence</span></a>
         <a href="data-consulting.html#architecture" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Architecture</span></a>
-        <a href="ai-agents-for-business.html" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">AI Agents for Business</span></a>
         <a href="data-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Governance</span></a>
         <a href="data-consulting.html#ml" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Machine Learning</span></a>
-        <a href="data-consulting.html#reporting" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Reporting &amp; Visualization</span></a>
+        <a href="data-consulting.html#ai" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Artificial Intelligence</span></a>
+        <a href="data-consulting.html#reporting" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Reporting & Visualization</span></a>
         <a href="data-consulting.html#operations" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Operations</span></a>
-        <a href="data-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Quality Management</span></a>
-        <a href="data-consulting.html#architecture" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Cloud Data Platforms</span></a>
-        <a href="data-consulting.html#ai" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Generative AI Strategy</span></a>
-        <a href="data-consulting.html#ml" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Advanced Analytics &amp; AI/ML</span></a>
+        <a href="ai-agents-for-business.html" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">AI Agents for Business</span></a>
       </div>
     </div>
-    <div class="mega-center-inner" id="sub-cyber">
-      <div class="mega-center-label">Cybersecurity: Services</div>
+    <div class="mega-center-inner " id="mc-cyber">
+      <div class="mega-center-label">Cybersecurity</div>
       <div class="mega-sub-grid">
-        <a href="cybersecurity-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Security Strategy</span></a>
-        <a href="cybersecurity-consulting.html#secops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Security Operations</span></a>
+        <a href="cybersecurity-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Strategy</span></a>
         <a href="cybersecurity-consulting.html#architecture" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Architecture &amp; Tools</span></a>
-        <a href="cybersecurity-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Governance &amp; Compliance</span></a>
-        <a href="cybersecurity-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Risk Management</span></a>
-        <a href="cybersecurity-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Incident Response</span></a>
-        <a href="cybersecurity-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Fractional CISO</span></a>
-        <a href="cybersecurity-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">NIST CSF 2.0 Readiness</span></a>
+        <a href="cybersecurity-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Governance &amp; Process</span></a>
+        <a href="cybersecurity-consulting.html#secops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Security Operations</span></a>
+        <a href="cybersecurity-consulting.html#incident" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Incident Response</span></a>
+        <a href="cybersecurity-consulting.html#compliance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Compliance &amp; Audit Readiness</span></a>
         <a href="aws/managed-aws-services-.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">Managed AWS Services</span></a>
         <a href="aws/cloud-cost-optimization-services.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">Cloud Cost Optimization</span></a>
         <a href="aws/finops-services.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">FinOps Services</span></a>
-        <a href="cybersecurity-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Supply Chain Risk</span></a>
       </div>
     </div>
-    <div class="mega-center-inner" id="sub-digital">
-      <div class="mega-center-label">Digital Engineering: Services</div>
+    <div class="mega-center-inner " id="mc-eng">
+      <div class="mega-center-label">Digital Engineering</div>
       <div class="mega-sub-grid">
-        <a href="digital-engineering-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Engineering Strategy</span></a>
-        <a href="digital-engineering-consulting.html#product" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Product Engineering</span></a>
+        <a href="digital-engineering-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Strategy</span></a>
         <a href="digital-engineering-consulting.html#cloud" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Cloud Migrations</span></a>
         <a href="digital-engineering-consulting.html#automation" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Intelligent Automation</span></a>
-        <a href="digital-engineering-consulting.html#cloud" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Cloud-Native Architecture</span></a>
-        <a href="digital-engineering-consulting.html#support" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Application Modernization</span></a>
-        <a href="digital-engineering-consulting.html#automation" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">DevSecOps &amp; CI/CD</span></a>
+        <a href="digital-engineering-consulting.html#product" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Product Engineering</span></a>
         <a href="digital-engineering-consulting.html#support" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Application Support</span></a>
-        <a href="digital-engineering-consulting.html#product" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">API Strategy &amp; Design</span></a>
-        <a href="digital-engineering-consulting.html#cloud" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Multi-Cloud Strategy</span></a>
-        <a href="digital-engineering-consulting.html#automation" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Agentic AI Workflows</span></a>
-        <a href="digital-engineering-consulting.html#product" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Quality Engineering</span></a>
+        <a href="digital-engineering-consulting.html#devops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">DevOps &amp; Platform Engineering</span></a>
       </div>
     </div>
-    <div class="mega-center-inner" id="sub-sales">
-      <div class="mega-center-label">Sales Improvement: Services</div>
+    <div class="mega-center-inner " id="mc-sales">
+      <div class="mega-center-label">Sales Improvement</div>
       <div class="mega-sub-grid">
         <a href="sales-improvement.html#gtm" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">GTM Narrative Design</span></a>
-        <a href="sales-improvement.html#revenue" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Operations</span></a>
-        <a href="sales-improvement.html#enablement" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Sales Enablement Frameworks</span></a>
-        <a href="sales-improvement.html#coaching" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Sales Coaching Programs</span></a>
-        <a href="sales-improvement.html#gtm" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Executive Story Development</span></a>
-        <a href="sales-improvement.html#revenue" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Pipeline &amp; Forecasting</span></a>
-        <a href="sales-improvement.html#enablement" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Cross-Team Alignment</span></a>
-        <a href="sales-improvement.html#revenue" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">CRM Strategy &amp; Optimization</span></a>
-      </div>
-    </div>
-    <div class="mega-center-inner" id="sub-industries">
-      <div class="mega-center-label">Industries We Serve</div>
-      <div class="mega-sub-grid">
-        <a href="industries.html#healthcare" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Healthcare &amp; Life Sciences</span></a>
-        <a href="industries.html#financial-services" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Financial Services &amp; Banking</span></a>
-        <a href="industries.html#manufacturing" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Manufacturing &amp; Industrial</span></a>
-        <a href="industries.html#education" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Education &amp; Higher Learning</span></a>
-        <a href="industries.html#insurance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Insurance &amp; Risk Management</span></a>
-        <a href="industries.html#nonprofit" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Nonprofit &amp; Social Impact</span></a>
-        <a href="industries.html#private-equity" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Private Equity &amp; Investment</span></a>
+        <a href="sales-improvement.html#enablement" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Sales Enablement</span></a>
+        <a href="sales-improvement.html#alignment" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Alignment</span></a>
+        <a href="sales-improvement.html#ops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Operations</span></a>
+        <a href="sales-improvement.html#customer-success" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Customer Success</span></a>
+        <a href="sales-improvement.html#intelligence" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Revenue Intelligence</span></a>
       </div>
     </div>
   </div>
-
-  <!-- Col 3: Featured -->
   <div class="mega-right">
-    <div class="mega-right-label">Start Here</div>
+    <div class="mega-right-label">Quick Action</div>
     <div class="mega-cta-card">
-      <div class="mega-cta-card-title">Book a Free 30-Min Strategy Session</div>
-      <div class="mega-cta-card-desc">Talk to a senior practitioner, not an account manager. Identify where the highest-value starting point is for your organization.</div>
-      <a href="#book" class="mega-cta-btn" onclick="closeMenu()">Schedule Now</a>
+      <div class="mega-cta-card-title">Book a Strategy Session</div>
+      <div class="mega-cta-card-desc">30 minutes. Actionable output. No obligation.</div>
+      <a href="contact-us.html" class="mega-cta-btn">Schedule Now</a>
     </div>
-    <div>
-      <div class="mega-right-label" style="margin-bottom:10px">Quick Access</div>
-      <div class="mega-ql-stack">
-        <a href="#assessments" class="mega-ql" onclick="closeMenu()"><span>Technical Risk Assessment</span></a>
-        <a href="#assessments" class="mega-ql" onclick="closeMenu()"><span>AI Readiness Diagnostic</span></a>
-        <a href="#calculator" class="mega-ql" onclick="closeMenu()"><span>Cost of Inaction Calculator</span></a>
-        <a href="https://www.workingexcellence.com/blog" class="mega-ql">Blog &amp; Insights <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-        <a href="about-us.html" target="_blank" class="mega-ql"><span>About Working Excellence</span></a>
-      </div>
+    <div class="mega-ql-stack">
+      <a href="about-us.html" class="mega-ql">Meet the Team <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <a href="index.html#assessments" class="mega-ql">View Assessments <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
   </div>
 </div>
@@ -688,18 +614,17 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
   </div>
 </div>
 
-
 <!-- MEGA: ASSESSMENTS -->
 <div class="mega-panel mega-panel-assessments" id="mega-assessments">
   <div class="mega-left">
     <div class="mega-left-label">Assessments</div>
-    <div class="mega-practice active" data-target="ass-tra" onmouseover="showSub('ass-tra',this)">
+    <div class="mega-practice active" data-target="ass-tra">
       <span class="mega-practice-name">Technical Risk Assessment</span><svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <div class="mega-practice" data-target="ass-ai" onmouseover="showSub('ass-ai',this)">
+    <div class="mega-practice" data-target="ass-ai">
       <span class="mega-practice-name">AI Readiness Diagnostic</span><svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <div class="mega-practice" data-target="ass-cloud" onmouseover="showSub('ass-cloud',this)">
+    <div class="mega-practice" data-target="ass-cloud">
       <span class="mega-practice-name">Cloud Infrastructure Assessment</span><svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
     <div class="mega-assess-block" style="border-top:1px solid var(--border);margin-top:16px;padding-top:20px">
@@ -828,7 +753,6 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
     </div>
   </div>
 </div>
-
 
 <!-- ══════════════════════════════════════════════
      HERO

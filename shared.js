@@ -95,3 +95,28 @@
     });
   }
 })();
+
+/* ── MEGA MENU TOGGLE (shared across all pages) ── */
+function toggleMenu(id) {
+  const panel = document.getElementById('mega-'+id);
+  const btn   = document.getElementById('btn-'+id);
+  const back  = document.getElementById('menu-backdrop');
+  if(!panel) return;
+  const open  = panel.classList.contains('open');
+  closeMenu();
+  if(!open){ panel.classList.add('open'); if(btn) btn.classList.add('active'); if(back) back.classList.add('open'); }
+}
+function closeMenu() {
+  document.querySelectorAll('.mega-panel').forEach(p => p.classList.remove('open'));
+  document.querySelectorAll('.nav-links > li > button').forEach(b => b.classList.remove('active'));
+  const back = document.getElementById('menu-backdrop');
+  if(back) back.classList.remove('open');
+}
+function showSub(id, el) {
+  document.querySelectorAll('.mega-practice').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.mega-center-inner').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  const sub = document.getElementById('sub-'+id) || document.getElementById(id);
+  if(sub) sub.classList.add('active');
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeMenu(); });

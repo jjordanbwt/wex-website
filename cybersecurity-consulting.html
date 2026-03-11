@@ -27,17 +27,18 @@ em { font-style: normal; }
 <div id="menu-backdrop"></div>
 <nav id="main-nav">
   <a href="index.html" class="nav-logo">
-    <img src="https://static.wixstatic.com/media/1731f2_d91dc3d0f01245f5b369acb8b2397118~mv2.png" alt="Working Excellence" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+    <img src="images/logos/WE_Logo_Orange_White.png" alt="Working Excellence" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
     <span class="nav-logo-text" style="display:none">Working <span>Excellence</span></span>
   </a>
   <ul class="nav-links">
-    <li><button class="mega-trigger" data-mega="practice">Practice Areas
+    
+    <li><button id="btn-practice" onclick="toggleMenu('practice')">Practice Areas
       <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
     </button></li>
-    <li><button class="mega-trigger" data-mega="industries">Industries<svg class="nav-chevron" viewBox="0 0 14 8"><path d="M1 1l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
-    <li><button class="mega-trigger" data-mega="assessments">Assessments<svg class="nav-chevron" viewBox="0 0 14 8"><path d="M1 1l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+    <li><button id="btn-industries" onclick="toggleMenu('industries')">Industries<svg class="nav-chevron" viewBox="0 0 14 8"><path d="M1 1l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+    <li><button id="btn-assessments" onclick="toggleMenu('assessments')">Assessments<svg class="nav-chevron" viewBox="0 0 14 8"><path d="M1 1l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
     <li><a href="https://www.workingexcellence.com/blog">Blog</a></li>
-    <li><button class="mega-trigger" data-mega="about">About Us<svg class="nav-chevron" viewBox="0 0 14 8"><path d="M1 1l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+    <li><button id="btn-about" onclick="toggleMenu('about')">About Us<svg class="nav-chevron" viewBox="0 0 14 8"><path d="M1 1l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
   </ul>
   <div class="nav-right">
     <a href="contact-us.html" class="nav-cta">Book a Consultation
@@ -48,6 +49,7 @@ em { font-style: normal; }
     <span></span><span></span><span></span>
   </button>
 </nav>
+<!-- MOBILE NAV DRAWER -->
 <div id="mobile-nav-drawer" class="mobile-nav-drawer">
   <div class="mobile-nav-inner">
     <a href="index.html" class="mobile-nav-link">Practice Areas</a>
@@ -55,16 +57,16 @@ em { font-style: normal; }
     <a href="index.html#assessments" class="mobile-nav-link">Assessments</a>
     <a href="calculators.html" class="mobile-nav-link">Calculators</a>
     <a href="about-us.html" class="mobile-nav-link">About</a>
-    <a href="contact-us.html" class="mobile-nav-cta">Book a Session </a>
+    <a href="contact-us.html" class="mobile-nav-cta">Book a Session</a>
   </div>
 </div>
 <div class="mega-panel" id="mega-practice">
   <div class="mega-left">
     <div class="mega-left-label">Practice Areas</div>
-    <div class="mega-practice" data-target="mc-data"><span class="mega-practice-name">Data Consulting</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-    <div class="mega-practice active" data-target="mc-cyber"><span class="mega-practice-name">Cybersecurity</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-    <div class="mega-practice" data-target="mc-eng"><span class="mega-practice-name">Digital Engineering</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-    <div class="mega-practice" data-target="mc-sales"><span class="mega-practice-name">Sales Improvement</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice active" data-target="mc-data"><span class="mega-practice-name">Data Consulting</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice " data-target="mc-cyber"><span class="mega-practice-name">Cybersecurity</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice " data-target="mc-eng"><span class="mega-practice-name">Digital Engineering</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+    <div class="mega-practice " data-target="mc-sales"><span class="mega-practice-name">Sales Improvement</span><svg class="mega-practice-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
     <div class="mega-assess-block">
       <div class="mega-assess-label">Assessments</div>
       <a href="index.html#assessments" class="mega-assess-link">Technical Risk Assessment</a>
@@ -73,7 +75,7 @@ em { font-style: normal; }
     </div>
   </div>
   <div class="mega-center">
-    <div class="mega-center-inner" id="mc-data">
+    <div class="mega-center-inner active" id="mc-data">
       <div class="mega-center-label">Data Consulting</div>
       <div class="mega-sub-grid">
         <a href="data-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Strategy</span></a>
@@ -81,12 +83,12 @@ em { font-style: normal; }
         <a href="data-consulting.html#governance" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Governance</span></a>
         <a href="data-consulting.html#ml" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Machine Learning</span></a>
         <a href="data-consulting.html#ai" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Artificial Intelligence</span></a>
-        <a href="data-consulting.html#reporting" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Reporting &amp; Visualization</span></a>
+        <a href="data-consulting.html#reporting" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Reporting & Visualization</span></a>
         <a href="data-consulting.html#operations" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data Operations</span></a>
         <a href="ai-agents-for-business.html" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">AI Agents for Business</span></a>
       </div>
     </div>
-    <div class="mega-center-inner active" id="mc-cyber">
+    <div class="mega-center-inner " id="mc-cyber">
       <div class="mega-center-label">Cybersecurity</div>
       <div class="mega-sub-grid">
         <a href="cybersecurity-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Strategy</span></a>
@@ -100,7 +102,7 @@ em { font-style: normal; }
         <a href="aws/finops-services.html" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text">FinOps Services</span></a>
       </div>
     </div>
-    <div class="mega-center-inner" id="mc-eng">
+    <div class="mega-center-inner " id="mc-eng">
       <div class="mega-center-label">Digital Engineering</div>
       <div class="mega-sub-grid">
         <a href="digital-engineering-consulting.html#strategy" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Strategy</span></a>
@@ -111,7 +113,7 @@ em { font-style: normal; }
         <a href="digital-engineering-consulting.html#devops" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">DevOps &amp; Platform Engineering</span></a>
       </div>
     </div>
-    <div class="mega-center-inner" id="mc-sales">
+    <div class="mega-center-inner " id="mc-sales">
       <div class="mega-center-label">Sales Improvement</div>
       <div class="mega-sub-grid">
         <a href="sales-improvement.html#gtm" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">GTM Narrative Design</span></a>
@@ -319,7 +321,6 @@ em { font-style: normal; }
     </div>
   </div>
 </div>
-
 
 <!-- HERO -->
 <section class="pa-hero">
