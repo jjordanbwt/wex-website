@@ -64,13 +64,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .section-headline{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:800;line-height:1.15}
 .section-headline em{color:var(--orange-light)}
 .team-sub{margin-top:18px;font-size:1rem;color:var(--grey-400);max-width:540px;line-height:1.8}
-.team-divider{margin:52px 0;height:1px;background:var(--border)}
-
-/* Leadership tier */
-.tier-label{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--grey-500);margin-bottom:28px;display:flex;align-items:center;gap:16px}
-.tier-label::after{content:'';flex:1;height:1px;background:var(--border)}
-.founders-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-bottom:1px}
-.directors-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
 
 /* Person card */
 .person-card{background:var(--grey-900);overflow:hidden;transition:background .25s}
@@ -85,18 +79,6 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .person-role{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
 .person-bio{font-size:.88rem;color:var(--grey-400);line-height:1.8}
 
-/* Director card (smaller) */
-.director-card .person-photo{aspect-ratio:1/1}
-.director-card .person-body{padding:20px 22px 24px}
-.director-card .person-name{font-size:1.05rem}
-.director-card .person-bio{font-size:.82rem}
-
-/* Counsel */
-.counsel-row{margin-top:1px;background:var(--border)}
-.counsel-card{background:var(--grey-900);display:grid;grid-template-columns:280px 1fr;overflow:hidden;transition:background .25s}
-.counsel-card:hover{background:var(--grey-800)}
-.counsel-photo{aspect-ratio:1/1;max-height:280px;overflow:hidden;position:relative;background:var(--grey-800)}
-.counsel-photo img{width:100%;height:100%;object-fit:cover;object-position:top center}
 .counsel-photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
 .counsel-body{padding:36px 40px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--border)}
 
@@ -132,8 +114,7 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
   .mission-inner{grid-template-columns:1fr;gap:48px}
-  .founders-grid{grid-template-columns:repeat(2,1fr)}
-  .directors-grid{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:repeat(3,1fr)}
 }
 @media(max-width:768px){
   nav{padding:0 20px}
@@ -142,8 +123,7 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
   .nav-hamburger{display:flex}
   .about-hero,.mission-section,.team-section,.about-cta{padding-left:20px;padding-right:20px}
   footer{padding:40px 20px 30px}
-  .founders-grid,.directors-grid{grid-template-columns:1fr}
-  .counsel-card{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
   .counsel-photo{max-height:260px}
   .mission-stats{grid-template-columns:1fr 1fr}
 }
@@ -283,39 +263,54 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
 
   <!-- LEFT: Most Popular -->
   <div class="mega-ind-popular">
-    <div class="mega-left-label">Most Popular</div>
+    <div class="mega-ind-pop-header">
+      <div class="mega-left-label">Most Popular</div>
+      <span class="mega-ind-pop-badge">Top 6</span>
+    </div>
     <a href="industries/financial-services.html" class="mega-pop-link">
-      <span class="mega-pop-icon">🏦</span>
+      <span class="mega-pop-icon-wrap">🏦</span>
       <span class="mega-pop-body"><strong>Financial Services</strong><span>Banking · Capital Markets · Insurance</span></span>
+      <svg class="mega-pop-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
     <a href="industries/healthcare.html" class="mega-pop-link">
-      <span class="mega-pop-icon">🏥</span>
+      <span class="mega-pop-icon-wrap">🏥</span>
       <span class="mega-pop-body"><strong>Healthcare</strong><span>HIPAA · Providers · Health Systems</span></span>
+      <svg class="mega-pop-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
     <a href="industries/manufacturing.html" class="mega-pop-link">
-      <span class="mega-pop-icon">🏭</span>
+      <span class="mega-pop-icon-wrap">🏭</span>
       <span class="mega-pop-body"><strong>Manufacturing</strong><span>Industrials · Supply Chain · OT/IT</span></span>
+      <svg class="mega-pop-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
     <a href="industries/private-equity.html" class="mega-pop-link">
-      <span class="mega-pop-icon">📈</span>
+      <span class="mega-pop-icon-wrap">📈</span>
       <span class="mega-pop-body"><strong>Private Equity</strong><span>Portfolio Risk · M&amp;A Due Diligence</span></span>
+      <svg class="mega-pop-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
     <a href="industries/defense.html" class="mega-pop-link">
-      <span class="mega-pop-icon">🛡</span>
+      <span class="mega-pop-icon-wrap">🛡</span>
       <span class="mega-pop-body"><strong>Defense &amp; Aerospace</strong><span>CMMC · ITAR · Cleared Facilities</span></span>
+      <svg class="mega-pop-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
     <a href="industries/technology.html" class="mega-pop-link">
-      <span class="mega-pop-icon">💻</span>
+      <span class="mega-pop-icon-wrap">💻</span>
       <span class="mega-pop-body"><strong>Technology &amp; Software</strong><span>SaaS · Cloud · Product Engineering</span></span>
+      <svg class="mega-pop-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
     </a>
   </div>
 
-  <!-- CENTER: All Industries standout + full grid -->
+  <!-- CENTER: All Industries hero CTA + full grid -->
   <div class="mega-ind-center">
     <a href="industries.html" class="mega-ind-all-cta">
-      <span class="mega-ind-all-label">All Industries</span>
-      <span class="mega-ind-all-sub">18 sectors covered — see the full list</span>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      <div class="mega-ind-all-top">
+        <span class="mega-ind-all-label">All Industries</span>
+        <span class="mega-ind-all-stat">18 Sectors</span>
+      </div>
+      <div class="mega-ind-all-sub">Sector-specific strategy, compliance, and technology expertise — from healthcare to defense to private equity.</div>
+      <div class="mega-ind-all-footer">
+        <span>View full industry coverage</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
     </a>
     <div class="mega-ind-all-grid">
       <a href="industries/telecom.html" class="mega-ind-link"><span class="mega-ind-dot"></span>Telecom &amp; Media</a>
@@ -347,199 +342,6 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
     </div>
   </div>
 </div>
-
-<!-- MEGA: ASSESSMENTS -->
-<div class="mega-panel mega-panel-assessments" id="mega-assessments">
-  <div class="mega-left">
-    <div class="mega-left-label">Assessments</div>
-    <div class="mega-practice active" data-target="ass-tra">
-      <span class="mega-practice-name">Technical Risk Assessment</span><svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-    <div class="mega-practice" data-target="ass-ai">
-      <span class="mega-practice-name">AI Readiness Diagnostic</span><svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-    <div class="mega-practice" data-target="ass-cloud">
-      <span class="mega-practice-name">Cloud Infrastructure Assessment</span><svg class="mega-practice-arr" viewBox="0 0 16 16"><path d="M4 8h8M9 5l3 3-3 3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-    <div class="mega-assess-block" style="border-top:1px solid var(--border);margin-top:16px;padding-top:20px">
-      <div class="mega-assess-label">Supporting Tools</div>
-      <a href="calculators.html" class="mega-assess-link">Risk Cost Calculators</a>
-      <a href="contact-us.html" class="mega-assess-link">Book a Custom Assessment</a>
-    </div>
-  </div>
-  <div class="mega-center">
-    <div class="mega-center-inner active" id="ass-tra">
-      <div class="mega-center-label">Technical Risk Assessment</div>
-      <p style="font-size:.9rem;color:var(--grey-300);line-height:1.65;margin-bottom:20px">A comprehensive evaluation of your security posture, architecture decisions, and compliance readiness. delivered with executive-ready findings and a prioritized remediation roadmap.</p>
-      <div class="mega-sub-grid">
-        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--grey-500)"></span><span class="mega-sub-text"><strong style="color:var(--grey-100)">Essentials</strong>: $14,750<br><span style="font-size:.8rem;color:var(--grey-400)">Threat surface scan + risk scoring</span></span></a>
-        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text"><strong style="color:var(--orange)">Executive</strong>: $47,500<br><span style="font-size:.8rem;color:var(--grey-400)">Full resilience architecture + roadmap</span></span></a>
-        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Network &amp; perimeter security review</span></a>
-        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Identity &amp; access management audit</span></a>
-        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">NIST CSF 2.0 alignment scoring</span></a>
-        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Executive-ready findings report</span></a>
-      </div>
-    </div>
-    <div class="mega-center-inner" id="ass-ai">
-      <div class="mega-center-label">AI Readiness Diagnostic</div>
-      <p style="font-size:.9rem;color:var(--grey-300);line-height:1.65;margin-bottom:20px">Before you invest in AI tooling, know whether your data foundation, governance, and infrastructure can actually support it and where to start for maximum ROI.</p>
-      <div class="mega-sub-grid">
-        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--grey-500)"></span><span class="mega-sub-text"><strong style="color:var(--grey-100)">Essentials</strong>: $24,790<br><span style="font-size:.8rem;color:var(--grey-400)">AI signal check + readiness score</span></span></a>
-        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text"><strong style="color:var(--orange)">Executive</strong>: $74,500<br><span style="font-size:.8rem;color:var(--grey-400)">Full AI strategic blueprint</span></span></a>
-        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Data quality &amp; governance gap analysis</span></a>
-        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">AI risk &amp; bias framework review</span></a>
-        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Use-case prioritization by ROI</span></a>
-        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">90-day AI adoption roadmap</span></a>
-      </div>
-    </div>
-    <div class="mega-center-inner" id="ass-cloud">
-      <div class="mega-center-label">Cloud Infrastructure Assessment</div>
-      <p style="font-size:.9rem;color:var(--grey-300);line-height:1.65;margin-bottom:20px">Understand your actual cloud posture, costs, security gaps, architecture decisions, and compliance status, with findings built on real data, not hypothetical checklists.</p>
-      <div class="mega-sub-grid">
-        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--grey-500)"></span><span class="mega-sub-text"><strong style="color:var(--grey-100)">Essentials</strong>: $14,500<br><span style="font-size:.8rem;color:var(--grey-400)">Cloud recon + cost optimization</span></span></a>
-        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot" style="background:var(--orange)"></span><span class="mega-sub-text"><strong style="color:var(--orange)">Executive</strong>: $65,000<br><span style="font-size:.8rem;color:var(--grey-400)">Cloud fortify + full architecture</span></span></a>
-        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Multi-cloud cost &amp; waste analysis</span></a>
-        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Security posture &amp; compliance gaps</span></a>
-        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Architecture &amp; scalability review</span></a>
-        <a href="index.html#assessments" class="mega-sub-link"><span class="mega-sub-dot"></span><span class="mega-sub-text">Actionable findings with cost savings</span></a>
-      </div>
-    </div>
-  </div>
-  <div class="mega-right">
-    <div class="mega-right-label">Start with an Assessment</div>
-    <div class="mega-cta-card">
-      <div class="mega-cta-card-title">Book a Discovery Call</div>
-      <div class="mega-cta-card-desc">We will recommend the right assessment for your situation and tell you exactly what you will get.</div>
-      <a href="contact-us.html" class="mega-cta-btn">Get Started</a>
-    </div>
-    <div class="mega-ql-stack">
-      <a href="calculators.html" class="mega-ql"><span>Cost of Inaction Calculator</span></a>
-      <a href="index.html#assessments" class="mega-ql"><span>Compare All Tiers</span></a>
-      <a href="about-us.html" class="mega-ql"><span>Meet the Assessors</span></a>
-    </div>
-  </div>
-</div>
-
-<!-- MEGA: ABOUT -->
-<div class="mega-panel mega-panel-about" id="mega-about">
-  <div class="mega-left">
-    <div class="mega-left-label">About Working Excellence</div>
-    <p style="font-size:.88rem;color:var(--grey-300);line-height:1.7;padding:0 28px 20px">We are a boutique consulting firm built on a simple premise: senior-level expertise should not require Big Four overhead, Big Four timelines, or Big Four junior staffing.</p>
-    <div style="padding:0 28px;display:flex;flex-direction:column;gap:14px">
-      <div style="display:flex;align-items:center;gap:12px">
-        <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--orange)">40%+</div>
-        <div style="font-size:.82rem;color:var(--grey-400);line-height:1.4">Average cost savings vs. full-time executive hire</div>
-      </div>
-      <div style="display:flex;align-items:center;gap:12px">
-        <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--orange)">30+</div>
-        <div style="font-size:.82rem;color:var(--grey-400);line-height:1.4">Years combined cybersecurity leadership</div>
-      </div>
-      <div style="display:flex;align-items:center;gap:12px">
-        <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--orange)">4</div>
-        <div style="font-size:.82rem;color:var(--grey-400);line-height:1.4">Core practice areas, deeply specialized</div>
-      </div>
-    </div>
-    <div class="mega-assess-block" style="margin-top:20px">
-      <a href="about-us.html" class="mega-assess-link">Full Company Profile</a>
-      <a href="https://www.workingexcellence.com/blog" class="mega-assess-link">Blog &amp; Insights</a>
-    </div>
-  </div>
-  <div class="mega-center">
-    <div class="mega-center-label">What We Stand For</div>
-    <div class="mega-sub-grid" style="grid-template-columns:1fr 1fr;gap:8px">
-      <a href="about-us.html" class="mega-sub-link" style="flex-direction:column;align-items:flex-start;gap:6px;padding:16px">
-        <span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)">Our Approach</span>
-        <span class="mega-sub-text">Senior practitioners only. No juniors handed the work after the pitch.</span>
-      </a>
-      <a href="about-us.html" class="mega-sub-link" style="flex-direction:column;align-items:flex-start;gap:6px;padding:16px">
-        <span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)">Our Specialization</span>
-        <span class="mega-sub-text">Data, Cybersecurity, Digital Engineering, and Sales, nothing else.</span>
-      </a>
-      <a href="about-us.html" class="mega-sub-link" style="flex-direction:column;align-items:flex-start;gap:6px;padding:16px">
-        <span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)">Our Model</span>
-        <span class="mega-sub-text">Fractional and project-based. Enterprise-grade expertise at mid-market economics.</span>
-      </a>
-      <a href="about-us.html" class="mega-sub-link" style="flex-direction:column;align-items:flex-start;gap:6px;padding:16px">
-        <span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)">Our Promise</span>
-        <span class="mega-sub-text">The expert you meet is the expert who delivers. Always.</span>
-      </a>
-      <a href="https://www.workingexcellence.com/blog" class="mega-sub-link" style="flex-direction:column;align-items:flex-start;gap:6px;padding:16px">
-        <span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)">Blog &amp; Insights</span>
-        <span class="mega-sub-text">Thought leadership on AI, cybersecurity, data strategy, and digital transformation.</span>
-      </a>
-      <a href="contact-us.html" class="mega-sub-link" style="flex-direction:column;align-items:flex-start;gap:6px;padding:16px">
-        <span style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange)">Work With Us</span>
-        <span class="mega-sub-text">Book a 30-minute strategy session. No sales process, just a conversation.</span>
-      </a>
-    </div>
-  </div>
-  <div class="mega-right">
-    <div class="mega-right-label">Work With Us</div>
-    <div class="mega-cta-card">
-      <div class="mega-cta-card-title">Book a Strategy Session</div>
-      <div class="mega-cta-card-desc">Talk directly with a senior practitioner. No account managers, no junior staff.</div>
-      <a href="contact-us.html" class="mega-cta-btn">Schedule Now</a>
-    </div>
-    <div class="mega-ql-stack">
-      <a href="about-us.html" class="mega-ql"><span>About Working Excellence</span></a>
-      <a href="https://www.workingexcellence.com/blog" class="mega-ql"><span>Blog &amp; Insights</span></a>
-      <a href="industries.html" class="mega-ql"><span>Industries We Serve</span></a>
-    </div>
-  </div>
-</div>
-
-<!-- ══ HERO ══ -->
-<section class="about-hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow">About Working Excellence</div>
-    <h1 class="hero-headline">The team behind<br/><em>the work.</em></h1>
-    <p class="hero-sub">A team of visionary leaders dedicated to bridging the gap between innovative thinkers and seasoned business advisors. Built for mid-market organizations that compete at enterprise scale.</p>
-    <div class="hero-rule"></div>
-  </div>
-</section>
-
-<!-- ══ MISSION ══ -->
-<section class="mission-section">
-  <div class="mission-inner">
-    <div>
-      <div class="mission-label">Our Mission</div>
-      <h2 class="mission-heading">Connecting visionary<br/>thinkers with <em>decisive</em><br/>action.</h2>
-      <div class="pedigree-bar">
-        <div class="pedigree-label">Pedigree, where our team has worked</div>
-        <div class="pedigree-logos">
-          <span class="pedigree-chip">Accenture</span>
-          <span class="pedigree-chip">Deloitte</span>
-          <span class="pedigree-chip">EY</span>
-          <span class="pedigree-chip">Gartner</span>
-          <span class="pedigree-chip">SAP</span>
-          <span class="pedigree-chip">Oracle</span>
-          <span class="pedigree-chip">EMC</span>
-        </div>
-      </div>
-    </div>
-    <div class="mission-body">
-      <p>Working Excellence is more than an IT consulting firm. We are your partner in navigating the complex landscape of digital transformation, delivering the expertise of Big Four firms without the overhead, the junior staffing, or the 12-month timelines.</p>
-      <p>Our teams bring decades of experience from top-tier firms, combining strategic clarity with hands-on execution. We work across data, cybersecurity, digital engineering, and sales enablement, treating every engagement as a long-term partnership, not a transaction.</p>
-      <p>For organizations ready to compete at enterprise scale without enterprise-sized budgets, Working Excellence is the team that stays until it works.</p>
-      <div class="mission-stats fade-up">
-        <div class="mission-stat">
-          <div class="stat-num">30+</div>
-          <div class="stat-desc">Years of combined cybersecurity leadership across federal, healthcare, and finance</div>
-        </div>
-        <div class="mission-stat">
-          <div class="stat-num">40%</div>
-          <div class="stat-desc">Average cloud cost reduction identified in infrastructure assessments</div>
-        </div>
-        <div class="mission-stat">
-          <div class="stat-num">$50M</div>
-          <div class="stat-desc">to $1B revenue organizations in our core ICP, the clients we know best</div>
-        </div>
-        <div class="mission-stat">
-          <div class="stat-num">72hr</div>
-          <div class="stat-desc">Assessment turnaround versus weeks for Big Four manual engagements</div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -550,11 +352,8 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
     <h2 class="section-headline fade-up">Senior practitioners.<br/><em>Every engagement.</em></h2>
     <p class="team-sub fade-up">No bait-and-switch. The experts you meet are the experts who deliver. Our flat structure means senior-level access from first call to final deliverable.</p>
 
-    <div class="team-divider"></div>
-
-    <!-- FOUNDERS / C-SUITE -->
-    <div class="tier-label fade-up">Founders &amp; Executive Leadership</div>
-    <div class="founders-grid fade-up">
+    <!-- TEAM GRID — equal cards for all members -->
+    <div class="team-grid fade-up">
 
       <!-- James Kenefick -->
       <div class="person-card">
@@ -565,7 +364,7 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
         <div class="person-body">
           <div class="person-name">James F. Kenefick</div>
           <div class="person-role">Chairman &amp; CEO</div>
-          <p class="person-bio">James leads with clarity, speed, and a relentless focus on turning innovation into impact. As the founder of multiple technology and infrastructure ventures, he brings deep operational command and strategic foresight to every decision. His leadership is defined by sharp execution, high trust, and the ability to align vision with measurable outcomes in fast-moving markets.</p>
+          <p class="person-bio">James leads with clarity, speed, and a relentless focus on turning innovation into impact. As the founder of multiple technology and infrastructure ventures, he brings deep operational command and strategic foresight to every decision.</p>
         </div>
       </div>
 
@@ -578,7 +377,7 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
         <div class="person-body">
           <div class="person-name">Kurt Smith</div>
           <div class="person-role">Chief Revenue Officer</div>
-          <p class="person-bio">Kurt drives enterprise sales strategy with a focus on measurable impact. He specializes in building go-to-market teams that can navigate complex buyer landscapes and close at scale. His experience spans consulting, SaaS, and high-growth enterprise environments. His storytelling-based engagement model has become a defining differentiator in how Working Excellence builds trust with senior executives.</p>
+          <p class="person-bio">Kurt drives enterprise sales strategy with a focus on measurable impact. He specializes in building go-to-market teams that can navigate complex buyer landscapes and close at scale.</p>
         </div>
       </div>
 
@@ -591,16 +390,9 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
         <div class="person-body">
           <div class="person-name">James Gorman</div>
           <div class="person-role">Chief Information Security Officer</div>
-          <p class="person-bio">As a Fractional CISO and CTO, James brings over 30 years of cybersecurity leadership across sectors including federal, healthcare, and finance. He leads with technical depth and strategic clarity, helping clients design resilient infrastructures, navigate compliance, and recover from critical incidents. His experience spans architecture, governance, and operational security at the highest levels.</p>
+          <p class="person-bio">As a Fractional CISO and CTO, James brings over 30 years of cybersecurity leadership across sectors including federal, healthcare, and finance. He leads with technical depth and strategic clarity.</p>
         </div>
       </div>
-
-    </div>
-
-    <!-- SENIOR DIRECTORS -->
-    <div class="team-divider"></div>
-    <div class="tier-label fade-up">Senior Directors</div>
-    <div class="founders-grid fade-up">
 
       <!-- Abdur Rehman -->
       <div class="person-card">
@@ -624,19 +416,12 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
         <div class="person-body">
           <div class="person-name">John Jordan</div>
           <div class="person-role">Senior Director</div>
-          <p class="person-bio">John is a transformation architect with more than two decades of experience guiding enterprises through high-stakes change. His expertise spans operational efficiency, systems modernization, and cross-functional team leadership. He turns complexity into momentum.</p>
+          <p class="person-bio">John is a transformation architect with more than two decades of experience guiding enterprises through high-stakes change. His expertise spans operational efficiency, systems modernization, and cross-functional team leadership.</p>
         </div>
       </div>
 
-    </div>
-
-    <!-- PRACTICE DIRECTORS -->
-    <div class="team-divider"></div>
-    <div class="tier-label fade-up">Practice Directors</div>
-    <div class="directors-grid fade-up">
-
       <!-- Umer Tahir -->
-      <div class="person-card director-card">
+      <div class="person-card">
         <div class="person-photo">
           <img src="https://static.wixstatic.com/media/1731f2_2db0cadef76b406b95adfb4a3ef9a3a8~mv2.png/v1/fill/w_579,h_579,al_c,q_85,enc_avif,quality_auto/Umer%20Tahir_edited_edited_edited.png" alt="Umer Tahir" onerror="this.style.display='none';this.parentElement.querySelector('.person-photo-placeholder').style.display='flex'"/>
           <div class="person-photo-placeholder" style="display:none"><span class="person-initial-lg">UT</span></div>
@@ -644,12 +429,12 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
         <div class="person-body">
           <div class="person-name">Umer Tahir</div>
           <div class="person-role">Practice Director</div>
-          <p class="person-bio">Umer connects emerging technologies to real business impact. He guides organizations through AI adoption, data platform design, and digital capability building. His focus is always on turning innovation into execution.</p>
+          <p class="person-bio">Umer connects emerging technologies to real business impact. He guides organizations through AI adoption, data platform design, and digital capability building.</p>
         </div>
       </div>
 
       <!-- Muhammad Omer -->
-      <div class="person-card director-card">
+      <div class="person-card">
         <div class="person-photo">
           <img src="https://static.wixstatic.com/media/1731f2_ac8d9438c83b4fb3bd9ac2e5f6104683~mv2.png/v1/fill/w_510,h_510,al_c,q_85,enc_avif,quality_auto/Muhammad%20Omer_edited_edited_edited.png" alt="Muhammad Omer" onerror="this.style.display='none';this.parentElement.querySelector('.person-photo-placeholder').style.display='flex'"/>
           <div class="person-photo-placeholder" style="display:none"><span class="person-initial-lg">MO</span></div>
@@ -662,7 +447,7 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
       </div>
 
       <!-- Ahmed Nawaz -->
-      <div class="person-card director-card">
+      <div class="person-card">
         <div class="person-photo">
           <img src="https://static.wixstatic.com/media/235980_7ff8be6c708d48b3b17888388ed3f783~mv2.png/v1/fill/w_824,h_811,al_c,q_90,enc_avif,quality_auto/Ahmed%20Nawaz_edited_edited.png" alt="Ahmed Nawaz" onerror="this.style.display='none';this.parentElement.querySelector('.person-photo-placeholder').style.display='flex'"/>
           <div class="person-photo-placeholder" style="display:none"><span class="person-initial-lg">AN</span></div>
@@ -670,19 +455,12 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
         <div class="person-body">
           <div class="person-name">Ahmed Nawaz</div>
           <div class="person-role">Practice Director</div>
-          <p class="person-bio">Ahmed delivers scalable architecture across finance, infrastructure, and enterprise platforms. He leads teams that build systems capable of growing fast without breaking, always with an eye on performance and control.</p>
+          <p class="person-bio">Ahmed delivers scalable architecture across finance, infrastructure, and enterprise platforms. He leads teams that build systems capable of growing fast without breaking.</p>
         </div>
       </div>
 
-    </div>
-
-    <!-- STRATEGIC ADVISORS (BWT) -->
-    <div class="team-divider"></div>
-    <div class="tier-label fade-up">Strategic Advisors</div>
-    <div class="directors-grid fade-up">
-
       <!-- Stephen Candelmo -->
-      <div class="person-card director-card">
+      <div class="person-card">
         <div class="person-photo">
           <img src="https://static.wixstatic.com/media/bdd4da_0a1f2dff93b243da8b06798d704e59bc~mv2.png/v1/fill/w_260,h_260,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_2698.png" alt="Stephen Candelmo" onerror="this.style.display='none';this.parentElement.querySelector('.person-photo-placeholder').style.display='flex'"/>
           <div class="person-photo-placeholder" style="display:none"><span class="person-initial-lg">SC</span></div>
@@ -690,12 +468,12 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
         <div class="person-body">
           <div class="person-name">Stephen Candelmo</div>
           <div class="person-role">Outside Counsel &amp; AI Legal Advisor</div>
-          <p class="person-bio">Stephen bridges the intersection of law and technology, advising on AI governance, legal innovation strategy, and emerging regulatory frameworks. His counsel ensures Working Excellence clients navigate AI adoption and cybersecurity compliance with legal clarity and strategic foresight.</p>
+          <p class="person-bio">Stephen bridges the intersection of law and technology, advising on AI governance, legal innovation strategy, and emerging regulatory frameworks.</p>
         </div>
       </div>
 
       <!-- Ryan Jones -->
-      <div class="person-card director-card">
+      <div class="person-card">
         <div class="person-photo">
           <img src="https://static.wixstatic.com/media/bdd4da_36760b92ff064bc898ed95e13113006f~mv2.jpg/v1/fill/w_260,h_260,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_2698.jpg" alt="Ryan Jones" onerror="this.style.display='none';this.parentElement.querySelector('.person-photo-placeholder').style.display='flex'"/>
           <div class="person-photo-placeholder" style="display:none"><span class="person-initial-lg">RJ</span></div>
@@ -703,12 +481,12 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
         <div class="person-body">
           <div class="person-name">Ryan Jones</div>
           <div class="person-role">Cloud &amp; AI Engineering Advisor</div>
-          <p class="person-bio">Ryan advises on cloud architecture and AI engineering strategy, helping clients design scalable, cost-efficient environments across AWS, Azure, and multi-cloud platforms. His practical engineering depth translates directly into faster delivery and lower infrastructure risk.</p>
+          <p class="person-bio">Ryan advises on cloud architecture and AI engineering strategy, helping clients design scalable, cost-efficient environments across AWS, Azure, and multi-cloud platforms.</p>
         </div>
       </div>
 
       <!-- Eduardo Marcos -->
-      <div class="person-card director-card">
+      <div class="person-card">
         <div class="person-photo">
           <img src="https://static.wixstatic.com/media/bdd4da_aef6d77e0fbd4f8eafe62f11955e26c4~mv2.jpg/v1/fill/w_260,h_260,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_2698.jpg" alt="Eduardo Marcos" onerror="this.style.display='none';this.parentElement.querySelector('.person-photo-placeholder').style.display='flex'"/>
           <div class="person-photo-placeholder" style="display:none"><span class="person-initial-lg">EM</span></div>
@@ -716,12 +494,12 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
         <div class="person-body">
           <div class="person-name">Eduardo Marcos</div>
           <div class="person-role">AWS Development Advisor</div>
-          <p class="person-bio">Eduardo specializes in AWS architecture, serverless design, and cloud-native development. He advises on platform modernization, API strategy, and cost optimization, ensuring organizations extract full value from their AWS investment without overbuilding.</p>
+          <p class="person-bio">Eduardo specializes in AWS architecture, serverless design, and cloud-native development. He advises on platform modernization, API strategy, and cost optimization.</p>
         </div>
       </div>
 
       <!-- Adam Rogers -->
-      <div class="person-card director-card">
+      <div class="person-card">
         <div class="person-photo">
           <img src="https://static.wixstatic.com/media/bdd4da_66b0e7511f304b3c80caa7c3f863f32d~mv2.png/v1/fill/w_260,h_260,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_2698.png" alt="Adam Rogers" onerror="this.style.display='none';this.parentElement.querySelector('.person-photo-placeholder').style.display='flex'"/>
           <div class="person-photo-placeholder" style="display:none"><span class="person-initial-lg">AR</span></div>
@@ -729,12 +507,12 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
         <div class="person-body">
           <div class="person-name">Adam Rogers</div>
           <div class="person-role">Cloud Strategy &amp; Implementation Advisor</div>
-          <p class="person-bio">Adam leads cloud strategy and implementation engagements with a focus on aligning infrastructure decisions to business outcomes. From migration planning to FinOps governance, he helps leadership teams make confident, defensible cloud investment decisions.</p>
+          <p class="person-bio">Adam leads cloud strategy and implementation engagements with a focus on aligning infrastructure decisions to business outcomes.</p>
         </div>
       </div>
 
       <!-- Usman Jamil -->
-      <div class="person-card director-card">
+      <div class="person-card">
         <div class="person-photo">
           <img src="https://static.wixstatic.com/media/bdd4da_25cf79886c77463888196b49d19795fc~mv2.jpg/v1/fill/w_260,h_260,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_2698.jpg" alt="Usman Jamil" onerror="this.style.display='none';this.parentElement.querySelector('.person-photo-placeholder').style.display='flex'"/>
           <div class="person-photo-placeholder" style="display:none"><span class="person-initial-lg">UJ</span></div>
@@ -742,39 +520,35 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
         <div class="person-body">
           <div class="person-name">Usman Jamil</div>
           <div class="person-role">Solution Architect</div>
-          <p class="person-bio">Usman designs enterprise solution architecture that bridges business requirements and technical delivery. With deep experience across cloud platforms, integration patterns, and data infrastructure, he ensures architectures are built to scale, perform, and adapt as organizations grow.</p>
+          <p class="person-bio">Usman designs enterprise solution architecture that bridges business requirements and technical delivery. With deep experience across cloud platforms, integration patterns, and data infrastructure.</p>
         </div>
       </div>
 
       <!-- Jaswanth Gaddam -->
-      <div class="person-card director-card">
+      <div class="person-card">
         <div class="person-photo">
           <div class="person-photo-placeholder" style="display:flex"><span class="person-initial-lg">JG</span></div>
         </div>
         <div class="person-body">
           <div class="person-name">Jaswanth Gaddam</div>
           <div class="person-role">Technology Advisor</div>
-          <p class="person-bio">Jaswanth brings deep technical expertise across cloud infrastructure, engineering delivery, and systems integration. He advises on architecture strategy and technical execution, ensuring clients build systems that are resilient, secure, and aligned to long-term business objectives.</p>
+          <p class="person-bio">Jaswanth brings deep technical expertise across cloud infrastructure, engineering delivery, and systems integration. He advises on architecture strategy and technical execution.</p>
         </div>
       </div>
 
-    </div>
-
-    <!-- GENERAL COUNSEL -->
-    <div class="team-divider"></div>
-    <div class="tier-label fade-up">Legal &amp; Compliance</div>
-    <div class="counsel-row fade-up">
-      <div class="counsel-card">
-        <div class="counsel-photo">
-          <img src="https://static.wixstatic.com/media/bdd4da_9a51b674d75f49c4a8c77f5e53d77f76~mv2.png/v1/fill/w_215,h_215,al_c,q_85,enc_avif,quality_auto/signal-2026-01-26-152514_edited_edited.png" alt="Yadira Galarza" style="width:100%;height:100%;object-fit:cover;object-position:top center" onerror="this.style.display='none';this.parentElement.querySelector('.counsel-photo-placeholder').style.display='flex'"/>
-          <div class="counsel-photo-placeholder person-photo-placeholder" style="display:none"><span class="person-initial-lg">YG</span></div>
+      <!-- Yadira Galarza -->
+      <div class="person-card">
+        <div class="person-photo">
+          <img src="https://static.wixstatic.com/media/bdd4da_9a51b674d75f49c4a8c77f5e53d77f76~mv2.png/v1/fill/w_215,h_215,al_c,q_85,enc_avif,quality_auto/signal-2026-01-26-152514_edited_edited.png" alt="Yadira Galarza" onerror="this.style.display='none';this.parentElement.querySelector('.person-photo-placeholder').style.display='flex'"/>
+          <div class="person-photo-placeholder" style="display:none"><span class="person-initial-lg">YG</span></div>
         </div>
-        <div class="counsel-body">
-          <div class="person-name" style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:4px">Yadira Galarza</div>
-          <div class="person-role" style="font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:16px">General Counsel</div>
-          <p class="person-bio" style="font-size:.94rem;color:var(--grey-400);line-height:1.82">Yadira brings deep experience in regulatory compliance, security and privacy, corporate governance, contracting, and federal grants. She helps teams turn complex requirements into clear policies, auditable processes, and execution-ready programs, ensuring Working Excellence and its clients stay ahead of legal and compliance obligations, not behind them.</p>
+        <div class="person-body">
+          <div class="person-name">Yadira Galarza</div>
+          <div class="person-role">General Counsel</div>
+          <p class="person-bio">Yadira brings deep experience in regulatory compliance, security and privacy, corporate governance, contracting, and federal grants.</p>
         </div>
       </div>
+
     </div>
 
   </div>
