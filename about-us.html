@@ -159,7 +159,7 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
 </head>
 <body>
 
-<div id="menu-backdrop"></div>
+<div id="menu-backdrop" onclick="closeMenu()"></div>
 <nav id="main-nav">
   <a href="index.html" class="nav-logo">
     <img src="https://static.wixstatic.com/media/1731f2_d91dc3d0f01245f5b369acb8b2397118~mv2.png" alt="Working Excellence" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
@@ -907,11 +907,6 @@ footer{background:var(--grey-950);border-top:1px solid var(--border);padding:60p
   </div>
 </footer>
 
-<script>
-const io = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
-},{threshold:.12});
-document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
-</script>
+<script src="shared.js"></script>
 </body>
 </html>

@@ -457,7 +457,6 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
 <!-- ══════════════════════════════════════════════
      NAV
 ══════════════════════════════════════════════ -->
-<div id="menu-backdrop"></div>
 <nav id="main-nav">
   <a href="index.html" class="nav-logo">
     <img src="https://static.wixstatic.com/media/1731f2_d91dc3d0f01245f5b369acb8b2397118~mv2.png" alt="Working Excellence" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
@@ -1421,41 +1420,8 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
 </footer>
 
 <!-- ══ SCRIPTS ══ -->
+<script src="shared.js"></script>
 <script>
-/* Scroll reveal */
-const obs = new IntersectionObserver(e => {
-  e.forEach(x => { if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target)} });
-},{threshold:.08,rootMargin:'0px 0px -28px 0px'});
-document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-
-/* Nav scroll */
-window.addEventListener('scroll', () => {
-  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
-});
-
-/* ── MEGA MENU ── */
-function toggleMenu(id) {
-  const panel = document.getElementById('mega-'+id);
-  const btn   = document.getElementById('btn-'+id);
-  const back  = document.getElementById('menu-backdrop');
-  const open  = panel.classList.contains('open');
-  closeMenu();
-  if(!open){ panel.classList.add('open'); btn.classList.add('active'); back.classList.add('open'); }
-}
-function closeMenu() {
-  document.querySelectorAll('.mega-panel').forEach(p => p.classList.remove('open'));
-  document.querySelectorAll('.nav-links > li > button').forEach(b => b.classList.remove('active'));
-  document.getElementById('menu-backdrop').classList.remove('open');
-}
-function showSub(id, el) {
-  document.querySelectorAll('.mega-practice').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.mega-center-inner').forEach(c => c.classList.remove('active'));
-  el.classList.add('active');
-  const sub = document.getElementById('sub-'+id) || document.getElementById(id);
-  if(sub) sub.classList.add('active');
-}
-document.addEventListener('keydown', e => { if(e.key==='Escape') closeMenu(); });
-
 /* ── CALCULATOR ── */
 const optLabels = ['Not Optimized (35%)','Low (28%)','Moderate (18%)','Optimized (8%)'];
 const optRates  = [0.35, 0.28, 0.18, 0.08];
