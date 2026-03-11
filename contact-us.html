@@ -14,6 +14,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <div id="menu-backdrop"></div>
 <nav id="main-nav">
   <a href="index.html" class="nav-logo">
@@ -225,31 +226,31 @@
       <form id="contact-form" action="https://formspree.io/f/placeholder" onsubmit="setTimeout(()=>{window.location.href='thank-you.html'},100)" method="POST">
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">First Name</label>
-            <input class="form-input" type="text" name="first_name" placeholder="First name" required/>
+            <label class="form-label" for="first_name">First Name</label>
+            <input class="form-input" id="first_name" type="text" name="first_name" placeholder="First name" required/>
           </div>
           <div class="form-group">
-            <label class="form-label">Last Name</label>
-            <input class="form-input" type="text" name="last_name" placeholder="Last name" required/>
+            <label class="form-label" for="last_name">Last Name</label>
+            <input class="form-input" id="last_name" type="text" name="last_name" placeholder="Last name" required/>
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Work Email</label>
-          <input class="form-input" type="email" name="email" placeholder="you@yourcompany.com" required/>
+          <label class="form-label" for="email">Work Email</label>
+          <input class="form-input" id="email" type="email" name="email" placeholder="you@yourcompany.com" required/>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Company</label>
-            <input class="form-input" type="text" name="company" placeholder="Acme Corp"/>
+            <label class="form-label" for="company">Company</label>
+            <input class="form-input" id="company" type="text" name="company" placeholder="Acme Corp"/>
           </div>
           <div class="form-group">
-            <label class="form-label">Phone (optional)</label>
-            <input class="form-input" type="tel" name="phone" placeholder="+1 312 555 0100"/>
+            <label class="form-label" for="phone">Phone (optional)</label>
+            <input class="form-input" id="phone" type="tel" name="phone" placeholder="+1 312 555 0100"/>
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Area of Interest</label>
-          <select class="form-select form-input" name="service">
+          <label class="form-label" for="service">Area of Interest</label>
+          <select class="form-select form-input" id="service" name="service">
             <option value="" disabled selected>Select a practice area or assessment</option>
             <optgroup label="Practice Areas">
               <option>Data Consulting</option>
@@ -266,8 +267,8 @@
           </select>
         </div>
         <div class="form-group">
-          <label class="form-label">What's on your mind?</label>
-          <textarea class="form-textarea form-input" name="message" placeholder="Brief context on your organization and what you are working through. The more specific, the better our first conversation."></textarea>
+          <label class="form-label" for="message">What's on your mind?</label>
+          <textarea class="form-textarea form-input" id="message" name="message" placeholder="Brief context on your organization and what you are working through. The more specific, the better our first conversation."></textarea>
         </div>
         <button type="submit" class="btn-primary form-submit">Send Message &#x2192;</button>
       </form>
@@ -275,6 +276,7 @@
   </div>
 </section>
 
+<main id="main-content">
 <section style="background:var(--grey-800);border-top:1px solid var(--border)">
   <div class="section-inner">
     <div style="text-align:center;max-width:600px;margin:0 auto">
@@ -301,6 +303,7 @@
     </div>
   </div>
 </section>
+</main>
 <footer class="site-footer">
   <div class="section-inner" style="padding-top:56px;padding-bottom:40px">
     <div class="footer-grid">
