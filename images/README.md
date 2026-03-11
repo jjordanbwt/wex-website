@@ -1,39 +1,39 @@
-# Images
+# Working Excellence — Image Assets
 
-Drop images here and push to GitHub. WP Engine will serve them automatically.
+## Logo Variants (`logos/`)
 
-## Folder Structure
+| File | Description | Best For |
+|------|-------------|----------|
+| `WE_Logo_Orange_White.png` | Orange text, white compass ring | Dark backgrounds — nav, hero, footers |
+| `WE_Logo_White.png` | White text, orange compass ring | Dark hero overlays |
+| `WE_Logo_Orange_Compass.png` | Orange text, gray/orange compass | General brand use, presentations |
+| `WE_Logo_Orange_Gray.png` | Orange text, gray compass | Light backgrounds |
+| `WE_Compass_Orange.png` | Compass icon only, orange ring | Icon use, social avatars, app icons |
+| `WE_Compass_Logo_White.png` | Compass icon only, white ring | Dark section icons, slide decks |
 
-images/
-  team/         — Headshots and team photos
-  clients/      — Client logos and case study visuals
-  og/           — Open Graph / social share images
+## Team Headshots (`team/`)
 
-## Naming Convention
+Upload professional headshots named exactly as listed below.
+All should be square crop, minimum 400x400px, JPG format.
 
-team/
-  james-kenefick.jpg
-  kurt-smith.jpg
-  james-gorman.jpg
-  jaswanth-gaddam.jpg
+- `james-kenefick.jpg` — James F. Kenefick, Chairman & CEO
+- `kurt-smith.jpg` — Kurt Smith, Chief Revenue Officer
+- `james-gorman.jpg` — James Gorman, CISO
+- `jaswanth-gaddam.jpg` — Jaswanth Gaddam, Engineering Lead
 
-clients/
-  [client-name]-logo.png
+Once uploaded, replace `<div class="img-ph">` placeholder divs in `about-us.html` with `<img>` tags.
 
-og/
-  og-default.jpg       (1200x630px)
-  og-data.jpg
-  og-cybersecurity.jpg
-  og-digital-engineering.jpg
-  og-sales.jpg
+## Open Graph (`og/`)
 
-## Usage in HTML
+Social share images — 1200x630px, JPG format.
 
-<img src="images/team/james-kenefick.jpg" alt="James F. Kenefick, Founder">
+- `og-default.jpg` — Default share image (to be created)
+- Add per-page OG images as needed: `og-data.jpg`, `og-cybersecurity.jpg`, etc.
 
-## Recommended Specs
+## Clients (`clients/`)
 
-- Team headshots: 600x600px, JPG, <150KB
-- Hero/feature images: 1200x800px, JPG, <300KB
-- Client logos: PNG with transparent background, max 400px wide
-- OG images: exactly 1200x630px, JPG
+Client logos and case study visuals. Use consistent naming: `client-[shortname].png`.
+
+## Other
+
+- `Managed_AWS.png` — AWS hero image used on `aws/` pages (1080x1080px)
