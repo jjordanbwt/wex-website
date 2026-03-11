@@ -106,7 +106,7 @@ nav.scrolled ~ .mega-panel{top:58px}
 
 /* SECTION */
 .section-inner{max-width:1240px;margin:0 auto;padding:92px 56px}
-.section-label{display:inline-flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:.68rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+.section-label{display:inline-flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
 
 /* PA HERO */
 .pa-hero{position:relative;background:var(--grey-950);overflow:hidden;border-bottom:1px solid var(--border)}
