@@ -193,10 +193,12 @@ nav.scrolled~.mega-panel{top:58px}
 
 /* ══ MARQUEE ══ */
 .marquee-bar{overflow:hidden;background:#ffffff;border-top:none;border-bottom:none;padding:18px 0}
-.marquee-track{display:flex;white-space:nowrap;animation:marquee 28s linear infinite}
+.marquee-track{display:flex;white-space:nowrap;width:max-content;animation:marquee 50s linear infinite;will-change:transform;transform:translateZ(0);backface-visibility:hidden}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-set{display:flex;flex-shrink:0}
 .marquee-item{display:inline-flex;align-items:center;gap:24px;padding:0 40px;font-family:'DM Mono',monospace;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-800)}
 .marquee-dot{color:var(--orange);font-size:1.1rem}
-@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes marquee{0%{transform:translateZ(0) translateX(0)}100%{transform:translateZ(0) translateX(-50%)}}
 
 /* ══ SECTION SCAFFOLDING ══ */
 .section-inner{max-width:1240px;margin:0 auto;padding:92px 56px}
@@ -857,34 +859,38 @@ footer{background:var(--grey-800);border-top:1px solid var(--border);padding:56p
 <!-- MARQUEE -->
 <div class="marquee-bar">
   <div class="marquee-track">
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Data Strategy &amp; Governance</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Cybersecurity &amp; NIST CSF 2.0</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Cloud Infrastructure Assessment</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>AI Readiness Assessment</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Technical Risk Assessment</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Data Maturity Assessment</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>AI Risk &amp; Governance Advisory</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Digital Engineering &amp; Modernization</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Zero-Trust &amp; Identity Strategy</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Business Continuity &amp; Incident Response</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Analytics &amp; Dashboard Development</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Continuous Compliance Management</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Sales Enablement &amp; GTM Strategy</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Fractional CTO / CISO / CDO</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Data Strategy &amp; Governance</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Cybersecurity &amp; NIST CSF 2.0</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Cloud Infrastructure Assessment</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>AI Readiness Assessment</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Technical Risk Assessment</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Data Maturity Assessment</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>AI Risk &amp; Governance Advisory</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Digital Engineering &amp; Modernization</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Zero-Trust &amp; Identity Strategy</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Business Continuity &amp; Incident Response</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Analytics &amp; Dashboard Development</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Continuous Compliance Management</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Sales Enablement &amp; GTM Strategy</span>
-    <span class="marquee-item"><span class="marquee-dot">◆</span>Fractional CTO / CISO / CDO</span>
+    <div class="marquee-set" aria-hidden="false">
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Data Strategy &amp; Governance</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Cybersecurity &amp; NIST CSF 2.0</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Cloud Infrastructure Assessment</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>AI Readiness Assessment</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Technical Risk Assessment</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Data Maturity Assessment</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>AI Risk &amp; Governance Advisory</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Digital Engineering &amp; Modernization</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Zero-Trust &amp; Identity Strategy</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Business Continuity &amp; Incident Response</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Analytics &amp; Dashboard Development</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Continuous Compliance Management</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Sales Enablement &amp; GTM Strategy</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Fractional CTO / CISO / CDO</span>
+    </div>
+    <div class="marquee-set" aria-hidden="true">
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Data Strategy &amp; Governance</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Cybersecurity &amp; NIST CSF 2.0</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Cloud Infrastructure Assessment</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>AI Readiness Assessment</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Technical Risk Assessment</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Data Maturity Assessment</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>AI Risk &amp; Governance Advisory</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Digital Engineering &amp; Modernization</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Zero-Trust &amp; Identity Strategy</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Business Continuity &amp; Incident Response</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Analytics &amp; Dashboard Development</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Continuous Compliance Management</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Sales Enablement &amp; GTM Strategy</span>
+      <span class="marquee-item"><span class="marquee-dot">◆</span>Fractional CTO / CISO / CDO</span>
+    </div>
   </div>
 </div>
 
