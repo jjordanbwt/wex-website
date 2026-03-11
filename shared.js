@@ -3,10 +3,18 @@
   const nav = document.getElementById('main-nav');
   const backdrop = document.getElementById('menu-backdrop');
 
-  // Scrolled state
-  window.addEventListener('scroll', () => {
-    nav && nav.classList.toggle('scrolled', window.scrollY > 40);
-  }, {passive:true});
+  // Scrolled state — update nav + mega panels + mobile drawer
+  function updateScrollState(){
+    if(!nav) return;
+    const scrolled = window.scrollY > 40;
+    nav.classList.toggle('scrolled', scrolled);
+    const navH = scrolled ? '58px' : '72px';
+    document.querySelectorAll('.mega-panel').forEach(p => p.style.top = navH);
+    const drawer = document.getElementById('mobile-nav-drawer');
+    if(drawer) drawer.style.top = navH;
+  }
+  window.addEventListener('scroll', updateScrollState, {passive:true});
+  updateScrollState();
 
   // Mega menu
   const triggers = document.querySelectorAll('.mega-trigger');
